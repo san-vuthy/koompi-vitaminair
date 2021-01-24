@@ -1,3 +1,4 @@
+import { Row, Col } from "antd";
 import "./project.css";
 function Project() {
   return (
@@ -5,7 +6,7 @@ function Project() {
       <h1>PROJECTS</h1>
       <div className="projects">
         <div className="project-list">
-          <img src="/images/va-reforestation.png" alt="" />
+          <img src="/images/projects/va-reforestation.png" alt="" />
           <div className="info">
             <h2>REFORESTATION</h2>
             <p>
@@ -15,7 +16,7 @@ function Project() {
           </div>
         </div>
         <div className="project-list">
-          <img src="/images/va-natural-farming.png" alt="" />
+          <img src="/images/projects/va-natural-farming.png" alt="" />
           <div className="info">
             <h2>NATURAL FARMING</h2>
             <p>
@@ -25,7 +26,7 @@ function Project() {
           </div>
         </div>
         <div className="project-list">
-          <img src="/images/va-ecotour.png" alt="" />
+          <img src="/images/projects/va-ecotour.png" alt="" />
           <div className="info">
             <h2>ECO-TOURISM</h2>
             <p>
@@ -35,7 +36,7 @@ function Project() {
           </div>
         </div>
         <div className="project-list">
-          <img src="/images/va-water.png" alt="" />
+          <img src="/images/projects/va-water.png" alt="" />
           <div className="info">
             <h2>VITAMINWATER</h2>
             <p>
@@ -45,7 +46,7 @@ function Project() {
           </div>
         </div>
         <div className="project-list">
-          <img src="/images/va-seedbombing.png" alt="" />
+          <img src="/images/projects/va-seedbombing.png" alt="" />
           <div className="info">
             <h2>SEED BOMBING</h2>
             <p>
@@ -61,13 +62,32 @@ function Project() {
           We're especially pleased to have built strategic partnerships with
           forward thinking leaders in the business world.
         </p>
-        <div className="partner">
-          <img src="/images/smallworld.png" alt="logo" />
-          <img src="/images/koompi.png" alt="logo" />
-          <img src="/images/sabay.png" alt="logo" />
-          <img src="/images/isi-group.png" alt="logo" />
-          <img src="/images/doer.png" alt="logo" />
-        </div>
+
+        <Row align="middle" justify="center" gutter={30}>
+          <Col className="gutter-row">
+            <img src="/images/partner/smallworld.png" alt="logo" />
+          </Col>
+          <Col className="gutter-row">
+            <img src="/images/partner/koompi.png" alt="logo" />
+          </Col>
+          <Col className="gutter-row">
+            <img src="/images/partner/sabay.png" alt="logo" />
+          </Col>
+          <Col className="gutter-row">
+            <img
+              style={{ width: "130px" }}
+              src="/images/partner/doer.png"
+              alt="logo"
+            />
+          </Col>
+          <Col className="gutter-row">
+            <img
+              style={{ width: "100px" }}
+              src="/images/partner/isi-group.png"
+              alt="logo"
+            />
+          </Col>
+        </Row>
       </div>
     </div>
   );

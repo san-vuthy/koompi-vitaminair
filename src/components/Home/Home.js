@@ -17,6 +17,7 @@ function Home() {
           <video src="/video.mp4" autoPlay loop muted preload="none"></video>
         </div>
       </div>
+
       <h1 id="num">22,616,989</h1>
       <img style={{ width: "100%" }} src="/images/big-header.png" alt="" />
     </>

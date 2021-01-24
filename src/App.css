@@ -6,18 +6,21 @@
   font-family: "Poppins", sans-serif;
   z-index: 1;
 }
-a {
-  text-decoration: none;
-}
+
 h1 {
   font-size: 3rem;
   color: #057630;
   text-align: center;
+  margin: 0;
+  font-weight: bolder;
 }
-.container {
-  margin: 8px 13%;
-  text-align: center;
+h2 {
+  color: #0cb04a;
+  font-size: 1.7rem;
+}
+p {
+  font-size: 1.2rem;
 }
 .App {
-  background-color: #e5e5e5;
+  background-image: linear-gradient(#ffffff, rgba(14, 109, 80, 0.212));
 }

@@ -1,9 +1,9 @@
 .navbar {
-  background-color: rgba(0, 117, 44, 0.2);
+  background-color: rgba(25, 172, 81, 0.349);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 8px 13%;
+  padding: 13px 13%;
 }
 img {
   width: 200px;
@@ -18,6 +18,7 @@ img {
   color: #0cb04a;
   list-style: none;
   transition: 400ms;
+  font-weight: bolder;
 }
 .menu a:nth-child(2) {
   margin: 0 40px;

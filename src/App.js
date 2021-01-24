@@ -1,7 +1,7 @@
-// import "antd/dist/antd.css";
+import "antd/dist/antd.css";
 import "./App.css";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { Navbar, About, Projects, Home } from "./components";
+import { Navbar, About, Projects, Home, Footer } from "./components";
 function App() {
   return (
     <div className="App">
@@ -13,6 +13,7 @@ function App() {
           <Route path="/about" component={About} />
           <Route path="/projects" exact component={Projects} />
         </Switch>
+        <Footer />
       </Router>
     </div>
   );

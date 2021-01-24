@@ -1,0 +1,17 @@
+.footer {
+  margin: 40px 0;
+  /* background-color: rgba(0, 117, 44, 0.2); */
+  background-color: rgba(25, 172, 81, 0.349);
+  padding: 30px;
+}
+i {
+  font-size: 35px;
+  margin: 0 15px;
+  transition: 400ms;
+  color: black;
+}
+i:hover {
+  color: #0cb04a;
+  cursor: pointer;
+  transform: scale(1.2);
+}

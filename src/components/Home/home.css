@@ -4,9 +4,7 @@
   align-items: center;
   justify-content: space-between;
 }
-h2 {
-  color: #0cb04a;
-}
+
 .home .header {
   margin: 5px 0 10px 0;
   text-align: left;
@@ -37,6 +35,7 @@ h2 {
   top: 50px;
   right: 50px;
   opacity: 0.15;
+  z-index: 0;
 }
 .cloud3 {
   position: absolute;
@@ -44,7 +43,9 @@ h2 {
   width: 30vw;
   top: 300px;
   right: 50px;
+  z-index: 0;
 }
+
 @media only screen and (max-width: 1100px) {
   .home {
     margin: 50px 10%;
