@@ -25,10 +25,7 @@
 .project-list .info {
   width: 65%;
 }
-.container {
-  text-align: center;
-  margin: 30px 13%;
-}
+
 @media only screen and (max-width: 1100px) {
   .projects {
     margin: 30px 10%;

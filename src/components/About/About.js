@@ -11,7 +11,7 @@ function About() {
   ];
   return (
     <div>
-      <h1>ABOUT</h1>
+      <h1>ABOUT US</h1>
       <div className="about">
         <div className="about-card">
           <div className="card">
@@ -60,6 +60,39 @@ function About() {
               </List.Item>
             )}
           />
+        </div>
+        <div className="container">
+          <h1>STRATEGIC PARTNERS</h1>
+          <p>
+            We're especially pleased to have built strategic partnerships with
+            forward thinking leaders in the business world.
+          </p>
+
+          <Row align="middle" justify="center" gutter={30}>
+            <Col className="gutter-row">
+              <img src="/images/partner/smallworld.png" alt="logo" />
+            </Col>
+            <Col className="gutter-row">
+              <img src="/images/partner/koompi.png" alt="logo" />
+            </Col>
+            <Col className="gutter-row">
+              <img src="/images/partner/sabay.png" alt="logo" />
+            </Col>
+            <Col className="gutter-row">
+              <img
+                style={{ width: "130px" }}
+                src="/images/partner/doer.png"
+                alt="logo"
+              />
+            </Col>
+            <Col className="gutter-row">
+              <img
+                style={{ width: "100px" }}
+                src="/images/partner/isi-group.png"
+                alt="logo"
+              />
+            </Col>
+          </Row>
         </div>
         <h1>TEAM MEMBER</h1>
         <Row
