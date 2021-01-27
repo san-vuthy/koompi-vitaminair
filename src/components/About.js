@@ -1,5 +1,5 @@
-import "./about.css";
 import { List, Row, Col } from "antd";
+
 function About() {
   const data = [
     "Sustainability, peace, love, harmony, sharing, growth, and abundance, with a focus on setting a good example for generations into the future.",

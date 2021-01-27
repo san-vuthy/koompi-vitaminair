@@ -1,5 +1,5 @@
 import { Row, Col } from "antd";
-import "./project.css";
+
 function Project() {
   return (
     <div>

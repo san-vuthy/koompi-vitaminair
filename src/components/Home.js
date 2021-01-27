@@ -1,5 +1,5 @@
 import React from "react";
-import "./home.css";
+
 function Home() {
   return (
     <>
@@ -10,8 +10,9 @@ function Home() {
         <div className="text">
           <h2>In search of</h2>
           <h1 className="header">The Next Small Things</h1>
-          <p>Protect, preserve and restore our rain</p>
-          <p>forests for generation ahead.</p>
+          <p>
+            Protect, preserve and restore our rain forests for generation ahead.
+          </p>
         </div>
         <div className="video">
           <video src="/video.mp4" autoPlay loop muted preload="none"></video>
