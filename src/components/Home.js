@@ -21,6 +21,17 @@ function Home() {
 
       <h1 id="num">22,616,989</h1>
       <img style={{ width: "100%" }} src="/images/big-header.png" alt="" />
+      <form className="form">
+        <h2>JOIN #TEAMVITAMINAIR!</h2>
+        <p>$1 plants a tree</p>
+        <button>5 Trees</button>
+        <button>20 Trees</button>
+        <br />
+        <button>50 Trees</button>
+        <button>100 Trees</button>
+        <br />
+        <input type="text" placeholder="Other Amount" />
+      </form>
     </>
   );
 }

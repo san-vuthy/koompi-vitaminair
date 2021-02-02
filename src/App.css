@@ -22,6 +22,15 @@ h2 {
   color: #0cb04a;
   font-size: 1.7rem;
 }
+button {
+  width: 170px;
+  height: 50px;
+  margin: 5px;
+  font-size: 15px;
+  border: 2px solid rgba(156, 183, 226, 0.521);
+  border-radius: 4px;
+  background-color: rgba(181, 199, 228, 0.192);
+}
 p {
   font-size: 1.2rem;
 }
@@ -150,7 +159,7 @@ img {
 }
 .container {
   text-align: center;
-  margin: 30px 13%;
+  margin: 30px;
 }
 
 .footer {
@@ -202,4 +211,17 @@ i:hover {
   border: 4px solid #0cb04a;
   border-radius: 50%;
   margin-bottom: 10px;
+}
+.form {
+  text-align: center;
+  width: 25%;
+}
+.form input {
+  width: calc(100% - 5px);
+  height: 50px;
+  padding-left: 10px;
+  border: 2px solid rgba(156, 183, 226, 0.521);
+  border-radius: 4px;
+  background-color: rgba(181, 199, 228, 0.192);
+  font-size: 15px;
 }
