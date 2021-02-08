@@ -1,9 +1,35 @@
 // import { Row, Col } from "antd";
+import { Carousel } from "antd";
 function Project() {
+  const contentStyle = {
+    height: "573px",
+    color: "#fff",
+    lineHeight: "500px",
+    textAlign: "center",
+    background: "#057630",
+  };
   return (
     <div>
+      <Carousel autoplay>
+        <div>
+          <h3 style={contentStyle}>1</h3>
+        </div>
+        <div>
+          <h3 style={contentStyle}>2</h3>
+        </div>
+        <div>
+          <h3 style={contentStyle}>3</h3>
+        </div>
+        <div>
+          <h3 style={contentStyle}>4</h3>
+        </div>
+      </Carousel>
       <div className="container">
         <h1>PROJECTS</h1>
+        <p style={{ textAlign: "center" }}>
+          We're especially pleased to have built strategic partnerships with
+          forward thinking leaders in the business world.
+        </p>
         <div className="projects">
           <div className="project-list">
             <img src="/images/projects/va-reforestation.png" alt="" />

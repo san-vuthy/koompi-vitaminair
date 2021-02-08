@@ -9,6 +9,7 @@ function About() {
     "To offer re-education and employment opportunities for local families engaged in illegal forest activities.",
     "To discover and create innovative business and employment opportunities for Cambodian youths.",
   ];
+
   return (
     <div>
       <div className="container">

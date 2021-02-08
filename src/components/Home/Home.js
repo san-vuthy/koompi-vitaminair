@@ -1,5 +1,6 @@
 import { Row, Col } from "antd";
 import Form from "../Home/Form";
+import Activities from "./Activities";
 import Leaderboard from "./Leaderboard";
 
 function Home() {
@@ -47,6 +48,7 @@ function Home() {
       <img style={{ width: "100%" }} src="/images/big-header.png" alt="" />
       <Form />
       <Leaderboard />
+      <Activities />
     </>
   );
 }
