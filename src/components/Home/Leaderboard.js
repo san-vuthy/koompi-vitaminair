@@ -47,8 +47,9 @@ function Leaderboard() {
         </Col>
       </Row>
       <div className="user-list">
-        <Row className="list" justify="space-between" align="middle">
+        <Row className="list" align="middle" justify="space-between">
           <img src="/images/list-images/icon1.svg" alt="" />
+
           <Col>
             <p className="list-title">KAYBE</p>
             <p className="list-message">Freedom & Bitcoin - The Cryptosphere</p>

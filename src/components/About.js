@@ -14,12 +14,24 @@ function About() {
     <div>
       <div className="container">
         <h1>ABOUT US</h1>
+        <div className="objective">
+          <h2 style={{ textAlign: "left" }}>OBJECTIVE</h2>
+          {/* <img src="/images/about/Rectangle.png" alt="" /> */}
+          <List
+            dataSource={data}
+            renderItem={(item) => (
+              <List.Item>
+                <p>{item}</p>
+              </List.Item>
+            )}
+          />
+        </div>
         <div className="about">
           <div className="about-card">
             <div className="card">
               <img src="/images/about/vitamin-air-min.jpg" alt="" />
               <div className="description">
-                <h2>WHAT IS VITAMIN AIR?</h2>
+                <h2>VITAMINAIR?</h2>
                 <p>
                   Vitamin Air is a growing community of people actively engaged
                   in social, cultural, ecological and economic regeneration.
@@ -52,19 +64,8 @@ function About() {
               </div>
             </div>
           </div>
-          <div className="objective">
-            <h1 style={{ textAlign: "left" }}>OBJECTIVE</h1>
-            <List
-              dataSource={data}
-              renderItem={(item) => (
-                <List.Item>
-                  <p>{item}</p>
-                </List.Item>
-              )}
-            />
-          </div>
 
-          <h1>STRATEGIC PARTNERS</h1>
+          <h1>OUR PARTNERS</h1>
           <p style={{ textAlign: "center" }}>
             We're especially pleased to have built strategic partnerships with
             forward thinking leaders in the business world.
