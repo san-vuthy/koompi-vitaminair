@@ -4,7 +4,7 @@ function Activities() {
   return (
     <div>
       <h1>OUR ACTIVITIES</h1>
-      <div className="activities" style={{ margin: "50px 5% " }}>
+      <div className="container activities">
         <div className="card">
           <Row>
             <Col xs={{ span: 24 }} md={{ span: 12 }} xl={{ span: 24 }}>

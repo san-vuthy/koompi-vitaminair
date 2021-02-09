@@ -53,7 +53,7 @@ function About() {
             <div className="card">
               <img src="/images/about/Mission-min.jpg" alt="" />
               <div className="description">
-                <h2>MISSION</h2>
+                <h3>MISSION</h3>
                 <p>
                   Our mission is to work together with the Royal Government of
                   Cambodia to reach and maintain a national forest cover of 60%
@@ -98,123 +98,36 @@ function About() {
           </Row>
           <div className="team-member">
             <h1>TEAM MEMBER</h1>
-            <Row
-              className="member"
-              justify="center"
-              align="middle"
-              gutter={10}
-              style={{ textAlign: "center", marginTop: "30px" }}
-            >
-              <Col
-                className="gutter-row"
-                xs={{ span: 24 }}
-                sm={{ span: 12 }}
-                md={{ span: 8 }}
-                lg={{ span: 6 }}
-              >
-                <img src="/images/member/Panha-Suon.png" alt="" />
-                <h2>PANHA SUON</h2>
-                <p>OPERATION</p>
+            <Row className="member" justify="center">
+              <Col xs={{ span: 10 }} md={{ span: 7 }} lg={{ span: 5 }}>
+                <img src="/images/member/member.png" alt="" />
+                <h3>MR Ajfdjkfa</h3>
+                <p>Developer</p>
+              </Col>{" "}
+              <Col xs={{ span: 10 }} md={{ span: 7 }} lg={{ span: 5 }}>
+                <img src="/images/member/member.png" alt="" />
+                <h3>MR Ajfdjkfa</h3>
+                <p>Developer</p>
               </Col>
-
-              <Col
-                className="gutter-row"
-                xs={{ span: 24 }}
-                sm={{ span: 12 }}
-                md={{ span: 8 }}
-                lg={{ span: 6 }}
-              >
-                <img src="/images/member/Sela-Thul.png" alt="" />
-                <h2>SELA THUL</h2>
-                <p>COMMUNITY</p>
+              <Col xs={{ span: 10 }} md={{ span: 7 }} lg={{ span: 5 }}>
+                <img src="/images/member/member.png" alt="" />
+                <h3>MR Ajfdjkfa</h3>
+                <p>Developer</p>
+              </Col>{" "}
+              <Col xs={{ span: 10 }} md={{ span: 7 }} lg={{ span: 5 }}>
+                <img src="/images/member/member.png" alt="" />
+                <h3>MR Ajfdjkfa</h3>
+                <p>Developer</p>
               </Col>
-              <Col
-                className="gutter-row"
-                xs={{ span: 24 }}
-                sm={{ span: 12 }}
-                md={{ span: 8 }}
-                lg={{ span: 6 }}
-              >
-                <img src="/images/member/Rithy-Sourn.png" alt="" />
-                <h2>RITHY SOURN</h2>
-                <p>R&D</p>
-              </Col>
-              <Col
-                className="gutter-row"
-                xs={{ span: 24 }}
-                sm={{ span: 12 }}
-                md={{ span: 8 }}
-                lg={{ span: 6 }}
-              >
-                <img src="/images/member/Song-Sab.png" alt="" />
-                <h2>SONG SAB</h2>
-                <p>MECHANIC</p>
-              </Col>
-              <Col
-                className="gutter-row"
-                xs={{ span: 24 }}
-                sm={{ span: 12 }}
-                md={{ span: 8 }}
-                lg={{ span: 6 }}
-              >
-                <img src="/images/member/Dane-Hieng.png" alt="" />
-                <h2>DANE HIENG</h2>
-                <p>OUTDOOR EDUCATION</p>
-              </Col>
-              <Col
-                className="gutter-row"
-                xs={{ span: 24 }}
-                sm={{ span: 12 }}
-                md={{ span: 8 }}
-                lg={{ span: 6 }}
-              >
-                <img src="/images/member/Lykheang-Moeurn.png" alt="" />
-                <h2>LYKHEANG MOEURN</h2>
-                <p>DEVELOPER</p>
-              </Col>
-              <Col
-                className="gutter-row"
-                xs={{ span: 24 }}
-                sm={{ span: 12 }}
-                md={{ span: 8 }}
-                lg={{ span: 6 }}
-              >
-                <img src="/images/member/Sokunthy-Chan.png" alt="" />
-                <h2>SOKUNTHY CHAN</h2>
-                <p>FINANCE</p>
-              </Col>
-              <Col
-                className="gutter-row"
-                xs={{ span: 24 }}
-                sm={{ span: 12 }}
-                md={{ span: 8 }}
-                lg={{ span: 6 }}
-              >
-                <img src="/images/member/Ry-Keo.png" alt="" />
-                <h2>RY KEO</h2>
-                <p>FARM TEAM</p>
-              </Col>
-              <Col
-                className="gutter-row"
-                xs={{ span: 24 }}
-                sm={{ span: 12 }}
-                md={{ span: 8 }}
-                lg={{ span: 6 }}
-              >
-                <img src="/images/member/Rithy-Thul.png" alt="" />
-                <h2>RITHY THUL</h2>
-                <p>STRATEGIST</p>
-              </Col>
-              <Col
-                className="gutter-row"
-                xs={{ span: 24 }}
-                sm={{ span: 12 }}
-                md={{ span: 8 }}
-                lg={{ span: 6 }}
-              >
-                <img src="/images/member/Clara-Donadello.png" alt="" />
-                <h2>CLARA DONADELLO</h2>
-                <p>ADVISOR</p>
+              <Col xs={{ span: 10 }} md={{ span: 7 }} lg={{ span: 5 }}>
+                <img src="/images/member/member.png" alt="" />
+                <h3>MR Ajfdjkfa</h3>
+                <p>Developer</p>
+              </Col>{" "}
+              <Col xs={{ span: 10 }} md={{ span: 7 }} lg={{ span: 5 }}>
+                <img src="/images/member/member.png" alt="" />
+                <h3>MR Ajfdjkfa</h3>
+                <p>Developer</p>
               </Col>
             </Row>
           </div>

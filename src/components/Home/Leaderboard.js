@@ -7,12 +7,12 @@ function Leaderboard() {
     const recents = document.getElementById("most-recents");
     const trees = document.getElementById("most-trees");
     if (e.target.id === "most-recents") {
-      trees.className = "active";
+      trees.className = "clicked";
       recents.className = "";
       recents.style.zIndex = 2;
       trees.style.zIndex = 1;
     } else if (e.target.id === "most-trees") {
-      recents.className = "active";
+      recents.className = "clicked";
 
       trees.className = "";
       trees.style.zIndex = 2;
@@ -25,7 +25,6 @@ function Leaderboard() {
       <Row justify="center">
         <Col style={{ marginRight: "50px" }} className="search-box gutter-row">
           <input className="search" type="text" placeholder="Search" />
-          {/* <i className="fas fa-search" /> */}
           <FaSearch className="fa-search" />
         </Col>
         <Col style={{ marginLeft: "50px" }} className="gutter-row">
@@ -38,7 +37,7 @@ function Leaderboard() {
           </button>
           <button
             id="most-trees"
-            className="active"
+            className="clicked"
             onClick={active}
             style={{ marginLeft: "-5px", height: "41px" }}
           >
