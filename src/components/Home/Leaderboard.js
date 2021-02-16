@@ -1,30 +1,30 @@
 // import React from 'react'
-import { Row, Col } from "antd";
-import { FaSearch } from "react-icons/fa";
+import { Row, Col, Input } from "antd"
+import { FaSearch } from "react-icons/fa"
 
 function Leaderboard() {
   const active = (e) => {
-    const recents = document.getElementById("most-recents");
-    const trees = document.getElementById("most-trees");
+    const recents = document.getElementById("most-recents")
+    const trees = document.getElementById("most-trees")
     if (e.target.id === "most-recents") {
-      trees.className = "clicked";
-      recents.className = "";
-      recents.style.zIndex = 2;
-      trees.style.zIndex = 1;
+      trees.className = "clicked"
+      recents.className = ""
+      recents.style.zIndex = 2
+      trees.style.zIndex = 1
     } else if (e.target.id === "most-trees") {
-      recents.className = "clicked";
+      recents.className = "clicked"
 
-      trees.className = "";
-      trees.style.zIndex = 2;
-      recents.style.zIndex = 1;
+      trees.className = ""
+      trees.style.zIndex = 2
+      recents.style.zIndex = 1
     }
-  };
+  }
   return (
     <div style={{ marginTop: "50px" }}>
       <h1>LEADERBOARD</h1>
       <Row justify="center">
         <Col style={{ marginRight: "50px" }} className="search-box gutter-row">
-          <input className="search" type="text" placeholder="Search" />
+          <Input className="search" type="text" placeholder="Search" />
           <FaSearch className="fa-search" />
         </Col>
         <Col style={{ marginLeft: "50px" }} className="gutter-row">
@@ -120,7 +120,7 @@ function Leaderboard() {
         </a>
       </div>
     </div>
-  );
+  )
 }
 
-export default Leaderboard;
+export default Leaderboard

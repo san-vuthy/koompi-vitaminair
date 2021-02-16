@@ -1,13 +1,13 @@
-import React, { useState } from "react";
-import { message, Divider } from "antd";
+import React, { useState } from "react"
+import { message, Divider, Row, Col, Button, Input } from "antd"
 
 function Form() {
-  const [current, setCurrent] = useState(0);
+  const [current, setCurrent] = useState(0)
   // const [tree, setTree] = useState(0);
   //go to next step in form
   const next = (e) => {
-    e.preventDefault();
-    setCurrent(current + 1);
+    e.preventDefault()
+    setCurrent(current + 1)
     // let amount = document.getElementById("tree-amount").value;
 
     // if (amount === "") {
@@ -23,29 +23,29 @@ function Form() {
     // } else {
     //   setTree(amount);
     // }
-  };
+  }
 
   //go to prev step in form
   const prev = (e) => {
-    e.preventDefault();
-    setCurrent(current - 1);
-  };
+    e.preventDefault()
+    setCurrent(current - 1)
+  }
   //form done
   const done = (e) => {
-    e.preventDefault();
-    message.success("Processing complete!");
-  };
+    e.preventDefault()
+    message.success("Processing complete!")
+  }
   //active amount of trees button
   const amountActive = (e) => {
-    e.preventDefault();
+    e.preventDefault()
 
-    const btns = Array.from(document.getElementsByClassName("tree-amount"));
+    const btns = Array.from(document.getElementsByClassName("tree-amount"))
     btns.forEach((btn) => {
       if (btn === e.target) {
-        btn.className += " amount-active";
-      } else btn.className = "tree-amount";
-    });
-  };
+        btn.className += " amount-active"
+      } else btn.className = "tree-amount"
+    })
+  }
 
   //form steps
   const steps = [
@@ -54,28 +54,36 @@ function Form() {
       content: (
         <>
           <h2>JOIN VitaminAir</h2>
-          <p style={{ marginBottom: "40px" }}>$1 plants a tree</p>
-          <button className="tree-amount" onClick={amountActive}>
-            5 Trees
-          </button>
-          <button className="tree-amount" onClick={amountActive}>
-            20 Trees
-          </button>
-          <br />
-          <button className="tree-amount" onClick={amountActive}>
-            50 Trees
-          </button>
-          <button className="tree-amount" onClick={amountActive}>
-            100 Trees
-          </button>
-          <br />
-          <input
+          <p className="join-desc">$1 plants a tree</p>
+          <Row gutter={[12, 12]}>
+            <Col span={12}>
+              <Button className="tree-amount" onClick={amountActive}>
+                10,000 riel
+              </Button>
+            </Col>
+            <Col span={12}>
+              <Button className="tree-amount" onClick={amountActive}>
+                20,000 riel
+              </Button>
+            </Col>
+            <Col span={12}>
+              <Button className="tree-amount" onClick={amountActive}>
+                30,000 riel
+              </Button>
+            </Col>
+            <Col span={12}>
+              <Button className="tree-amount" onClick={amountActive}>
+                40,000 riel
+              </Button>
+            </Col>
+          </Row>
+          <Input
             className="tree-amount"
             id="tree-amount"
             type="text"
             placeholder="Other Amount"
-            onClick={amountActive}
           />
+
           <Divider />
         </>
       ),
@@ -117,32 +125,29 @@ function Form() {
             <input type="checkbox" />
             <label htmlFor="confirmation">
               {" "}
-              <span style={{ color: "#0cb04a", fontWeight: "bold" }}>
-                YES!
-              </span>{" "}
-              I want periodic updates on VitaminAir{" "}
+              <span style={{ color: "#0cb04a", fontWeight: "bold" }}>YES!</span> I
+              want periodic updates on VitaminAir{" "}
             </label>
           </div>
           <div className="confirm-check">
             <input type="checkbox" />
-            <label htmlFor="confirmation">
-              {" "}
-              Please keep my donation anonymous{" "}
-            </label>
+            <label htmlFor="confirmation"> Please keep my donation anonymous </label>
           </div>
         </>
       ),
     },
-  ];
+  ]
   return (
     <>
       <div className="center">
         <form id="form" className="form" onSubmit={next}>
           {steps[current].content}
           {current < steps.length - 1 && (
-            <button type="submit" className="next">
-              Next
-            </button>
+            <div className="btn-position">
+              <Button type="primary" className="next-btn">
+                Next
+              </Button>
+            </div>
           )}
           {current === steps.length - 1 && (
             <button className="next" onClick={done}>
@@ -157,7 +162,7 @@ function Form() {
         </form>
       </div>
     </>
-  );
+  )
 }
 
-export default Form;
+export default Form

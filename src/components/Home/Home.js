@@ -1,7 +1,7 @@
-import { Row, Col } from "antd";
-import Form from "../Home/Form";
-import Activities from "./Activities";
-import Leaderboard from "./Leaderboard";
+import { Row, Col, Button } from "antd"
+import Form from "../Home/Form"
+import Activities from "./Activities"
+import Leaderboard from "./Leaderboard"
 
 function Home() {
   return (
@@ -18,19 +18,18 @@ function Home() {
             lg={{ span: 10 }}
             xl={{ span: 10 }}
           >
-            <p
-              style={{ fontSize: "22px", color: "#0D330A", fontWeight: "700" }}
-            >
+            <p style={{ fontSize: "22px", color: "#0D330A", fontWeight: "700" }}>
               In search of
             </p>
             <h2>The Next Small Things</h2>
             <p style={{ margin: "20px 0" }}>
-              Protect, preserve, and restore our rain forests for generations
-              ahead. Protect, preserve, and restore our rain forests for
-              generations ahead.
+              Protect, preserve, and restore our rain forests for generations ahead.
+              Protect, preserve, and restore our rain forests for generations ahead.
             </p>
             <a href="#form">
-              <button>JOIN US</button>
+              <Button type="primary" className="join-us-btn">
+                JOIN US
+              </Button>
             </a>
           </Col>
           <Col
@@ -40,7 +39,7 @@ function Home() {
             lg={{ span: 12 }}
             xl={{ span: 12 }}
           >
-            <video src="/video.mp4" autoPlay loop muted preload="none"></video>
+            <video src="/video.mp4" controls></video>
           </Col>
         </Row>
       </div>
@@ -51,7 +50,7 @@ function Home() {
       <Leaderboard />
       <Activities />
     </>
-  );
+  )
 }
 
-export default Home;
+export default Home

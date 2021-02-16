@@ -1,10 +1,10 @@
-import { Row, Col } from "antd";
+import { Row, Col } from "antd"
 import {
   FaFacebookF,
   FaYoutube,
   FaLinkedinIn,
   FaTelegramPlane,
-} from "react-icons/fa";
+} from "react-icons/fa"
 
 export default function Footer() {
   return (
@@ -44,5 +44,5 @@ export default function Footer() {
         </Col>
       </Row>
     </>
-  );
+  )
 }
