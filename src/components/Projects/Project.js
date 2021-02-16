@@ -1,5 +1,5 @@
 // import { Row, Col } from "antd";
-import "./project.css";
+import "./project.css"
 function Project() {
   return (
     <div>
@@ -10,8 +10,7 @@ function Project() {
           <div className="info">
             <h2>REFORESTATION</h2>
             <p>
-              Reforest and maintain at least 60% of Cambodian national forest
-              cover.
+              Reforest and maintain at least 60% of Cambodian national forest cover.
             </p>
           </div>
         </div>
@@ -40,8 +39,8 @@ function Project() {
           <div className="info">
             <h2>VITAMINWATER</h2>
             <p>
-              Capture purified water from air, building water and irrigation
-              systems for abundance and prosperity.
+              Capture purified water from air, building water and irrigation systems
+              for abundance and prosperity.
             </p>
           </div>
         </div>
@@ -50,14 +49,14 @@ function Project() {
           <div className="info">
             <h2>SEED BOMBING</h2>
             <p>
-              Combine tradition with ecological science and technology for
-              enhanced productivity.
+              Combine tradition with ecological science and technology for enhanced
+              productivity.
             </p>
           </div>
         </div>
       </div>
     </div>
-  );
+  )
 }
 
-export default Project;
+export default Project

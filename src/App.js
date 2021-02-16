@@ -7,9 +7,8 @@ function App() {
     <div className="App">
       <Router>
         <Navbar />
-        <Home />
         <Switch>
-          <Route path="/" exact component={Projects} />
+          <Route path="/" exact component={Home} />
           <Route path="/about" component={About} />
           <Route path="/projects" exact component={Projects} />
         </Switch>
