@@ -27,45 +27,51 @@ function About() {
           />
         </div>
         <div className="about">
-          <div className="about-card">
-            <div className="card">
-              <img src="/images/about/vitamin-air-min.jpg" alt="" />
-              <div className="description">
-                <h2>VITAMINAIR?</h2>
-                <p>
-                  Vitamin Air is a growing community of people actively engaged in
-                  social, cultural, ecological and economic regeneration.
-                </p>
-              </div>
-            </div>
-            <div className="card">
-              <img src="/images/about/vision-min.jpg" alt="" />
-              <div className="description">
-                <h2>VISION</h2>
-                <p>
-                  Our vision is to inspire others to rethink their relationship with
-                  nature, to learn how to live sustainably therein, and to seek input
-                  and guidance for creative new ways to provide benefit to each other
-                  and our surroundings.
-                </p>
-              </div>
-            </div>
-            <div className="card">
-              <img src="/images/about/Mission-min.jpg" alt="" />
-              <div className="description">
-                <h3>MISSION</h3>
-                <p>
-                  Our mission is to work together with the Royal Government of
-                  Cambodia to reach and maintain a national forest cover of 60% of
-                  total land area and maintain it there for generations ahead. We
-                  work to reforest the rainforests, incorporating technology and
-                  designs inspired by nature.
-                </p>
-              </div>
-            </div>
-          </div>
+          <Row className="about-card" justify="center">
+            <Col
+              xs={{ span: 24 }}
+              lg={{ span: 11 }}
+              xl={{ span: 7 }}
+              className="card"
+            >
+              <h2>VISION</h2>
+              <p>
+                Our vision is to inspire others to rethink their relationship with
+                nature, to learn how to live sustainably therein, and to seek input
+                and guidance for creative new ways to provide benefit to each other
+                and our surroundings.
+              </p>
+            </Col>
+            <Col
+              xs={{ span: 24 }}
+              lg={{ span: 11 }}
+              xl={{ span: 7 }}
+              className="card"
+            >
+              <h2>MISSION</h2>
+              <p>
+                Our mission is to work together with the Royal Government of Cambodia
+                to reach and maintain a national forest cover of 60% of total land
+                area and maintain it there for generations ahead. We work to reforest
+                the rainforests, incorporating technology and designs inspired by
+                nature.
+              </p>
+            </Col>
+            <Col
+              xs={{ span: 24 }}
+              lg={{ span: 11 }}
+              xl={{ span: 7 }}
+              className="card"
+            >
+              <h2>VITAMINAIR?</h2>
+              <p>
+                Vitamin Air is a growing community of people actively engaged in
+                social, cultural, ecological and economic regeneration.
+              </p>
+            </Col>
+          </Row>
 
-          <h1>OUR PARTNERS</h1>
+          <h1 style={{ marginTop: "30px" }}>OUR PARTNERS</h1>
           <p style={{ textAlign: "center" }}>
             We're especially pleased to have built strategic partnerships with
             forward thinking leaders in the business world.

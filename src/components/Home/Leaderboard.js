@@ -22,25 +22,16 @@ function Leaderboard() {
   return (
     <div style={{ marginTop: "50px" }}>
       <h1>LEADERBOARD</h1>
-      <Row justify="center">
-        <Col style={{ marginRight: "50px" }} className="search-box gutter-row">
+      <Row align="middle" justify="center">
+        <Col className="search-box gutter-row">
           <Input className="search" type="text" placeholder="Search" />
           <FaSearch className="fa-search" />
         </Col>
-        <Col style={{ marginLeft: "50px" }} className="gutter-row">
-          <button
-            id="most-recents"
-            onClick={active}
-            style={{ marginRight: "-5px", height: "41px" }}
-          >
+        <Col offset={1} className="gutter-row">
+          <button id="most-recents" onClick={active}>
             Most Recents
           </button>
-          <button
-            id="most-trees"
-            className="clicked"
-            onClick={active}
-            style={{ marginLeft: "-5px", height: "41px" }}
-          >
+          <button id="most-trees" className="clicked" onClick={active}>
             Most Trees
           </button>
         </Col>

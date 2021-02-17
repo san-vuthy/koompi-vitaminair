@@ -3,26 +3,10 @@ import { message, Divider, Row, Col, Button, Input } from "antd"
 
 function Form() {
   const [current, setCurrent] = useState(0)
-  // const [tree, setTree] = useState(0);
-  //go to next step in form
+
   const next = (e) => {
     e.preventDefault()
     setCurrent(current + 1)
-    // let amount = document.getElementById("tree-amount").value;
-
-    // if (amount === "") {
-    //   let btnTree = document.getElementsByClassName("amount-active")[0]
-    //     .innerHTML;
-    //   // let amount; //tree amount from btn
-    //   if (btnTree === "5 Trees") amount = 5;
-    //   else if (btnTree === "20 Trees") amount = 20;
-    //   else if (btnTree === "50 Trees") amount = 50;
-    //   else if (btnTree === "100 Trees") amount = 100;
-
-    //   setTree(amount);
-    // } else {
-    //   setTree(amount);
-    // }
   }
 
   //go to prev step in form
@@ -140,11 +124,11 @@ function Form() {
   return (
     <>
       <div className="center">
-        <form id="form" className="form" onSubmit={next}>
+        <form id="form" className="form">
           {steps[current].content}
           {current < steps.length - 1 && (
             <div className="btn-position">
-              <Button type="primary" className="next-btn">
+              <Button onClick={next} type="primary" className="next-btn">
                 Next
               </Button>
             </div>
