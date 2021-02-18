@@ -2,7 +2,7 @@ const mongoose = require("mongoose")
 
 const DonateSchema = new mongoose.Schema({
   tree: {
-    type: String,
+    type: Number,
     required: true,
   },
   name: {

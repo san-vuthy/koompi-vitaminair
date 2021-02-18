@@ -1,6 +1,12 @@
 const graphql = require("graphql")
 
-const { GraphQLObjectType, GraphQLString, GraphQLNonNull, GraphQLBoolean } = graphql
+const {
+  GraphQLObjectType,
+  GraphQLString,
+  GraphQLNonNull,
+  GraphQLBoolean,
+  GraphQLInt,
+} = graphql
 
 //============Model Sections=========
 const Donate = require("../../../model/donate")
@@ -14,7 +20,7 @@ const RootMutation = new GraphQLObjectType({
     donation: {
       type: DonateType,
       args: {
-        tree: { type: GraphQLNonNull(GraphQLString) },
+        tree: { type: GraphQLNonNull(GraphQLInt) },
         name: { type: GraphQLNonNull(GraphQLString) },
         email: { type: GraphQLNonNull(GraphQLString) },
         phone: { type: GraphQLNonNull(GraphQLString) },
