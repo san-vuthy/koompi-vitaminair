@@ -1,5 +1,5 @@
 // import React from 'react'
-import { Row, Col, Input } from "antd"
+import { Row, Col, Input, Button } from "antd"
 import { FaSearch } from "react-icons/fa"
 
 function Leaderboard() {
@@ -36,78 +36,118 @@ function Leaderboard() {
           </button>
         </Col>
       </Row>
-      <div className="user-list">
-        <Row className="list" align="middle" justify="space-between">
-          <img src="/images/list-images/icon1.svg" alt="" />
+      <div className="container user-list">
+        <Row className="list" align="middle">
+          <Col
+            className="avatar"
+            xs={{ span: 24 }}
+            sm={{ span: 2 }}
+            md={{ span: 1 }}
+          >
+            <img src="/images/list-images/icon1.svg" alt="" />
+          </Col>
+          <Col flex="auto">
+            <p className="list-title">KAYBE</p>
+            <p className="list-message">Freedom & Bitcoin - The Cryptosphere</p>
+          </Col>
+          <Col xs={{ span: 24 }} sm={{ span: 24, offset: 3 }} md={{ span: 7 }}>
+            <p className="badge">5 TREES</p>
+            <p className="list-message">2/3/2021, 1:19:23 PM</p>
+          </Col>
+        </Row>
+        <Row className="list" align="middle">
+          <Col
+            className="avatar"
+            xs={{ span: 24 }}
+            sm={{ span: 2 }}
+            md={{ span: 1 }}
+          >
+            <img src="/images/list-images/icon1.svg" alt="" />
+          </Col>
+          <Col flex="auto">
+            <p className="list-title">KAYBE</p>
+            <p className="list-message">Freedom & Bitcoin - The Cryptosphere</p>
+          </Col>
+          <Col xs={{ span: 24 }} sm={{ span: 24, offset: 3 }} md={{ span: 7 }}>
+            <p className="badge">5 TREES</p>
+            <p className="list-message">2/3/2021, 1:19:23 PM</p>
+          </Col>
+        </Row>
+        <Row className="list" align="middle">
+          <Col
+            className="avatar"
+            xs={{ span: 24 }}
+            sm={{ span: 2 }}
+            md={{ span: 1 }}
+          >
+            <img src="/images/list-images/icon1.svg" alt="" />
+          </Col>
+          <Col flex="auto">
+            <p className="list-title">KAYBE</p>
+            <p className="list-message">Freedom & Bitcoin - The Cryptosphere</p>
+          </Col>
+          <Col xs={{ span: 24 }} sm={{ span: 24, offset: 3 }} md={{ span: 7 }}>
+            <p className="badge">5 TREES</p>
+            <p className="list-message">2/3/2021, 1:19:23 PM</p>
+          </Col>
+        </Row>
+        <Row className="list" align="middle">
+          <Col
+            className="avatar"
+            xs={{ span: 24 }}
+            sm={{ span: 2 }}
+            md={{ span: 1 }}
+          >
+            <img src="/images/list-images/icon1.svg" alt="" />
+          </Col>
+          <Col flex="auto">
+            <p className="list-title">KAYBE</p>
+            <p className="list-message">Freedom & Bitcoin - The Cryptosphere</p>
+          </Col>
+          <Col xs={{ span: 24 }} sm={{ span: 24, offset: 3 }} md={{ span: 7 }}>
+            <p className="badge">5 TREES</p>
+            <p className="list-message">2/3/2021, 1:19:23 PM</p>
+          </Col>
+        </Row>
+        <Row className="list" align="middle">
+          <Col
+            className="avatar"
+            xs={{ span: 24 }}
+            sm={{ span: 2 }}
+            md={{ span: 1 }}
+          >
+            <img src="/images/list-images/icon1.svg" alt="" />
+          </Col>
+          <Col flex="auto">
+            <p className="list-title">KAYBE</p>
+            <p className="list-message">Freedom & Bitcoin - The Cryptosphere</p>
+          </Col>
+          <Col xs={{ span: 24 }} sm={{ span: 24, offset: 3 }} md={{ span: 7 }}>
+            <p className="badge">5 TREES</p>
+            <p className="list-message">2/3/2021, 1:19:23 PM</p>
+          </Col>
+        </Row>
+        <Row className="list" align="middle">
+          <Col
+            className="avatar"
+            xs={{ span: 24 }}
+            sm={{ span: 2 }}
+            md={{ span: 1 }}
+          >
+            <img src="/images/list-images/icon1.svg" alt="" />
+          </Col>
+          <Col flex="auto">
+            <p className="list-title">KAYBE</p>
+            <p className="list-message">Freedom & Bitcoin - The Cryptosphere</p>
+          </Col>
+          <Col xs={{ span: 24 }} sm={{ span: 24, offset: 3 }} md={{ span: 7 }}>
+            <p className="badge">5 TREES</p>
+            <p className="list-message">2/3/2021, 1:19:23 PM</p>
+          </Col>
+        </Row>
 
-          <Col>
-            <p className="list-title">KAYBE</p>
-            <p className="list-message">Freedom & Bitcoin - The Cryptosphere</p>
-          </Col>
-          <Col>
-            <p className="badge">5 TREES</p>
-            <p className="list-message">2/3/2021, 1:19:23 PM</p>
-          </Col>
-        </Row>
-        <Row className="list" justify="space-between" align="middle">
-          <img src="/images/list-images/icon1.svg" alt="" />
-          <Col>
-            <p className="list-title">KAYBE</p>
-            <p className="list-message">Freedom & Bitcoin - The Cryptosphere</p>
-          </Col>
-          <Col>
-            <p className="badge">5 TREES</p>
-            <p className="list-message">2/3/2021, 1:19:23 PM</p>
-          </Col>
-        </Row>
-        <Row className="list" justify="space-between" align="middle">
-          <img src="/images/list-images/icon1.svg" alt="" />
-          <Col>
-            <p className="list-title">KAYBE</p>
-            <p className="list-message">Freedom & Bitcoin - The Cryptosphere</p>
-          </Col>
-          <Col>
-            <p className="badge">5 TREES</p>
-            <p className="list-message">2/3/2021, 1:19:23 PM</p>
-          </Col>
-        </Row>
-        <Row className="list" justify="space-between" align="middle">
-          <img src="/images/list-images/icon1.svg" alt="" />
-          <Col>
-            <p className="list-title">KAYBE</p>
-            <p className="list-message">Freedom & Bitcoin - The Cryptosphere</p>
-          </Col>
-          <Col>
-            <p className="badge">5 TREES</p>
-            <p className="list-message">2/3/2021, 1:19:23 PM</p>
-          </Col>
-        </Row>
-        <Row className="list" justify="space-between" align="middle">
-          <img src="/images/list-images/icon1.svg" alt="" />
-          <Col>
-            <p className="list-title">KAYBE</p>
-            <p className="list-message">Freedom & Bitcoin - The Cryptosphere</p>
-          </Col>
-          <Col>
-            <p className="badge">5 TREES</p>
-            <p className="list-message">2/3/2021, 1:19:23 PM</p>
-          </Col>
-        </Row>
-        <Row className="list" justify="space-between" align="middle">
-          <img src="/images/list-images/icon1.svg" alt="" />
-          <Col>
-            <p className="list-title">KAYBE</p>
-            <p className="list-message">Freedom & Bitcoin - The Cryptosphere</p>
-          </Col>
-          <Col>
-            <p className="badge">5 TREES</p>
-            <p className="list-message">2/3/2021, 1:19:23 PM</p>
-          </Col>
-        </Row>
         <a href="#form">
-          <button style={{ width: "228px", marginTop: "50px" }}>
-            ADD YOUR TREE
-          </button>
+          <Button className="add-tree-btn">ADD YOUR TREE</Button>
         </a>
       </div>
     </div>

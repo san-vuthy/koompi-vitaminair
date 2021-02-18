@@ -134,9 +134,12 @@ function Form() {
             </div>
           )}
           {current === steps.length - 1 && (
-            <button className="next" onClick={done}>
+            // <button className="next" onClick={done}>
+            //   Done
+            // </button>
+            <Button onClick={done} type="primary" className="next-btn">
               Done
-            </button>
+            </Button>
           )}
           {current > 0 && (
             <button className="prev" style={{ margin: "0 8px" }} onClick={prev}>

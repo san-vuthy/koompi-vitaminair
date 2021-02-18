@@ -43,8 +43,9 @@ function Home() {
           </Col>
         </Row>
       </div>
-      {/* <h1 id="num">22,616,989</h1> */}
-      <img style={{ width: "100%" }} src="/images/big-header.png" alt="" />
+      <div className="big-banner"></div>
+
+      {/* <img className="big-banner" style={{ width: "100%" }} src="/images/big-header.png" alt="" /> */}
 
       <Form />
       <Leaderboard />

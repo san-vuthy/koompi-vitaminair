@@ -12,11 +12,11 @@ function About() {
 
   return (
     <div>
-      <div className="container">
+      <div className="container" style={{ marginTop: "30px" }}>
         <h1>ABOUT US</h1>
         <div className="objective">
-          <h2 style={{ textAlign: "left" }}>OBJECTIVE</h2>
-          {/* <img src="/images/about/Rectangle.png" alt="" /> */}
+          <h2 style={{ textAlign: "left" }}>OUR OBJECTIVE</h2>
+          <img src="/images/about/Rectangle.png" alt="" />
           <List
             dataSource={data}
             renderItem={(item) => (
@@ -34,6 +34,7 @@ function About() {
               xl={{ span: 7 }}
               className="card"
             >
+              <img src="/images/about/flower.png" alt="" />
               <h2>VISION</h2>
               <p>
                 Our vision is to inspire others to rethink their relationship with
@@ -48,6 +49,7 @@ function About() {
               xl={{ span: 7 }}
               className="card"
             >
+              <img src="/images/about/flower.png" alt="" />
               <h2>MISSION</h2>
               <p>
                 Our mission is to work together with the Royal Government of Cambodia
@@ -63,6 +65,7 @@ function About() {
               xl={{ span: 7 }}
               className="card"
             >
+              <img src="/images/about/flower.png" alt="" />
               <h2>VITAMINAIR?</h2>
               <p>
                 Vitamin Air is a growing community of people actively engaged in
@@ -77,26 +80,51 @@ function About() {
             forward thinking leaders in the business world.
           </p>
 
-          <Row align="middle" justify="center" gutter={30}>
-            <Col className="gutter-row">
+          <Row className="partner" align="middle" justify="center" gutter={40}>
+            <Col
+              xs={{ span: 11 }}
+              sm={{ span: 7 }}
+              xl={{ span: 4 }}
+              className="gutter-row"
+            >
               <img src="/images/partner/smallworld.png" alt="logo" />
             </Col>
-            <Col className="gutter-row">
+            <Col
+              xs={{ span: 11 }}
+              sm={{ span: 7 }}
+              xl={{ span: 4 }}
+              className="gutter-row"
+            >
               <img src="/images/partner/koompi.png" alt="logo" />
             </Col>
-            <Col className="gutter-row">
+            <Col
+              xs={{ span: 11 }}
+              sm={{ span: 7 }}
+              xl={{ span: 4 }}
+              className="gutter-row"
+            >
               <img src="/images/partner/sabay.png" alt="logo" />
             </Col>
-            <Col className="gutter-row">
+            <Col
+              xs={{ span: 11 }}
+              sm={{ span: 7 }}
+              xl={{ span: 4 }}
+              className="gutter-row"
+            >
               <img
-                style={{ width: "130px" }}
+                style={{ width: "120px" }}
                 src="/images/partner/doer.png"
                 alt="logo"
               />
             </Col>
-            <Col className="gutter-row">
+            <Col
+              xs={{ span: 12 }}
+              sm={{ span: 5 }}
+              xl={{ span: 3 }}
+              className="gutter-row"
+            >
               <img
-                style={{ width: "100px" }}
+                style={{ width: "80px" }}
                 src="/images/partner/isi-group.png"
                 alt="logo"
               />
@@ -105,32 +133,102 @@ function About() {
           <div className="team-member">
             <h1>TEAM MEMBER</h1>
             <Row className="member" justify="center">
-              <Col xs={{ span: 10 }} md={{ span: 7 }} lg={{ span: 5 }}>
+              <Col
+                xs={{ span: 10 }}
+                md={{ span: 5 }}
+                lg={{ span: 5 }}
+                xl={{ span: 4 }}
+              >
                 <img src="/images/member/member.png" alt="" />
                 <h3>MR Ajfdjkfa</h3>
                 <p>Developer</p>
               </Col>{" "}
-              <Col xs={{ span: 10 }} md={{ span: 7 }} lg={{ span: 5 }}>
+              <Col
+                xs={{ span: 10 }}
+                md={{ span: 5 }}
+                lg={{ span: 5 }}
+                xl={{ span: 4 }}
+              >
                 <img src="/images/member/member.png" alt="" />
                 <h3>MR Ajfdjkfa</h3>
                 <p>Developer</p>
               </Col>
-              <Col xs={{ span: 10 }} md={{ span: 7 }} lg={{ span: 5 }}>
+              <Col
+                xs={{ span: 10 }}
+                md={{ span: 5 }}
+                lg={{ span: 5 }}
+                xl={{ span: 4 }}
+              >
                 <img src="/images/member/member.png" alt="" />
                 <h3>MR Ajfdjkfa</h3>
                 <p>Developer</p>
               </Col>{" "}
-              <Col xs={{ span: 10 }} md={{ span: 7 }} lg={{ span: 5 }}>
+              <Col
+                xs={{ span: 10 }}
+                md={{ span: 5 }}
+                lg={{ span: 5 }}
+                xl={{ span: 4 }}
+              >
                 <img src="/images/member/member.png" alt="" />
                 <h3>MR Ajfdjkfa</h3>
                 <p>Developer</p>
               </Col>
-              <Col xs={{ span: 10 }} md={{ span: 7 }} lg={{ span: 5 }}>
+              <Col
+                xs={{ span: 10 }}
+                md={{ span: 5 }}
+                lg={{ span: 5 }}
+                xl={{ span: 4 }}
+              >
                 <img src="/images/member/member.png" alt="" />
                 <h3>MR Ajfdjkfa</h3>
                 <p>Developer</p>
               </Col>{" "}
-              <Col xs={{ span: 10 }} md={{ span: 7 }} lg={{ span: 5 }}>
+              <Col
+                xs={{ span: 10 }}
+                md={{ span: 5 }}
+                lg={{ span: 5 }}
+                xl={{ span: 4 }}
+              >
+                <img src="/images/member/member.png" alt="" />
+                <h3>MR Ajfdjkfa</h3>
+                <p>Developer</p>
+              </Col>
+              <Col
+                xs={{ span: 10 }}
+                md={{ span: 5 }}
+                lg={{ span: 5 }}
+                xl={{ span: 4 }}
+              >
+                <img src="/images/member/member.png" alt="" />
+                <h3>MR Ajfdjkfa</h3>
+                <p>Developer</p>
+              </Col>{" "}
+              <Col
+                xs={{ span: 10 }}
+                md={{ span: 5 }}
+                lg={{ span: 5 }}
+                xl={{ span: 4 }}
+              >
+                <img src="/images/member/member.png" alt="" />
+                <h3>MR Ajfdjkfa</h3>
+                <p>Developer</p>
+              </Col>
+              <Col
+                xs={{ span: 10 }}
+                md={{ span: 5 }}
+                lg={{ span: 5 }}
+                xl={{ span: 4 }}
+              >
+                <img src="/images/member/member.png" alt="" />
+                <h3>MR Ajfdjkfa</h3>
+                <p>Developer</p>
+              </Col>{" "}
+              <Col
+                xs={{ span: 10 }}
+                md={{ span: 5 }}
+                lg={{ span: 5 }}
+                xl={{ span: 4 }}
+              >
                 <img src="/images/member/member.png" alt="" />
                 <h3>MR Ajfdjkfa</h3>
                 <p>Developer</p>
