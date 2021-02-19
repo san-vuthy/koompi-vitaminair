@@ -267,6 +267,7 @@ button:hover {
   background-color: rgba(12, 176, 75, 0.082);
   color: #0cb04a;
   border: 2px solid #0cb04b41;
+  /* width: 100%; */
   width: 235px;
   height: 63px;
   font-size: 20px;
@@ -274,13 +275,18 @@ button:hover {
   margin: 5px;
   border-radius: 8px;
 }
+.join-desc {
+  font-weight: 800;
+  font-size: 20px;
+  margin-bottom: 40px;
+}
 .amount-active {
   background-color: #0cb04a !important;
   color: white !important;
 }
 .form input[type="text"] {
   margin-top: 5px;
-  width: calc(100% - 10px);
+  width: calc(100% - 5px);
   height: 63px;
   line-height: 63px;
   padding: 0px 20px;
@@ -329,11 +335,6 @@ button:hover {
 .form h2 {
   margin-bottom: 0px !important;
 }
-.join-desc {
-  font-weight: 800;
-  font-size: 20px;
-  margin-bottom: 40px;
-}
 .next-btn {
   color: white;
   width: 179px !important;
@@ -355,6 +356,15 @@ button:hover {
   background: none;
   color: #0cb04a;
   border: none;
+}
+@media only screen and (max-width: 700px) {
+  .form {
+    width: 400px;
+    padding: 30px 30px;
+  }
+  .form .tree-amount {
+    width: 100%;
+  }
 }
 /* leaderboard */
 

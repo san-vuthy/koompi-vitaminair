@@ -36,7 +36,7 @@ function Form() {
     {
       title: "First",
       content: (
-        <>
+        <div>
           <h2>JOIN VitaminAir</h2>
           <p className="join-desc">$1 plants a tree</p>
           <Row gutter={[12, 12]}>
@@ -69,7 +69,7 @@ function Form() {
           />
 
           <Divider />
-        </>
+        </div>
       ),
     },
     {
@@ -123,7 +123,7 @@ function Form() {
   ]
   return (
     <>
-      <div className="center">
+      <div className="center container">
         <form id="form" className="form">
           {steps[current].content}
           {current < steps.length - 1 && (
