@@ -1,6 +1,6 @@
 const { query } = require("express")
 const graphql = require("graphql")
-const { getMaxListeners } = require("../../../model/donate")
+const { getMaxListeners, db, collection } = require("../../../model/donate")
 const { GraphQLObjectType, GraphQLString, GraphQLID, GraphQLList } = graphql
 
 //============Model Sections=========
@@ -22,8 +22,7 @@ const RootQuery = new GraphQLObjectType({
       type: new GraphQLList(DonateType),
       resolve: async (parent, args) => {
         try {
-          const result = await Donate.find().sort({ tree: -1 })
-          return result
+          return Donate.find().sort({ tree: -1 })
         } catch (error) {
           console.log(error)
           throw error

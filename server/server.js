@@ -10,7 +10,6 @@ const app = express()
 
 app.use(
   "/graphql",
-  // auth,
   graphqlHTTP({
     schema,
     graphiql: true,
