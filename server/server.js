@@ -5,8 +5,11 @@ const colors = require("colors")
 const { graphqlHTTP } = require("express-graphql")
 const schema = require("./graphql/schema/schema")
 const connectDB = require("./config/db")
-
 const app = express()
+
+//Initial Middleware
+app.use(express.json({ extend: false }))
+app.use(cors())
 
 app.use(
   "/graphql",
