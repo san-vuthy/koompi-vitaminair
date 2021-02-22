@@ -1,5 +1,5 @@
-// import { Row, Col } from "antd";
-import { Carousel } from "antd";
+import { Row, Col } from "antd"
+import { Carousel } from "antd"
 function Project() {
   const contentStyle = {
     height: "573px",
@@ -7,7 +7,7 @@ function Project() {
     lineHeight: "500px",
     textAlign: "center",
     background: "#057630",
-  };
+  }
   return (
     <div>
       <Carousel autoplay>
@@ -27,22 +27,21 @@ function Project() {
       <div className="container">
         <h1>PROJECTS</h1>
         <p style={{ textAlign: "center" }}>
-          We're especially pleased to have built strategic partnerships with
-          forward thinking leaders in the business world.
+          We're especially pleased to have built strategic partnerships with forward
+          thinking leaders in the business world.
         </p>
-        <div className="projects">
-          <div className="project-list">
+        <Row className="projects" gutter={30} justify="center">
+          <Col xs={{ span: 24 }} lg={{ span: 11 }} className="project-list">
             <img src="/images/projects/va-natural-farming.png" alt="" />
             <div className="info">
               <h3>NATURAL FARMING</h3>
               <p>
                 Designing balanced ecosystems that produce rich soils and
-                nutrient-dense foods while respecting the environment and
-                animals.
+                nutrient-dense foods while respecting the environment and animals.
               </p>
             </div>
-          </div>
-          <div className="project-list">
+          </Col>
+          <Col xs={{ span: 24 }} lg={{ span: 11 }} className="project-list">
             <img src="/images/projects/va-ecotour.png" alt="" />
             <div className="info">
               <h3>ECO-TOURISM</h3>
@@ -51,8 +50,8 @@ function Project() {
                 sustainable relationships among people.
               </p>
             </div>
-          </div>
-          <div className="project-list">
+          </Col>
+          <Col xs={{ span: 24 }} lg={{ span: 11 }} className="project-list">
             <img src="/images/projects/va-water.png" alt="" />
             <div className="info">
               <h3>VITAMINWATER</h3>
@@ -61,18 +60,18 @@ function Project() {
                 systems for abundance and prosperity.
               </p>
             </div>
-          </div>
-          <div className="project-list">
+          </Col>
+          <Col xs={{ span: 24 }} lg={{ span: 11 }} className="project-list">
             <img src="/images/projects/va-seedbombing.png" alt="" />
             <div className="info">
               <h3>SEED BOMBING</h3>
               <p>
-                Combine tradition with ecological science and technology for
-                enhanced productivity.
+                Combine tradition with ecological science and technology for enhanced
+                productivity.
               </p>
             </div>
-          </div>
-          <div className="project-list">
+          </Col>
+          <Col xs={{ span: 24 }} lg={{ span: 11 }} className="project-list">
             <img src="/images/projects/va-reforestation.png" alt="" />
             <div className="info">
               <h3>REFORESTATION</h3>
@@ -81,11 +80,11 @@ function Project() {
                 cover.
               </p>
             </div>
-          </div>
-        </div>
+          </Col>
+        </Row>
       </div>
     </div>
-  );
+  )
 }
 
-export default Project;
+export default Project
