@@ -1,8 +1,14 @@
 // import React from 'react'
-import { Row, Col, Input, Button } from "antd"
+import { Row, Col, Input, Button, TreeSelect } from "antd"
 import { FaSearch } from "react-icons/fa"
-
+import { useQuery } from "@apollo/client"
+import { GET_DONATIONS } from "../../graphql/query"
 function Leaderboard() {
+  //=====get Data==========
+  const { loading, data: donateData, error } = useQuery(GET_DONATIONS)
+  if (loading) return "loading..."
+  if (error) return `Error! ${error.message}`
+  console.log(donateData)
   const active = (e) => {
     const recents = document.getElementById("most-recents")
     const trees = document.getElementById("most-trees")
@@ -37,7 +43,34 @@ function Leaderboard() {
         </Col>
       </Row>
       <div className="container user-list">
-        <Row className="list" align="middle">
+        {donateData.get_donations.map((res) => {
+          const { tree, name, anonymous, create_at, user_message } = res
+          console.log(anonymous)
+          return (
+            <Row className="list" align="middle">
+              <Col
+                className="avatar"
+                xs={{ span: 24 }}
+                sm={{ span: 2 }}
+                md={{ span: 1 }}
+              >
+                <img src="/images/list-images/icon1.svg" alt="" />
+              </Col>
+              <Col flex="auto">
+                <p className="list-title">
+                  {anonymous === false ? name : "Anonymous"}
+                </p>
+                <p className="list-message">{user_message}</p>
+              </Col>
+              <Col xs={{ span: 24 }} sm={{ span: 24, offset: 3 }} md={{ span: 7 }}>
+                <p className="badge">{tree}</p>
+                {res.tree === 1}
+                <p className="list-message">2/3/2021, 1:19:23 PM</p>
+              </Col>
+            </Row>
+          )
+        })}
+        {/* <Row className="list" align="middle">
           <Col
             className="avatar"
             xs={{ span: 24 }}
@@ -126,25 +159,7 @@ function Leaderboard() {
             <p className="badge">5 TREES</p>
             <p className="list-message">2/3/2021, 1:19:23 PM</p>
           </Col>
-        </Row>
-        <Row className="list" align="middle">
-          <Col
-            className="avatar"
-            xs={{ span: 24 }}
-            sm={{ span: 2 }}
-            md={{ span: 1 }}
-          >
-            <img src="/images/list-images/icon1.svg" alt="" />
-          </Col>
-          <Col flex="auto">
-            <p className="list-title">KAYBE</p>
-            <p className="list-message">Freedom & Bitcoin - The Cryptosphere</p>
-          </Col>
-          <Col xs={{ span: 24 }} sm={{ span: 24, offset: 3 }} md={{ span: 7 }}>
-            <p className="badge">5 TREES</p>
-            <p className="list-message">2/3/2021, 1:19:23 PM</p>
-          </Col>
-        </Row>
+        </Row> */}
 
         <a href="#form">
           <Button className="add-tree-btn">ADD YOUR TREE</Button>

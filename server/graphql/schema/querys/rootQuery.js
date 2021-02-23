@@ -12,7 +12,7 @@ const RootQuery = new GraphQLObjectType({
   name: "RootQueryType",
   fields: {
     //============get Donation===========
-    get_donation: {
+    get_donations: {
       type: new GraphQLList(DonateType),
       resolve(parent, args) {
         return Donate.find({}).sort({ create_at: -1 })

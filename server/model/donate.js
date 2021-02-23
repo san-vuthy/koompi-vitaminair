@@ -23,7 +23,7 @@ const DonateSchema = new mongoose.Schema({
   },
   anonymous: {
     type: Boolean,
-    required: true,
+    default: false,
   },
   create_at: {
     type: Date,
