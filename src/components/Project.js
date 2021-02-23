@@ -10,7 +10,7 @@ function Project() {
   }
   return (
     <div>
-      <Carousel autoplay>
+      <Carousel autoplay infinite autoplaySpeed={2000}>
         <div>
           <h3 style={contentStyle}>1</h3>
         </div>
@@ -30,7 +30,7 @@ function Project() {
           We're especially pleased to have built strategic partnerships with forward
           thinking leaders in the business world.
         </p>
-        <Row className="projects" gutter={30} justify="center">
+        <Row className="projects" justify="center">
           <Col xs={{ span: 24 }} lg={{ span: 11 }} className="project-list">
             <img src="/images/projects/va-natural-farming.png" alt="" />
             <div className="info">

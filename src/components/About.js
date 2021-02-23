@@ -12,8 +12,10 @@ function About() {
 
   return (
     <div>
+      <div className="about-banner">
+        <h1>About Us</h1>
+      </div>
       <div className="container" style={{ marginTop: "30px" }}>
-        <h1>ABOUT US</h1>
         <div className="objective">
           <h2 style={{ textAlign: "left" }}>OUR OBJECTIVE</h2>
           <img src="/images/about/Rectangle.png" alt="" />

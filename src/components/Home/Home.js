@@ -1,5 +1,5 @@
 import { Row, Col, Button } from "antd"
-import Form from "../Home/Form"
+import InfoForm from "../Home/InfoForm"
 import Activities from "./Activities"
 import Leaderboard from "./Leaderboard"
 
@@ -47,7 +47,7 @@ function Home() {
 
       {/* <img className="big-banner" style={{ width: "100%" }} src="/images/big-header.png" alt="" /> */}
 
-      <Form />
+      <InfoForm />
       <Leaderboard />
       <Activities />
     </>

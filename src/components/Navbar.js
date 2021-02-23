@@ -47,7 +47,7 @@ function Navbar() {
           </Menu.Item>
           <Menu.Item onClick={onClose}>
             <NavLink to="/about" activeClassName="is-active">
-              ABOUT
+              ABOUT US
             </NavLink>
           </Menu.Item>
           <Menu.Item onClick={onClose}>
