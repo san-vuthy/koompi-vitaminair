@@ -28,12 +28,12 @@ function Leaderboard() {
   return (
     <div style={{ marginTop: "50px" }}>
       <h1>LEADERBOARD</h1>
-      <Row className="search-user" align="middle" justify="center">
+      <Row align="middle" justify="center">
         <Col className="search-box gutter-row">
           <Input className="search" type="text" placeholder="Search" />
           <FaSearch className="fa-search" />
         </Col>
-        <Col offset={1} className="most-recent-trees gutter-row">
+        <Col offset={1} className="gutter-row">
           <button id="most-recents" onClick={active}>
             Most Recents
           </button>
@@ -57,13 +57,11 @@ function Leaderboard() {
                 <img src="/images/list-images/icon1.svg" alt="" />
               </Col>
               <Col flex="auto">
-                <p className="list-title">
-                  {anonymous === false ? name : "Anonymous"}
-                </p>
+                <p className="list-title">{res.name}</p>
                 <p className="list-message">{user_message}</p>
               </Col>
               <Col xs={{ span: 24 }} sm={{ span: 24, offset: 3 }} md={{ span: 7 }}>
-                <p className="badge">{tree}</p>
+                <p className="badge">{tree} trees</p>
                 {res.tree === 1}
                 <p className="list-message">2/3/2021, 1:19:23 PM</p>
               </Col>
