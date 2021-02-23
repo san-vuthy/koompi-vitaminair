@@ -490,7 +490,6 @@ button:hover {
     margin-right: 22px;
   }
 }
-
 .activities {
   display: flex;
   justify-content: center;
@@ -528,6 +527,7 @@ button:hover {
 }
 .eye {
   font-size: 80px;
+  color: white;
 }
 .ant-modal-content {
   border-radius: 8px;
