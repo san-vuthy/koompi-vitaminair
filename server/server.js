@@ -1,6 +1,6 @@
 require("dotenv").config()
 const express = require("express")
-const cors = require("cors")
+// const cors = require("cors")
 const colors = require("colors")
 const { graphqlHTTP } = require("express-graphql")
 const schema = require("./graphql/schema/schema")
@@ -9,7 +9,7 @@ const app = express()
 
 //Initial Middleware
 app.use(express.json({ extend: false }))
-app.use(cors())
+// app.use(cors())
 
 app.use(
   "/graphql",
