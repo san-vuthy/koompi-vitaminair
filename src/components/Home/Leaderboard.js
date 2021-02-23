@@ -28,12 +28,12 @@ function Leaderboard() {
   return (
     <div style={{ marginTop: "50px" }}>
       <h1>LEADERBOARD</h1>
-      <Row align="middle" justify="center">
+      <Row className="search-user" align="middle" justify="center">
         <Col className="search-box gutter-row">
           <Input className="search" type="text" placeholder="Search" />
           <FaSearch className="fa-search" />
         </Col>
-        <Col offset={1} className="gutter-row">
+        <Col offset={1} className="most-recent-trees gutter-row">
           <button id="most-recents" onClick={active}>
             Most Recents
           </button>

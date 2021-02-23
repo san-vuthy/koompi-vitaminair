@@ -51,7 +51,6 @@ button {
 }
 button:hover {
   cursor: pointer;
-  /* color: white; */
   border: none;
 }
 .container {
@@ -267,7 +266,6 @@ button:hover {
   background-color: rgba(12, 176, 75, 0.082);
   color: #0cb04a;
   border: 2px solid #0cb04b41;
-  /* width: 100%; */
   width: 235px;
   height: 63px;
   font-size: 20px;
@@ -275,14 +273,18 @@ button:hover {
   margin: 5px;
   border-radius: 8px;
 }
+.amount-active {
+  background-color: #0cb04a !important;
+  color: white !important;
+}
 .join-desc {
   font-weight: 800;
   font-size: 20px;
   margin-bottom: 40px;
 }
-.amount-active {
-  background-color: #0cb04a !important;
-  color: white !important;
+.form label {
+  font-size: 18px !important;
+  font-weight: bold;
 }
 .form input[type="text"] {
   margin-top: 5px;
@@ -299,14 +301,7 @@ button:hover {
 .tree-amount:focus {
   box-shadow: none;
 }
-.form input[type="checkbox"] {
-  width: 30px;
-  height: 30px;
-  margin-right: 20px;
-}
-.form label {
-  font-size: 20px;
-}
+
 .form textarea {
   margin-top: 5px;
   width: calc(100% - 10px);
@@ -317,27 +312,30 @@ button:hover {
   background-color: rgba(211, 213, 218, 0.192);
   font-size: 1.1rem;
 }
-.input-fill {
-  margin-bottom: 40px;
+.ant-select-selector {
+  font-size: 20px;
+  height: 63px !important;
+  padding: 12px 20px !important;
+  border: 2px solid #0cb04b3d !important;
+  border-radius: 8px !important;
+  background-color: #f6f6f6 !important;
 }
-.input-fill p:nth-child(1) {
-  font-weight: bold;
+.ant-form-item-explain,
+.ant-form-item-extra {
+  font-size: 20px;
 }
-.input-fill p {
-  text-align: left;
-  margin-left: 5px;
-}
-.confirm-check {
-  display: flex;
-  align-items: center;
-  margin: 30px 0;
+@media only screen and (max-width: 1440px) {
+  .ant-form-item-explain,
+  .ant-form-item-extra {
+    font-size: 16px;
+  }
 }
 .form h2 {
   margin-bottom: 0px !important;
 }
 .next-btn {
   color: white;
-  width: 179px !important;
+  width: 179px;
   border: none;
   height: 45px !important;
   background-color: #0cb04a;
@@ -353,9 +351,15 @@ button:hover {
   justify-content: flex-end;
 }
 .prev {
+  width: 179px !important;
   background: none;
+  font-size: 18px;
   color: #0cb04a;
   border: none;
+  font-weight: bold;
+}
+.prev:hover {
+  color: #0cb04a;
 }
 @media only screen and (max-width: 700px) {
   .form {
@@ -372,6 +376,10 @@ button:hover {
   position: relative;
   width: 210px;
   height: 45px;
+  margin-top: 20px;
+}
+.most-recent-trees {
+  margin-top: 20px;
 }
 .search {
   width: 100%;
@@ -482,7 +490,6 @@ button:hover {
     margin-right: 22px;
   }
 }
-
 .activities {
   display: flex;
   justify-content: center;
@@ -496,6 +503,43 @@ button:hover {
 }
 .activities .card .cardbox h3 {
   font-size: 24px;
+  color: #0cb04a;
+}
+.activities .card .cardbox img {
+  position: relative;
+}
+.eye-icon {
+  position: absolute;
+  top: 10px;
+  /* transform: translate(-50%, -50%); */
+  width: calc(100% - 20px);
+  height: calc(100% - 20px);
+  border-radius: 8px;
+  background-color: rgba(32, 31, 31, 0.603);
+  /* display: flex; */
+  justify-content: center;
+  align-items: center;
+  display: none;
+  transition: 400ms;
+}
+.activities .card .cardbox:hover .eye-icon {
+  display: flex;
+}
+.eye {
+  font-size: 80px;
+  color: white;
+}
+.ant-modal-content {
+  border-radius: 8px;
+}
+.ant-modal-header {
+  border-radius: 8px 8px 0 0;
+}
+.ant-modal-close {
+  width: auto;
+}
+.ant-modal-title {
+  font-size: 18px;
   color: #0cb04a;
 }
 
@@ -528,6 +572,39 @@ button:hover {
 }
 
 /* about */
+.about-banner {
+  background-image: url(/src/components/asset/about-banner.png);
+  background-repeat: no-repeat;
+  height: 436px;
+  /* width: 100%; */
+  display: flex;
+  background-position: center;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+}
+.about-banner::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  background-color: rgba(12, 176, 74, 0.54);
+  z-index: 1 !important;
+  width: 100%;
+  height: 100%;
+}
+.about-banner h1 {
+  z-index: 2 !important;
+  color: white;
+  font-size: 80px;
+}
+@media only screen and (max-width: 850px) {
+  .about-banner {
+    height: 150px;
+  }
+  .about-banner h1 {
+    font-size: 35px;
+  }
+}
 .about {
   margin: 70px 0;
 }
@@ -588,6 +665,10 @@ button:hover {
 .team-member {
   margin: 30px 0;
 }
+.member h3 {
+  margin-top: 20px;
+  margin-bottom: 0;
+}
 .member div {
   margin: 15px;
   background-color: #fff;
@@ -602,7 +683,8 @@ button:hover {
 .footer {
   background-color: #057630;
   color: white;
-  padding: 10px 15%;
+  /* height: 70px; */
+  padding: 15px 15%;
 }
 .footer a {
   font-size: 25px;
@@ -610,7 +692,7 @@ button:hover {
   color: #0cb04a;
   margin: 0 8px;
   border-radius: 50%;
-  padding: 4px 10px 0 10px;
+  padding: 5px 9px 2px 9px;
   transition: 400ms;
 }
 .footer a:hover {
