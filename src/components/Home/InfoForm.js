@@ -25,12 +25,16 @@ function InfoForm() {
     e.preventDefault()
     // console.log(e.target.parentElement)
     const btns = Array.from(document.getElementsByClassName("tree-amount"))
+    console.log(btns)
+    console.log(e.target)
     btns.forEach((btn) => {
       if (btn === e.target) {
         btn.className += " amount-active"
-      } else if (e.target.parentElement.className === "tree-amount") {
-        e.target.parentElement.className += " amount-active"
-      } else btn.className = "tree-amount"
+      } else if (btn === e.target.parentElement) {
+        btn.className += " amount-active"
+      } else {
+        btn.className = "tree-amount"
+      }
     })
   }
   //form
