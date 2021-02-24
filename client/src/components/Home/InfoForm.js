@@ -4,7 +4,7 @@ import { Divider, Row, Col, Button, Input, Form, Checkbox, Select } from "antd"
 
 function InfoForm() {
   const [current, setCurrent] = useState(0)
-
+  const [value, setValue] = useState()
   const next = (e) => {
     e.preventDefault()
     setCurrent(current + 1)
@@ -68,7 +68,11 @@ function InfoForm() {
           <p className="join-desc">$1 plants a tree</p>
           <Row gutter={[12, 12]}>
             <Col span={12}>
-              <Button className="tree-amount" onClick={amountActive}>
+              <Button
+                onChange={(e) => setValue(e.target.value)}
+                className="tree-amount"
+                onClick={amountActive}
+              >
                 10,000 riel
               </Button>
             </Col>

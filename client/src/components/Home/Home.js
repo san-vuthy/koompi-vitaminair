@@ -1,5 +1,5 @@
 import { Row, Col, Button } from "antd"
-import InfoForm from "../Home/InfoForm"
+import InfoForm from "./InfoForm"
 import Activities from "./Activities"
 import Leaderboard from "./Leaderboard"
 
