@@ -104,7 +104,7 @@ function InfoForm() {
             style={{ textAlign: "left" }}
             {...layout}
             name="basic"
-            initialValues={{ remember: true }}
+            // initialValues={{ remember: true }}
             onFinish={onFinish}
             onFinishFailed={onFinishFailed}
           >
@@ -131,23 +131,22 @@ function InfoForm() {
             <Form.Item
               label="MOBILE PHONE"
               name="phone"
-              rules={[{ type: "number" }]}
+              // rules={[{ type: "number" }]}
             >
               <Input />
-
-              <p>
-                optional; by entering a phone number, you consent to receive text
-                messages
-              </p>
             </Form.Item>
+            <p>
+              optional; by entering a phone number, you consent to receive text
+              messages
+            </p>
             <Form.Item label="TEAM" name="team">
               <Input />
-              <p>optional</p>
             </Form.Item>
+            <p>optional</p>
             <Form.Item label="MESSAGE" name="message">
               <Input.TextArea />
-              <p>optional; for display on the website</p>
             </Form.Item>
+            <p>optional; for display on the website</p>
             <Form.Item label="Select" name="selecType">
               <Select>
                 <Select.Option value="Tree">Tree</Select.Option>
@@ -187,7 +186,12 @@ function InfoForm() {
           {steps[current].content}
           {current < steps.length - 1 && (
             <div className="btn-position">
-              <Button onClick={next} type="primary" className="next-btn">
+              <Button
+                htmlType="submit"
+                onClick={next}
+                type="primary"
+                className="next-btn"
+              >
                 Next
               </Button>
             </div>
