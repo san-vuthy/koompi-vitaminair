@@ -1,0 +1,23 @@
+{
+  "name": "koompi-vitaminair",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "concurrently \"cd server && npm run dev\" \"cd client && npm start\" "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sea-viseth/koompi-vitaminair.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sea-viseth/koompi-vitaminair/issues"
+  },
+  "homepage": "https://github.com/sea-viseth/koompi-vitaminair#readme",
+  "devDependencies": {
+    "concurrently": "^6.0.0"
+  }
+}
