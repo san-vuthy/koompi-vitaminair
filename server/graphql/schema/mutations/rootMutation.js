@@ -1,8 +1,8 @@
-const graphql = require("graphql")
-require("dotenv").config()
-const jwt = require("jsonwebtoken")
-const bcrypt = require("bcryptjs")
-const { JwtSecret } = process.env
+const graphql = require("graphql");
+require("dotenv").config();
+const jwt = require("jsonwebtoken");
+const bcrypt = require("bcryptjs");
+const { JwtSecret } = process.env;
 
 const {
   GraphQLObjectType,
@@ -10,14 +10,14 @@ const {
   GraphQLNonNull,
   GraphQLBoolean,
   GraphQLInt,
-} = graphql
+} = graphql;
 
 //============Model Sections=========
-const Donate = require("../../../model/donate")
-const User = require("../../../model/user")
+const Donate = require("../../../model/donate");
+const User = require("../../../model/user");
 //============Type Sections==========
-const DonateType = require("../types/donateType")
-const UserType = require("../types/userType")
+const DonateType = require("../types/donateType");
+const UserType = require("../types/userType");
 
 const RootMutation = new GraphQLObjectType({
   name: "RootMutationType",
@@ -32,15 +32,16 @@ const RootMutation = new GraphQLObjectType({
         phone: { type: GraphQLNonNull(GraphQLString) },
         user_message: { type: GraphQLNonNull(GraphQLString) },
         anonymous: { type: GraphQLBoolean },
+        public: { type: GraphQLBoolean },
       },
       resolve: async (parent, args) => {
         try {
-          const donate = new Donate({ ...args })
-          await donate.save()
-          return { message: "Donation successfull!" }
+          const donate = new Donate({ ...args });
+          await donate.save();
+          return { message: "Donation successfull!" };
         } catch (error) {
-          console.log(error)
-          throw error
+          console.log(error);
+          throw error;
         }
       },
     },
@@ -54,23 +55,23 @@ const RootMutation = new GraphQLObjectType({
       },
       resolve: async (parent, args) => {
         try {
-          const isEmails = await User.findOne({ email: args.email })
+          const isEmails = await User.findOne({ email: args.email });
           if (isEmails) {
-            throw new Error("Email already Exist")
+            throw new Error("Email already Exist");
           }
           //bcrypt password in database
-          const salt = await bcrypt.genSalt(12)
-          const hashPassword = await bcrypt.hash(args.password, salt)
+          const salt = await bcrypt.genSalt(12);
+          const hashPassword = await bcrypt.hash(args.password, salt);
           let NewUser = new User({
             fullname: args.fullname,
             email: args.email,
             password: hashPassword,
-          })
-          await NewUser.save()
-          return { message: "Successful" }
+          });
+          await NewUser.save();
+          return { message: "Successful" };
         } catch (error) {
-          console.log(error)
-          throw error
+          console.log(error);
+          throw error;
         }
       },
     },
@@ -83,17 +84,17 @@ const RootMutation = new GraphQLObjectType({
       },
       resolve: async (parent, args, context) => {
         try {
-          const user = await User.findOne({ email: args.email })
+          const user = await User.findOne({ email: args.email });
           if (!user) {
             return {
               messsage: "Login failed",
-            }
+            };
           }
-          const isMatch = await bcrypt.compare(args.password, user.password)
+          const isMatch = await bcrypt.compare(args.password, user.password);
           if (!isMatch) {
             return {
               message: "Login failed",
-            }
+            };
           } else {
             const token = jwt.sign(
               {
@@ -105,20 +106,20 @@ const RootMutation = new GraphQLObjectType({
               {
                 expiresIn: "24h",
               }
-            )
+            );
             return {
               token: token,
               name: user.name,
               id: user.id,
               message: "Login successful",
-            }
+            };
           }
         } catch (error) {
-          console.log(error)
-          throw error
+          console.log(error);
+          throw error;
         }
       },
     },
   }),
-})
-module.exports = RootMutation
+});
+module.exports = RootMutation;
