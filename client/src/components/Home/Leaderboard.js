@@ -19,7 +19,6 @@ function Leaderboard() {
       trees.style.zIndex = 1
     } else if (e.target.id === "most-trees") {
       recents.className = "clicked"
-
       trees.className = ""
       trees.style.zIndex = 2
       recents.style.zIndex = 1
@@ -57,108 +56,17 @@ function Leaderboard() {
                 <img src="/images/list-images/icon1.svg" alt="" />
               </Col>
               <Col flex="auto">
-                <p className="list-title">{res.name}</p>
+                <p className="list-title">{name}</p>
                 <p className="list-message">{user_message}</p>
               </Col>
               <Col xs={{ span: 24 }} sm={{ span: 24, offset: 3 }} md={{ span: 7 }}>
                 <p className="badge">{tree} trees</p>
-                {res.tree === 1}
+
                 <p className="list-message">2/3/2021, 1:19:23 PM</p>
               </Col>
             </Row>
           )
         })}
-        {/* <Row className="list" align="middle">
-          <Col
-            className="avatar"
-            xs={{ span: 24 }}
-            sm={{ span: 2 }}
-            md={{ span: 1 }}
-          >
-            <img src="/images/list-images/icon1.svg" alt="" />
-          </Col>
-          <Col flex="auto">
-            <p className="list-title">KAYBE</p>
-            <p className="list-message">Freedom & Bitcoin - The Cryptosphere</p>
-          </Col>
-          <Col xs={{ span: 24 }} sm={{ span: 24, offset: 3 }} md={{ span: 7 }}>
-            <p className="badge">5 TREES</p>
-            <p className="list-message">2/3/2021, 1:19:23 PM</p>
-          </Col>
-        </Row>
-        <Row className="list" align="middle">
-          <Col
-            className="avatar"
-            xs={{ span: 24 }}
-            sm={{ span: 2 }}
-            md={{ span: 1 }}
-          >
-            <img src="/images/list-images/icon1.svg" alt="" />
-          </Col>
-          <Col flex="auto">
-            <p className="list-title">KAYBE</p>
-            <p className="list-message">Freedom & Bitcoin - The Cryptosphere</p>
-          </Col>
-          <Col xs={{ span: 24 }} sm={{ span: 24, offset: 3 }} md={{ span: 7 }}>
-            <p className="badge">5 TREES</p>
-            <p className="list-message">2/3/2021, 1:19:23 PM</p>
-          </Col>
-        </Row>
-        <Row className="list" align="middle">
-          <Col
-            className="avatar"
-            xs={{ span: 24 }}
-            sm={{ span: 2 }}
-            md={{ span: 1 }}
-          >
-            <img src="/images/list-images/icon1.svg" alt="" />
-          </Col>
-          <Col flex="auto">
-            <p className="list-title">KAYBE</p>
-            <p className="list-message">Freedom & Bitcoin - The Cryptosphere</p>
-          </Col>
-          <Col xs={{ span: 24 }} sm={{ span: 24, offset: 3 }} md={{ span: 7 }}>
-            <p className="badge">5 TREES</p>
-            <p className="list-message">2/3/2021, 1:19:23 PM</p>
-          </Col>
-        </Row>
-        <Row className="list" align="middle">
-          <Col
-            className="avatar"
-            xs={{ span: 24 }}
-            sm={{ span: 2 }}
-            md={{ span: 1 }}
-          >
-            <img src="/images/list-images/icon1.svg" alt="" />
-          </Col>
-          <Col flex="auto">
-            <p className="list-title">KAYBE</p>
-            <p className="list-message">Freedom & Bitcoin - The Cryptosphere</p>
-          </Col>
-          <Col xs={{ span: 24 }} sm={{ span: 24, offset: 3 }} md={{ span: 7 }}>
-            <p className="badge">5 TREES</p>
-            <p className="list-message">2/3/2021, 1:19:23 PM</p>
-          </Col>
-        </Row>
-        <Row className="list" align="middle">
-          <Col
-            className="avatar"
-            xs={{ span: 24 }}
-            sm={{ span: 2 }}
-            md={{ span: 1 }}
-          >
-            <img src="/images/list-images/icon1.svg" alt="" />
-          </Col>
-          <Col flex="auto">
-            <p className="list-title">KAYBE</p>
-            <p className="list-message">Freedom & Bitcoin - The Cryptosphere</p>
-          </Col>
-          <Col xs={{ span: 24 }} sm={{ span: 24, offset: 3 }} md={{ span: 7 }}>
-            <p className="badge">5 TREES</p>
-            <p className="list-message">2/3/2021, 1:19:23 PM</p>
-          </Col>
-        </Row> */}
-
         <a href="#form">
           <Button className="add-tree-btn">ADD YOUR TREE</Button>
         </a>
@@ -168,3 +76,15 @@ function Leaderboard() {
 }
 
 export default Leaderboard
+// import React from "react"
+// import TestForm from "./testForm"
+
+// const Leaderboard = () => {
+//   return (
+//     <div>
+//       <TestForm />
+//     </div>
+//   )
+// }
+
+// export default Leaderboard
