@@ -781,3 +781,9 @@ button:hover {
   background: #0cb04a;
   border-color: #1890ff;
 }
+.ant-radio-button-wrapper:hover {
+  color: #0cb04a;
+}
+.ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled):hover {
+  color: white;
+}

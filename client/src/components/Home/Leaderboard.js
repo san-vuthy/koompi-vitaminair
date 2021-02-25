@@ -3,6 +3,7 @@ import { Row, Col, Input, Button, TreeSelect } from "antd"
 import { FaSearch } from "react-icons/fa"
 import { useQuery } from "@apollo/client"
 import { GET_DONATIONS, GET_MOST_DONATIONS } from "../../graphql/query"
+import moment from "moment"
 import { useState } from "react"
 function Leaderboard() {
   const [value, setValue] = useState("recent")
@@ -103,7 +104,10 @@ function Leaderboard() {
                 <Col xs={{ span: 24 }} sm={{ span: 24, offset: 3 }} md={{ span: 7 }}>
                   <p className="badge">{tree} trees</p>
 
-                  <p className="list-message">2/3/2021, 1:19:23 PM</p>
+                  <p className="list-message">
+                    {/* {moment.unix(create_at / 1000).format("YYYY-MM-DD")}, */}
+                    {moment.unix(create_at / 1000).format(" Do YYYY, h:mm:ss A")}
+                  </p>
                 </Col>
               </Row>
             )
