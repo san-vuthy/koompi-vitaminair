@@ -39,6 +39,7 @@ h3 {
   color: #0cb04a;
   font-size: 20px;
 }
+
 button {
   background-color: #0cb04a;
   color: #fff;
@@ -321,6 +322,7 @@ button:hover {
   font-weight: 800;
   font-size: 20px;
   margin-bottom: 40px;
+  text-align: center;
 }
 .form label {
   font-size: 18px !important;
@@ -411,6 +413,9 @@ button:hover {
   }
   .radio-button {
     width: 163px;
+  }
+  .input-amount {
+    width: 100%;
   }
 }
 /* leaderboard */

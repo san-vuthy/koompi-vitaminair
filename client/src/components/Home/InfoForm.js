@@ -9,10 +9,16 @@ import {
   Checkbox,
   Select,
   Radio,
+  message,
 } from "antd"
+import { DONATE_TREES } from "../../graphql/mutaion"
+import { GET_DONATIONS } from "../../graphql/query"
+import { useQuery, useMutation } from "@apollo/client"
 
 function InfoForm() {
   const [current, setCurrent] = useState(0)
+  const [donation] = useMutation(DONATE_TREES)
+  const { refetch } = useQuery(GET_DONATIONS)
   const next = (e) => {
     e.preventDefault()
     setCurrent(current + 1)
@@ -55,7 +61,14 @@ function InfoForm() {
     },
   }
   const onFinish = (values) => {
-    console.log("Success:", values)
+    donation({
+      variables: {
+        ...values,
+      },
+    }).then(async (res) => {
+      message.success(" Donation Successful")
+      await refetch()
+    })
   }
 
   const onFinishFailed = (errorInfo) => {
@@ -67,9 +80,10 @@ function InfoForm() {
     return (
       <>
         <div>
-          <h2>JOIN VitaminAir</h2>
-          <p className="join-desc">$1 plants a tree</p>
-
+          <center>
+            <h2 className="top-title">JOIN VitaminAir</h2>
+            <p className="join-desc">$1 plants a tree</p>
+          </center>
           <Row gutter={[12]}>
             <Col span={12}>
               {/* <Button
@@ -79,7 +93,7 @@ function InfoForm() {
                 >
                   10,000 riel
                 </Button> */}
-              <Form.Item name="amount">
+              <Form.Item name="tree">
                 <Radio.Group>
                   <Radio.Button className="radio-button" value={5}>
                     <span className="text-radio-button">5 trees</span>
@@ -91,7 +105,7 @@ function InfoForm() {
               {/* <Button className="tree-amount amount-active" onClick={amountActive}>
                 20,000 riel
               </Button> */}
-              <Form.Item name="amount" initialValue={20}>
+              <Form.Item name="tree" initialValue={20}>
                 <Radio.Group defaultValue={20}>
                   <Radio.Button className="radio-button" value={20}>
                     <span className="text-radio-button ">20 trees</span>
@@ -103,7 +117,7 @@ function InfoForm() {
               {/* <Button className="tree-amount" onClick={amountActive}>
                 30,000 riel
               </Button> */}
-              <Form.Item name="amount">
+              <Form.Item name="tree">
                 <Radio.Group>
                   <Radio.Button className="radio-button" value={50}>
                     <span className="text-radio-button ">50 trees</span>
@@ -115,7 +129,7 @@ function InfoForm() {
               {/* <Button className="tree-amount" onClick={amountActive}>
                 40,000 riel
               </Button> */}
-              <Form.Item name="amount">
+              <Form.Item name="tree">
                 <Radio.Group>
                   <Radio.Button className="radio-button" value={100}>
                     <span className="text-radio-button ">100 trees</span>
@@ -124,7 +138,7 @@ function InfoForm() {
               </Form.Item>
             </Col>
           </Row>
-          <Form.Item name="amount" initialValue={20} label="Other Amount">
+          <Form.Item name="tree" initialValue={20} label="Other Amount">
             <Input
               className="input-amount"
               id="tree-amount"
@@ -151,7 +165,7 @@ function InfoForm() {
         > */}
         <Form.Item
           label="DISPLAY NAME"
-          name="username"
+          name="name"
           rules={[{ required: true, message: "Please input your username!" }]}
         >
           <Input />
@@ -183,7 +197,7 @@ function InfoForm() {
           <Input />
         </Form.Item>
         <p>optional</p>
-        <Form.Item label="MESSAGE" name="message">
+        <Form.Item label="MESSAGE" name="user_message">
           <Input.TextArea />
         </Form.Item>
         <p>optional; for display on the website</p>
