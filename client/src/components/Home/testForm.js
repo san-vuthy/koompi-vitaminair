@@ -1,26 +1,102 @@
+// import React, { useState } from "react"
+// import { PageHeader, Button, Form, Input } from "antd"
+
+// const TestForm = () => {
+//   const [activeStep, setActiveStep] = useState(0)
+//   function next() {
+//     const nextStep = activeStep + 1
+//     setActiveStep(nextStep)
+//   }
+
+//   function prev() {
+//     const prevStep = activeStep - 1
+//     setActiveStep(prevStep)
+//   }
+//   const Step1Form = () => {
+//     return (
+//       <>
+//         <Form.Item name="field1" label="Field1">
+//           <Input />
+//         </Form.Item>
+//       </>
+//     )
+//   }
+
+//   const Step2Form = () => {
+//     return (
+//       <>
+//         <Form.Item name="field2" label="Field2">
+//           <Input />
+//         </Form.Item>
+//       </>
+//     )
+//   }
+//   const onFinish = (values) => {
+//     // const formData = stepForm.getFieldsValue()
+//     // POST the data to backend and show Notification
+//     console.log(values)
+//   }
+//   const steps = [
+//     {
+//       step: 1,
+//       title: "Step1",
+//       content: <Step1Form />,
+//     },
+//     {
+//       step: 2,
+//       title: "Step2",
+//       content: <Step2Form />,
+//     },
+//   ]
+//   return (
+//     <React.Fragment>
+//       <Form onFinish={onFinish}>
+//         {steps.map((item) => (
+//           <div
+//             className={`steps-content ${item.step !== activeStep + 1 && "hidden"}`}
+//           >
+//             {item.content}
+//           </div>
+//         ))}
+//         <div className="steps-action">
+//           {activeStep < steps.length - 1 && (
+//             <Button type="primary" onClick={() => next()}>
+//               Next
+//             </Button>
+//           )}
+//           {activeStep === steps.length - 1 && (
+//             <Button type="primary" htmlType="submit">
+//               Submit
+//             </Button>
+//           )}
+//           {activeStep > 0 && (
+//             <Button style={{ margin: "0 8px" }} onClick={() => prev()}>
+//               Previous
+//             </Button>
+//           )}
+//         </div>
+//       </Form>
+//     </React.Fragment>
+//   )
+// }
+
+// export default TestForm
+
 import React, { useState } from "react"
-import {
-  Divider,
-  Row,
-  Col,
-  Button,
-  Input,
-  Form,
-  Checkbox,
-  Select,
-  Radio,
-} from "antd"
+import { Divider, Row, Col, Button, Input, Form, Checkbox, Select } from "antd"
+// import Layout from "antd/lib/layout/layout"
 
 function InfoForm() {
   const [current, setCurrent] = useState(0)
+  // const [value, setValue] = useState()
   const next = (e) => {
-    e.preventDefault()
+    // e.preventDefault()
     setCurrent(current + 1)
   }
 
   //go to prev step in form
   const prev = (e) => {
-    e.preventDefault()
+    // e.preventDefault()
     setCurrent(current - 1)
   }
 
@@ -69,66 +145,38 @@ function InfoForm() {
         <div>
           <h2>JOIN VitaminAir</h2>
           <p className="join-desc">$1 plants a tree</p>
-
-          <Row gutter={[12]}>
+          <Row gutter={[12, 12]}>
             <Col span={12}>
-              {/* <Button
-                  onChange={(e) => setValue(e.target.value)}
-                  className="tree-amount"
-                  onClick={amountActive}
-                >
-                  10,000 riel
-                </Button> */}
-              <Form.Item name="amount">
-                <Radio.Group>
-                  <Radio.Button className="radio-button" value={5}>
-                    <span className="text-radio-button">5 trees</span>
-                  </Radio.Button>
-                </Radio.Group>
-              </Form.Item>
+              <Button
+                // onChange={(e) => setValue(e.target.value)}
+                className="tree-amount"
+                onClick={amountActive}
+              >
+                10,000 riel
+              </Button>
             </Col>
             <Col span={12}>
-              {/* <Button className="tree-amount amount-active" onClick={amountActive}>
+              <Button className="tree-amount amount-active" onClick={amountActive}>
                 20,000 riel
-              </Button> */}
-              <Form.Item name="amount" initialValue={20}>
-                <Radio.Group defaultValue={20}>
-                  <Radio.Button className="radio-button" value={20}>
-                    <span className="text-radio-button ">20 trees</span>
-                  </Radio.Button>
-                </Radio.Group>
-              </Form.Item>
+              </Button>
             </Col>
             <Col span={12}>
-              {/* <Button className="tree-amount" onClick={amountActive}>
+              <Button className="tree-amount" onClick={amountActive}>
                 30,000 riel
-              </Button> */}
-              <Form.Item name="amount">
-                <Radio.Group>
-                  <Radio.Button className="radio-button" value={50}>
-                    <span className="text-radio-button ">50 trees</span>
-                  </Radio.Button>
-                </Radio.Group>
-              </Form.Item>
+              </Button>
             </Col>
             <Col span={12}>
-              {/* <Button className="tree-amount" onClick={amountActive}>
+              <Button className="tree-amount" onClick={amountActive}>
                 40,000 riel
-              </Button> */}
-              <Form.Item name="amount">
-                <Radio.Group>
-                  <Radio.Button className="radio-button" value={100}>
-                    <span className="text-radio-button ">100 trees</span>
-                  </Radio.Button>
-                </Radio.Group>
-              </Form.Item>
+              </Button>
             </Col>
           </Row>
-          <Form.Item name="amount" initialValue={20} label="Other Amount">
+          <Form.Item name="amount">
             <Input
-              className="input-amount"
+              onClick={amountActive}
+              className="tree-amount"
               id="tree-amount"
-              type="number"
+              type="text"
               placeholder="Other Amount"
             />
           </Form.Item>

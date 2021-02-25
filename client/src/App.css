@@ -49,6 +49,35 @@ button {
   font-size: 18px;
   font-weight: bold;
 }
+.radio-button {
+  background-color: rgba(12, 176, 75, 0.082);
+  color: #0cb04a;
+  width: 235px;
+  height: 63px;
+  font-size: 20px;
+  font-weight: 900;
+  margin: 5px;
+  border-radius: 8px !important;
+  border: 2px solid #0cb04b41 !important;
+  text-align: center;
+  /* background-color: rgba(12, 176, 75, 0.082);
+  border-radius: 8px !important;
+  color: #0cb04a;
+  border: 2px solid #0cb04b41;
+  width: 235px;
+  height: 63px;
+  font-size: 20px;
+  font-weight: 900;
+  margin: 5px;
+  text-align: center;
+  border-radius: 8px !important; */
+}
+.text-radio-button {
+  position: absolute;
+  top: 20%;
+  left: 30%;
+  /* color: #0cb04a; */
+}
 button:hover {
   cursor: pointer;
   border: none;
@@ -273,6 +302,17 @@ button:hover {
   margin: 5px;
   border-radius: 8px;
 }
+.input-amount {
+  background-color: rgba(12, 176, 75, 0.082);
+  color: #0cb04a;
+  border: 2px solid #0cb04b41;
+  width: 480px;
+  height: 63px;
+  font-size: 20px;
+  font-weight: 900;
+  margin: 5px;
+  border-radius: 8px;
+}
 .amount-active {
   background-color: #0cb04a !important;
   color: white !important;
@@ -368,6 +408,9 @@ button:hover {
   }
   .form .tree-amount {
     width: 100%;
+  }
+  .radio-button {
+    width: 163px;
   }
 }
 /* leaderboard */
@@ -686,6 +729,9 @@ button:hover {
   /* height: 70px; */
   padding: 15px 15%;
 }
+.hidden {
+  display: none;
+}
 .footer a {
   font-size: 25px;
   background: #fff;
@@ -722,4 +768,11 @@ button:hover {
   .footer p {
     margin-bottom: 15px;
   }
+}
+.ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled) {
+  z-index: 1;
+  /* color: #1890ff; */
+  color: white;
+  background: #0cb04a;
+  border-color: #1890ff;
 }
