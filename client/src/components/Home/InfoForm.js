@@ -12,13 +12,15 @@ import {
   message,
 } from "antd"
 import { DONATE_TREES } from "../../graphql/mutaion"
-import { GET_DONATIONS } from "../../graphql/query"
+import { GET_DONATIONS, GET_MOST_DONATIONS } from "../../graphql/query"
 import { useQuery, useMutation } from "@apollo/client"
 
 function InfoForm() {
   const [current, setCurrent] = useState(0)
   const [donation] = useMutation(DONATE_TREES)
   const { refetch } = useQuery(GET_DONATIONS)
+  const { refetch: refetchMostDonation } = useQuery(GET_MOST_DONATIONS)
+
   const [form] = Form.useForm()
   const next = (e) => {
     e.preventDefault()
@@ -71,6 +73,7 @@ function InfoForm() {
     }).then(async (res) => {
       message.success(" Donation Successful")
       await refetch()
+      await refetchMostDonation()
       form.resetFields()
     })
     console.log(values)
@@ -177,6 +180,7 @@ function InfoForm() {
             {
               required: true,
               message: "Please input your email!",
+              type: "email",
             },
           ]}
         >
@@ -185,7 +189,12 @@ function InfoForm() {
         <Form.Item
           label="MOBILE PHONE"
           name="phone"
-          rules={[{ required: true, message: "Please input your Phone Number!" }]}
+          rules={[
+            {
+              required: true,
+              message: "Please input your Phone Number!",
+            },
+          ]}
           // rules={[{ type: "number" }]}
         >
           <Input />
