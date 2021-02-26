@@ -14,7 +14,7 @@ function Leaderboard() {
     data: mostDonateData,
     error: errorMostDonate,
   } = useQuery(GET_MOST_DONATIONS)
-  if (loading || lodingMostDonate) return "loading..."
+  if (loading || lodingMostDonate) return null
   if (error || errorMostDonate) return `Error! ${error.message}`
   console.log(donateData)
   const active = (e) => {
@@ -67,13 +67,23 @@ function Leaderboard() {
                   <img src="/images/list-images/icon1.svg" alt="" />
                 </Col>
                 <Col flex="auto">
-                  <p className="list-title">{name}</p>
+                  <p className="list-title">
+                    {anonymous === false ? name : "Anonymous"}
+                  </p>
                   <p className="list-message">{user_message}</p>
                 </Col>
                 <Col xs={{ span: 24 }} sm={{ span: 24, offset: 3 }} md={{ span: 7 }}>
-                  <p className="badge">{tree} trees</p>
+                  <p>
+                    {tree === 1 ? (
+                      <p className="badge">{tree} tree</p>
+                    ) : (
+                      <p className="badge">{tree} trees</p>
+                    )}
+                  </p>
 
-                  <p className="list-message">2/3/2021, 1:19:23 PM</p>
+                  <p className="list-message">
+                    {moment.unix(create_at / 1000).format(" Do YYYY, h:mm:ss A")}
+                  </p>
                 </Col>
               </Row>
             )
@@ -98,11 +108,19 @@ function Leaderboard() {
                   <img src="/images/list-images/icon1.svg" alt="" />
                 </Col>
                 <Col flex="auto">
-                  <p className="list-title">{name}</p>
+                  <p className="list-title">
+                    {anonymous === false ? name : "Anonymous"}
+                  </p>
                   <p className="list-message">{user_message}</p>
                 </Col>
                 <Col xs={{ span: 24 }} sm={{ span: 24, offset: 3 }} md={{ span: 7 }}>
-                  <p className="badge">{tree} trees</p>
+                  <p>
+                    {tree === 1 ? (
+                      <p className="badge">{tree} tree</p>
+                    ) : (
+                      <p className="badge">{tree} trees</p>
+                    )}
+                  </p>
 
                   <p className="list-message">
                     {/* {moment.unix(create_at / 1000).format("YYYY-MM-DD")}, */}
