@@ -19,6 +19,7 @@ function InfoForm() {
   const [current, setCurrent] = useState(0)
   const [donation] = useMutation(DONATE_TREES)
   const { refetch } = useQuery(GET_DONATIONS)
+  const [form] = Form.useForm()
   const next = (e) => {
     e.preventDefault()
     setCurrent(current + 1)
@@ -61,14 +62,18 @@ function InfoForm() {
     },
   }
   const onFinish = (values) => {
+    const { tree } = values
     donation({
       variables: {
         ...values,
+        tree: parseInt(tree),
       },
     }).then(async (res) => {
       message.success(" Donation Successful")
       await refetch()
+      form.resetFields()
     })
+    console.log(values)
   }
 
   const onFinishFailed = (errorInfo) => {
@@ -140,6 +145,7 @@ function InfoForm() {
           </Row>
           <Form.Item name="tree" initialValue={20} label="Other Amount">
             <Input
+              rules={[{ required: true, message: "Please Select or Input Amount" }]}
               className="input-amount"
               id="tree-amount"
               type="number"
@@ -155,14 +161,7 @@ function InfoForm() {
     return (
       <>
         <h2>Detail</h2>
-        {/* <Form
-          style={{ textAlign: "left" }}
-          {...layout}
-          name="basic"
-          // initialValues={{ remember: true }}
-          onFinish={onFinish}
-          onFinishFailed={onFinishFailed}
-        > */}
+
         <Form.Item
           label="DISPLAY NAME"
           name="name"
@@ -186,6 +185,7 @@ function InfoForm() {
         <Form.Item
           label="MOBILE PHONE"
           name="phone"
+          rules={[{ required: true, message: "Please input your Phone Number!" }]}
           // rules={[{ type: "number" }]}
         >
           <Input />
@@ -193,15 +193,27 @@ function InfoForm() {
         <p>
           optional; by entering a phone number, you consent to receive text messages
         </p>
-        <Form.Item label="TEAM" name="team">
+        <Form.Item
+          label="TEAM"
+          name="team"
+          rules={[{ required: true, message: "Please input your team!" }]}
+        >
           <Input />
         </Form.Item>
         <p>optional</p>
-        <Form.Item label="MESSAGE" name="user_message">
+        <Form.Item
+          label="MESSAGE"
+          name="user_message"
+          rules={[{ required: true, message: "Please input your message!" }]}
+        >
           <Input.TextArea />
         </Form.Item>
         <p>optional; for display on the website</p>
-        <Form.Item label="Select" name="selecType">
+        <Form.Item
+          label="Select"
+          name="selectType"
+          rules={[{ required: true, message: "Please selecet one!" }]}
+        >
           <Select>
             <Select.Option value="Tree">Tree</Select.Option>
             <Select.Option value="School">School</Select.Option>
@@ -218,17 +230,6 @@ function InfoForm() {
         <Form.Item {...tailLayout} name="anonymous" valuePropName="checked">
           <Checkbox>Please keep my donation anonymous </Checkbox>
         </Form.Item>
-        {/* <Form.Item {...tailLayout}>
-          <Button
-            type="primary"
-            htmlType="submit"
-            style={{ width: "100%" }}
-            className="next-btn"
-          >
-            Submit
-          </Button>
-        </Form.Item> */}
-        {/* </Form> */}
       </>
     )
   }
@@ -249,6 +250,7 @@ function InfoForm() {
     <div className="center container">
       <div id="form" className="form">
         <Form
+          form={form}
           style={{ textAlign: "left" }}
           {...layout}
           name="basic"
@@ -280,9 +282,6 @@ function InfoForm() {
               </div>
             )}
             {current === steps.length - 1 && (
-              // <Button type="primary" htmlType="submit">
-              //   Submit
-              // </Button>
               <Form.Item {...tailLayout}>
                 <Button
                   type="primary"
@@ -295,36 +294,14 @@ function InfoForm() {
               </Form.Item>
             )}
             {current > 0 && (
-              // <Button style={{ margin: "0 8px" }} onClick={() => prev()}>
-              //   Previous
-              // </Button>
               <Button className="prev" onClick={prev}>
                 Previous
               </Button>
             )}
           </div>
         </Form>
-        {/* {steps[current].content}
-          {current < steps.length - 1 && (
-            <div className="btn-position">
-              <Button
-                htmlType="submit"
-                onClick={next}
-                type="primary"
-                className="next-btn"
-              >
-                Next
-              </Button>
-            </div>
-          )}
-          {current > 0 && (
-            <Button className="prev" onClick={prev}>
-              Previous
-            </Button>
-          )} */}
       </div>
     </div>
-    // </Step1Form>
   )
 }
 

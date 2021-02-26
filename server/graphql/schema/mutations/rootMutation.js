@@ -31,6 +31,8 @@ const RootMutation = new GraphQLObjectType({
         email: { type: GraphQLNonNull(GraphQLString) },
         phone: { type: GraphQLNonNull(GraphQLString) },
         user_message: { type: GraphQLNonNull(GraphQLString) },
+        selectType: { type: GraphQLNonNull(GraphQLString) },
+        team: { type: GraphQLNonNull(GraphQLString) },
         anonymous: { type: GraphQLBoolean },
         public: { type: GraphQLBoolean },
       },

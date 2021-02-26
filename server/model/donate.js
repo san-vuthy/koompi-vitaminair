@@ -29,6 +29,14 @@ const DonateSchema = new mongoose.Schema({
     type: Boolean,
     default: false,
   },
+  selectType: {
+    type: String,
+    required: true,
+  },
+  team: {
+    type: String,
+    required: true,
+  },
   create_at: {
     type: Date,
     default: Date.now,
