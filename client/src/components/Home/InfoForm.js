@@ -146,7 +146,7 @@ function InfoForm() {
               </Form.Item>
             </Col>
           </Row>
-          <Form.Item name="tree" initialValue={20}>
+          <Form.Item name="tree" label="Other Amount" initialValue={20}>
             <Input
               rules={[{ required: true, message: "Please Select or Input Amount" }]}
               className="input-amount"
@@ -201,11 +201,10 @@ function InfoForm() {
           // rules={[{ type: "number" }]}
         >
           <Input />
-          <p>
-            optional; by entering a phone number, you consent to receive text
-            messages
-          </p>
         </Form.Item>
+        <p>
+          optional; by entering a phone number, you consent to receive text messages
+        </p>
 
         <Form.Item
           className="details-input"
@@ -214,8 +213,8 @@ function InfoForm() {
           rules={[{ required: true, message: "Please input your team!" }]}
         >
           <Input />
-          <p>optional</p>
         </Form.Item>
+        <p>optional</p>
 
         <Form.Item
           className="details-input"
@@ -224,8 +223,8 @@ function InfoForm() {
           rules={[{ required: true, message: "Please input your message!" }]}
         >
           <Input.TextArea />
-          <p>optional; for display on the website</p>
         </Form.Item>
+        <p>optional; for display on the website</p>
 
         <Form.Item
           className="details-input"
