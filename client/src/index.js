@@ -5,7 +5,7 @@ import "./index.css"
 import App from "./App"
 
 const client = new ApolloClient({
-  uri: "http://localhost:3500/graphql",
+  uri: "http://vabackend.vitaminair.org/graphql",
   cache: new InMemoryCache(),
 })
 ReactDOM.render(
