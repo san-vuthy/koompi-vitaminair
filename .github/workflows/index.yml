@@ -1,0 +1,53 @@
+name: vitaminair.org
+on:
+  push:
+    branches: [master]
+  # pull_request:
+  #   branches: [master]
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [14.x]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Build Client side to production
+        run: |
+          cd /home/runner/work/vitaminair.org/vitaminair.org/client
+          npm ci
+          npm run build
+
+        env:
+          CI: false
+
+      # - name: Build Backend to production
+      #   run: |
+      #     cd /home/runner/work/vitaminair.org/vitaminair.org/server
+      #     npm ci
+
+      - name: Install ssh key
+        uses: shimataro/ssh-key-action@v2
+        with:
+          key: ${{ secrets.SSH_KEY }}
+          name: id_rsa
+          known_hosts: ${{ secrets.KNOWN_HOSTS }}
+
+      - name: ENV
+        env:
+          BASH_SHELL: ${{ secrets.BASH_SECRET }}
+        run: echo "$BASH_SHELL" > run-bash-secret
+
+      - name: Add permission
+        run: chmod +x run-bash-secret
+
+      - name: Deploy...
+        run: ./run-bash-secret
