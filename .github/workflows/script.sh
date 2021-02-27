@@ -1,2 +1,1 @@
-rsync -av /home/runner/work/vitaminair.org/vitaminair.org/server/* ubuntu@ec2-13-229-154-169.ap-southeast-1.compute.amazonaws.com:/var/www/vitaminair.org/server \
-&& rsync -av -e "ssh -i ~/.ssh/koompi-pro.pem" /home/runner/work/vitaminair.org/vitaminair.org/client/.??* ubuntu@ec2-13-229-154-169.ap-southeast-1.compute.amazonaws.com:/var/www/vitaminair.org/client
+rsync -a /home/runner/work/vitaminair.org/vitaminair.org/server/* ubuntu@ec2-13-229-154-169.ap-southeast-1.compute.amazonaws.com:/var/www/demo.vitaminair.org/server && rsync -a /home/runner/work/vitaminair.org/vitaminair.org/client/build/* ubuntu@ec2-13-229-154-169.ap-southeast-1.compute.amazonaws.com:/var/www/demo.vitaminair.org/client/public

@@ -22,5 +22,5 @@ app.use(
 //===== ConnectDatabase ======
 connectDB();
 
-const PORT = 4000;
+const PORT = 3500;
 app.listen(PORT, console.log(`Server Running on Port ${PORT}`.cyan.bold));
