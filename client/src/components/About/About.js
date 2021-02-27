@@ -1,5 +1,5 @@
-import "./about.css";
-import { List, Row, Col } from "antd";
+import "./about.css"
+import { List, Row, Col } from "antd"
 function About() {
   const data = [
     "Sustainability, peace, love, harmony, sharing, growth, and abundance, with a focus on setting a good example for generations into the future.",
@@ -8,7 +8,7 @@ function About() {
     "To facilitate workshops, adventure tours, and retreats that promote personal growth and sustainable lifestyles.",
     "To offer re-education and employment opportunities for local families engaged in illegal forest activities.",
     "To discover and create innovative business and employment opportunities for Cambodian youths.",
-  ];
+  ]
   return (
     <div>
       <h1>ABOUT US</h1>
@@ -29,10 +29,10 @@ function About() {
             <div className="description">
               <h2>VISION</h2>
               <p>
-                Our vision is to inspire others to rethink their relationship
-                with nature, to learn how to live sustainably therein, and to
-                seek input and guidance for creative new ways to provide benefit
-                to each other and our surroundings.
+                Our vision is to inspire others to rethink their relationship with
+                nature, to learn how to live sustainably therein, and to seek input
+                and guidance for creative new ways to provide benefit to each other
+                and our surroundings.
               </p>
             </div>
           </div>
@@ -41,11 +41,11 @@ function About() {
             <div className="description">
               <h2>MISSION</h2>
               <p>
-                Our mission is to work together with the Royal Government of
-                Cambodia to reach and maintain a national forest cover of 60% of
-                total land area and maintain it there for generations ahead. We
-                work to reforest the rainforests, incorporating technology and
-                designs inspired by nature.
+                Our mission is to work together with the Royal Government of Cambodia
+                to reach and maintain a national forest cover of 60% of total land
+                area and maintain it there for generations ahead. We work to reforest
+                the rainforests, incorporating technology and designs inspired by
+                nature.
               </p>
             </div>
           </div>
@@ -216,7 +216,7 @@ function About() {
         </Row>
       </div>
     </div>
-  );
+  )
 }
 
-export default About;
+export default About

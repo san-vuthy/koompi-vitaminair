@@ -139,106 +139,62 @@ function About() {
           </Row>
           <div className="team-member">
             <h1>TEAM MEMBER</h1>
-            <Row className="member" justify="center">
-              <Col
-                xs={{ span: 10 }}
-                md={{ span: 5 }}
-                lg={{ span: 5 }}
-                xl={{ span: 4 }}
-              >
-                <img src="/images/member/member.png" alt="" />
-                <h3>MR Ajfdjkfa</h3>
-                <p>Developer</p>
-              </Col>{" "}
-              <Col
-                xs={{ span: 10 }}
-                md={{ span: 5 }}
-                lg={{ span: 5 }}
-                xl={{ span: 4 }}
-              >
-                <img src="/images/member/member.png" alt="" />
-                <h3>MR Ajfdjkfa</h3>
-                <p>Developer</p>
+            <Row gutter={[8, 8]}>
+              <Col xs={24} md={8} lg={6}>
+                <div className="member">
+                  <img src="/images/member/member.png" alt="" />
+                  <h3>MR Ajfdjkfa</h3>
+                  <p>Developer</p>
+                </div>
               </Col>
-              <Col
-                xs={{ span: 10 }}
-                md={{ span: 5 }}
-                lg={{ span: 5 }}
-                xl={{ span: 4 }}
-              >
-                <img src="/images/member/member.png" alt="" />
-                <h3>MR Ajfdjkfa</h3>
-                <p>Developer</p>
-              </Col>{" "}
-              <Col
-                xs={{ span: 10 }}
-                md={{ span: 5 }}
-                lg={{ span: 5 }}
-                xl={{ span: 4 }}
-              >
-                <img src="/images/member/member.png" alt="" />
-                <h3>MR Ajfdjkfa</h3>
-                <p>Developer</p>
+              <Col xs={24} md={8} lg={6}>
+                <div className="member">
+                  <img src="/images/member/member.png" alt="" />
+                  <h3>MR Ajfdjkfa</h3>
+                  <p>Developer</p>
+                </div>
               </Col>
-              <Col
-                xs={{ span: 10 }}
-                md={{ span: 5 }}
-                lg={{ span: 5 }}
-                xl={{ span: 4 }}
-              >
-                <img src="/images/member/member.png" alt="" />
-                <h3>MR Ajfdjkfa</h3>
-                <p>Developer</p>
-              </Col>{" "}
-              <Col
-                xs={{ span: 10 }}
-                md={{ span: 5 }}
-                lg={{ span: 5 }}
-                xl={{ span: 4 }}
-              >
-                <img src="/images/member/member.png" alt="" />
-                <h3>MR Ajfdjkfa</h3>
-                <p>Developer</p>
+              <Col xs={24} md={8} lg={6}>
+                <div className="member">
+                  <img src="/images/member/member.png" alt="" />
+                  <h3>MR Ajfdjkfa</h3>
+                  <p>Developer</p>
+                </div>
               </Col>
-              <Col
-                xs={{ span: 10 }}
-                md={{ span: 5 }}
-                lg={{ span: 5 }}
-                xl={{ span: 4 }}
-              >
-                <img src="/images/member/member.png" alt="" />
-                <h3>MR Ajfdjkfa</h3>
-                <p>Developer</p>
-              </Col>{" "}
-              <Col
-                xs={{ span: 10 }}
-                md={{ span: 5 }}
-                lg={{ span: 5 }}
-                xl={{ span: 4 }}
-              >
-                <img src="/images/member/member.png" alt="" />
-                <h3>MR Ajfdjkfa</h3>
-                <p>Developer</p>
+              <Col xs={24} md={8} lg={6}>
+                <div className="member">
+                  <img src="/images/member/member.png" alt="" />
+                  <h3>MR Ajfdjkfa</h3>
+                  <p>Developer</p>
+                </div>
               </Col>
-              <Col
-                xs={{ span: 10 }}
-                md={{ span: 5 }}
-                lg={{ span: 5 }}
-                xl={{ span: 4 }}
-              >
-                <img src="/images/member/member.png" alt="" />
-                <h3>MR Ajfdjkfa</h3>
-                <p>Developer</p>
-              </Col>{" "}
-              <Col
-                xs={{ span: 10 }}
-                md={{ span: 5 }}
-                lg={{ span: 5 }}
-                xl={{ span: 4 }}
-              >
-                <img src="/images/member/member.png" alt="" />
-                <h3>MR Ajfdjkfa</h3>
-                <p>Developer</p>
+              <Col xs={24} md={8} lg={6}>
+                <div className="member">
+                  <img src="/images/member/member.png" alt="" />
+                  <h3>MR Ajfdjkfa</h3>
+                  <p>Developer</p>
+                </div>
+              </Col>
+              <Col xs={24} md={8} lg={6}>
+                <div className="member">
+                  <img src="/images/member/member.png" alt="" />
+                  <h3>MR Ajfdjkfa</h3>
+                  <p>Developer</p>
+                </div>
+              </Col>
+              <Col xs={24} md={8} lg={6}>
+                <div className="member">
+                  <img src="/images/member/member.png" alt="" />
+                  <h3>MR Ajfdjkfa</h3>
+                  <p>Developer</p>
+                </div>
+              </Col>
+              <Col xs={24} md={8} lg={6}>
+                <div className="member">
+                  <img src="/images/member/member.png" alt="" />
+                  <h3>MR Ajfdjkfa</h3>
+                  <p>Developer</p>
+                </div>
               </Col>
             </Row>
           </div>
