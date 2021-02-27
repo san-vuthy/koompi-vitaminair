@@ -83,7 +83,7 @@ button:hover {
 
 /* navbar  */
 .navbar {
-  background-color: #0d330a;
+  background-color: #0cb04a;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -91,7 +91,7 @@ button:hover {
   height: 70px;
 }
 .navbar a.is-active {
-  color: #0cb04a;
+  color: #057630;
 }
 
 @media only screen and (max-width: 1440px) {
