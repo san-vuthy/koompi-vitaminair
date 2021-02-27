@@ -89,7 +89,6 @@ function About() {
             gutter={{ xs: 0, md: 40 }}
           >
             <Col
-              // style={{ backgroundColor: "red" }}
               xs={{ span: 12 }}
               sm={{ span: 7 }}
               xl={{ span: 4 }}
@@ -98,7 +97,6 @@ function About() {
               <img src="/images/partner/smallworld.png" alt="logo" />
             </Col>
             <Col
-              // style={{ backgroundColor: "red" }}
               xs={{ span: 12 }}
               sm={{ span: 7 }}
               xl={{ span: 4 }}
