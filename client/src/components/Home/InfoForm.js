@@ -33,22 +33,22 @@ function InfoForm() {
     setCurrent(current - 1)
   }
 
-  const amountActive = (e) => {
-    e.preventDefault()
-    // console.log(e.target.parentElement)
-    const btns = Array.from(document.getElementsByClassName("tree-amount"))
-    console.log(btns)
-    console.log(e.target)
-    btns.forEach((btn) => {
-      if (btn === e.target) {
-        btn.className += " amount-active"
-      } else if (btn === e.target.parentElement) {
-        btn.className += " amount-active"
-      } else {
-        btn.className = "tree-amount"
-      }
-    })
-  }
+  // const amountActive = (e) => {
+  //   e.preventDefault()
+  //   // console.log(e.target.parentElement)
+  //   const btns = Array.from(document.getElementsByClassName("tree-amount"))
+  //   console.log(btns)
+  //   console.log(e.target)
+  //   btns.forEach((btn) => {
+  //     if (btn === e.target) {
+  //       btn.className += " amount-active"
+  //     } else if (btn === e.target.parentElement) {
+  //       btn.className += " amount-active"
+  //     } else {
+  //       btn.className = "tree-amount"
+  //     }
+  //   })
+  // }
   //form
   const layout = {
     labelCol: {
@@ -92,7 +92,7 @@ function InfoForm() {
             <h2 className="top-title">JOIN VitaminAir</h2>
             <p className="join-desc">$1 plants a tree</p>
           </center>
-          <Row gutter={[12]}>
+          <Row gutter={[12, 12]}>
             <Col span={12}>
               {/* <Button
                   onChange={(e) => setValue(e.target.value)}
@@ -146,7 +146,7 @@ function InfoForm() {
               </Form.Item>
             </Col>
           </Row>
-          <Form.Item name="tree" initialValue={20} label="Other Amount">
+          <Form.Item name="tree" initialValue={20}>
             <Input
               rules={[{ required: true, message: "Please Select or Input Amount" }]}
               className="input-amount"
@@ -163,9 +163,10 @@ function InfoForm() {
   const Step2Form = () => {
     return (
       <>
-        <h2>Detail</h2>
+        <h2 style={{ textAlign: "center" }}>Detail</h2>
 
         <Form.Item
+          className="details-input"
           label="DISPLAY NAME"
           name="name"
           rules={[{ required: true, message: "Please input your username!" }]}
@@ -174,6 +175,7 @@ function InfoForm() {
         </Form.Item>
 
         <Form.Item
+          className="details-input"
           label="EMAIL ADDRESS"
           name="email"
           rules={[
@@ -187,6 +189,7 @@ function InfoForm() {
           <Input />
         </Form.Item>
         <Form.Item
+          className="details-input"
           label="MOBILE PHONE"
           name="phone"
           rules={[
@@ -198,27 +201,34 @@ function InfoForm() {
           // rules={[{ type: "number" }]}
         >
           <Input />
+          <p>
+            optional; by entering a phone number, you consent to receive text
+            messages
+          </p>
         </Form.Item>
-        <p>
-          optional; by entering a phone number, you consent to receive text messages
-        </p>
+
         <Form.Item
+          className="details-input"
           label="TEAM"
           name="team"
           rules={[{ required: true, message: "Please input your team!" }]}
         >
           <Input />
+          <p>optional</p>
         </Form.Item>
-        <p>optional</p>
+
         <Form.Item
+          className="details-input"
           label="MESSAGE"
           name="user_message"
           rules={[{ required: true, message: "Please input your message!" }]}
         >
           <Input.TextArea />
+          <p>optional; for display on the website</p>
         </Form.Item>
-        <p>optional; for display on the website</p>
+
         <Form.Item
+          className="details-input"
           label="Select"
           name="selectType"
           rules={[{ required: true, message: "Please selecet one!" }]}
@@ -229,14 +239,24 @@ function InfoForm() {
             <Select.Option value="Other">Other</Select.Option>
           </Select>
         </Form.Item>
-        <Form.Item {...tailLayout} name="public" valuePropName="checked">
+        <Form.Item
+          className="details-input"
+          {...tailLayout}
+          name="public"
+          valuePropName="checked"
+        >
           <Checkbox>
             {" "}
             <span style={{ color: "#0cb04a" }}> YES!</span> I want periodic updates
             on #TeamTrees{" "}
           </Checkbox>
         </Form.Item>
-        <Form.Item {...tailLayout} name="anonymous" valuePropName="checked">
+        <Form.Item
+          className="details-input"
+          {...tailLayout}
+          name="anonymous"
+          valuePropName="checked"
+        >
           <Checkbox>Please keep my donation anonymous </Checkbox>
         </Form.Item>
       </>
@@ -276,9 +296,6 @@ function InfoForm() {
           ))}
           <div className="steps-action">
             {current < steps.length - 1 && (
-              // <Button type="primary" onClick={() => next()}>
-              //   Next
-              // </Button>
               <div className="btn-position">
                 <Button
                   htmlType="submit"

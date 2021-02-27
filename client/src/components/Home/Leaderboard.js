@@ -42,7 +42,7 @@ function Leaderboard() {
           <Input className="search" type="text" placeholder="Search" />
           <FaSearch className="fa-search" />
         </Col>
-        <Col offset={1} className="gutter-row">
+        <Col offset={1} className="gutter-row most-recent-trees">
           <button value="recent" id="most-recents" onClick={active}>
             Most Recents
           </button>

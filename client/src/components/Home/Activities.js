@@ -8,7 +8,7 @@ function Activities() {
   const [modal3, setModal3] = useState(false)
   return (
     <div>
-      <h1>Our Initiation</h1>
+      <h1>OUR INITIATION</h1>
       <div className="container activities">
         <div className="card">
           <Row>
