@@ -82,9 +82,15 @@ function About() {
             forward thinking leaders in the business world.
           </p>
 
-          <Row className="partner" align="middle" justify="center" gutter={40}>
+          <Row
+            className="partner"
+            align="middle"
+            justify="center"
+            gutter={{ xs: 0, md: 40 }}
+          >
             <Col
-              xs={{ span: 11 }}
+              // style={{ backgroundColor: "red" }}
+              xs={{ span: 12 }}
               sm={{ span: 7 }}
               xl={{ span: 4 }}
               className="gutter-row"
@@ -92,7 +98,8 @@ function About() {
               <img src="/images/partner/smallworld.png" alt="logo" />
             </Col>
             <Col
-              xs={{ span: 11 }}
+              // style={{ backgroundColor: "red" }}
+              xs={{ span: 12 }}
               sm={{ span: 7 }}
               xl={{ span: 4 }}
               className="gutter-row"
@@ -100,7 +107,7 @@ function About() {
               <img src="/images/partner/koompi.png" alt="logo" />
             </Col>
             <Col
-              xs={{ span: 11 }}
+              xs={{ span: 12 }}
               sm={{ span: 7 }}
               xl={{ span: 4 }}
               className="gutter-row"
@@ -108,7 +115,7 @@ function About() {
               <img src="/images/partner/sabay.png" alt="logo" />
             </Col>
             <Col
-              xs={{ span: 11 }}
+              xs={{ span: 12 }}
               sm={{ span: 7 }}
               xl={{ span: 4 }}
               className="gutter-row"
@@ -122,7 +129,7 @@ function About() {
             <Col
               xs={{ span: 12 }}
               sm={{ span: 5 }}
-              xl={{ span: 3 }}
+              xl={{ span: 2 }}
               className="gutter-row"
             >
               <img

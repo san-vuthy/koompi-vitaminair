@@ -16,7 +16,7 @@ export default function Footer() {
         </Col>
         <Col>
           <a
-            href="https://www.linkedin.com/company/vitaminair/"
+            href="https://web.facebook.com/VitaminAirHome"
             target="_blank"
             rel="noreferrer"
           >

@@ -7,7 +7,7 @@
   scroll-behavior: smooth;
 }
 body {
-  overflow-x: hidden;
+  overflow-x: hidden !important;
 }
 .App {
   background-image: linear-gradient(#ffffff, rgba(14, 109, 80, 0.212));
@@ -20,9 +20,7 @@ a {
   font-size: 20px;
   color: #fff;
 }
-/* a:hover {
-  color: #0cb04a;
-} */
+
 h1 {
   font-size: 40px;
   color: #057630;
@@ -147,6 +145,7 @@ button:hover {
     display: block;
   }
 }
+
 .ant-drawer-body {
   padding: 0 !important;
 }
@@ -195,9 +194,11 @@ button:hover {
   animation: cloud 40s infinite linear;
   user-select: none;
 }
+
 @keyframes cloud {
   from {
-    left: -600px;
+    /* left: -600px; */
+    left: 0;
   }
   to {
     left: 100%;
