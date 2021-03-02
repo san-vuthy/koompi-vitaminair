@@ -29,15 +29,16 @@ const LeftNavbar = () => {
         </div>
         <Menu
           style={{ height: "100%", borderRight: 0 }}
-          defaultSelectedKeys={["1"]}
+          defaultSelectedKeys={[pathname]}
+          defaultOpenKeys={[pathname]}
           mode="inline"
         >
-          <Menu.Item key="1" icon={<PieChartOutlined />}>
-            <Link to="/dashboard" />
+          <Menu.Item key="/admin/dashboard" icon={<PieChartOutlined />}>
+            <Link to="/admin/dashboard" />
             Dashboard
           </Menu.Item>
-          <Menu.Item key="2" icon={<DesktopOutlined />}>
-            <Link to="/donationers" />
+          <Menu.Item key="/admin/donationers" icon={<DesktopOutlined />}>
+            <Link to="/admin/donationers" />
             Donationers
           </Menu.Item>
           <SubMenu key="sub1" icon={<UserOutlined />} title="User">

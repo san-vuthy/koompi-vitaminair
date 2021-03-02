@@ -4,6 +4,7 @@ const cors = require("cors");
 const colors = require("colors");
 const { graphqlHTTP } = require("express-graphql");
 const schema = require("./graphql/schema/schema");
+const adminSchema = require("./graphql/schema/adminSchema");
 const connectDB = require("./config/db");
 const app = express();
 
@@ -15,6 +16,15 @@ app.use(
   "/graphql",
   graphqlHTTP({
     schema,
+    graphiql: true,
+  })
+);
+
+//========For admin dashboard========
+app.use(
+  "/admin",
+  graphqlHTTP({
+    schema: adminSchema,
     graphiql: true,
   })
 );
