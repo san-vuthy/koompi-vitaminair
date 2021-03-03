@@ -23,11 +23,14 @@ const LeftNavbar = () => {
   const pathname = window.location.pathname;
   return (
     <React.Fragment>
-      <Sider className="site-layout-background" theme="light" width={290}>
+      <Sider className="site-layout-background" width={290}>
         <div className="logo">
-          <img style={{ maxWidth: "100%" }} src={logo} />
+          <center>
+            <img style={{ maxWidth: "80%", padding: "8px" }} src={logo} />
+          </center>
         </div>
         <Menu
+          theme="dark"
           style={{ height: "100%", borderRight: 0 }}
           defaultSelectedKeys={[pathname]}
           defaultOpenKeys={[pathname]}

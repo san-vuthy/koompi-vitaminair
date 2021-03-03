@@ -23,6 +23,7 @@ const donateType = new GraphQLObjectType({
     selectType: { type: GraphQLString },
     create_at: { type: GraphQLString },
     message: { type: GraphQLString },
+    count: { type: GraphQLString },
   }),
 });
 

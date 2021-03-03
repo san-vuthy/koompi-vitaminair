@@ -16,6 +16,19 @@ const AdminQuery = new GraphQLObjectType({
         return Donate.find({}).sort({ create_at: -1 });
       },
     },
+    get_count_donation: {
+      type: new GraphQLList(DonateType),
+      resolve: async (parent, args) => {
+        try {
+          const donate = await Donate.find().countDocuments();
+          console.log(donate);
+          return donate.valueOf(donate);
+        } catch (error) {
+          console.log(error);
+          throw error;
+        }
+      },
+    },
     get_most_trees: {
       type: new GraphQLList(DonateType),
       resolve: async (parent, args) => {

@@ -3,6 +3,7 @@ import { gql } from "@apollo/client";
 const GET_DONATIONS = gql`
   query {
     get_donations {
+      id
       tree
       name
       create_at

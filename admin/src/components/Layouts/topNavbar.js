@@ -3,6 +3,7 @@ import React from "react";
 import { HiOutlineCog, HiQuestionMarkCircle, HiLogout } from "react-icons/hi";
 import { Layout, Avatar, Popover, Row, Col, Input } from "antd";
 import { Link } from "react-router-dom";
+import avatar from "../../assets/undraw_male_avatar_323b.png";
 
 // import { useQuery } from "@apollo/client";
 // import { GET_USER } from "../../graphql/query";
@@ -24,7 +25,7 @@ const TopNavbar = () => {
     <React.Fragment>
       <Header
         style={{
-          backgroundColor: "#fff",
+          backgroundColor: "rgb(215, 236, 223)",
         }}
       >
         <Popover
@@ -34,11 +35,18 @@ const TopNavbar = () => {
             <div style={{ width: "270px" }}>
               <Row gutter={[24, 24]}>
                 <Col span={4}>
-                  <img
+                  {/* <img
                     className="avatarNavbar"
                     // src={userData.user.avatar}
+                    src={avatar}
                     alt="avatar"
-                  />
+                  /> */}
+                  <Avatar
+                    className="navbar-avata"
+                    // src={userData.user.avatar}
+                    src={avatar}
+                    size={55}
+                  ></Avatar>
                 </Col>
                 <Col span={20}>
                   <div>
@@ -83,7 +91,7 @@ const TopNavbar = () => {
             <Avatar
               className="navbar-avata"
               // src={userData.user.avatar}
-              // src={'https://academybackend.koompi.com/public/uploads/' + avatar}
+              src={avatar}
               size={55}
             ></Avatar>
           </div>

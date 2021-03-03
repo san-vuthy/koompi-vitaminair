@@ -5,6 +5,7 @@ const {
   GraphQLNonNull,
   GraphQLBoolean,
   GraphQLInt,
+  GraphQLID,
 } = graphql;
 
 //============Model Sections=========
@@ -34,6 +35,22 @@ const AdminMutation = new GraphQLObjectType({
           const donate = new Donate({ ...args });
           await donate.save();
           return { message: "Donation successfull!" };
+        } catch (error) {
+          console.log(error);
+          throw error;
+        }
+      },
+    },
+    //============Delete Donationer===========
+    delete_donationer: {
+      type: DonateType,
+      args: {
+        id: { type: GraphQLNonNull(GraphQLID) },
+      },
+      resolve: async (parent, args) => {
+        try {
+          await Donate.deleteOne({ _id: args.id });
+          return { message: "Delete Successfull" };
         } catch (error) {
           console.log(error);
           throw error;

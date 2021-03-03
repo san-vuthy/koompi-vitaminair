@@ -32,6 +32,36 @@
 .ant-layout {
   background: #d7ecdf;
 }
+.delete-button {
+  background-color: #fff1f1;
+  /* padding: 8px; */
+  /* width: 42%;
+  height: 45%; */
+  cursor: pointer;
+  border-radius: 25px !important;
+  border: none !important;
+}
+.ant-layout-sider,
+.ant-menu-inline {
+  background-color: #43c079 !important;
+}
+.ant-menu-submenu span {
+  color: #fff !important;
+  /* font-size: 20px !important; */
+}
+.ant-menu-item {
+  color: rgb(255, 255, 255) !important;
+  /* font-size: 20px; */
+}
+.ant-menu-item-selected {
+  background-color: #136d47 !important;
+}
+/* .ant-menu-item-selected :hover {
+  color: #136d47 !important;
+} */
+.ant-table-tbody > tr.ant-table-row:hover > td {
+  background: #43c07942;
+}
 /* .sider-background {
   background-color: #50a758 !important;
 }
