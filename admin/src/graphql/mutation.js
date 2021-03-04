@@ -7,4 +7,12 @@ const DELETE_DONATIONER = gql`
     }
   }
 `;
-export { DELETE_DONATIONER };
+const LOGIN = gql`
+  mutation($email: String!, $password: String!) {
+    login(email: $email, password: $password) {
+      token
+      message
+    }
+  }
+`;
+export { DELETE_DONATIONER, LOGIN };

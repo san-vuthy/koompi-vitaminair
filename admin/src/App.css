@@ -62,6 +62,64 @@
 .ant-table-tbody > tr.ant-table-row:hover > td {
   background: #43c07942;
 }
+.loginContainer {
+  width: 650px;
+  margin: 0 auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 10px !important;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  /* backdrop-filter: hsla(0, 0%, 100%, 0.6901960784313725); */
+  background: hsla(0, 0%, 100%, 0.6901960784313725);
+}
+.loginContainer .ant-legacy-form {
+  padding: 40px 40px;
+}
+.background_image {
+  background-color: #43c079 !important;
+  border-radius: 0px;
+  color: #ffffff !important;
+  border-radius: 8px 8px 0px 0px !important;
+  padding: 20px 0px;
+}
+
+.login-form {
+  padding: 40px;
+}
+loginContainer .login-form-forgot {
+  position: relative;
+  top: 10px;
+  float: right;
+}
+
+.login-form-button {
+  width: auto !important;
+  padding: 0px 50px;
+  border-radius: 30px !important;
+  height: 35px;
+  background-color: green !important;
+  border: none;
+  text-transform: uppercase;
+}
+
+.loginContainer h2 {
+  color: #ffffff !important;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.loginContainer a {
+  color: #0f73ee !important;
+}
+.position_login {
+  margin-top: 12px;
+}
 /* .sider-background {
   background-color: #50a758 !important;
 }
