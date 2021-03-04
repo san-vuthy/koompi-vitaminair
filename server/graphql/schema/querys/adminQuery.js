@@ -48,6 +48,7 @@ const AdminQuery = new GraphQLObjectType({
         }
       },
     },
+    //==========Get initation==========
     get_initations: {
       type: new GraphQLList(Initationtype),
       resolve: async (parent, args) => {
@@ -57,6 +58,14 @@ const AdminQuery = new GraphQLObjectType({
           console.log(error);
           throw error;
         }
+      },
+    },
+    //==========Get initation==========
+    get_initation: {
+      type: Initationtype,
+      args: { id: { type: GraphQLID } },
+      resolve(parent, args) {
+        return Initation.findOne({ _id: args.id });
       },
     },
     //===========get project=======
@@ -71,6 +80,14 @@ const AdminQuery = new GraphQLObjectType({
         }
       },
     },
+    //==========Get project==========
+    get_project: {
+      type: ProjectType,
+      args: { id: { type: GraphQLID } },
+      resolve(parent, args) {
+        return Project.findOne({ _id: args.id });
+      },
+    },
     //===========get about=======
     get_abouts: {
       type: new GraphQLList(AboutType),
@@ -83,6 +100,14 @@ const AdminQuery = new GraphQLObjectType({
         }
       },
     },
+    //==========Get about==========
+    get_about: {
+      type: AboutType,
+      args: { id: { type: GraphQLID } },
+      resolve(parent, args) {
+        return About.findOne({ _id: args.id });
+      },
+    },
     //===========get members=======
     get_members: {
       type: new GraphQLList(MemberType),
@@ -93,6 +118,14 @@ const AdminQuery = new GraphQLObjectType({
           console.log(error);
           throw error;
         }
+      },
+    },
+    //==========Get Member==========
+    get_member: {
+      type: MemberType,
+      args: { id: { type: GraphQLID } },
+      resolve(parent, args) {
+        return Member.findOne({ _id: args.id });
       },
     },
   }),

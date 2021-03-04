@@ -124,6 +124,30 @@ loginContainer .login-form-forgot {
 .position_login {
   margin-top: 12px;
 }
+.submit-button {
+  background-color: green;
+  border: none;
+  color: white;
+  width: 150px;
+}
+.submit-button:hover {
+  background-color: #43c079 !important;
+  color: white;
+}
+ant-btn:hover,
+.ant-btn:focus,
+.ant-btn:active {
+  text-decoration: none;
+  color: white;
+  background-color: #43c079 !important;
+}
+.input-style {
+  border-radius: 10px;
+  border: 1px solid #43c079;
+}
+.input-style:hover {
+  border-color: #138143;
+}
 /* .sider-background {
   background-color: #50a758 !important;
 }

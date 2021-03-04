@@ -24,4 +24,25 @@ const GET_MOST_DONATIONS = gql`
     }
   }
 `;
-export { GET_DONATIONS, GET_MOST_DONATIONS };
+const GET_INITATIONS = gql`
+  query {
+    get_initations {
+      id
+      title
+      des
+      image
+      create_at
+    }
+  }
+`;
+const GET_INITATION = gql`
+  query($id: ID!) {
+    get_initation(id: $id) {
+      id
+      title
+      des
+      image
+    }
+  }
+`;
+export { GET_DONATIONS, GET_MOST_DONATIONS, GET_INITATIONS, GET_INITATION };

@@ -3,14 +3,22 @@ const express = require("express");
 const cors = require("cors");
 const colors = require("colors");
 const { graphqlHTTP } = require("express-graphql");
+const uploadFile = require("./routes/uploadFile");
 const schema = require("./graphql/schema/schema");
 const adminSchema = require("./graphql/schema/adminSchema");
 const connectDB = require("./config/db");
 const app = express();
+// import upload file
+const path = require("path");
 
 //Initial Middleware
 app.use(express.json({ extend: false }));
+// app.use(bodyParser.json());
 app.use(cors());
+
+app.use("/public/", express.static(path.join(__dirname, "public")));
+//Route
+app.use(uploadFile);
 
 app.use(
   "/graphql",
