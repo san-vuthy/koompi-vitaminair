@@ -104,6 +104,26 @@ const LeftNavbar = () => {
               AddAbout
             </Menu.Item>
           </SubMenu>
+          <SubMenu
+            key={
+              pathname === "/admin/projects"
+                ? "/admin/projects"
+                : "/admin/addproject"
+                ? "/admin/addproject"
+                : ""
+            }
+            icon={<TeamOutlined />}
+            title="Project"
+          >
+            <Menu.Item key="/admin/projects">
+              <Link to="/admin/projects" />
+              Projects
+            </Menu.Item>
+            <Menu.Item key="/admin/addproject">
+              <Link to="/admin/addproject" />
+              AddProject
+            </Menu.Item>
+          </SubMenu>
         </Menu>
       </Sider>
     </React.Fragment>

@@ -4,12 +4,12 @@ import { LoadingOutlined, PlusOutlined } from "@ant-design/icons";
 import TopNavbar from "../../Layouts/topNavbar";
 import LeftNavbar from "../../Layouts/leftNavbar";
 import { useMutation, useQuery } from "@apollo/client";
-import { EDIT_INITATION } from "../../../graphql/mutation";
-import { GET_INITATION } from "../../../graphql/query";
+import { EDIT_PROJECT } from "../../../graphql/mutation";
+import { GET_PROJECT } from "../../../graphql/query";
 import { useParams } from "react-router-dom";
 
 const { Content, Footer } = Layout;
-const EditInitation = ({ history }) => {
+const EditProject = ({ history }) => {
   const { id } = useParams();
   const [form] = Form.useForm();
   const [state, setState] = useState({
@@ -17,14 +17,10 @@ const EditInitation = ({ history }) => {
     loading: false,
   });
   const [loading, setLoading] = useState(false);
-  const {
-    loading: initationLoading,
-    data: initationsData,
-    refetch: initationrefetch,
-  } = useQuery(GET_INITATION, {
+  const { loading: loadingProject, data, refetch } = useQuery(GET_PROJECT, {
     variables: { id },
   });
-  const [edit_initation] = useMutation(EDIT_INITATION);
+  const [edit_project] = useMutation(EDIT_PROJECT);
 
   const handleChange = (info) => {
     if (info.file.status === "uploading") {
@@ -61,13 +57,11 @@ const EditInitation = ({ history }) => {
     return isJpgOrPng && isLt2M;
   };
   const onFinish = (values) => {
-    edit_initation({
+    edit_project({
       variables: {
         ...values,
         image:
-          state.imageUrl === null
-            ? initationsData.get_initation.image
-            : state.imageUrl,
+          state.imageUrl === null ? data.get_project.image : state.imageUrl,
         id: id,
       },
     }).then(async (res) => {
@@ -77,12 +71,12 @@ const EditInitation = ({ history }) => {
       //     imageUrl: null,
       //     loading: false,
       //   });
-      await initationrefetch();
-      await history.push("/admin/initations");
+      await refetch();
+      await history.push("/admin/projects");
     });
     console.log(values);
   };
-  if (initationLoading) {
+  if (loadingProject) {
     return "laoding...";
   }
   return (
@@ -93,7 +87,7 @@ const EditInitation = ({ history }) => {
           <TopNavbar />
           <Content style={{ backgroundColor: "#fff" }}>
             <div className="contenContainer">
-              <h1 className="title-top">Edit Initation</h1>
+              <h1 className="title-top">Edit Project</h1>
               <Form
                 form={form}
                 onFinish={onFinish}
@@ -103,7 +97,7 @@ const EditInitation = ({ history }) => {
                 <Row gutter={[32, 0]}>
                   <Col span={16}>
                     <Form.Item
-                      initialValue={initationsData.get_initation.title}
+                      initialValue={data.get_project.title}
                       label="Title"
                       name="title"
                       rules={[
@@ -116,7 +110,7 @@ const EditInitation = ({ history }) => {
                       <Input className="input-style" size="large" />
                     </Form.Item>
                     <Form.Item
-                      initialValue={initationsData.get_initation.des}
+                      initialValue={data.get_project.des}
                       label="Description"
                       name="des"
                       rules={[
@@ -149,7 +143,7 @@ const EditInitation = ({ history }) => {
                       <React.Fragment>
                         <Form.Item
                           label="Image"
-                          initialValue={initationsData.get_initation.image}
+                          initialValue={data.get_project.image}
                           name="image"
                         >
                           <Upload.Dragger
@@ -164,7 +158,7 @@ const EditInitation = ({ history }) => {
                             {state.imageUrl === null ? (
                               <img
                                 src={`${`http://localhost:3500`}/public/uploads/${
-                                  initationsData.get_initation.image
+                                  data.get_project.image
                                 }`}
                                 alt="avatar"
                                 style={{ width: "100%" }}
@@ -193,4 +187,4 @@ const EditInitation = ({ history }) => {
   );
 };
 
-export default EditInitation;
+export default EditProject;

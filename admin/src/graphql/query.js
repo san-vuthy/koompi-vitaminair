@@ -90,6 +90,28 @@ const GET_ABOUT = gql`
     }
   }
 `;
+//==========initation============
+const GET_PROJECTS = gql`
+  query {
+    get_projects {
+      id
+      title
+      des
+      image
+      create_at
+    }
+  }
+`;
+const GET_PROJECT = gql`
+  query($id: ID!) {
+    get_project(id: $id) {
+      id
+      title
+      des
+      image
+    }
+  }
+`;
 export {
   GET_DONATIONS,
   GET_MOST_DONATIONS,
@@ -99,4 +121,6 @@ export {
   GET_MEMBER,
   GET_ABOUT,
   GET_ABOUTS,
+  GET_PROJECTS,
+  GET_PROJECT,
 };

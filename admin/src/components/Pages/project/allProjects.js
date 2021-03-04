@@ -13,17 +13,16 @@ import {
 } from "antd";
 import { Link } from "react-router-dom";
 import { BsTrash, BsPencil } from "react-icons/bs";
-import { DeleteOutlined } from "@ant-design/icons";
 import LeftNavbar from "../../Layouts/leftNavbar";
 import TopNavbar from "../../Layouts/topNavbar";
 import { useQuery, useMutation } from "@apollo/client";
-import { GET_INITATIONS } from "../../../graphql/query";
-import { DELETE_INITATION } from "../../../graphql/mutation";
+import { GET_PROJECTS } from "../../../graphql/query";
+import { DELETE_PROJECT } from "../../../graphql/mutation";
 
 const { Content } = Layout;
-const AllInitation = () => {
-  const { loading, data, error, refetch } = useQuery(GET_INITATIONS);
-  const [delete_initation] = useMutation(DELETE_INITATION);
+const AllProject = () => {
+  const { loading, data, error, refetch } = useQuery(GET_PROJECTS);
+  const [delete_project] = useMutation(DELETE_PROJECT);
   if (loading) return null;
   console.log(data);
   const columns = [
@@ -74,7 +73,7 @@ const AllInitation = () => {
         const { id } = data;
         return (
           <div>
-            <Link to={`/admin/edit-initation/${id}`}>
+            <Link to={`/admin/edit-project/${id}`}>
               <Tag className="edit-button">
                 <BsPencil
                   color="rgb(32, 166, 147)"
@@ -90,9 +89,9 @@ const AllInitation = () => {
               okText="Yes"
               cancelText="No"
               onConfirm={() => {
-                delete_initation({ variables: { id: `${id}` } })
+                delete_project({ variables: { id: `${id}` } })
                   .then(async (res) => {
-                    await message.success(res.data.delete_initation.message);
+                    await message.success(res.data.delete_project.message);
                     await refetch();
                   })
                   .catch((error) => {
@@ -137,11 +136,11 @@ const AllInitation = () => {
           <TopNavbar />
           <Content style={{ backgroundColor: "#fff" }}>
             <div className="contenContainer">
-              <h1 className="title-top">Donationers</h1>
+              <h1 className="title-top">Projects</h1>
               <div>
                 <Table
                   columns={columns}
-                  dataSource={data.get_initations}
+                  dataSource={data.get_projects}
                   onChange={onChange}
                 />
               </div>
@@ -153,4 +152,4 @@ const AllInitation = () => {
   );
 };
 
-export default AllInitation;
+export default AllProject;

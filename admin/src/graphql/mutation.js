@@ -80,6 +80,28 @@ const DELETE_ABOUT = gql`
     }
   }
 `;
+//==========Project=========
+const ADD_PROJECT = gql`
+  mutation($title: String!, $des: String!, $image: String!) {
+    add_project(title: $title, des: $des, image: $image) {
+      message
+    }
+  }
+`;
+const EDIT_PROJECT = gql`
+  mutation($id: ID!, $title: String!, $des: String!, $image: String!) {
+    edit_project(id: $id, title: $title, des: $des, image: $image) {
+      message
+    }
+  }
+`;
+const DELETE_PROJECT = gql`
+  mutation($id: ID!) {
+    delete_project(id: $id) {
+      message
+    }
+  }
+`;
 export {
   DELETE_DONATIONER,
   LOGIN,
@@ -92,4 +114,7 @@ export {
   ADD_ABOUT,
   EDIT_ABOUT,
   DELETE_ABOUT,
+  ADD_PROJECT,
+  EDIT_PROJECT,
+  DELETE_PROJECT,
 };

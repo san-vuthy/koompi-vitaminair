@@ -4,28 +4,19 @@ import { LoadingOutlined, PlusOutlined } from "@ant-design/icons";
 import TopNavbar from "../../Layouts/topNavbar";
 import LeftNavbar from "../../Layouts/leftNavbar";
 import { useMutation, useQuery } from "@apollo/client";
-import { EDIT_INITATION } from "../../../graphql/mutation";
-import { GET_INITATION } from "../../../graphql/query";
-import { useParams } from "react-router-dom";
-
+import { ADD_PROJECT } from "../../../graphql/mutation";
+import { GET_PROJECTS } from "../../../graphql/query";
+import addFile from "../../../assets/undraw_Add_files_re_v09g.png";
 const { Content, Footer } = Layout;
-const EditInitation = ({ history }) => {
-  const { id } = useParams();
+const AddProject = () => {
   const [form] = Form.useForm();
   const [state, setState] = useState({
     imageUrl: null,
     loading: false,
   });
   const [loading, setLoading] = useState(false);
-  const {
-    loading: initationLoading,
-    data: initationsData,
-    refetch: initationrefetch,
-  } = useQuery(GET_INITATION, {
-    variables: { id },
-  });
-  const [edit_initation] = useMutation(EDIT_INITATION);
-
+  const [add_project] = useMutation(ADD_PROJECT);
+  const { refetch } = useQuery(GET_PROJECTS);
   const handleChange = (info) => {
     if (info.file.status === "uploading") {
       setState({ loading: true });
@@ -42,10 +33,7 @@ const EditInitation = ({ history }) => {
     <div>
       {/* {state.loading ? <LoadingOutlined /> : <PlusOutlined />} */}
       <div className="ant-upload-text">
-        <img
-          style={{ maxWidth: "100%" }}
-          src="https://backend.byteshare.org/undraw_upload_87y9.svg"
-        />
+        <img style={{ maxWidth: "100%" }} src={addFile} />
       </div>
     </div>
   );
@@ -61,30 +49,25 @@ const EditInitation = ({ history }) => {
     return isJpgOrPng && isLt2M;
   };
   const onFinish = (values) => {
-    edit_initation({
+    add_project({
       variables: {
         ...values,
-        image:
-          state.imageUrl === null
-            ? initationsData.get_initation.image
-            : state.imageUrl,
-        id: id,
+        image: state.imageUrl,
       },
     }).then(async (res) => {
+      setLoading(true);
+
       await message.success("Successfull");
-      //   form.resetFields();
-      //   setState({
-      //     imageUrl: null,
-      //     loading: false,
-      //   });
-      await initationrefetch();
-      await history.push("/admin/initations");
+      form.resetFields();
+      setState({
+        imageUrl: null,
+        loading: false,
+      });
+      await refetch();
+      setLoading(false);
     });
     console.log(values);
   };
-  if (initationLoading) {
-    return "laoding...";
-  }
   return (
     <React.Fragment>
       <Layout style={{ minHeight: "100vh" }}>
@@ -93,7 +76,7 @@ const EditInitation = ({ history }) => {
           <TopNavbar />
           <Content style={{ backgroundColor: "#fff" }}>
             <div className="contenContainer">
-              <h1 className="title-top">Edit Initation</h1>
+              <h1 className="title-top">Add Project</h1>
               <Form
                 form={form}
                 onFinish={onFinish}
@@ -103,7 +86,6 @@ const EditInitation = ({ history }) => {
                 <Row gutter={[32, 0]}>
                   <Col span={16}>
                     <Form.Item
-                      initialValue={initationsData.get_initation.title}
                       label="Title"
                       name="title"
                       rules={[
@@ -116,7 +98,6 @@ const EditInitation = ({ history }) => {
                       <Input className="input-style" size="large" />
                     </Form.Item>
                     <Form.Item
-                      initialValue={initationsData.get_initation.des}
                       label="Description"
                       name="des"
                       rules={[
@@ -147,11 +128,7 @@ const EditInitation = ({ history }) => {
                   <Col span={8}>
                     <Form.Item>
                       <React.Fragment>
-                        <Form.Item
-                          label="Image"
-                          initialValue={initationsData.get_initation.image}
-                          name="image"
-                        >
+                        <Form.Item name="image">
                           <Upload.Dragger
                             name="file"
                             listType="picture-card"
@@ -161,15 +138,7 @@ const EditInitation = ({ history }) => {
                             beforeUpload={beforeUpload}
                             onChange={handleChange}
                           >
-                            {state.imageUrl === null ? (
-                              <img
-                                src={`${`http://localhost:3500`}/public/uploads/${
-                                  initationsData.get_initation.image
-                                }`}
-                                alt="avatar"
-                                style={{ width: "100%" }}
-                              />
-                            ) : (
+                            {state.imageUrl ? (
                               <img
                                 src={`${`http://localhost:3500`}/public/uploads/${
                                   state.imageUrl
@@ -177,6 +146,8 @@ const EditInitation = ({ history }) => {
                                 alt="avatar"
                                 style={{ width: "100%" }}
                               />
+                            ) : (
+                              uploadButton
                             )}
                           </Upload.Dragger>
                         </Form.Item>
@@ -193,4 +164,4 @@ const EditInitation = ({ history }) => {
   );
 };
 
-export default EditInitation;
+export default AddProject;
