@@ -15,9 +15,17 @@ const {
 //============Model Sections=========
 const Donate = require("../../../model/donate");
 const User = require("../../../model/user");
+const Initation = require("../../../model/initation");
+const Project = require("../../../model/project");
+const About = require("../../../model/about");
+const Member = require("../../../model/member");
 //============Type Sections==========
 const DonateType = require("../types/donateType");
 const UserType = require("../types/userType");
+const InitationType = require("../types/initationType");
+const ProjectType = require("../types/projectType");
+const AboutType = require("../types/aboutType");
+const MemberType = require("../types/memeberType");
 
 const AdminMutation = new GraphQLObjectType({
   name: "adminMuntationType",
@@ -132,6 +140,224 @@ const AdminMutation = new GraphQLObjectType({
               message: "Login successful",
             };
           }
+        } catch (error) {
+          console.log(error);
+          throw error;
+        }
+      },
+    },
+    //===========add initation=========
+    add_initation: {
+      type: InitationType,
+      args: {
+        title: { type: GraphQLNonNull(GraphQLString) },
+        image: { type: GraphQLNonNull(GraphQLString) },
+        des: { type: GraphQLNonNull(GraphQLString) },
+      },
+      resolve: async (parent, args) => {
+        try {
+          const initation = new Initation({ ...args });
+          await initation.save();
+          return { message: "Add initation successfull" };
+        } catch (error) {
+          console.log(error);
+          throw error;
+        }
+      },
+    },
+    //==========delete initation============
+    delete_initation: {
+      type: InitationType,
+      args: {
+        id: { type: GraphQLNonNull(GraphQLID) },
+      },
+      resolve: async (parent, args) => {
+        try {
+          await Initation.deleteOne({ _id: args.id });
+          return { message: "Delete Successfull" };
+        } catch (error) {
+          console.log(error);
+          throw error;
+        }
+      },
+    },
+    //===========Edit initation========
+    edit_initation: {
+      type: InitationType,
+      args: {
+        id: { type: new GraphQLNonNull(GraphQLID) },
+        title: { type: new GraphQLNonNull(GraphQLString) },
+        image: { type: new GraphQLNonNull(GraphQLString) },
+        des: { type: new GraphQLNonNull(GraphQLString) },
+      },
+      resolve: async (root, args) => {
+        try {
+          await Initation.findByIdAndUpdate({ _id: args.id }, { ...args });
+          return {
+            message: "update successfull",
+          };
+        } catch (error) {
+          console.log(error);
+        }
+      },
+    },
+    //================add Project=============
+    add_project: {
+      type: ProjectType,
+      args: {
+        title: { type: GraphQLNonNull(GraphQLString) },
+        image: { type: GraphQLNonNull(GraphQLString) },
+        des: { type: GraphQLNonNull(GraphQLString) },
+      },
+      resolve: async (parent, args) => {
+        try {
+          const project = new Project({ ...args });
+          await project.save();
+          return { message: "Successfull" };
+        } catch (error) {
+          console.log(error);
+          throw error;
+        }
+      },
+    },
+    //==========edit_project========
+    edit_project: {
+      type: ProjectType,
+      args: {
+        id: { type: new GraphQLNonNull(GraphQLID) },
+        title: { type: new GraphQLNonNull(GraphQLString) },
+        image: { type: new GraphQLNonNull(GraphQLString) },
+        des: { type: new GraphQLNonNull(GraphQLString) },
+      },
+      resolve: async (root, args) => {
+        try {
+          await Project.findByIdAndUpdate({ _id: args.id }, { ...args });
+          return {
+            message: "edit successfull",
+          };
+        } catch (error) {
+          console.log(error);
+        }
+      },
+    },
+    //========delete_project=============
+    delete_project: {
+      type: ProjectType,
+      args: {
+        id: { type: GraphQLNonNull(GraphQLID) },
+      },
+      resolve: async (parent, args) => {
+        try {
+          await Project.deleteOne({ _id: args.id });
+          return { message: "Delete Successfull" };
+        } catch (error) {
+          console.log(error);
+          throw error;
+        }
+      },
+    },
+    //========add about========
+    add_about: {
+      type: AboutType,
+      args: {
+        title: { type: GraphQLNonNull(GraphQLString) },
+        des: { type: GraphQLNonNull(GraphQLString) },
+      },
+      resolve: async (parent, args) => {
+        try {
+          const about = new About({ ...args });
+          await about.save();
+          return { message: "Successfull" };
+        } catch (error) {
+          console.log(error);
+          throw error;
+        }
+      },
+    },
+    //========edit about=======
+    edit_about: {
+      type: AboutType,
+      args: {
+        id: { type: new GraphQLNonNull(GraphQLID) },
+        title: { type: new GraphQLNonNull(GraphQLString) },
+        des: { type: new GraphQLNonNull(GraphQLString) },
+      },
+      resolve: async (root, args) => {
+        try {
+          await About.findByIdAndUpdate({ _id: args.id }, { ...args });
+          return {
+            message: "Successfull",
+          };
+        } catch (error) {
+          console.log(error);
+        }
+      },
+    },
+    //========delete about=============
+    delete_project: {
+      type: AboutType,
+      args: {
+        id: { type: GraphQLNonNull(GraphQLID) },
+      },
+      resolve: async (parent, args) => {
+        try {
+          await About.deleteOne({ _id: args.id });
+          return { message: "Delete Successfull" };
+        } catch (error) {
+          console.log(error);
+          throw error;
+        }
+      },
+    },
+    //==========add member=======
+    add_member: {
+      type: MemberType,
+      args: {
+        name: { type: GraphQLNonNull(GraphQLString) },
+        position: { type: GraphQLNonNull(GraphQLString) },
+        image: { type: GraphQLNonNull(GraphQLString) },
+      },
+      resolve: async (parent, args) => {
+        try {
+          const member = new Member({ ...args });
+          await member.save();
+          return { message: "Successfull" };
+        } catch (error) {
+          console.log(error);
+          throw error;
+        }
+      },
+    },
+    //========edit member=======
+    edit_member: {
+      type: MemberType,
+      args: {
+        id: { type: new GraphQLNonNull(GraphQLID) },
+        name: { type: new GraphQLNonNull(GraphQLString) },
+        position: { type: new GraphQLNonNull(GraphQLString) },
+        image: { type: GraphQLNonNull(GraphQLString) },
+      },
+      resolve: async (root, args) => {
+        try {
+          await Member.findByIdAndUpdate({ _id: args.id }, { ...args });
+          return {
+            message: "Successfull",
+          };
+        } catch (error) {
+          console.log(error);
+        }
+      },
+    },
+    //=========delete memeber==========
+    delete_member: {
+      type: MemberType,
+      args: {
+        id: { type: GraphQLNonNull(GraphQLID) },
+      },
+      resolve: async (parent, args) => {
+        try {
+          await Member.deleteOne({ _id: args.id });
+          return { message: "Delete Successfull" };
         } catch (error) {
           console.log(error);
           throw error;

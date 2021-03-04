@@ -1,3 +1,7 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap");
+body {
+  font-family: "Inter", sans-serif;
+}
 .navbar-avata {
   border: 4px solid #fff;
   margin-top: 4px;

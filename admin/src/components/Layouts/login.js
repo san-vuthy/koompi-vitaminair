@@ -13,7 +13,7 @@ const Login = () => {
         ...values,
       },
     }).then(async (res) => {
-      localStorage.setItem("skadtoken", res.data.login.token);
+      localStorage.setItem("vatoken", res.data.login.token);
       const decoded = jwt.decode(res.data.login.token);
       localStorage.setItem("id", res.data.login.id);
       if (decoded) {
