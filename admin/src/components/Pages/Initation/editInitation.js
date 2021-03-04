@@ -85,7 +85,6 @@ const EditInitation = ({ history }) => {
   if (initationLoading) {
     return "laoding...";
   }
-  console.log("data", initationsData);
   return (
     <React.Fragment>
       <Layout style={{ minHeight: "100vh" }}>
@@ -130,6 +129,7 @@ const EditInitation = ({ history }) => {
                       <Input.TextArea className="input-style" size="large" />
                     </Form.Item>
                     <Form.Item>
+                      Desciption
                       <Button
                         className="submit-button"
                         // type="primary"
@@ -149,6 +149,7 @@ const EditInitation = ({ history }) => {
                     <Form.Item>
                       <React.Fragment>
                         <Form.Item
+                          label="Image"
                           initialValue={initationsData.get_initation.image}
                           name="image"
                         >

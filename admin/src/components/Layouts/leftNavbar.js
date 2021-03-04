@@ -44,23 +44,66 @@ const LeftNavbar = () => {
             <Link to="/admin/donationers" />
             Donationers
           </Menu.Item>
-          <SubMenu key="sub1" icon={<UserOutlined />} title="Initation">
-            <Menu.Item key="3">
+          <SubMenu
+            key={
+              pathname === "/admin/initations"
+                ? "/admin/initations"
+                : "/admin/addinitation"
+                ? "/admin/addinitation"
+                : ""
+            }
+            icon={<UserOutlined />}
+            title="Initation"
+          >
+            <Menu.Item key="/admin/initations">
               <Link to="/admin/initations" />
-              Initation
+              Initations
             </Menu.Item>
-            <Menu.Item key="4">
+            <Menu.Item key="/admin/addinitation">
               <Link to="/admin/addinitation" />
               Add Initation
             </Menu.Item>
           </SubMenu>
-          <SubMenu key="sub2" icon={<TeamOutlined />} title="Team">
-            <Menu.Item key="6">Team 1</Menu.Item>
-            <Menu.Item key="8">Team 2</Menu.Item>
+          <SubMenu
+            key={
+              pathname === "/admin/members"
+                ? "/admin/members"
+                : "/admin/addmember"
+                ? "/admin/addmember"
+                : ""
+            }
+            icon={<TeamOutlined />}
+            title="Team"
+          >
+            <Menu.Item key="/admin/members">
+              <Link to="/admin/members" />
+              Members
+            </Menu.Item>
+            <Menu.Item key="/admin/addmember">
+              <Link to="/admin/addmember" />
+              AddMember
+            </Menu.Item>
           </SubMenu>
-          <Menu.Item key="9" icon={<FileOutlined />}>
-            Files
-          </Menu.Item>
+          <SubMenu
+            key={
+              pathname === "/admin/abouts"
+                ? "/admin/abouts"
+                : "/admin/addabout"
+                ? "/admin/addabout"
+                : ""
+            }
+            icon={<TeamOutlined />}
+            title="About"
+          >
+            <Menu.Item key="/admin/abouts">
+              <Link to="/admin/abouts" />
+              Abouts
+            </Menu.Item>
+            <Menu.Item key="/admin/addabout">
+              <Link to="/admin/addabout" />
+              AddAbout
+            </Menu.Item>
+          </SubMenu>
         </Menu>
       </Sider>
     </React.Fragment>

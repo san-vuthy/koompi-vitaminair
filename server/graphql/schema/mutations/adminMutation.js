@@ -294,7 +294,7 @@ const AdminMutation = new GraphQLObjectType({
       },
     },
     //========delete about=============
-    delete_project: {
+    delete_about: {
       type: AboutType,
       args: {
         id: { type: GraphQLNonNull(GraphQLID) },

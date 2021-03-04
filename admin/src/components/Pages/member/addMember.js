@@ -4,19 +4,20 @@ import { LoadingOutlined, PlusOutlined } from "@ant-design/icons";
 import TopNavbar from "../../Layouts/topNavbar";
 import LeftNavbar from "../../Layouts/leftNavbar";
 import { useMutation, useQuery } from "@apollo/client";
-import { ADD_INITATION } from "../../../graphql/mutation";
-import { GET_INITATIONS } from "../../../graphql/query";
+import { ADD_MEMBER } from "../../../graphql/mutation";
+import { GET_MEMBERS } from "../../../graphql/query";
 import addFile from "../../../assets/undraw_Add_files_re_v09g.png";
+
 const { Content, Footer } = Layout;
-const AddInitation = () => {
+const AddMember = () => {
   const [form] = Form.useForm();
   const [state, setState] = useState({
     imageUrl: null,
     loading: false,
   });
   const [loading, setLoading] = useState(false);
-  const [add_initation] = useMutation(ADD_INITATION);
-  const { refetch } = useQuery(GET_INITATIONS);
+  const [add_member] = useMutation(ADD_MEMBER);
+  const { refetch } = useQuery(GET_MEMBERS);
   const handleChange = (info) => {
     if (info.file.status === "uploading") {
       setState({ loading: true });
@@ -49,7 +50,7 @@ const AddInitation = () => {
     return isJpgOrPng && isLt2M;
   };
   const onFinish = (values) => {
-    add_initation({
+    add_member({
       variables: {
         ...values,
         image: state.imageUrl,
@@ -76,7 +77,7 @@ const AddInitation = () => {
           <TopNavbar />
           <Content style={{ backgroundColor: "#fff" }}>
             <div className="contenContainer">
-              <h1 className="title-top">Add Initation</h1>
+              <h1 className="title-top">Add Member</h1>
               <Form
                 form={form}
                 onFinish={onFinish}
@@ -86,28 +87,28 @@ const AddInitation = () => {
                 <Row gutter={[32, 0]}>
                   <Col span={16}>
                     <Form.Item
-                      label="Title"
-                      name="title"
+                      label="Name"
+                      name="name"
                       rules={[
                         {
                           required: true,
-                          message: "Please input Title!",
+                          message: "Please input Name!",
                         },
                       ]}
                     >
                       <Input className="input-style" size="large" />
                     </Form.Item>
                     <Form.Item
-                      label="Description"
-                      name="des"
+                      label="Position"
+                      name="position"
                       rules={[
                         {
                           required: true,
-                          message: "Please input Desciption!",
+                          message: "Please input Position!",
                         },
                       ]}
                     >
-                      <Input.TextArea className="input-style" size="large" />
+                      <Input className="input-style" size="large" />
                     </Form.Item>
                     <Form.Item>
                       <Button
@@ -128,7 +129,16 @@ const AddInitation = () => {
                   <Col span={8}>
                     <Form.Item>
                       <React.Fragment>
-                        <Form.Item name="image">
+                        <Form.Item
+                          rules={[
+                            {
+                              required: true,
+                              message: "Please input Image!",
+                            },
+                          ]}
+                          label="Image"
+                          name="image"
+                        >
                           <Upload.Dragger
                             name="file"
                             listType="picture-card"
@@ -164,4 +174,4 @@ const AddInitation = () => {
   );
 };
 
-export default AddInitation;
+export default AddMember;

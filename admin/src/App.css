@@ -45,6 +45,9 @@ body {
   border-radius: 25px !important;
   border: none !important;
 }
+.delete-button:hover {
+  background-color: #f3c9c9;
+}
 .ant-layout-sider,
 .ant-menu-inline {
   background-color: #43c079 !important;
@@ -63,9 +66,9 @@ body {
 /* .ant-menu-item-selected :hover {
   color: #136d47 !important;
 } */
-.ant-table-tbody > tr.ant-table-row:hover > td {
+/* .ant-table-tbody > tr.ant-table-row:hover > td {
   background: #43c07942;
-}
+} */
 .loginContainer {
   width: 650px;
   margin: 0 auto;
@@ -147,6 +150,16 @@ ant-btn:hover,
 }
 .input-style:hover {
   border-color: #138143;
+}
+.edit-button {
+  background-color: #e0f2e0;
+  cursor: pointer;
+  border-radius: 25px !important;
+  border: none !important;
+}
+.edit-button:hover {
+  background-color: #c9f8c9;
+  /* border: 1px solid green !important; */
 }
 /* .sider-background {
   background-color: #50a758 !important;

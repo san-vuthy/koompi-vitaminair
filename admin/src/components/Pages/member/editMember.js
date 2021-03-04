@@ -4,19 +4,27 @@ import { LoadingOutlined, PlusOutlined } from "@ant-design/icons";
 import TopNavbar from "../../Layouts/topNavbar";
 import LeftNavbar from "../../Layouts/leftNavbar";
 import { useMutation, useQuery } from "@apollo/client";
-import { ADD_INITATION } from "../../../graphql/mutation";
-import { GET_INITATIONS } from "../../../graphql/query";
+import { EDIT_MEMBER } from "../../../graphql/mutation";
+import { GET_MEMBER } from "../../../graphql/query";
 import addFile from "../../../assets/undraw_Add_files_re_v09g.png";
+import { useParams } from "react-router-dom";
+
 const { Content, Footer } = Layout;
-const AddInitation = () => {
+const EditMember = ({ history }) => {
+  const { id } = useParams();
   const [form] = Form.useForm();
   const [state, setState] = useState({
     imageUrl: null,
     loading: false,
   });
   const [loading, setLoading] = useState(false);
-  const [add_initation] = useMutation(ADD_INITATION);
-  const { refetch } = useQuery(GET_INITATIONS);
+  const [edit_member] = useMutation(EDIT_MEMBER);
+  const { loading: loadingMember, error, data, refetch } = useQuery(
+    GET_MEMBER,
+    {
+      variables: { id },
+    }
+  );
   const handleChange = (info) => {
     if (info.file.status === "uploading") {
       setState({ loading: true });
@@ -49,25 +57,25 @@ const AddInitation = () => {
     return isJpgOrPng && isLt2M;
   };
   const onFinish = (values) => {
-    add_initation({
+    edit_member({
       variables: {
         ...values,
-        image: state.imageUrl,
+        image: state.imageUrl === null ? data.get_member.image : state.imageUrl,
+        id: id,
       },
     }).then(async (res) => {
       setLoading(true);
 
       await message.success("Successfull");
-      form.resetFields();
-      setState({
-        imageUrl: null,
-        loading: false,
-      });
       await refetch();
-      setLoading(false);
+      await history.push("/admin/members");
     });
     console.log(values);
   };
+  if (loadingMember) {
+    return "laoding...";
+  }
+  console.log("data", data);
   return (
     <React.Fragment>
       <Layout style={{ minHeight: "100vh" }}>
@@ -76,7 +84,7 @@ const AddInitation = () => {
           <TopNavbar />
           <Content style={{ backgroundColor: "#fff" }}>
             <div className="contenContainer">
-              <h1 className="title-top">Add Initation</h1>
+              <h1 className="title-top">Edit Member</h1>
               <Form
                 form={form}
                 onFinish={onFinish}
@@ -86,28 +94,30 @@ const AddInitation = () => {
                 <Row gutter={[32, 0]}>
                   <Col span={16}>
                     <Form.Item
-                      label="Title"
-                      name="title"
+                      initialValue={data.get_member.name}
+                      label="Name"
+                      name="name"
                       rules={[
                         {
                           required: true,
-                          message: "Please input Title!",
+                          message: "Please input Name!",
                         },
                       ]}
                     >
                       <Input className="input-style" size="large" />
                     </Form.Item>
                     <Form.Item
-                      label="Description"
-                      name="des"
+                      initialValue={data.get_member.position}
+                      label="Position"
+                      name="position"
                       rules={[
                         {
                           required: true,
-                          message: "Please input Desciption!",
+                          message: "Please input Position!",
                         },
                       ]}
                     >
-                      <Input.TextArea className="input-style" size="large" />
+                      <Input className="input-style" size="large" />
                     </Form.Item>
                     <Form.Item>
                       <Button
@@ -128,7 +138,17 @@ const AddInitation = () => {
                   <Col span={8}>
                     <Form.Item>
                       <React.Fragment>
-                        <Form.Item name="image">
+                        <Form.Item
+                          initialValue={data.get_member.image}
+                          rules={[
+                            {
+                              required: true,
+                              message: "Please input Image!",
+                            },
+                          ]}
+                          label="Image"
+                          name="image"
+                        >
                           <Upload.Dragger
                             name="file"
                             listType="picture-card"
@@ -138,7 +158,15 @@ const AddInitation = () => {
                             beforeUpload={beforeUpload}
                             onChange={handleChange}
                           >
-                            {state.imageUrl ? (
+                            {state.imageUrl === null ? (
+                              <img
+                                src={`${`http://localhost:3500`}/public/uploads/${
+                                  data.get_member.image
+                                }`}
+                                alt="avatar"
+                                style={{ width: "100%" }}
+                              />
+                            ) : (
                               <img
                                 src={`${`http://localhost:3500`}/public/uploads/${
                                   state.imageUrl
@@ -146,8 +174,6 @@ const AddInitation = () => {
                                 alt="avatar"
                                 style={{ width: "100%" }}
                               />
-                            ) : (
-                              uploadButton
                             )}
                           </Upload.Dragger>
                         </Form.Item>
@@ -164,4 +190,4 @@ const AddInitation = () => {
   );
 };
 
-export default AddInitation;
+export default EditMember;

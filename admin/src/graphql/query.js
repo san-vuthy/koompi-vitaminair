@@ -24,6 +24,7 @@ const GET_MOST_DONATIONS = gql`
     }
   }
 `;
+//==========initation============
 const GET_INITATIONS = gql`
   query {
     get_initations {
@@ -45,4 +46,57 @@ const GET_INITATION = gql`
     }
   }
 `;
-export { GET_DONATIONS, GET_MOST_DONATIONS, GET_INITATIONS, GET_INITATION };
+//=========member============
+const GET_MEMBERS = gql`
+  query {
+    get_members {
+      id
+      name
+      image
+      create_at
+      position
+    }
+  }
+`;
+const GET_MEMBER = gql`
+  query($id: ID!) {
+    get_member(id: $id) {
+      id
+      position
+      name
+      image
+      create_at
+    }
+  }
+`;
+//=========about============
+const GET_ABOUTS = gql`
+  query {
+    get_abouts {
+      id
+      title
+      des
+      create_at
+    }
+  }
+`;
+const GET_ABOUT = gql`
+  query($id: ID!) {
+    get_about(id: $id) {
+      id
+      title
+      des
+      create_at
+    }
+  }
+`;
+export {
+  GET_DONATIONS,
+  GET_MOST_DONATIONS,
+  GET_INITATIONS,
+  GET_INITATION,
+  GET_MEMBERS,
+  GET_MEMBER,
+  GET_ABOUT,
+  GET_ABOUTS,
+};

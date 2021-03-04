@@ -36,10 +36,60 @@ const EDIT_INITATION = gql`
     }
   }
 `;
+//============member=========
+const ADD_MEMBER = gql`
+  mutation($name: String!, $position: String!, $image: String!) {
+    add_member(name: $name, position: $position, image: $image) {
+      message
+    }
+  }
+`;
+const DELETE_MEMBER = gql`
+  mutation($id: ID!) {
+    delete_member(id: $id) {
+      message
+    }
+  }
+`;
+const EDIT_MEMBER = gql`
+  mutation($id: ID!, $name: String!, $position: String!, $image: String!) {
+    edit_member(id: $id, name: $name, position: $position, image: $image) {
+      message
+    }
+  }
+`;
+//===========About========
+const ADD_ABOUT = gql`
+  mutation($title: String!, $des: String!) {
+    add_about(title: $title, des: $des) {
+      message
+    }
+  }
+`;
+const EDIT_ABOUT = gql`
+  mutation($id: ID!, $title: String!, $des: String!) {
+    edit_about(id: $id, title: $title, des: $des) {
+      message
+    }
+  }
+`;
+const DELETE_ABOUT = gql`
+  mutation($id: ID!) {
+    delete_about(id: $id) {
+      message
+    }
+  }
+`;
 export {
   DELETE_DONATIONER,
   LOGIN,
   ADD_INITATION,
   DELETE_INITATION,
   EDIT_INITATION,
+  ADD_MEMBER,
+  DELETE_MEMBER,
+  EDIT_MEMBER,
+  ADD_ABOUT,
+  EDIT_ABOUT,
+  DELETE_ABOUT,
 };
