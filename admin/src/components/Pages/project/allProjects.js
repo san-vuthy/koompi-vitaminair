@@ -23,7 +23,12 @@ const { Content } = Layout;
 const AllProject = () => {
   const { loading, data, error, refetch } = useQuery(GET_PROJECTS);
   const [delete_project] = useMutation(DELETE_PROJECT);
-  if (loading) return null;
+  if (loading)
+    return (
+      <center style={{ marginTop: "100px" }}>
+        <Spin style={{ color: "red !important" }} size="large" />
+      </center>
+    );
   console.log(data);
   const columns = [
     {

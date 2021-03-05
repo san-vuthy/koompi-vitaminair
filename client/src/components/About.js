@@ -1,4 +1,6 @@
 import { List, Row, Col } from "antd"
+import { useQuery } from "@apollo/client"
+import { GET_ABOUTS, GET_MEMBERS } from "../graphql/query"
 
 function About() {
   const data = [
@@ -9,6 +11,9 @@ function About() {
     "To offer re-education and employment opportunities for local families engaged in illegal forest activities.",
     "To discover and create innovative business and employment opportunities for Cambodian youths.",
   ]
+  const { loading: aboutLoading, data: aboutData } = useQuery(GET_ABOUTS)
+  const { loading: memberLoading, data: memberData } = useQuery(GET_MEMBERS)
+  if (aboutLoading || memberLoading) return null
 
   return (
     <div>
@@ -30,50 +35,20 @@ function About() {
         </div>
         <div className="about">
           <Row className="about-card" justify="center">
-            <Col
-              xs={{ span: 24 }}
-              lg={{ span: 11 }}
-              xl={{ span: 7 }}
-              className="card"
-            >
-              <img src="/images/about/flower.png" alt="" />
-              <h2>VISION</h2>
-              <p>
-                Our vision is to inspire others to rethink their relationship with
-                nature, to learn how to live sustainably therein, and to seek input
-                and guidance for creative new ways to provide benefit to each other
-                and our surroundings.
-              </p>
-            </Col>
-            <Col
-              xs={{ span: 24 }}
-              lg={{ span: 11 }}
-              xl={{ span: 7 }}
-              className="card"
-            >
-              <img src="/images/about/flower.png" alt="" />
-              <h2>MISSION</h2>
-              <p>
-                Our mission is to work together with the Royal Government of Cambodia
-                to reach and maintain a national forest cover of 60% of total land
-                area and maintain it there for generations ahead. We work to reforest
-                the rainforests, incorporating technology and designs inspired by
-                nature.
-              </p>
-            </Col>
-            <Col
-              xs={{ span: 24 }}
-              lg={{ span: 11 }}
-              xl={{ span: 7 }}
-              className="card"
-            >
-              <img src="/images/about/flower.png" alt="" />
-              <h2>VITAMINAIR?</h2>
-              <p>
-                Vitamin Air is a growing community of people actively engaged in
-                social, cultural, ecological and economic regeneration.
-              </p>
-            </Col>
+            {aboutData.get_abouts.map((res) => {
+              return (
+                <Col
+                  xs={{ span: 24 }}
+                  lg={{ span: 11 }}
+                  xl={{ span: 7 }}
+                  className="card"
+                >
+                  <img src="/images/about/flower.png" alt="" />
+                  <h2>{res.title}</h2>
+                  <p>{res.des}</p>
+                </Col>
+              )
+            })}
           </Row>
 
           <h1 style={{ marginTop: "30px" }}>OUR PARTNERS</h1>
@@ -140,7 +115,20 @@ function About() {
           <div className="team-member">
             <h1>TEAM MEMBER</h1>
             <Row gutter={[8, 8]}>
-              <Col xs={24} md={8} lg={6}>
+              {memberData.get_members.map((res) => {
+                return (
+                  <Col xs={24} md={8} lg={6}>
+                    <div className="member">
+                      <img
+                        src={"http://localhost:3500/public/uploads/" + res.image}
+                      />
+                      <h3>{res.name}</h3>
+                      <p>{res.position}</p>
+                    </div>
+                  </Col>
+                )
+              })}
+              {/* <Col xs={24} md={8} lg={6}>
                 <div className="member">
                   <img src="/images/member/member.png" alt="" />
                   <h3>MR Ajfdjkfa</h3>
@@ -188,14 +176,7 @@ function About() {
                   <h3>MR Ajfdjkfa</h3>
                   <p>Developer</p>
                 </div>
-              </Col>
-              <Col xs={24} md={8} lg={6}>
-                <div className="member">
-                  <img src="/images/member/member.png" alt="" />
-                  <h3>MR Ajfdjkfa</h3>
-                  <p>Developer</p>
-                </div>
-              </Col>
+              </Col> */}
             </Row>
           </div>
         </div>

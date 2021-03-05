@@ -2,6 +2,7 @@ import "antd/dist/antd.css";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
 import Login from "./components/Layouts/login";
+import Logout from "./components/Layouts/logout";
 import AddAbout from "./components/Pages/about/addAbout";
 import AllAbout from "./components/Pages/about/allabouts";
 import EditAbout from "./components/Pages/about/editAbout";
@@ -25,6 +26,7 @@ function App() {
       <Router>
         <Switch>
           <PublicRoute exact path="/" component={Login} />
+          <PublicRoute exact path="/logout" component={Logout} />
           <PublicRoute exact path="/login" component={Login} />
           <PrivateRoute exact path="/admin/dashboard" component={Dashboard} />
           <PrivateRoute

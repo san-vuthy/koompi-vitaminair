@@ -24,8 +24,12 @@ const { Content } = Layout;
 const Donationers = () => {
   const { loading, data, error, refetch } = useQuery(GET_DONATIONS);
   const [delete_donationer] = useMutation(DELETE_DONATIONER);
-  if (loading) return null;
-  console.log(data);
+  if (loading)
+    return (
+      <center style={{ marginTop: "100px" }}>
+        <Spin style={{ color: "red !important" }} size="large" />
+      </center>
+    );
   const columns = [
     {
       title: "Name",
@@ -40,21 +44,6 @@ const Donationers = () => {
       key: "tree",
       dataIndex: "tree",
       sorter: (a, b) => a.tree - b.tree,
-      // render: (tree) => (
-      //   <>
-      //     {tree.map((tag) => {
-      //       let color = tag.length > 5 ? "geekblue" : "green";
-      //       if (tag === "loser") {
-      //         color = "volcano";
-      //       }
-      //       return (
-      //         <Tag color={color} key={tag}>
-      //           {tag}
-      //         </Tag>
-      //       );
-      //     })}
-      //   </>
-      // ),
     },
     {
       title: "Donate Date",
@@ -117,7 +106,6 @@ const Donationers = () => {
   function onChange(pagination, filters, sorter, extra) {
     console.log("params", pagination, filters, sorter, extra);
   }
-
   return (
     <div>
       <Layout style={{ minHeight: "100vh" }}>

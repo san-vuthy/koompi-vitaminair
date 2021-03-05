@@ -8,6 +8,7 @@ import { Layout, Menu } from "antd";
 //   PartitionOutlined,
 //   BellOutlined,
 // } from "@ant-design/icons";
+import { BsGrid, BsGift } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import logo from "../../assets/logo/logo.png";
 import {
@@ -15,7 +16,9 @@ import {
   PieChartOutlined,
   FileOutlined,
   TeamOutlined,
-  UserOutlined,
+  FolderViewOutlined,
+  ApartmentOutlined,
+  FileSearchOutlined,
 } from "@ant-design/icons";
 const { Sider } = Layout;
 const { SubMenu } = Menu;
@@ -36,11 +39,11 @@ const LeftNavbar = () => {
           defaultOpenKeys={[pathname]}
           mode="inline"
         >
-          <Menu.Item key="/admin/dashboard" icon={<PieChartOutlined />}>
+          <Menu.Item key="/admin/dashboard" icon={<BsGrid />}>
             <Link to="/admin/dashboard" />
             Dashboard
           </Menu.Item>
-          <Menu.Item key="/admin/donationers" icon={<DesktopOutlined />}>
+          <Menu.Item key="/admin/donationers" icon={<BsGift />}>
             <Link to="/admin/donationers" />
             Donationers
           </Menu.Item>
@@ -52,7 +55,7 @@ const LeftNavbar = () => {
                 ? "/admin/addinitation"
                 : ""
             }
-            icon={<UserOutlined />}
+            icon={<ApartmentOutlined />}
             title="Initation"
           >
             <Menu.Item key="/admin/initations">
@@ -92,7 +95,7 @@ const LeftNavbar = () => {
                 ? "/admin/addabout"
                 : ""
             }
-            icon={<TeamOutlined />}
+            icon={<FileSearchOutlined />}
             title="About"
           >
             <Menu.Item key="/admin/abouts">
@@ -112,7 +115,7 @@ const LeftNavbar = () => {
                 ? "/admin/addproject"
                 : ""
             }
-            icon={<TeamOutlined />}
+            icon={<FolderViewOutlined />}
             title="Project"
           >
             <Menu.Item key="/admin/projects">

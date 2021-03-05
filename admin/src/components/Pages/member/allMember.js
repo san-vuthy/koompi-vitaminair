@@ -24,7 +24,12 @@ const { Content } = Layout;
 const AllMembers = () => {
   const { loading, data, error, refetch } = useQuery(GET_MEMBERS);
   const [delete_member] = useMutation(DELETE_MEMBER);
-  if (loading) return null;
+  if (loading)
+    return (
+      <center style={{ marginTop: "100px" }}>
+        <Spin style={{ color: "red !important" }} size="large" />
+      </center>
+    );
   console.log(data);
   const columns = [
     {

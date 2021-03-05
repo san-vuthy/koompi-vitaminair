@@ -1,6 +1,10 @@
 import { Row, Col } from "antd"
 import { Carousel } from "antd"
+import { useQuery } from "@apollo/client"
+import { GET_PROJECTS } from "../graphql/query"
 function Project() {
+  const { loading, data, error, refetch } = useQuery(GET_PROJECTS)
+  if (loading) return null
   const contentStyle = {
     height: "573px",
     color: "#fff",
@@ -31,17 +35,18 @@ function Project() {
           thinking leaders in the business world.
         </p>
         <Row className="projects" justify="center">
-          <Col xs={{ span: 24 }} lg={{ span: 11 }} className="project-list">
-            <img src="/images/projects/va-natural-farming.png" alt="" />
-            <div className="info">
-              <h3>NATURAL FARMING</h3>
-              <p>
-                Designing balanced ecosystems that produce rich soils and
-                nutrient-dense foods while respecting the environment and animals.
-              </p>
-            </div>
-          </Col>
-          <Col xs={{ span: 24 }} lg={{ span: 11 }} className="project-list">
+          {data.get_projects.map((res) => {
+            return (
+              <Col xs={{ span: 24 }} lg={{ span: 11 }} className="project-list">
+                <img src={"http://localhost:3500/public/uploads/" + res.image} />
+                <div className="info">
+                  <h3>{res.title}</h3>
+                  <p>{res.des}</p>
+                </div>
+              </Col>
+            )
+          })}
+          {/* <Col xs={{ span: 24 }} lg={{ span: 11 }} className="project-list">
             <img src="/images/projects/va-ecotour.png" alt="" />
             <div className="info">
               <h3>ECO-TOURISM</h3>
@@ -80,7 +85,7 @@ function Project() {
                 cover.
               </p>
             </div>
-          </Col>
+          </Col> */}
         </Row>
       </div>
     </div>

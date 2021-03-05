@@ -161,6 +161,9 @@ ant-btn:hover,
   background-color: #c9f8c9;
   /* border: 1px solid green !important; */
 }
+#nprogress .bar {
+  height: 3px !important;
+}
 /* .sider-background {
   background-color: #50a758 !important;
 }

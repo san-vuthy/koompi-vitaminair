@@ -1,5 +1,15 @@
 import React, { useState } from "react";
-import { Col, Row, Layout, Form, Button, Input, Upload, message } from "antd";
+import {
+  Col,
+  Row,
+  Layout,
+  Form,
+  Button,
+  Input,
+  Upload,
+  message,
+  Spin,
+} from "antd";
 import { LoadingOutlined, PlusOutlined } from "@ant-design/icons";
 import TopNavbar from "../../Layouts/topNavbar";
 import LeftNavbar from "../../Layouts/leftNavbar";
@@ -83,7 +93,11 @@ const EditInitation = ({ history }) => {
     console.log(values);
   };
   if (initationLoading) {
-    return "laoding...";
+    return (
+      <center style={{ marginTop: "100px" }}>
+        <Spin style={{ color: "red !important" }} size="large" />
+      </center>
+    );
   }
   return (
     <React.Fragment>
