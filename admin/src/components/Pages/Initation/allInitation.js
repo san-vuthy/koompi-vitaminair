@@ -19,6 +19,7 @@ import TopNavbar from "../../Layouts/topNavbar";
 import { useQuery, useMutation } from "@apollo/client";
 import { GET_INITATIONS } from "../../../graphql/query";
 import { DELETE_INITATION } from "../../../graphql/mutation";
+import FooterDashboard from "../../Layouts/footer";
 
 const { Content } = Layout;
 const AllInitation = () => {
@@ -152,6 +153,7 @@ const AllInitation = () => {
               </div>
             </div>
           </Content>
+          <FooterDashboard />
         </Layout>
       </Layout>
     </div>

@@ -1,20 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { Layout, Menu } from "antd";
-// import {
-//   BankOutlined,
-//   UserOutlined,
-//   VideoCameraOutlined,
-//   AppstoreAddOutlined,
-//   PartitionOutlined,
-//   BellOutlined,
-// } from "@ant-design/icons";
+
 import { BsGrid, BsGift } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import logo from "../../assets/logo/logo.png";
 import {
-  DesktopOutlined,
-  PieChartOutlined,
-  FileOutlined,
   TeamOutlined,
   FolderViewOutlined,
   ApartmentOutlined,
@@ -24,9 +14,18 @@ const { Sider } = Layout;
 const { SubMenu } = Menu;
 const LeftNavbar = () => {
   const pathname = window.location.pathname;
+  const [collapsed, setCollapsed] = useState(false);
+  const onCollapse = () => {
+    setCollapsed(!collapsed);
+  };
   return (
     <React.Fragment>
-      <Sider className="site-layout-background" width={290}>
+      <Sider
+        collapsed={collapsed}
+        onCollapse={onCollapse}
+        // className="site-layout-background"
+        width={290}
+      >
         <div className="logo">
           <center>
             <img style={{ maxWidth: "80%", padding: "8px" }} src={logo} />
@@ -34,7 +33,7 @@ const LeftNavbar = () => {
         </div>
         <Menu
           theme="dark"
-          style={{ height: "100%", borderRight: 0 }}
+          // style={{ height: "100%", borderRight: 0 }}
           defaultSelectedKeys={[pathname]}
           defaultOpenKeys={[pathname]}
           mode="inline"

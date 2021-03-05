@@ -18,6 +18,7 @@ import TopNavbar from "../../Layouts/topNavbar";
 import { useQuery, useMutation } from "@apollo/client";
 import { GET_ABOUTS } from "../../../graphql/query";
 import { DELETE_ABOUT } from "../../../graphql/mutation";
+import FooterDashboard from "../../Layouts/footer";
 
 const { Content } = Layout;
 const AllAbout = () => {
@@ -125,6 +126,7 @@ const AllAbout = () => {
               </div>
             </div>
           </Content>
+          <FooterDashboard />
         </Layout>
       </Layout>
     </div>

@@ -19,6 +19,7 @@ import TopNavbar from "../Layouts/topNavbar";
 import { useQuery, useMutation } from "@apollo/client";
 import { GET_DONATIONS } from "../../graphql/query";
 import { DELETE_DONATIONER } from "../../graphql/mutation";
+import FooterDashboard from "../Layouts/footer";
 
 const { Content } = Layout;
 const Donationers = () => {
@@ -124,6 +125,7 @@ const Donationers = () => {
               </div>
             </div>
           </Content>
+          <FooterDashboard />
         </Layout>
       </Layout>
     </div>

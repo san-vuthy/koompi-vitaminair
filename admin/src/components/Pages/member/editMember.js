@@ -18,6 +18,7 @@ import { EDIT_MEMBER } from "../../../graphql/mutation";
 import { GET_MEMBER } from "../../../graphql/query";
 import addFile from "../../../assets/undraw_Add_files_re_v09g.png";
 import { useParams } from "react-router-dom";
+import FooterDashboard from "../../Layouts/footer";
 
 const { Content, Footer } = Layout;
 const EditMember = ({ history }) => {
@@ -198,6 +199,7 @@ const EditMember = ({ history }) => {
               </Form>
             </div>
           </Content>
+          <FooterDashboard />
         </Layout>
       </Layout>
     </React.Fragment>

@@ -17,6 +17,7 @@ import { useMutation, useQuery } from "@apollo/client";
 import { EDIT_PROJECT } from "../../../graphql/mutation";
 import { GET_PROJECT } from "../../../graphql/query";
 import { useParams } from "react-router-dom";
+import FooterDashboard from "../../Layouts/footer";
 
 const { Content, Footer } = Layout;
 const EditProject = ({ history }) => {
@@ -195,6 +196,7 @@ const EditProject = ({ history }) => {
               </Form>
             </div>
           </Content>
+          <FooterDashboard />
         </Layout>
       </Layout>
     </React.Fragment>

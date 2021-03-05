@@ -7,6 +7,7 @@ import { useMutation, useQuery } from "@apollo/client";
 import { ADD_ABOUT } from "../../../graphql/mutation";
 import { GET_ABOUTS } from "../../../graphql/query";
 import addFile from "../../../assets/undraw_Add_files_re_v09g.png";
+import FooterDashboard from "../../Layouts/footer";
 
 const { Content, Footer } = Layout;
 const AddAbout = () => {
@@ -89,6 +90,7 @@ const AddAbout = () => {
               </Form>
             </div>
           </Content>
+          <FooterDashboard />
         </Layout>
       </Layout>
     </React.Fragment>

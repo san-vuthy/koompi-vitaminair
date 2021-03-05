@@ -17,6 +17,7 @@ import { useMutation, useQuery } from "@apollo/client";
 import { ADD_PROJECT } from "../../../graphql/mutation";
 import { GET_PROJECTS } from "../../../graphql/query";
 import addFile from "../../../assets/undraw_Add_files_re_v09g.png";
+import FooterDashboard from "../../Layouts/footer";
 const { Content, Footer } = Layout;
 const AddProject = () => {
   const [form] = Form.useForm();
@@ -168,6 +169,7 @@ const AddProject = () => {
               </Form>
             </div>
           </Content>
+          <FooterDashboard />
         </Layout>
       </Layout>
     </React.Fragment>

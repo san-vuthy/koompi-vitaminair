@@ -19,6 +19,7 @@ import TopNavbar from "../../Layouts/topNavbar";
 import { useQuery, useMutation } from "@apollo/client";
 import { GET_MEMBERS } from "../../../graphql/query";
 import { DELETE_MEMBER } from "../../../graphql/mutation";
+import FooterDashboard from "../../Layouts/footer";
 
 const { Content } = Layout;
 const AllMembers = () => {
@@ -152,6 +153,7 @@ const AllMembers = () => {
               </div>
             </div>
           </Content>
+          <FooterDashboard />
         </Layout>
       </Layout>
     </div>

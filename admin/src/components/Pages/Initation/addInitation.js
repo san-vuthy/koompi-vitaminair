@@ -7,7 +7,8 @@ import { useMutation, useQuery } from "@apollo/client";
 import { ADD_INITATION } from "../../../graphql/mutation";
 import { GET_INITATIONS } from "../../../graphql/query";
 import addFile from "../../../assets/undraw_Add_files_re_v09g.png";
-const { Content, Footer } = Layout;
+import Footer from "../../Layouts/footer";
+const { Content } = Layout;
 const AddInitation = () => {
   const [form] = Form.useForm();
   const [state, setState] = useState({
@@ -158,6 +159,7 @@ const AddInitation = () => {
               </Form>
             </div>
           </Content>
+          <Footer />
         </Layout>
       </Layout>
     </React.Fragment>
