@@ -90,7 +90,9 @@ function InfoForm() {
         <div>
           <center>
             <h2 className="top-title">JOIN VitaminAir</h2>
-            <p className="join-desc">$1 plants a tree</p>
+            <p className="join-desc">
+              to Plant trees and Educate the next generation
+            </p>
           </center>
           <Row gutter={[12, 12]}>
             <Col span={12}>
