@@ -26,6 +26,17 @@ jobs:
           npm ci
           npm run build
 
+      - name: Build Dashboard side to production
+        run: |
+          cd /home/runner/work/vitaminair.org/vitaminair.org/admin
+          npm ci
+          npm run build
+
+      - name: Backend to production
+        run: |
+          cd /home/runner/work/vitaminair.org/vitaminair.org/server
+          npm ci
+
         env:
           CI: false
 
