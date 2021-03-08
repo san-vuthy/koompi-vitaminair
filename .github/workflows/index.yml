@@ -28,7 +28,7 @@ jobs:
 
       - name: Build Dashboard side to production
         run: |
-          cd /home/runner/work/vitaminair.org/vitaminair.org/admin
+          cd /home/runner/work/vitaminair.org/vitaminair.org/dashboard
           npm ci
           npm run build
 
