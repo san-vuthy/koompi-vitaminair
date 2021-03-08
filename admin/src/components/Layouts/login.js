@@ -3,6 +3,7 @@ import { Input, Button, Checkbox, message, Form } from "antd";
 import { useMutation } from "@apollo/client";
 import jwt from "jsonwebtoken";
 import { LOGIN } from "../../graphql/mutation";
+import cloud2 from "../../assets/cloud2.png";
 const Login = () => {
   const [loading, setLoading] = useState(false);
   const [login] = useMutation(LOGIN);
@@ -28,6 +29,9 @@ const Login = () => {
   };
   return (
     <div>
+      {/* <img className="cloud" src={cloud2} alt="cloud" />
+      <img className="cloud2" src={cloud2} alt="cloud" />
+      <img className="cloud3" src={cloud2} alt="cloud" /> */}
       <div className="loginContainer">
         <div className="background_image">
           <h2 className="position_login">Login to admin account</h2>
@@ -54,7 +58,7 @@ const Login = () => {
               },
             ]}
           >
-            <Input type="email" className="academyInputLarge" />
+            <Input placeholder="Email" type="email" className="login-input" />
           </Form.Item>
 
           {/* =================== Password ================= */}
@@ -68,7 +72,11 @@ const Login = () => {
               },
             ]}
           >
-            <Input.Password type="password" className="academyInputLarge" />
+            <Input.Password
+              placeholder="Password"
+              type="password"
+              className="login-input"
+            />
           </Form.Item>
 
           {/* =================== Remember and Forgot password ================= */}
@@ -99,6 +107,7 @@ const Login = () => {
           </center>
         </Form>
       </div>
+      <div className="big-banner"></div>
     </div>
   );
 };

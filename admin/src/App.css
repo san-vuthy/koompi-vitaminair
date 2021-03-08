@@ -106,10 +106,10 @@ loginContainer .login-form-forgot {
 }
 
 .login-form-button {
-  width: auto !important;
+  width: 200px !important;
   padding: 0px 50px;
   border-radius: 30px !important;
-  height: 35px;
+  height: 40px;
   background-color: green !important;
   border: none;
   text-transform: uppercase;
@@ -252,16 +252,21 @@ ant-btn:hover,
 .text-details4 {
   color: #12283a;
 }
-/* .sider-background {
-  background-color: #50a758 !important;
+.login-input {
+  border-radius: 10px;
+  height: 50px;
 }
-.menu-background {
-  background-color: #50a758 !important;
-  width: 291px !important;
+.big-banner {
+  /* background-image: url("/src/assets/backgroundva.jpg"); */
+  width: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  background-position: center;
+  background-image: linear-gradient(
+      0deg,
+      rgba(20, 52, 73, 0.51),
+      rgba(69, 145, 134, 0.479)
+    ),
+    url("/src/assets/backgroundva.jpg");
 }
-.ant-menu {
-  background-color: #50a758 !important;
-}
-.ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected {
-  background-color: #44984b;
-} */
