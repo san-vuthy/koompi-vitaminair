@@ -43,7 +43,7 @@ const AllProject = () => {
             height="40px"
             width="40px"
             // src={"http://localhost:3500/public/uploads/" + data}
-            src={"https://backend.vitaminair.org/" + data}
+            src={"https://backend.vitaminair.org/public/uploads/" + data}
             alt="avatar"
             // src={'http://localhost:7002/public/uploads/' + data}
           ></img>
