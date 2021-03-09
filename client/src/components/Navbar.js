@@ -15,7 +15,7 @@ function Navbar() {
   return (
     <div className="navbar">
       <NavLink to="/">
-        <img src="/images/logo.png" alt="logo" />
+        <img src="/images/vitaminair.png" alt="logo" />
       </NavLink>
       <div className="menu">
         <NavLink to="/projects" activeClassName="is-active">
@@ -30,7 +30,7 @@ function Navbar() {
       <FiMenu onClick={showDrawer} className="open-menu-btn" />
       <Drawer placement="left" closable={false} onClose={onClose} visible={visible}>
         <div className="navbar">
-          <img src="/images/logo.png" alt="logo" />{" "}
+          <img src="/images/vitaminair.png" alt="logo" />{" "}
         </div>
         <Menu className="side-nav">
           <Menu.Item onClick={onClose}>

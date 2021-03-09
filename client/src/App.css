@@ -105,7 +105,7 @@ button:hover {
   align-items: center;
   justify-content: space-between;
   padding: 13px 15%;
-  height: 70px;
+  height: 100px;
 }
 .navbar a.is-active {
   color: #057630;
@@ -118,9 +118,8 @@ button:hover {
 }
 
 .navbar img {
-  width: 220px;
+  width: 140px;
   user-select: none;
-  margin-top: -10px;
 }
 .menu {
   display: flex;
@@ -143,7 +142,7 @@ button:hover {
   color: white;
   font-size: 25px;
   position: absolute;
-  top: 22px;
+  top: 36px;
   left: 30px;
   display: none;
 }
@@ -154,9 +153,7 @@ button:hover {
   .navbar {
     justify-content: center;
   }
-  .navbar img {
-    width: 200px;
-  }
+
   .menu {
     display: none;
   }
@@ -200,7 +197,7 @@ button:hover {
   right: 50px;
   opacity: 0.15;
   z-index: 0;
-  animation: cloud 30s infinite linear;
+  animation: cloud 40s infinite linear;
   user-select: none;
 }
 .cloud3 {
@@ -210,7 +207,7 @@ button:hover {
   top: 250px;
   right: 50px;
   z-index: 0;
-  animation: cloud 40s infinite linear;
+  animation: cloud 30s infinite linear;
   user-select: none;
 }
 
@@ -221,6 +218,13 @@ button:hover {
   }
   to {
     left: 100%;
+  }
+}
+@media only screen and (max-width: 800px) {
+  .cloud,
+  .cloud2,
+  .cloud3 {
+    animation: none;
   }
 }
 .banner {
@@ -287,17 +291,7 @@ button:hover {
 .ant-form-item {
   margin: 0;
 }
-/* .form .tree-amount {
-  background-color: rgba(12, 176, 75, 0.082);
-  color: #0cb04a;
-  border: 2px solid #0cb04b41;
-  width: 235px;
-  height: 63px;
-  font-size: 20px;
-  font-weight: 900;
-  margin: 5px;
-  border-radius: 8px;
-} */
+
 .input-amount {
   background-color: rgba(12, 176, 75, 0.082);
   color: #0cb04a;
@@ -315,11 +309,11 @@ button:hover {
   color: white !important;
 }
 .join-desc {
-  font-weight: 800;
-  font-size: 20px;
-  margin-bottom: 40px;
+  /* font-weight: 800; */
+  font-size: 18px;
+  margin: 10px 60px 40px 60px;
+
   text-align: center;
-  color: #32b161;
 }
 .details-input {
   margin: 10px 0 20px 0;
@@ -417,6 +411,9 @@ button:hover {
   .form {
     width: 400px;
     padding: 30px 30px;
+  }
+  .join-desc {
+    margin: 10px 0 40px 0;
   }
   /* .form .tree-amount {
     width: 100%;

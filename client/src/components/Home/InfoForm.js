@@ -33,22 +33,6 @@ function InfoForm() {
     setCurrent(current - 1)
   }
 
-  // const amountActive = (e) => {
-  //   e.preventDefault()
-  //   // console.log(e.target.parentElement)
-  //   const btns = Array.from(document.getElementsByClassName("tree-amount"))
-  //   console.log(btns)
-  //   console.log(e.target)
-  //   btns.forEach((btn) => {
-  //     if (btn === e.target) {
-  //       btn.className += " amount-active"
-  //     } else if (btn === e.target.parentElement) {
-  //       btn.className += " amount-active"
-  //     } else {
-  //       btn.className = "tree-amount"
-  //     }
-  //   })
-  // }
   //form
   const layout = {
     labelCol: {
@@ -91,7 +75,7 @@ function InfoForm() {
           <center>
             <h2 className="top-title">JOIN VitaminAir</h2>
             <p className="join-desc">
-              to Plant trees and Educate the next generation
+              Join VitaminAir to Plant trees and Educate the next generation.
             </p>
           </center>
           <Row gutter={[12, 12]}>
@@ -235,9 +219,13 @@ function InfoForm() {
           rules={[{ required: true, message: "Please selecet one!" }]}
         >
           <Select>
-            <Select.Option value="Tree">Tree</Select.Option>
-            <Select.Option value="School">School</Select.Option>
-            <Select.Option value="Other">Other</Select.Option>
+            <Select.Option value="Tree">
+              Plant trees & Forest Patrolling{" "}
+            </Select.Option>
+            <Select.Option value="School">
+              School & Community Development
+            </Select.Option>
+            {/* <Select.Option value="Other">Other</Select.Option> */}
           </Select>
         </Form.Item>
         <Form.Item
