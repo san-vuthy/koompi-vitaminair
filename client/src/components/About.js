@@ -120,7 +120,11 @@ function About() {
                   <Col xs={24} md={8} lg={6}>
                     <div className="member">
                       <img
-                        src={"http://localhost:3500/public/uploads/" + res.image}
+                        // src={"http://localhost:3500/public/uploads/" + res.image}
+                        src={
+                          "https://backend.vitaminair.org/public/uploads/" +
+                          res.image
+                        }
                       />
                       <h3>{res.name}</h3>
                       <p>{res.position}</p>
