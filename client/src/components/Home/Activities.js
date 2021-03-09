@@ -25,7 +25,10 @@ function Activities() {
                       <img
                         style={{ width: "100%" }}
                         // src={"http://localhost:3500/public/uploads/" + res.image}
-                        src={"https://backend.vitaminair.org/" + res.image}
+                        src={
+                          "https://backend.vitaminair.org/public/uploads/" +
+                          res.image
+                        }
                         alt="activities"
                       />
                       <div className="eye-icon" onClick={() => setModal1(true)}>
