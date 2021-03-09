@@ -9,23 +9,25 @@ const Login = () => {
   const [login] = useMutation(LOGIN);
 
   const onFinish = (values) => {
-    login({
-      variables: {
-        ...values,
-      },
-    }).then(async (res) => {
-      localStorage.setItem("vatoken", res.data.login.token);
-      const decoded = jwt.decode(res.data.login.token);
-      localStorage.setItem("id", res.data.login.id);
-      if (decoded) {
-        setLoading(true);
-        await message.success(res.data.login.message);
-        setLoading(false);
-        window.location.replace("/");
-      } else if (!decoded) {
-        await message.error("Login failed");
-      }
-    });
+    console.log(values);
+    // login({
+    //   variables: {
+    //     ...values,
+    //   },
+    // }).then(async (res) => {
+    //   localStorage.setItem("vatoken", res.data.login.token);
+    //   const decoded = jwt.decode(res.data.login.token);
+    //   // localStorage.setItem("id", res.data.login.id);
+
+    //   if (decoded) {
+    //     setLoading(true);
+    //     await message.success(res.data.login.message);
+    //     setLoading(false);
+    //     window.location.replace("/");
+    //   } else if (!decoded) {
+    //     await message.error("Login failed");
+    //   }
+    // });
   };
   return (
     <div>
