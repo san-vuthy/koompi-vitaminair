@@ -38,7 +38,10 @@ function Project() {
           {data.get_projects.map((res) => {
             return (
               <Col xs={{ span: 24 }} lg={{ span: 11 }} className="project-list">
-                <img src={"http://localhost:3500/public/uploads/" + res.image} />
+                {/* <img src={"http://localhost:3500/public/uploads/" + res.image} /> */}
+                <img
+                  src={"https://backend.vitaminair.org/public/uploads/" + res.image}
+                />
                 <div className="info">
                   <h3>{res.title}</h3>
                   <p>{res.des}</p>
