@@ -20,19 +20,19 @@ app.use("/public/", express.static(path.join(__dirname, "public")));
 //Route
 app.use(uploadFile);
 
-app.use(
-  "/graphql",
-  graphqlHTTP({
-    schema,
-    graphiql: true,
-  })
-);
-
 //========For admin dashboard========
 app.use(
   "/admin",
   graphqlHTTP({
     schema: adminSchema,
+    graphiql: true,
+  })
+);
+
+app.use(
+  "/graphql",
+  graphqlHTTP({
+    schema,
     graphiql: true,
   })
 );
