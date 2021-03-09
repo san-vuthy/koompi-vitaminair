@@ -38,8 +38,8 @@ const LeftNavbar = () => {
           defaultOpenKeys={[pathname]}
           mode="inline"
         >
-          <Menu.Item key="/admin/dashboard" icon={<BsGrid />}>
-            <Link to="/admin/dashboard" />
+          <Menu.Item key="/" icon={<BsGrid />}>
+            <Link to="/" />
             Dashboard
           </Menu.Item>
           <Menu.Item key="/admin/donationers" icon={<BsGift />}>

@@ -43,7 +43,8 @@ const AllInitation = () => {
             // style={{ borderRadius: "20px", border: "2px solid gray" }}
             height="40px"
             width="40px"
-            src={"http://localhost:3500/public/uploads/" + data}
+            // src={"http://localhost:3500/public/uploads/" + data}
+            src={"https://backend.vitaminair.org/" + data}
             alt="avatar"
             // src={'http://localhost:7002/public/uploads/' + data}
           ></img>

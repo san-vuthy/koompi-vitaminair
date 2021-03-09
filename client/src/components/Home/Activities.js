@@ -24,7 +24,8 @@ function Activities() {
                     <Col xs={{ span: 24 }} xl={{ span: 9 }} xxl={{ span: 9 }}>
                       <img
                         style={{ width: "100%" }}
-                        src={"http://localhost:3500/public/uploads/" + res.image}
+                        // src={"http://localhost:3500/public/uploads/" + res.image}
+                        src={"https://backend.vitaminair.org/" + res.image}
                         alt="activities"
                       />
                       <div className="eye-icon" onClick={() => setModal1(true)}>

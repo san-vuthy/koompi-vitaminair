@@ -25,10 +25,10 @@ function App() {
     <div className="App">
       <Router>
         <Switch>
-          <PublicRoute exact path="/" component={Login} />
+          <PrivateRoute exact path="/" component={Dashboard} />
           <PublicRoute exact path="/logout" component={Logout} />
           <PublicRoute exact path="/login" component={Login} />
-          <PrivateRoute exact path="/admin/dashboard" component={Dashboard} />
+          {/* <PrivateRoute exact path="/admin/dashboard" component={Dashboard} /> */}
           <PrivateRoute
             exact
             path="/admin/donationers"
