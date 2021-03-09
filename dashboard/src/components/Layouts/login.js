@@ -21,7 +21,7 @@ const Login = () => {
         setLoading(true);
         await message.success(res.data.login.message);
         setLoading(false);
-        window.location.replace("/admin/dashboard");
+        window.location.replace("/");
       } else if (!decoded) {
         await message.error("Login failed");
       }
