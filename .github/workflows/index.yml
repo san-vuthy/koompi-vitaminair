@@ -23,12 +23,14 @@ jobs:
       - name: Build Client side to production
         run: |
           cd /home/runner/work/vitaminair.org/vitaminair.org/client
+          npm i
           npm ci
           npm run build
 
       - name: Build Dashboard side to production
         run: |
           cd /home/runner/work/vitaminair.org/vitaminair.org/dashboard
+          npm i
           npm ci
           npm run build
 
