@@ -42,9 +42,9 @@ const LeftNavbar = () => {
             <Link to="/" />
             Dashboard
           </Menu.Item>
-          <Menu.Item key="/admin/donationers" icon={<BsGift />}>
-            <Link to="/admin/donationers" />
-            Donationers
+          <Menu.Item key="/admin/contributors" icon={<BsGift />}>
+            <Link to="/admin/contributors" />
+            Contributors
           </Menu.Item>
           <SubMenu
             key={

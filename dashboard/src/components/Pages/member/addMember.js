@@ -142,18 +142,22 @@ const AddMember = () => {
                         >
                           <Upload.Dragger
                             name="file"
-                            listType="picture-card"
+                            // listType="picture-card"
                             className="avatar-uploader"
-                            showUploadList={false}
-                            action="http://localhost:3500/upload/images"
+                            // showUploadList={false}
+                            action="https://backend.vitaminair.org/upload/images"
                             beforeUpload={beforeUpload}
                             onChange={handleChange}
                           >
                             {state.imageUrl ? (
                               <img
-                                src={`${`http://localhost:3500`}/public/uploads/${
+                                // src={`${`https://backend.vitaminair.org/`}/public/uploads/${
+                                //   state.imageUrl
+                                // }`}
+                                src={
+                                  "https://backend.vitaminair.org/public/uploads/" +
                                   state.imageUrl
-                                }`}
+                                }
                                 alt="avatar"
                                 style={{ width: "100%" }}
                               />

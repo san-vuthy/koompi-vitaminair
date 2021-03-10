@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Col, Row, Layout, Form, Button, Input, Upload, message } from "antd";
-import { LoadingOutlined, PlusOutlined } from "@ant-design/icons";
+import EditorJs from "react-editor-js";
+import CheckList from "@editorjs/checklist";
+import { EDITOR_JS_TOOLS } from "../../Layouts/tool";
 import TopNavbar from "../../Layouts/topNavbar";
 import LeftNavbar from "../../Layouts/leftNavbar";
 import { useMutation, useQuery } from "@apollo/client";
@@ -49,6 +51,7 @@ const AddInitation = () => {
     }
     return isJpgOrPng && isLt2M;
   };
+
   const onFinish = (values) => {
     add_initation({
       variables: {
@@ -110,6 +113,8 @@ const AddInitation = () => {
                     >
                       <Input.TextArea className="input-style" size="large" />
                     </Form.Item>
+                    {/* <EditorJs tools={EDITOR_JS_TOOLS} /> */}
+                    <br></br>
                     <Form.Item>
                       <Button
                         className="submit-button"
@@ -132,18 +137,22 @@ const AddInitation = () => {
                         <Form.Item name="image">
                           <Upload.Dragger
                             name="file"
-                            listType="picture-card"
+                            // listType="picture-card"
                             className="avatar-uploader"
-                            showUploadList={false}
-                            action="http://localhost:3500/upload/images"
+                            // showUploadList={false}
+                            action="https://backend.vitaminair.org/upload/images"
                             beforeUpload={beforeUpload}
                             onChange={handleChange}
                           >
                             {state.imageUrl ? (
                               <img
-                                src={`${`http://localhost:3500`}/public/uploads/${
+                                // src={`${`https://backend.vitaminair.org/`}/public/uploads/${
+                                //   state.imageUrl
+                                // }`}
+                                src={
+                                  "https://backend.vitaminair.org/public/uploads/" +
                                   state.imageUrl
-                                }`}
+                                }
                                 alt="avatar"
                                 style={{ width: "100%" }}
                               />

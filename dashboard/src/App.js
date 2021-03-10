@@ -31,7 +31,7 @@ function App() {
           {/* <PrivateRoute exact path="/admin/dashboard" component={Dashboard} /> */}
           <PrivateRoute
             exact
-            path="/admin/donationers"
+            path="/admin/contributors"
             component={Donationers}
           />
           <PrivateRoute

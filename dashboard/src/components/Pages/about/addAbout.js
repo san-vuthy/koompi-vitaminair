@@ -8,18 +8,25 @@ import { ADD_ABOUT } from "../../../graphql/mutation";
 import { GET_ABOUTS } from "../../../graphql/query";
 import addFile from "../../../assets/undraw_Add_files_re_v09g.png";
 import FooterDashboard from "../../Layouts/footer";
+import EditorJs from "react-editor-js";
+import CheckList from "@editorjs/checklist";
+import { EDITOR_JS_TOOLS } from "../../Layouts/tool";
 
 const { Content, Footer } = Layout;
 const AddAbout = () => {
   const [form] = Form.useForm();
-
+  const [desc, setDesc] = useState("sa");
   const [loading, setLoading] = useState(false);
   const [add_about] = useMutation(ADD_ABOUT);
   const { refetch } = useQuery(GET_ABOUTS);
-
+  const handleDescChange = (value) => {
+    console.log(value);
+    setDesc(value);
+  };
   const onFinish = (values) => {
     add_about({
       variables: {
+        des: desc,
         ...values,
       },
     }).then(async (res) => {
@@ -71,6 +78,24 @@ const AddAbout = () => {
                   ]}
                 >
                   <Input.TextArea className="input-style" size="large" />
+                  {/* <EditorJs
+                    defaultBlock={false}
+                    handleDescChange={handleDescChange}
+                    defaultValue={desc}
+                    data={{
+                      time: 1556098174501,
+                      blocks: [
+                        {
+                          type: "paragraph",
+                          data: {
+                            text: desc,
+                          },
+                        },
+                      ],
+                      version: "2.12.4",
+                    }}
+                    tools={EDITOR_JS_TOOLS}
+                  /> */}
                 </Form.Item>
                 <Form.Item>
                   <Button
