@@ -255,7 +255,7 @@ button:hover {
   }
 }
 .big-banner {
-  background-image: url(/src/components/asset/big-header.png);
+  background-image: url(/src/components/asset/VA-Header.png);
   width: 100%;
   background-size: cover;
   background-repeat: no-repeat;
