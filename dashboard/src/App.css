@@ -280,3 +280,14 @@ ant-btn:hover,
   z-index: 1;
   margin-bottom: 12px;
 }
+.accountNavbarhover:hover {
+  background-color: rgb(230, 247, 255);
+  color: #1890ff !important;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.accountNavbarhover {
+  transition: 0.3s;
+  padding: 4px;
+  color: black !important;
+}

@@ -19,5 +19,8 @@
   "homepage": "https://github.com/sea-viseth/koompi-vitaminair#readme",
   "devDependencies": {
     "concurrently": "^6.0.0"
+  },
+  "dependencies": {
+    "editorjs-react-renderer": "^2.5.0"
   }
 }

@@ -75,14 +75,20 @@ const TopNavbar = () => {
                   Help
                 </Col>
               </Row>
-              <Row className="accountNavbarhover">
-                <Col style={{ paddingTop: "4px" }} span={4}>
-                  <HiLogout style={{ fontSize: "21px" }} />
-                </Col>
-                <Col className="logout" style={{ paddingTop: "4px" }} span={20}>
-                  <Link to="/logout">Logout</Link>
-                </Col>
-              </Row>
+              <Link to="/logout">
+                <Row className="accountNavbarhover">
+                  <Col style={{ paddingTop: "4px" }} span={4}>
+                    <HiLogout style={{ fontSize: "21px" }} />
+                  </Col>
+                  <Col
+                    className="logout"
+                    style={{ paddingTop: "4px" }}
+                    span={20}
+                  >
+                    Logout
+                  </Col>
+                </Row>
+              </Link>
             </div>
           }
           trigger="click"
