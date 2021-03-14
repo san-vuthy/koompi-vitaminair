@@ -7,6 +7,8 @@ import moment from "moment"
 import { useState } from "react"
 function Leaderboard() {
   const [value, setValue] = useState("recent")
+  const [search, setSearch] = useState("")
+
   //=====get Data==========
   const { loading, data: donateData, error } = useQuery(GET_DONATIONS)
   const {
@@ -34,12 +36,31 @@ function Leaderboard() {
       setValue("most")
     }
   }
+  const handleSearch = (e) => {
+    setSearch(e.target.value)
+  }
+  const results = !search
+    ? donateData.get_donations
+    : donateData.get_donations.filter((data) =>
+        data.name.toLowerCase().includes(search.toLocaleLowerCase())
+      )
+  const resultsThemost = !search
+    ? mostDonateData.get_most_trees
+    : mostDonateData.get_most_trees.filter((data) =>
+        data.name.toLowerCase().includes(search.toLocaleLowerCase())
+      )
   return (
     <div style={{ marginTop: "50px" }}>
       <h1>LEADERBOARD</h1>
       <Row align="middle" justify="center">
         <Col className="search-box gutter-row">
-          <Input className="search" type="text" placeholder="Search" />
+          <Input
+            value={search}
+            onChange={handleSearch}
+            className="search"
+            type="text"
+            placeholder="Search"
+          />
           <FaSearch className="fa-search" />
         </Col>
         <Col offset={1} className="gutter-row most-recent-trees">
@@ -53,7 +74,7 @@ function Leaderboard() {
       </Row>
       {value === "recent" ? (
         <div className="container user-list">
-          {donateData.get_donations.map((res) => {
+          {results.map((res) => {
             const { tree, name, anonymous, create_at, user_message } = res
             console.log(anonymous)
             return (
@@ -94,7 +115,7 @@ function Leaderboard() {
         </div>
       ) : (
         <div className="container user-list">
-          {mostDonateData.get_most_trees.map((res) => {
+          {resultsThemost.map((res) => {
             const { tree, name, anonymous, create_at, user_message } = res
             console.log(anonymous)
             return (
