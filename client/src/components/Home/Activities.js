@@ -3,6 +3,7 @@ import { Row, Col, Modal, Spin } from "antd"
 import { IoEye } from "react-icons/io5"
 import { useQuery } from "@apollo/client"
 import { GET_INITATIONS } from "../../graphql/query"
+import Output from "editorjs-react-renderer"
 
 function Activities() {
   const [modal1, setModal1] = useState(false)
@@ -44,11 +45,13 @@ function Activities() {
                       width={1000}
                       footer=""
                     >
-                      <p>{res.des}</p>
+                      <Output data={JSON.parse(res.des)} />
                     </Modal>
                     <Col xs={{ span: 24 }} xl={{ span: 14 }} xxl={{ span: 15 }}>
                       <h3>{res.title}</h3>
-                      <p style={{ margin: "15px 0" }}>{res.des}</p>
+                      <p style={{ margin: "15px 0" }}>
+                        <Output data={JSON.parse(res.des)} />
+                      </p>
                     </Col>
                   </Row>
                 </Col>

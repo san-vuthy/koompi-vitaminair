@@ -1,7 +1,7 @@
 import { List, Row, Col } from "antd"
 import { useQuery } from "@apollo/client"
 import { GET_ABOUTS, GET_MEMBERS } from "../graphql/query"
-
+import Output from "editorjs-react-renderer"
 function About() {
   const data = [
     "Sustainability, peace, love, harmony, sharing, growth, and abundance, with a focus on setting a good example for generations into the future.",
@@ -45,7 +45,9 @@ function About() {
                 >
                   <img src="/images/about/flower.png" alt="" />
                   <h2>{res.title}</h2>
-                  <p>{res.des}</p>
+                  {/* <p>{res.des}</p> */}
+
+                  <Output data={JSON.parse(res.des)} />
                 </Col>
               )
             })}

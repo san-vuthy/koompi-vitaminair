@@ -20,6 +20,7 @@ import { useQuery, useMutation } from "@apollo/client";
 import { GET_INITATIONS } from "../../../graphql/query";
 import { DELETE_INITATION } from "../../../graphql/mutation";
 import FooterDashboard from "../../Layouts/footer";
+import Output from "editorjs-react-renderer";
 
 const { Content } = Layout;
 const AllInitation = () => {
@@ -63,7 +64,9 @@ const AllInitation = () => {
       key: "tree",
       dataIndex: "des",
       render: (data) => {
-        return data.length <= 25 ? data : data.substring(0, 25) + " ...";
+        const dada = JSON.parse(data);
+        // return data.length <= 25 ? data : data.substring(0, 25) + " ...";
+        return <Output data={dada} />;
       },
     },
     {

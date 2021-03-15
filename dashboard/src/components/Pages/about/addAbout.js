@@ -9,25 +9,44 @@ import { GET_ABOUTS } from "../../../graphql/query";
 import addFile from "../../../assets/undraw_Add_files_re_v09g.png";
 import FooterDashboard from "../../Layouts/footer";
 import EditorJs from "react-editor-js";
-import CheckList from "@editorjs/checklist";
 import { EDITOR_JS_TOOLS } from "../../Layouts/tool";
 
 const { Content, Footer } = Layout;
 const AddAbout = () => {
+  const instanceRef = React.useRef(null);
   const [form] = Form.useForm();
   const [desc, setDesc] = useState("sa");
   const [loading, setLoading] = useState(false);
   const [add_about] = useMutation(ADD_ABOUT);
   const { refetch } = useQuery(GET_ABOUTS);
-  const handleDescChange = (value) => {
-    console.log(value);
-    setDesc(value);
-  };
+  // const handleDescChange = (value) => {
+  //   console.log(value);
+  //   setDesc(value);
+  // };
+  const [data, setData] = React.useState({
+    time: 1556098174501,
+    blocks: [
+      {
+        type: "header",
+        data: {
+          text: "Editor.js",
+          level: 2,
+        },
+      },
+    ],
+  });
+  async function handleSave() {
+    const savedData = await instanceRef.current.save();
+    console.log(JSON.stringify(savedData));
+    await setData(savedData);
+    // instanceRef.current.clear();
+  }
   const onFinish = (values) => {
+    const { title } = values;
     add_about({
       variables: {
-        des: desc,
-        ...values,
+        des: JSON.stringify(data),
+        title: title,
       },
     }).then(async (res) => {
       setLoading(true);
@@ -49,6 +68,7 @@ const AddAbout = () => {
           <Content style={{ backgroundColor: "#fff" }}>
             <div className="contenContainer">
               <h1 className="title-top">Add About</h1>
+              {/* <Output data={data} /> */}
               <Form
                 form={form}
                 onFinish={onFinish}
@@ -77,28 +97,16 @@ const AddAbout = () => {
                     },
                   ]}
                 >
-                  <Input.TextArea className="input-style" size="large" />
-                  {/* <EditorJs
-                    defaultBlock={false}
-                    handleDescChange={handleDescChange}
-                    defaultValue={desc}
-                    data={{
-                      time: 1556098174501,
-                      blocks: [
-                        {
-                          type: "paragraph",
-                          data: {
-                            text: desc,
-                          },
-                        },
-                      ],
-                      version: "2.12.4",
-                    }}
+                  {/* <Input.TextArea className="input-style" size="large" /> */}
+
+                  <EditorJs
                     tools={EDITOR_JS_TOOLS}
-                  /> */}
+                    instanceRef={(instance) => (instanceRef.current = instance)}
+                  />
                 </Form.Item>
                 <Form.Item>
                   <Button
+                    onClick={handleSave}
                     className="submit-button"
                     // type="primary"
                     htmlType="submit"

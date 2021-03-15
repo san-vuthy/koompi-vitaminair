@@ -10,12 +10,26 @@ import { ADD_INITATION } from "../../../graphql/mutation";
 import { GET_INITATIONS } from "../../../graphql/query";
 import addFile from "../../../assets/undraw_Add_files_re_v09g.png";
 import Footer from "../../Layouts/footer";
+
 const { Content } = Layout;
 const AddInitation = () => {
+  const instanceRef = React.useRef(null);
   const [form] = Form.useForm();
   const [state, setState] = useState({
     imageUrl: null,
     loading: false,
+  });
+  const [data, setData] = React.useState({
+    time: 1556098174501,
+    blocks: [
+      {
+        type: "header",
+        data: {
+          text: "Editor.js",
+          level: 2,
+        },
+      },
+    ],
   });
   const [loading, setLoading] = useState(false);
   const [add_initation] = useMutation(ADD_INITATION);
@@ -32,6 +46,12 @@ const AddInitation = () => {
       });
     }
   };
+  async function handleSave() {
+    const savedData = await instanceRef.current.save();
+    console.log(JSON.stringify(savedData));
+    await setData(savedData);
+    // instanceRef.current.clear();
+  }
   const uploadButton = (
     <div>
       {/* {state.loading ? <LoadingOutlined /> : <PlusOutlined />} */}
@@ -53,9 +73,11 @@ const AddInitation = () => {
   };
 
   const onFinish = (values) => {
+    const { title } = values;
     add_initation({
       variables: {
-        ...values,
+        title: title,
+        des: JSON.stringify(data),
         image: state.imageUrl,
       },
     }).then(async (res) => {
@@ -111,12 +133,19 @@ const AddInitation = () => {
                         },
                       ]}
                     >
-                      <Input.TextArea className="input-style" size="large" />
+                      {/* <Input.TextArea className="input-style" size="large" /> */}
+                      <EditorJs
+                        tools={EDITOR_JS_TOOLS}
+                        instanceRef={(instance) =>
+                          (instanceRef.current = instance)
+                        }
+                      />
                     </Form.Item>
                     {/* <EditorJs tools={EDITOR_JS_TOOLS} /> */}
                     <br></br>
                     <Form.Item>
                       <Button
+                        onClick={handleSave}
                         className="submit-button"
                         // type="primary"
                         htmlType="submit"

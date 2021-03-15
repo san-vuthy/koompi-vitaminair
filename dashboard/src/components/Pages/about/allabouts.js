@@ -19,6 +19,7 @@ import { useQuery, useMutation } from "@apollo/client";
 import { GET_ABOUTS } from "../../../graphql/query";
 import { DELETE_ABOUT } from "../../../graphql/mutation";
 import FooterDashboard from "../../Layouts/footer";
+import Output from "editorjs-react-renderer";
 
 const { Content } = Layout;
 const AllAbout = () => {
@@ -36,10 +37,13 @@ const AllAbout = () => {
     },
     {
       title: "Description",
-      key: "tree",
+      key: "des",
       dataIndex: "des",
       render: (data) => {
-        return data.length <= 25 ? data : data.substring(0, 25) + " ...";
+        // return data.length <= 25 ? data : data.substring(0, 25) + " ...";
+        const dada = JSON.parse(data);
+        console.log(dada.length);
+        return <Output data={dada} />;
       },
     },
     {

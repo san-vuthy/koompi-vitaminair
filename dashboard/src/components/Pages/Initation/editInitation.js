@@ -17,9 +17,24 @@ import { useMutation, useQuery } from "@apollo/client";
 import { EDIT_INITATION } from "../../../graphql/mutation";
 import { GET_INITATION } from "../../../graphql/query";
 import { useParams } from "react-router-dom";
+import { EDITOR_JS_TOOLS } from "../../Layouts/tool";
+import EditorJs from "react-editor-js";
 
 const { Content, Footer } = Layout;
 const EditInitation = ({ history }) => {
+  const instanceRef = React.useRef(null);
+  const [datas, setData] = React.useState({
+    time: 1556098174501,
+    blocks: [
+      {
+        type: "header",
+        data: {
+          text: "Editor.js",
+          level: 2,
+        },
+      },
+    ],
+  });
   const { id } = useParams();
   const [form] = Form.useForm();
   const [state, setState] = useState({
@@ -35,6 +50,13 @@ const EditInitation = ({ history }) => {
     variables: { id },
   });
   const [edit_initation] = useMutation(EDIT_INITATION);
+
+  async function handleSave() {
+    const savedData = await instanceRef.current.save();
+    console.log(JSON.stringify(savedData));
+    await setData(savedData);
+    // instanceRef.current.clear();
+  }
 
   const handleChange = (info) => {
     if (info.file.status === "uploading") {
@@ -71,9 +93,11 @@ const EditInitation = ({ history }) => {
     return isJpgOrPng && isLt2M;
   };
   const onFinish = (values) => {
+    const { title } = values;
     edit_initation({
       variables: {
-        ...values,
+        title: title,
+        des: JSON.stringify(datas),
         image:
           state.imageUrl === null
             ? initationsData.get_initation.image
@@ -130,7 +154,9 @@ const EditInitation = ({ history }) => {
                       <Input className="input-style" size="large" />
                     </Form.Item>
                     <Form.Item
-                      initialValue={initationsData.get_initation.des}
+                      initialValue={JSON.parse(
+                        initationsData.get_initation.des
+                      )}
                       label="Description"
                       name="des"
                       rules={[
@@ -140,10 +166,18 @@ const EditInitation = ({ history }) => {
                         },
                       ]}
                     >
-                      <Input.TextArea className="input-style" size="large" />
+                      {/* <Input.TextArea className="input-style" size="large" /> */}
+                      <EditorJs
+                        data={JSON.parse(initationsData.get_initation.des)}
+                        tools={EDITOR_JS_TOOLS}
+                        instanceRef={(instance) =>
+                          (instanceRef.current = instance)
+                        }
+                      />
                     </Form.Item>
                     <Form.Item>
                       <Button
+                        onClick={handleSave}
                         className="submit-button"
                         // type="primary"
                         htmlType="submit"
