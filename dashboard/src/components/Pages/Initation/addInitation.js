@@ -129,7 +129,7 @@ const AddInitation = () => {
                       rules={[
                         {
                           required: true,
-                          message: "Please input Desciption!",
+                          message: "Please input Description!",
                         },
                       ]}
                     >
