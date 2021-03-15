@@ -10,7 +10,7 @@ import {
   message,
   Spin,
 } from "antd";
-import { LoadingOutlined, PlusOutlined } from "@ant-design/icons";
+
 import TopNavbar from "../../Layouts/topNavbar";
 import LeftNavbar from "../../Layouts/leftNavbar";
 import { useMutation, useQuery } from "@apollo/client";
@@ -20,7 +20,7 @@ import { useParams } from "react-router-dom";
 import { EDITOR_JS_TOOLS } from "../../Layouts/tool";
 import EditorJs from "react-editor-js";
 
-const { Content, Footer } = Layout;
+const { Content } = Layout;
 const EditInitation = ({ history }) => {
   const instanceRef = React.useRef(null);
   const [datas, setData] = React.useState({
@@ -41,7 +41,7 @@ const EditInitation = ({ history }) => {
     imageUrl: null,
     loading: false,
   });
-  const [loading, setLoading] = useState(false);
+  const [loading] = useState(false);
   const {
     loading: initationLoading,
     data: initationsData,
@@ -70,17 +70,7 @@ const EditInitation = ({ history }) => {
       });
     }
   };
-  const uploadButton = (
-    <div>
-      {/* {state.loading ? <LoadingOutlined /> : <PlusOutlined />} */}
-      <div className="ant-upload-text">
-        <img
-          style={{ maxWidth: "100%" }}
-          src="https://backend.byteshare.org/undraw_upload_87y9.svg"
-        />
-      </div>
-    </div>
-  );
+
   const beforeUpload = (file) => {
     const isJpgOrPng = file.type === "image/jpeg" || file.type === "image/png";
     if (!isJpgOrPng) {

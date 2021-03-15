@@ -2,6 +2,7 @@ import { Row, Col } from "antd"
 import { Carousel } from "antd"
 import { useQuery } from "@apollo/client"
 import { GET_PROJECTS } from "../graphql/query"
+import Output from "editorjs-react-renderer"
 function Project() {
   const { loading, data, error, refetch } = useQuery(GET_PROJECTS)
   if (loading) return null
@@ -36,6 +37,7 @@ function Project() {
         </p>
         <Row className="projects" justify="center">
           {data.get_projects.map((res) => {
+            const result = <Output data={JSON.parse(res.des)} />
             return (
               <Col xs={{ span: 24 }} lg={{ span: 11 }} className="project-list">
                 {/* <img src={"http://localhost:3500/public/uploads/" + res.image} /> */}
@@ -44,7 +46,14 @@ function Project() {
                 />
                 <div className="info">
                   <h3>{res.title}</h3>
-                  <p>{res.des}</p>
+                  <p>
+                    {`${
+                      result.props.data.blocks[0].data.text.length <= 400
+                        ? result.props.data.blocks[0].data.text
+                        : result.props.data.blocks[0].data.text.substring(0, 400) +
+                          "..."
+                    }`}
+                  </p>
                 </div>
               </Col>
             )

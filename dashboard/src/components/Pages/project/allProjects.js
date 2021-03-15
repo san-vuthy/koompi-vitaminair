@@ -1,16 +1,6 @@
 import React from "react";
 import moment from "moment";
-import {
-  Layout,
-  Row,
-  Col,
-  Spin,
-  Table,
-  Tag,
-  Divider,
-  message,
-  Popconfirm,
-} from "antd";
+import { Layout, Spin, Table, Tag, Divider, message, Popconfirm } from "antd";
 import { Link } from "react-router-dom";
 import { BsTrash, BsPencil } from "react-icons/bs";
 import LeftNavbar from "../../Layouts/leftNavbar";
@@ -19,10 +9,11 @@ import { useQuery, useMutation } from "@apollo/client";
 import { GET_PROJECTS } from "../../../graphql/query";
 import { DELETE_PROJECT } from "../../../graphql/mutation";
 import FooterDashboard from "../../Layouts/footer";
+import Output from "editorjs-react-renderer";
 
 const { Content } = Layout;
 const AllProject = () => {
-  const { loading, data, error, refetch } = useQuery(GET_PROJECTS);
+  const { loading, data, refetch } = useQuery(GET_PROJECTS);
   const [delete_project] = useMutation(DELETE_PROJECT);
   if (loading)
     return (
@@ -62,7 +53,13 @@ const AllProject = () => {
       key: "tree",
       dataIndex: "des",
       render: (data) => {
-        return data.length <= 25 ? data : data.substring(0, 25) + " ...";
+        const result = <Output data={JSON.parse(data)} />;
+        // return data.length <= 25 ? data : data.substring(0, 25) + " ...";
+        return `${
+          result.props.data.blocks[0].data.text.length <= 25
+            ? result.props.data.blocks[0].data.text
+            : result.props.data.blocks[0].data.text.substring(0, 50) + "..."
+        }`;
       },
     },
     {

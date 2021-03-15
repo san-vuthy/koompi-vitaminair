@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-import { Input, Button, Checkbox, message, Form } from "antd";
+import { Input, Button, message, Form } from "antd";
 import { useMutation } from "@apollo/client";
 import jwt from "jsonwebtoken";
 import { LOGIN } from "../../graphql/mutation";
-import cloud2 from "../../assets/cloud2.png";
 const Login = () => {
   const [loading, setLoading] = useState(false);
   const [login] = useMutation(LOGIN);

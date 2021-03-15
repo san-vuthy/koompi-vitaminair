@@ -1,16 +1,5 @@
 import React, { useState } from "react";
-import {
-  Col,
-  Row,
-  Layout,
-  Form,
-  Button,
-  Input,
-  Upload,
-  message,
-  Spin,
-} from "antd";
-import { LoadingOutlined, PlusOutlined } from "@ant-design/icons";
+import { Col, Row, Layout, Form, Button, Input, Upload, message } from "antd";
 import TopNavbar from "../../Layouts/topNavbar";
 import LeftNavbar from "../../Layouts/leftNavbar";
 import { useMutation, useQuery } from "@apollo/client";
@@ -18,12 +7,28 @@ import { ADD_PROJECT } from "../../../graphql/mutation";
 import { GET_PROJECTS } from "../../../graphql/query";
 import addFile from "../../../assets/undraw_Add_files_re_v09g.png";
 import FooterDashboard from "../../Layouts/footer";
-const { Content, Footer } = Layout;
+import EditorJs from "react-editor-js";
+import { EDITOR_JS_TOOLS } from "../../Layouts/tool";
+
+const { Content } = Layout;
 const AddProject = () => {
   const [form] = Form.useForm();
+  const instanceRef = React.useRef(null);
   const [state, setState] = useState({
     imageUrl: null,
     loading: false,
+  });
+  const [data, setData] = React.useState({
+    time: 1556098174501,
+    blocks: [
+      {
+        type: "header",
+        data: {
+          text: "Editor.js",
+          level: 2,
+        },
+      },
+    ],
   });
   const [loading, setLoading] = useState(false);
   const [add_project] = useMutation(ADD_PROJECT);
@@ -40,11 +45,17 @@ const AddProject = () => {
       });
     }
   };
+  async function handleSave() {
+    const savedData = await instanceRef.current.save();
+    console.log(JSON.stringify(savedData));
+    await setData(savedData);
+    // instanceRef.current.clear();
+  }
   const uploadButton = (
     <div>
       {/* {state.loading ? <LoadingOutlined /> : <PlusOutlined />} */}
       <div className="ant-upload-text">
-        <img style={{ maxWidth: "100%" }} src={addFile} />
+        <img style={{ maxWidth: "100%" }} src={addFile} alt="img" />
       </div>
     </div>
   );
@@ -60,9 +71,11 @@ const AddProject = () => {
     return isJpgOrPng && isLt2M;
   };
   const onFinish = (values) => {
+    const { title } = values;
     add_project({
       variables: {
-        ...values,
+        title: title,
+        des: JSON.stringify(data),
         image: state.imageUrl,
       },
     }).then(async (res) => {
@@ -118,10 +131,18 @@ const AddProject = () => {
                         },
                       ]}
                     >
-                      <Input.TextArea className="input-style" size="large" />
+                      {/* <Input.TextArea className="input-style" size="large" /> */}
+                      <EditorJs
+                        tools={EDITOR_JS_TOOLS}
+                        placeholder="Please input Description"
+                        instanceRef={(instance) =>
+                          (instanceRef.current = instance)
+                        }
+                      />
                     </Form.Item>
                     <Form.Item>
                       <Button
+                        onClick={handleSave}
                         className="submit-button"
                         // type="primary"
                         htmlType="submit"

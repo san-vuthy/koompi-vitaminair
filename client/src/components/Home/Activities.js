@@ -19,6 +19,7 @@ function Activities() {
         <div className="card">
           <Row>
             {data.get_initations.map((res) => {
+              const result = <Output data={JSON.parse(res.des)} />
               return (
                 <Col xs={{ span: 24 }} md={{ span: 12 }} xl={{ span: 24 }}>
                   <Row align="middle" className="cardbox" gutter={[20, 20]}>
@@ -50,7 +51,14 @@ function Activities() {
                     <Col xs={{ span: 24 }} xl={{ span: 14 }} xxl={{ span: 15 }}>
                       <h3>{res.title}</h3>
                       <p style={{ margin: "15px 0" }}>
-                        <Output data={JSON.parse(res.des)} />
+                        {`${
+                          result.props.data.blocks[0].data.text.length <= 400
+                            ? result.props.data.blocks[0].data.text
+                            : result.props.data.blocks[0].data.text.substring(
+                                0,
+                                400
+                              ) + "..."
+                        }`}
                       </p>
                     </Col>
                   </Row>

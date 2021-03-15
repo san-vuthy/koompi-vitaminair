@@ -1,21 +1,19 @@
 import React, { useState } from "react";
-import { Col, Row, Layout, Form, Button, Input, Upload, message } from "antd";
-import { LoadingOutlined, PlusOutlined } from "@ant-design/icons";
+import { Layout, Form, Button, Input, message } from "antd";
 import TopNavbar from "../../Layouts/topNavbar";
 import LeftNavbar from "../../Layouts/leftNavbar";
 import { useMutation, useQuery } from "@apollo/client";
 import { ADD_ABOUT } from "../../../graphql/mutation";
 import { GET_ABOUTS } from "../../../graphql/query";
-import addFile from "../../../assets/undraw_Add_files_re_v09g.png";
+
 import FooterDashboard from "../../Layouts/footer";
 import EditorJs from "react-editor-js";
 import { EDITOR_JS_TOOLS } from "../../Layouts/tool";
 
-const { Content, Footer } = Layout;
+const { Content } = Layout;
 const AddAbout = () => {
   const instanceRef = React.useRef(null);
   const [form] = Form.useForm();
-  const [desc, setDesc] = useState("sa");
   const [loading, setLoading] = useState(false);
   const [add_about] = useMutation(ADD_ABOUT);
   const { refetch } = useQuery(GET_ABOUTS);
@@ -101,6 +99,7 @@ const AddAbout = () => {
 
                   <EditorJs
                     tools={EDITOR_JS_TOOLS}
+                    placeholder="Please input Description"
                     instanceRef={(instance) => (instanceRef.current = instance)}
                   />
                 </Form.Item>

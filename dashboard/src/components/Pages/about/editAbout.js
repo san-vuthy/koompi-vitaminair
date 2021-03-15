@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { Col, Row, Layout, Form, Button, Input, Upload, message } from "antd";
-import { LoadingOutlined, PlusOutlined } from "@ant-design/icons";
+import { Layout, Form, Button, Input, message } from "antd";
 import TopNavbar from "../../Layouts/topNavbar";
 import LeftNavbar from "../../Layouts/leftNavbar";
 import { useMutation, useQuery } from "@apollo/client";
@@ -11,7 +10,7 @@ import FooterDashboard from "../../Layouts/footer";
 import { EDITOR_JS_TOOLS } from "../../Layouts/tool";
 import EditorJs from "react-editor-js";
 
-const { Content, Footer } = Layout;
+const { Content } = Layout;
 const EditAbout = ({ history }) => {
   const instanceRef = React.useRef(null);
   const { id } = useParams();
@@ -30,7 +29,7 @@ const EditAbout = ({ history }) => {
       },
     ],
   });
-  const { loading: loadingAbout, error, data, refetch } = useQuery(GET_ABOUT, {
+  const { loading: loadingAbout, data, refetch } = useQuery(GET_ABOUT, {
     variables: { id },
   });
   async function handleSave() {

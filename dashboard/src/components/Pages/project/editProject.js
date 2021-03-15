@@ -10,7 +10,6 @@ import {
   message,
   Spin,
 } from "antd";
-import { LoadingOutlined, PlusOutlined } from "@ant-design/icons";
 import TopNavbar from "../../Layouts/topNavbar";
 import LeftNavbar from "../../Layouts/leftNavbar";
 import { useMutation, useQuery } from "@apollo/client";
@@ -18,21 +17,42 @@ import { EDIT_PROJECT } from "../../../graphql/mutation";
 import { GET_PROJECT } from "../../../graphql/query";
 import { useParams } from "react-router-dom";
 import FooterDashboard from "../../Layouts/footer";
+import { EDITOR_JS_TOOLS } from "../../Layouts/tool";
+import EditorJs from "react-editor-js";
 
-const { Content, Footer } = Layout;
+const { Content } = Layout;
 const EditProject = ({ history }) => {
+  const instanceRef = React.useRef(null);
   const { id } = useParams();
   const [form] = Form.useForm();
   const [state, setState] = useState({
     imageUrl: null,
     loading: false,
   });
-  const [loading, setLoading] = useState(false);
+  const [datas, setData] = React.useState({
+    time: 1556098174501,
+    blocks: [
+      {
+        type: "header",
+        data: {
+          text: "Editor.js",
+          level: 2,
+        },
+      },
+    ],
+  });
+  const [loading] = useState(false);
   const { loading: loadingProject, data, refetch } = useQuery(GET_PROJECT, {
     variables: { id },
   });
   const [edit_project] = useMutation(EDIT_PROJECT);
 
+  async function handleSave() {
+    const savedData = await instanceRef.current.save();
+    console.log(JSON.stringify(savedData));
+    await setData(savedData);
+    // instanceRef.current.clear();
+  }
   const handleChange = (info) => {
     if (info.file.status === "uploading") {
       setState({ loading: true });
@@ -45,17 +65,7 @@ const EditProject = ({ history }) => {
       });
     }
   };
-  const uploadButton = (
-    <div>
-      {/* {state.loading ? <LoadingOutlined /> : <PlusOutlined />} */}
-      <div className="ant-upload-text">
-        <img
-          style={{ maxWidth: "100%" }}
-          src="https://backend.byteshare.org/undraw_upload_87y9.svg"
-        />
-      </div>
-    </div>
-  );
+
   const beforeUpload = (file) => {
     const isJpgOrPng = file.type === "image/jpeg" || file.type === "image/png";
     if (!isJpgOrPng) {
@@ -68,9 +78,11 @@ const EditProject = ({ history }) => {
     return isJpgOrPng && isLt2M;
   };
   const onFinish = (values) => {
+    const { title } = values;
     edit_project({
       variables: {
-        ...values,
+        title: title,
+        des: JSON.stringify(datas),
         image:
           state.imageUrl === null ? data.get_project.image : state.imageUrl,
         id: id,
@@ -135,10 +147,18 @@ const EditProject = ({ history }) => {
                         },
                       ]}
                     >
-                      <Input.TextArea className="input-style" size="large" />
+                      {/* <Input.TextArea className="input-style" size="large" /> */}
+                      <EditorJs
+                        data={JSON.parse(data.get_project.des)}
+                        tools={EDITOR_JS_TOOLS}
+                        instanceRef={(instance) =>
+                          (instanceRef.current = instance)
+                        }
+                      />
                     </Form.Item>
                     <Form.Item>
                       <Button
+                        onClick={handleSave}
                         className="submit-button"
                         // type="primary"
                         htmlType="submit"
