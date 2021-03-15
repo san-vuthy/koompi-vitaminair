@@ -10,17 +10,15 @@ import {
   message,
   Spin,
 } from "antd";
-import { LoadingOutlined, PlusOutlined } from "@ant-design/icons";
 import TopNavbar from "../../Layouts/topNavbar";
 import LeftNavbar from "../../Layouts/leftNavbar";
 import { useMutation, useQuery } from "@apollo/client";
 import { EDIT_MEMBER } from "../../../graphql/mutation";
 import { GET_MEMBER } from "../../../graphql/query";
-import addFile from "../../../assets/undraw_Add_files_re_v09g.png";
 import { useParams } from "react-router-dom";
 import FooterDashboard from "../../Layouts/footer";
 
-const { Content, Footer } = Layout;
+const { Content } = Layout;
 const EditMember = ({ history }) => {
   const { id } = useParams();
   const [form] = Form.useForm();
@@ -30,12 +28,9 @@ const EditMember = ({ history }) => {
   });
   const [loading, setLoading] = useState(false);
   const [edit_member] = useMutation(EDIT_MEMBER);
-  const { loading: loadingMember, error, data, refetch } = useQuery(
-    GET_MEMBER,
-    {
-      variables: { id },
-    }
-  );
+  const { loading: loadingMember, data, refetch } = useQuery(GET_MEMBER, {
+    variables: { id },
+  });
   const handleChange = (info) => {
     if (info.file.status === "uploading") {
       setState({ loading: true });
@@ -48,14 +43,7 @@ const EditMember = ({ history }) => {
       });
     }
   };
-  const uploadButton = (
-    <div>
-      {/* {state.loading ? <LoadingOutlined /> : <PlusOutlined />} */}
-      <div className="ant-upload-text">
-        <img style={{ maxWidth: "100%" }} src={addFile} />
-      </div>
-    </div>
-  );
+
   const beforeUpload = (file) => {
     const isJpgOrPng = file.type === "image/jpeg" || file.type === "image/png";
     if (!isJpgOrPng) {

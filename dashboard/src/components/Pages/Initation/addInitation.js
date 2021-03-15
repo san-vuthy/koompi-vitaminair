@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Col, Row, Layout, Form, Button, Input, Upload, message } from "antd";
 import EditorJs from "react-editor-js";
-import CheckList from "@editorjs/checklist";
 import { EDITOR_JS_TOOLS } from "../../Layouts/tool";
 import TopNavbar from "../../Layouts/topNavbar";
 import LeftNavbar from "../../Layouts/leftNavbar";
@@ -56,7 +55,7 @@ const AddInitation = () => {
     <div>
       {/* {state.loading ? <LoadingOutlined /> : <PlusOutlined />} */}
       <div className="ant-upload-text">
-        <img style={{ maxWidth: "100%" }} src={addFile} />
+        <img style={{ maxWidth: "100%" }} src={addFile} alt="img" />
       </div>
     </div>
   );

@@ -1,16 +1,6 @@
 import React from "react";
 import moment from "moment";
-import {
-  Layout,
-  Row,
-  Col,
-  Spin,
-  Table,
-  Tag,
-  Divider,
-  message,
-  Popconfirm,
-} from "antd";
+import { Layout, Spin, Table, Tag, Divider, message, Popconfirm } from "antd";
 import { Link } from "react-router-dom";
 import { BsTrash, BsPencil } from "react-icons/bs";
 import LeftNavbar from "../../Layouts/leftNavbar";
@@ -22,7 +12,7 @@ import FooterDashboard from "../../Layouts/footer";
 
 const { Content } = Layout;
 const AllProject = () => {
-  const { loading, data, error, refetch } = useQuery(GET_PROJECTS);
+  const { loading, data, refetch } = useQuery(GET_PROJECTS);
   const [delete_project] = useMutation(DELETE_PROJECT);
   if (loading)
     return (

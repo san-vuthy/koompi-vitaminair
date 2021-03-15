@@ -10,7 +10,6 @@ import {
   message,
   Spin,
 } from "antd";
-import { LoadingOutlined, PlusOutlined } from "@ant-design/icons";
 import TopNavbar from "../../Layouts/topNavbar";
 import LeftNavbar from "../../Layouts/leftNavbar";
 import { useMutation, useQuery } from "@apollo/client";
@@ -19,7 +18,7 @@ import { GET_PROJECT } from "../../../graphql/query";
 import { useParams } from "react-router-dom";
 import FooterDashboard from "../../Layouts/footer";
 
-const { Content, Footer } = Layout;
+const { Content } = Layout;
 const EditProject = ({ history }) => {
   const { id } = useParams();
   const [form] = Form.useForm();
@@ -27,7 +26,7 @@ const EditProject = ({ history }) => {
     imageUrl: null,
     loading: false,
   });
-  const [loading, setLoading] = useState(false);
+  const [loading] = useState(false);
   const { loading: loadingProject, data, refetch } = useQuery(GET_PROJECT, {
     variables: { id },
   });
@@ -45,17 +44,7 @@ const EditProject = ({ history }) => {
       });
     }
   };
-  const uploadButton = (
-    <div>
-      {/* {state.loading ? <LoadingOutlined /> : <PlusOutlined />} */}
-      <div className="ant-upload-text">
-        <img
-          style={{ maxWidth: "100%" }}
-          src="https://backend.byteshare.org/undraw_upload_87y9.svg"
-        />
-      </div>
-    </div>
-  );
+
   const beforeUpload = (file) => {
     const isJpgOrPng = file.type === "image/jpeg" || file.type === "image/png";
     if (!isJpgOrPng) {

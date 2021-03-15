@@ -1,7 +1,7 @@
 import React from "react";
 
 import { HiOutlineCog, HiQuestionMarkCircle, HiLogout } from "react-icons/hi";
-import { Layout, Avatar, Popover, Row, Col, Input } from "antd";
+import { Layout, Avatar, Popover, Row, Col } from "antd";
 import { Link } from "react-router-dom";
 import avatar from "../../assets/undraw_male_avatar_323b.png";
 
@@ -10,7 +10,7 @@ import avatar from "../../assets/undraw_male_avatar_323b.png";
 
 const { Header } = Layout;
 // const { Search } = Input;
-const user = localStorage.getItem("id");
+
 const TopNavbar = () => {
   // const { loading: userLoadingg, data: userData } = useQuery(GET_USER, {
   //   variables: { id: user },

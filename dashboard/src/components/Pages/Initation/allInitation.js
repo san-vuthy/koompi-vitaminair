@@ -1,19 +1,8 @@
 import React from "react";
 import moment from "moment";
-import {
-  Layout,
-  Row,
-  Col,
-  Spin,
-  Table,
-  Tag,
-  Divider,
-  message,
-  Popconfirm,
-} from "antd";
+import { Layout, Spin, Table, Tag, Divider, message, Popconfirm } from "antd";
 import { Link } from "react-router-dom";
 import { BsTrash, BsPencil } from "react-icons/bs";
-import { DeleteOutlined } from "@ant-design/icons";
 import LeftNavbar from "../../Layouts/leftNavbar";
 import TopNavbar from "../../Layouts/topNavbar";
 import { useQuery, useMutation } from "@apollo/client";
@@ -24,7 +13,7 @@ import Output from "editorjs-react-renderer";
 
 const { Content } = Layout;
 const AllInitation = () => {
-  const { loading, data, error, refetch } = useQuery(GET_INITATIONS);
+  const { loading, data, refetch } = useQuery(GET_INITATIONS);
   const [delete_initation] = useMutation(DELETE_INITATION);
   if (loading)
     return (

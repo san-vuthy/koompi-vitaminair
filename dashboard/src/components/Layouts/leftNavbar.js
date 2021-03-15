@@ -29,7 +29,11 @@ const LeftNavbar = () => {
         <div className="logo">
           <Link to="/">
             <center>
-              <img style={{ maxWidth: "80%", padding: "8px" }} src={logo} />
+              <img
+                style={{ maxWidth: "80%", padding: "8px" }}
+                src={logo}
+                alt="img"
+              />
             </center>
           </Link>
         </div>

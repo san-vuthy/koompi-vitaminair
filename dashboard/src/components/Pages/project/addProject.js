@@ -1,16 +1,6 @@
 import React, { useState } from "react";
-import {
-  Col,
-  Row,
-  Layout,
-  Form,
-  Button,
-  Input,
-  Upload,
-  message,
-  Spin,
-} from "antd";
-import { LoadingOutlined, PlusOutlined } from "@ant-design/icons";
+import { Col, Row, Layout, Form, Button, Input, Upload, message } from "antd";
+
 import TopNavbar from "../../Layouts/topNavbar";
 import LeftNavbar from "../../Layouts/leftNavbar";
 import { useMutation, useQuery } from "@apollo/client";
@@ -18,7 +8,7 @@ import { ADD_PROJECT } from "../../../graphql/mutation";
 import { GET_PROJECTS } from "../../../graphql/query";
 import addFile from "../../../assets/undraw_Add_files_re_v09g.png";
 import FooterDashboard from "../../Layouts/footer";
-const { Content, Footer } = Layout;
+const { Content } = Layout;
 const AddProject = () => {
   const [form] = Form.useForm();
   const [state, setState] = useState({
@@ -44,7 +34,7 @@ const AddProject = () => {
     <div>
       {/* {state.loading ? <LoadingOutlined /> : <PlusOutlined />} */}
       <div className="ant-upload-text">
-        <img style={{ maxWidth: "100%" }} src={addFile} />
+        <img style={{ maxWidth: "100%" }} src={addFile} alt="img" />
       </div>
     </div>
   );

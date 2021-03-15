@@ -3,14 +3,9 @@ import { Layout, Row, Col, Spin } from "antd";
 import LeftNavbar from "../Layouts/leftNavbar";
 import TopNavbar from "../Layouts/topNavbar";
 import FooterDashboard from "../Layouts/footer";
-import { useQuery, useMutation } from "@apollo/client";
+import { useQuery } from "@apollo/client";
 import Countup from "react-countup";
-import {
-  TeamOutlined,
-  FolderViewOutlined,
-  ApartmentOutlined,
-  FileSearchOutlined,
-} from "@ant-design/icons";
+
 import {
   GET_MEMBERS,
   GET_ABOUTS,

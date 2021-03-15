@@ -1,16 +1,6 @@
 import React from "react";
 import moment from "moment";
-import {
-  Layout,
-  Row,
-  Col,
-  Spin,
-  Table,
-  Tag,
-  Divider,
-  message,
-  Popconfirm,
-} from "antd";
+import { Layout, Table, Tag, Divider, message, Popconfirm } from "antd";
 import { Link } from "react-router-dom";
 import { BsTrash, BsPencil } from "react-icons/bs";
 import LeftNavbar from "../../Layouts/leftNavbar";
@@ -23,7 +13,7 @@ import Output from "editorjs-react-renderer";
 
 const { Content } = Layout;
 const AllAbout = () => {
-  const { loading, data, error, refetch } = useQuery(GET_ABOUTS);
+  const { loading, data, refetch } = useQuery(GET_ABOUTS);
   const [delete_about] = useMutation(DELETE_ABOUT);
   if (loading) return null;
   console.log(data);
@@ -42,7 +32,7 @@ const AllAbout = () => {
       render: (data) => {
         // return data.length <= 25 ? data : data.substring(0, 25) + " ...";
         const dada = JSON.parse(data);
-        console.log(dada.length);
+        console.log(<Output data={data} />);
         return <Output data={dada} />;
       },
     },
@@ -111,10 +101,6 @@ const AllAbout = () => {
       },
     },
   ];
-
-  function onChange(pagination, filters, sorter, extra) {
-    console.log("params", pagination, filters, sorter, extra);
-  }
 
   return (
     <div>

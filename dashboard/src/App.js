@@ -1,5 +1,5 @@
 import "antd/dist/antd.css";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Switch } from "react-router-dom";
 import "./App.css";
 import Login from "./components/Layouts/login";
 import Logout from "./components/Layouts/logout";
