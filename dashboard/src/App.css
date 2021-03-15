@@ -131,7 +131,8 @@ loginContainer .login-form-forgot {
   background-color: green;
   border: none;
   color: white;
-  width: 150px;
+  width: 180px;
+  border-radius: 30px;
 }
 .submit-button:hover {
   background-color: #43c079 !important;
@@ -270,16 +271,15 @@ ant-btn:hover,
     ),
     url("/src/assets/backgroundva.jpg");
 }
-.codex-editor {
-  border: 1px solid #43c079;
+/* .codex-editor {
+  border: 0px solid #43c079;
   border-radius: 12px;
-  /* height: 200px; */
   position: relative;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   z-index: 1;
   margin-bottom: 12px;
-}
+} */
 .accountNavbarhover:hover {
   background-color: rgb(230, 247, 255);
   color: #1890ff !important;
@@ -290,4 +290,15 @@ ant-btn:hover,
   transition: 0.3s;
   padding: 4px;
   color: black !important;
+}
+.ce-block__content,
+.ce-toolbar__content {
+  max-width: calc(100% - 40px) !important;
+  font-size: 18px;
+}
+.cdx-block {
+  max-width: 100% !important;
+}
+.codex-editor__redactor {
+  padding-bottom: 20px !important;
 }

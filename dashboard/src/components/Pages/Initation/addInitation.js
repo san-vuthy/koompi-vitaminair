@@ -136,6 +136,7 @@ const AddInitation = () => {
                       {/* <Input.TextArea className="input-style" size="large" /> */}
                       <EditorJs
                         tools={EDITOR_JS_TOOLS}
+                        placeholder="Please input Description"
                         instanceRef={(instance) =>
                           (instanceRef.current = instance)
                         }
@@ -155,7 +156,7 @@ const AddInitation = () => {
                         {loading ? (
                           <small>loading...</small>
                         ) : (
-                          <small>SUMBIT</small>
+                          <small>Submit</small>
                         )}
                       </Button>
                     </Form.Item>

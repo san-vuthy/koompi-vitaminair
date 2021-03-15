@@ -64,9 +64,9 @@ const AllInitation = () => {
       key: "tree",
       dataIndex: "des",
       render: (data) => {
-        const dada = JSON.parse(data);
+        const result = <Output data={JSON.parse(data)} />;
         // return data.length <= 25 ? data : data.substring(0, 25) + " ...";
-        return <Output data={dada} />;
+        return `${result.props.data.blocks[0].data.text.substring(0, 50)}...`;
       },
     },
     {
