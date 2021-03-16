@@ -65,7 +65,31 @@ const GET_INITATIONS = gql`
     }
   }
 `
+const GET_PROJECT = gql`
+  query($id: ID!) {
+    get_projects(id: $id) {
+      id
+      title
+      des
+      image
+      create_at
+    }
+  }
+`
+const GET_INITATION = gql`
+  query($id: ID!) {
+    get_initations(id: $id) {
+      id
+      title
+      des
+      image
+      create_at
+    }
+  }
+`
 export {
+  GET_PROJECT,
+  GET_INITATION,
   GET_DONATIONS,
   GET_MOST_DONATIONS,
   GET_ABOUTS,

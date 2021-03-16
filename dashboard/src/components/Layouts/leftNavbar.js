@@ -3,7 +3,7 @@ import { Layout, Menu } from "antd";
 
 import { BsGrid, BsGift } from "react-icons/bs";
 import { Link } from "react-router-dom";
-import logo from "../../assets/logo/logo.png";
+import logo from "../../assets/logo/vitaminair.png";
 import {
   TeamOutlined,
   FolderViewOutlined,
@@ -61,15 +61,15 @@ const LeftNavbar = () => {
                 : ""
             }
             icon={<ApartmentOutlined />}
-            title="Initation"
+            title="Initiations"
           >
             <Menu.Item key="/admin/initations">
               <Link to="/admin/initations" />
-              Initations
+              Initiations
             </Menu.Item>
             <Menu.Item key="/admin/addinitation">
               <Link to="/admin/addinitation" />
-              Add Initation
+              Add Initiations
             </Menu.Item>
           </SubMenu>
           <SubMenu
@@ -89,7 +89,7 @@ const LeftNavbar = () => {
             </Menu.Item>
             <Menu.Item key="/admin/addmember">
               <Link to="/admin/addmember" />
-              AddMember
+              Add Member
             </Menu.Item>
           </SubMenu>
           <SubMenu
@@ -109,7 +109,7 @@ const LeftNavbar = () => {
             </Menu.Item>
             <Menu.Item key="/admin/addabout">
               <Link to="/admin/addabout" />
-              AddAbout
+              Add About
             </Menu.Item>
           </SubMenu>
           <SubMenu
@@ -129,7 +129,7 @@ const LeftNavbar = () => {
             </Menu.Item>
             <Menu.Item key="/admin/addproject">
               <Link to="/admin/addproject" />
-              AddProject
+              Add Project
             </Menu.Item>
           </SubMenu>
         </Menu>
