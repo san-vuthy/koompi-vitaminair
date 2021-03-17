@@ -6,8 +6,8 @@ const DONATE_TREES = gql`
     $team: String!
     $name: String!
     $email: String!
-    $phone: String!
-    $user_message: String!
+    $phone: String
+    $user_message: String
     $selectType: String!
     $anonymous: Boolean
     $public: Boolean

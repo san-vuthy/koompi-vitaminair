@@ -78,7 +78,7 @@ const GET_PROJECT = gql`
 `
 const GET_INITATION = gql`
   query($id: ID!) {
-    get_initations(id: $id) {
+    get_initation(id: $id) {
       id
       title
       des

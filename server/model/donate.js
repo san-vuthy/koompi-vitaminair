@@ -15,11 +15,11 @@ const DonateSchema = new mongoose.Schema({
   },
   phone: {
     type: String,
-    required: true,
+    required: false,
   },
   user_message: {
     type: String,
-    required: true,
+    required: false,
   },
   anonymous: {
     type: Boolean,

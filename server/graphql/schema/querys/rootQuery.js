@@ -50,6 +50,13 @@ const RootQuery = new GraphQLObjectType({
         }
       },
     },
+    get_initation: {
+      type: Initationtype,
+      args: { id: { type: GraphQLID } },
+      resolve(parent, args) {
+        return Initation.findOne({ _id: args.id });
+      },
+    },
     //===========get project=======
     get_projects: {
       type: new GraphQLList(ProjectType),
@@ -60,6 +67,13 @@ const RootQuery = new GraphQLObjectType({
           console.log(error);
           throw error;
         }
+      },
+    },
+    get_project: {
+      type: ProjectType,
+      args: { id: { type: GraphQLID } },
+      resolve(parent, args) {
+        return Project.findOne({ _id: args.id });
       },
     },
     //===========get about=======

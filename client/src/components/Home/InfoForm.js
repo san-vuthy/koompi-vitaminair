@@ -10,6 +10,7 @@ import {
   Select,
   Radio,
   message,
+  Alert,
 } from "antd"
 import { DONATE_TREES } from "../../graphql/mutaion"
 import { GET_DONATIONS, GET_MOST_DONATIONS } from "../../graphql/query"
@@ -19,6 +20,7 @@ function InfoForm() {
   const [current, setCurrent] = useState(0)
   const [donation] = useMutation(DONATE_TREES)
   const { refetch } = useQuery(GET_DONATIONS)
+  const [loading, setLoading] = useState(false)
   const { refetch: refetchMostDonation } = useQuery(GET_MOST_DONATIONS)
 
   const [form] = Form.useForm()
@@ -48,17 +50,21 @@ function InfoForm() {
     },
   }
   const onFinish = (values) => {
-    const { tree } = values
+    const { tree, phone, user_message } = values
     donation({
       variables: {
         ...values,
+        // user_message: user_message === undefined ? "" : user_message,
+        // phone: phone === undefined ? "No" : phone,
         tree: parseInt(tree),
       },
     }).then(async (res) => {
-      message.success(" Donation Successful")
+      setLoading(true)
+      message.success("Donation Successful")
       await refetch()
       await refetchMostDonation()
       form.resetFields()
+      setLoading(false)
     })
     console.log(values)
   }
@@ -174,18 +180,7 @@ function InfoForm() {
         >
           <Input />
         </Form.Item>
-        <Form.Item
-          className="details-input"
-          label="MOBILE PHONE"
-          name="phone"
-          rules={[
-            {
-              required: true,
-              message: "Please input your Phone Number!",
-            },
-          ]}
-          // rules={[{ type: "number" }]}
-        >
+        <Form.Item className="details-input" label="MOBILE PHONE" name="phone">
           <Input />
         </Form.Item>
         <p>
@@ -206,7 +201,7 @@ function InfoForm() {
           className="details-input"
           label="MESSAGE"
           name="user_message"
-          rules={[{ required: true, message: "Please input your message!" }]}
+          // rules={[{ required: true, message: "Please input your message!" }]}
         >
           <Input.TextArea />
         </Form.Item>
@@ -219,10 +214,10 @@ function InfoForm() {
           rules={[{ required: true, message: "Please selecet one!" }]}
         >
           <Select>
-            <Select.Option value="Tree">
+            <Select.Option value="Plant trees & Forest Patrolling">
               Plant trees & Forest Patrolling{" "}
             </Select.Option>
-            <Select.Option value="School">
+            <Select.Option value="School & Community Development">
               School & Community Development
             </Select.Option>
             {/* <Select.Option value="Other">Other</Select.Option> */}
@@ -304,7 +299,7 @@ function InfoForm() {
                   style={{ width: "100%" }}
                   className="next-btn"
                 >
-                  Submit
+                  {loading ? <small>loading...</small> : <small>SUMBIT</small>}
                 </Button>
               </Form.Item>
             )}

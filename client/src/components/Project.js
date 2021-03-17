@@ -25,7 +25,7 @@ function Project() {
   }
   return (
     <div>
-      {/* <Carousel autoplay infinite autoplaySpeed={2000}>
+      <Carousel autoplay infinite autoplaySpeed={2000}>
         <div>
           <h3 style={contentStyle}>1</h3>
         </div>
@@ -38,7 +38,7 @@ function Project() {
         <div>
           <h3 style={contentStyle}>4</h3>
         </div>
-      </Carousel> */}
+      </Carousel>
 
       <Modal
         title={titles}

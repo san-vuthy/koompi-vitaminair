@@ -38,11 +38,11 @@ const Dashboard = () => {
               <h1 className="title-top">Overview</h1>
               <Row gutter={[32]}>
                 <Col lg={6}>
-                  <Row className="widget-card">
-                    <Col span={10}>
+                  <Row gutter={[12]} className="widget-card">
+                    <Col sm={12} md={12}>
                       <FaRegListAlt className="background-image-widget" />
                     </Col>
-                    <Col span={14}>
+                    <Col sm={12} md={12}>
                       <Countup
                         end={dataProject.get_projects.length}
                         className="counter"
@@ -53,10 +53,10 @@ const Dashboard = () => {
                 </Col>
                 <Col lg={6}>
                   <Row className="widget-card2">
-                    <Col span={10}>
+                    <Col sm={12} md={12}>
                       <FaMap className="background-image-widget2" />
                     </Col>
-                    <Col span={14}>
+                    <Col sm={12} md={12}>
                       <Countup
                         end={dataInitation.get_initations.length}
                         className="counter2"
@@ -67,10 +67,10 @@ const Dashboard = () => {
                 </Col>
                 <Col lg={6}>
                   <Row className="widget-card3">
-                    <Col span={10}>
+                    <Col sm={12} md={12}>
                       <FaBook className="background-image-widget3" />
                     </Col>
-                    <Col span={14}>
+                    <Col sm={12} md={12}>
                       <Countup
                         end={dataAbout.get_abouts.length}
                         className="counter3"
@@ -81,10 +81,10 @@ const Dashboard = () => {
                 </Col>
                 <Col lg={6}>
                   <Row className="widget-card4">
-                    <Col span={10}>
+                    <Col sm={12} md={12}>
                       <FaUserFriends className="background-image-widget4" />
                     </Col>
-                    <Col span={14}>
+                    <Col sm={12} md={12}>
                       <Countup
                         end={dataMember.get_members.length}
                         className="counter4"
