@@ -81,7 +81,6 @@ const AddInitation = () => {
       },
     }).then(async (res) => {
       setLoading(true);
-
       await message.success("Successfull");
       form.resetFields();
       setState({
