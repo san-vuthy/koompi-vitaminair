@@ -5,6 +5,7 @@ import { useQuery } from "@apollo/client"
 import { GET_INITATIONS, GET_INITATION } from "../../graphql/query"
 import Output from "editorjs-react-renderer"
 import ShowModalActivities from "./ShowModalActivities"
+import Footer from "../Footer"
 
 function Activities() {
   const [id, setId] = useState("")
@@ -109,6 +110,7 @@ function Activities() {
           </Row>
         </div>
       </div>
+      <Footer />
     </div>
   )
 }

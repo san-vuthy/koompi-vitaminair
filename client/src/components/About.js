@@ -2,6 +2,7 @@ import { List, Row, Col } from "antd"
 import { useQuery } from "@apollo/client"
 import { GET_ABOUTS, GET_MEMBERS } from "../graphql/query"
 import Output from "editorjs-react-renderer"
+import Footer from "./Footer"
 function About() {
   const data = [
     "Sustainability, peace, love, harmony, sharing, growth, and abundance, with a focus on setting a good example for generations into the future.",
@@ -187,6 +188,7 @@ function About() {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   )
 }

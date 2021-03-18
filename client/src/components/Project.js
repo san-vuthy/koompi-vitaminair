@@ -1,9 +1,9 @@
 import React, { useState } from "react"
-import { Row, Col, Modal } from "antd"
-import { Carousel } from "antd"
+import { Row, Col, Modal, Carousel } from "antd"
 import { useQuery } from "@apollo/client"
 import { GET_PROJECTS, GET_PROJECT } from "../graphql/query"
 import Output from "editorjs-react-renderer"
+import Footer from "./Footer"
 
 function Project() {
   const [id, setId] = useState("")
@@ -59,7 +59,7 @@ function Project() {
         </p>
         <Row className="projects" justify="center">
           {data.get_projects.map((res) => {
-            const { title, des, id } = res
+            const { id, title, des } = res
             const result = <Output data={JSON.parse(res.des)} />
             return (
               <Col
@@ -95,6 +95,7 @@ function Project() {
           })}
         </Row>
       </div>
+      <Footer />
     </div>
   )
 }
