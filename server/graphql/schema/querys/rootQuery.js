@@ -88,6 +88,13 @@ const RootQuery = new GraphQLObjectType({
         }
       },
     },
+    get_about: {
+      type: AboutType,
+      args: { id: { type: GraphQLID } },
+      resolve(parent, args) {
+        return About.findOne({ _id: args.id });
+      },
+    },
     //===========get members=======
     get_members: {
       type: new GraphQLList(MemberType),

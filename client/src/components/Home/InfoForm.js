@@ -232,7 +232,10 @@ function InfoForm() {
           <Checkbox>
             {" "}
             <span style={{ color: "#0cb04a" }}> YES!</span> I want periodic updates
-            on #TeamTrees{" "}
+            on{" "}
+            <a style={{ color: "#1890ff" }} href="https://t.me/vitaminair">
+              #TeamTrees
+            </a>
           </Checkbox>
         </Form.Item>
         <Form.Item

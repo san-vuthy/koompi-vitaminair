@@ -43,6 +43,16 @@ const GET_ABOUTS = gql`
     }
   }
 `
+const GET_ABOUT = gql`
+  query($id: ID!) {
+    get_about(id: $id) {
+      id
+      title
+      des
+      create_at
+    }
+  }
+`
 const GET_MEMBERS = gql`
   query {
     get_members {
@@ -88,6 +98,7 @@ const GET_INITATION = gql`
   }
 `
 export {
+  GET_ABOUT,
   GET_PROJECT,
   GET_INITATION,
   GET_DONATIONS,

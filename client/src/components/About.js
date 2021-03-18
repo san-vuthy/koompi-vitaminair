@@ -1,8 +1,10 @@
-import { List, Row, Col } from "antd"
+import React, { useState } from "react"
+import { List, Row, Col, Modal } from "antd"
 import { useQuery } from "@apollo/client"
-import { GET_ABOUTS, GET_MEMBERS } from "../graphql/query"
+import { GET_ABOUTS, GET_MEMBERS, GET_ABOUT } from "../graphql/query"
 import Output from "editorjs-react-renderer"
 import Footer from "./Footer"
+
 function About() {
   const data = [
     "Sustainability, peace, love, harmony, sharing, growth, and abundance, with a focus on setting a good example for generations into the future.",
@@ -12,9 +14,17 @@ function About() {
     "To offer re-education and employment opportunities for local families engaged in illegal forest activities.",
     "To discover and create innovative business and employment opportunities for Cambodian youths.",
   ]
+  const [id, setId] = useState("")
+  const [titles, setTitle] = useState("")
+  const [ddes, setDes] = useState(JSON.stringify(""))
+  const [modal1, setModal1] = useState(false)
   const { loading: aboutLoading, data: aboutData } = useQuery(GET_ABOUTS)
   const { loading: memberLoading, data: memberData } = useQuery(GET_MEMBERS)
-  if (aboutLoading || memberLoading) return null
+  const { loading: about_loading, data: about_data } = useQuery(GET_ABOUT, {
+    variables: { id },
+  })
+  if (aboutLoading || memberLoading || about_loading) return null
+  // console.log("data", about_data)
 
   return (
     <div>
@@ -37,8 +47,18 @@ function About() {
         <div className="about">
           <Row className="about-card" justify="center">
             {aboutData.get_abouts.map((res) => {
+              const { id, title, des } = res
+              const result = <Output data={JSON.parse(res.des)} />
               return (
                 <Col
+                  style={{ cursor: "pointer" }}
+                  onClick={() => {
+                    // shows()
+                    setModal1(true)
+                    setTitle(title)
+                    setId(id)
+                    setDes(des)
+                  }}
                   xs={{ span: 24 }}
                   lg={{ span: 11 }}
                   xl={{ span: 7 }}
@@ -47,8 +67,11 @@ function About() {
                   <img src="/images/about/flower.png" alt="" />
                   <h2>{res.title}</h2>
                   {/* <p>{res.des}</p> */}
-
-                  <Output data={JSON.parse(res.des)} />
+                  <p>
+                    {" "}
+                    {`${result.props.data.blocks[0].data.text.substring(0, 200)}...`}
+                  </p>
+                  {/* <Output data={JSON.parse(res.des)} /> */}
                 </Col>
               )
             })}
@@ -135,59 +158,21 @@ function About() {
                   </Col>
                 )
               })}
-              {/* <Col xs={24} md={8} lg={6}>
-                <div className="member">
-                  <img src="/images/member/member.png" alt="" />
-                  <h3>MR Ajfdjkfa</h3>
-                  <p>Developer</p>
-                </div>
-              </Col>
-              <Col xs={24} md={8} lg={6}>
-                <div className="member">
-                  <img src="/images/member/member.png" alt="" />
-                  <h3>MR Ajfdjkfa</h3>
-                  <p>Developer</p>
-                </div>
-              </Col>
-              <Col xs={24} md={8} lg={6}>
-                <div className="member">
-                  <img src="/images/member/member.png" alt="" />
-                  <h3>MR Ajfdjkfa</h3>
-                  <p>Developer</p>
-                </div>
-              </Col>
-              <Col xs={24} md={8} lg={6}>
-                <div className="member">
-                  <img src="/images/member/member.png" alt="" />
-                  <h3>MR Ajfdjkfa</h3>
-                  <p>Developer</p>
-                </div>
-              </Col>
-              <Col xs={24} md={8} lg={6}>
-                <div className="member">
-                  <img src="/images/member/member.png" alt="" />
-                  <h3>MR Ajfdjkfa</h3>
-                  <p>Developer</p>
-                </div>
-              </Col>
-              <Col xs={24} md={8} lg={6}>
-                <div className="member">
-                  <img src="/images/member/member.png" alt="" />
-                  <h3>MR Ajfdjkfa</h3>
-                  <p>Developer</p>
-                </div>
-              </Col>
-              <Col xs={24} md={8} lg={6}>
-                <div className="member">
-                  <img src="/images/member/member.png" alt="" />
-                  <h3>MR Ajfdjkfa</h3>
-                  <p>Developer</p>
-                </div>
-              </Col> */}
             </Row>
           </div>
         </div>
       </div>
+      <Modal
+        title={titles}
+        centered
+        visible={modal1}
+        // onOk={() => setVisible(false)}
+        onCancel={() => setModal1(false)}
+        width={1000}
+        footer=""
+      >
+        <Output data={JSON.parse(ddes)} />
+      </Modal>
       <Footer />
     </div>
   )
