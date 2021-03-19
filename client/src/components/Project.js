@@ -7,11 +7,10 @@ import Footer from "./Footer"
 
 function Project() {
   const [id, setId] = useState("")
-  const [show, setShow] = useState(false)
   const [titles, setTitle] = useState("")
   const [ddes, setDes] = useState(JSON.stringify(""))
   const [modal1, setModal1] = useState(false)
-  const { loading, data, error, refetch } = useQuery(GET_PROJECTS)
+  const { loading, data } = useQuery(GET_PROJECTS)
   const { loading: loadingProject, data: dataProject } = useQuery(GET_PROJECT, {
     variables: { id },
   })
@@ -40,17 +39,6 @@ function Project() {
         </div>
       </Carousel>
 
-      <Modal
-        title={titles}
-        centered
-        visible={modal1}
-        // onOk={() => setVisible(false)}
-        onCancel={() => setModal1(false)}
-        width={1000}
-        footer=""
-      >
-        <Output data={JSON.parse(ddes)} />
-      </Modal>
       <div className="container">
         <h1>PROJECTS</h1>
         <p style={{ textAlign: "center" }}>
@@ -77,6 +65,7 @@ function Project() {
                 {/* <img src={"http://localhost:3500/public/uploads/" + res.image} /> */}
                 <img
                   src={"https://backend.vitaminair.org/public/uploads/" + res.image}
+                  alt="img"
                 />
                 <div className="info">
                   <h3>{res.title}</h3>
@@ -94,6 +83,17 @@ function Project() {
             )
           })}
         </Row>
+        <Modal
+          title={titles}
+          centered
+          visible={modal1}
+          // onOk={() => setVisible(false)}
+          onCancel={() => setModal1(false)}
+          width={1000}
+          footer=""
+        >
+          <Output data={JSON.parse(ddes)} />
+        </Modal>
       </div>
       <Footer />
     </div>

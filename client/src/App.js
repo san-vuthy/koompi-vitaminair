@@ -1,7 +1,7 @@
 import "antd/dist/antd.css"
 import "./App.css"
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
-import { Navbar, About, Projects, Home, Footer } from "./components"
+import { Navbar, About, Projects, Home } from "./components"
 function App() {
   return (
     <div className="App">
