@@ -1,21 +1,19 @@
 import { useState } from "react"
-import { Row, Col, Modal, Spin } from "antd"
+import { Row, Col, Modal } from "antd"
 import { IoEye } from "react-icons/io5"
 import { useQuery } from "@apollo/client"
 import { GET_INITATIONS, GET_INITATION } from "../../graphql/query"
 import Output from "editorjs-react-renderer"
-import ShowModalActivities from "./ShowModalActivities"
 import Footer from "../Footer"
 
 function Activities() {
   const [id, setId] = useState("")
-  const [show, setShow] = useState(false)
   const [titles, setTitle] = useState("")
   const [ddes, setDes] = useState(JSON.stringify(""))
   const [modal1, setModal1] = useState(false)
   // const [modal2, setModal2] = useState(false)
   // const [modal3, setModal3] = useState(false)
-  const { loading, data, error, refetch } = useQuery(GET_INITATIONS)
+  const { loading, data } = useQuery(GET_INITATIONS)
   const { laoding: initationLaoding, data: initaitionData } = useQuery(
     GET_INITATION,
     {
@@ -24,12 +22,6 @@ function Activities() {
   )
   if (loading || initationLaoding) return null
 
-  const cancel = () => {
-    setShow(false)
-  }
-  const shows = () => {
-    setShow(true)
-  }
   return (
     <div>
       {/* <ShowModalActivities

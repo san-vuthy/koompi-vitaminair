@@ -10,7 +10,6 @@ import {
   Select,
   Radio,
   message,
-  Alert,
 } from "antd"
 import { DONATE_TREES } from "../../graphql/mutaion"
 import { GET_DONATIONS, GET_MOST_DONATIONS } from "../../graphql/query"
@@ -50,7 +49,7 @@ function InfoForm() {
     },
   }
   const onFinish = (values) => {
-    const { tree, phone, user_message } = values
+    const { tree } = values
     donation({
       variables: {
         ...values,
@@ -234,7 +233,7 @@ function InfoForm() {
             <span style={{ color: "#0cb04a" }}> YES!</span> I want periodic updates
             on{" "}
             <a style={{ color: "#1890ff" }} href="https://t.me/vitaminair">
-              #TeamTrees
+              @VitaminAir
             </a>
           </Checkbox>
         </Form.Item>
