@@ -20,8 +20,8 @@ const Navbar = () => {
   return (
     <div className={styles.navbar}>
       <FiMenu onClick={showDrawer} className={styles.open_menu_btn} />
-      <Link href="/home/home">
-        <img src="/vitaminair.png" alt="logo" />
+      <Link href="/home">
+        <img src="images/vitaminair.png" alt="logo" />
       </Link>
       <div className={styles.menu}>
         {/* <Link
