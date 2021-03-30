@@ -56,9 +56,7 @@ const AllInitation = () => {
         const result = <Output data={JSON.parse(data)} />;
         // return data.length <= 25 ? data : data.substring(0, 25) + " ...";
         return `${
-          result.props.data.blocks[0].data.text.length <= 25
-            ? result.props.data.blocks[0].data.text
-            : result.props.data.blocks[0].data.text.substring(0, 50) + "..."
+          result.props.data.blocks[0].data.text.substring(0, 50) + "..."
         }`;
       },
     },
@@ -140,7 +138,7 @@ const AllInitation = () => {
           <TopNavbar />
           <Content style={{ backgroundColor: "#fff" }}>
             <div className="contenContainer">
-              <h1 className="title-top">Donationers</h1>
+              <h1 className="title-top">Initiations</h1>
               <div>
                 <Table
                   columns={columns}

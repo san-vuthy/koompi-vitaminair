@@ -28,7 +28,50 @@ const AddInitation = () => {
           level: 2,
         },
       },
+      {
+        type: "paragraph",
+        data: {
+          text:
+            "The example of text that was written in <b>one of popular</b> text editors.",
+        },
+      },
+      {
+        type: "header",
+        data: {
+          text: "With the header of course",
+          level: 2,
+        },
+      },
+      {
+        type: "image",
+        data: {
+          file: {
+            url:
+              "https://codex.so/upload/redactor_images/o_e48549d1855c7fc1807308dd14990126.jpg",
+          },
+          caption: "",
+          withBorder: true,
+          stretched: false,
+          withBackground: false,
+        },
+      },
+      {
+        type: "linkTool",
+        data: {
+          link: "http://demo.vitaminair.org/",
+          meta: {
+            title: "CodeX Team",
+            site_name: "CodeX",
+            description:
+              "Club of web-development, design and marketing. We build team learning how to build full-valued projects on the world market.",
+            image: {
+              url: "https://codex.so/public/app/img/meta_img.png",
+            },
+          },
+        },
+      },
     ],
+    version: "2.8.1",
   });
   const [loading, setLoading] = useState(false);
   const [add_initation] = useMutation(ADD_INITATION);

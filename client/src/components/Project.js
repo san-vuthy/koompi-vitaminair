@@ -41,10 +41,6 @@ function Project() {
 
       <div className="container">
         <h1>PROJECTS</h1>
-        <p style={{ textAlign: "center" }}>
-          We're especially pleased to have built strategic partnerships with forward
-          thinking leaders in the business world.
-        </p>
         <Row className="projects" justify="center">
           {data.get_projects.map((res) => {
             const { id, title, des } = res
