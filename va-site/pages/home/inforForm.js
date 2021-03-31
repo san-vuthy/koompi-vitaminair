@@ -494,7 +494,7 @@ function InfoForm() {
   };
   const Step2Form = () => {
     return (
-      <>
+      <div>
         <h2 style={{ textAlign: "center" }}>Detail</h2>
 
         <Form.Item
@@ -590,7 +590,7 @@ function InfoForm() {
         >
           <Checkbox>Please keep my donation anonymous </Checkbox>
         </Form.Item>
-      </>
+      </div>
     );
   };
   const steps = [

@@ -48,6 +48,9 @@ button {
   font-size: 18px;
   font-weight: bold;
 }
+.background-body {
+  background-image: linear-gradient(#ffffff, rgba(14, 109, 80, 0.212));
+}
 .radio-button {
   background-color: rgba(12, 176, 75, 0.082);
   color: #0cb04a;
@@ -636,7 +639,8 @@ button:hover {
 
 /* about */
 .about-banner {
-  background-image: url(/src/components/asset/about-banner.png);
+  background-image: url(/images/about-banner.png);
+  /* background-image: url(/images/VA-Header.png); */
   background-repeat: no-repeat;
   height: 436px;
   /* width: 100%; */
