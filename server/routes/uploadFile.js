@@ -53,7 +53,7 @@ router.post("/upload/image/editorjs", upload.single("image"), (req, res) => {
         return res.json({
           success: 1,
           file: {
-            url: `http://localhost:3600/${req.file.path}`,
+            url: `https://backend.vitaminair.org/${req.file.path}`,
           },
         });
       });
