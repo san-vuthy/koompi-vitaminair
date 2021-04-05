@@ -79,7 +79,7 @@ function About() {
 
           <h1 style={{ marginTop: "30px" }}>OUR PARTNERS</h1>
           <p style={{ textAlign: "center" }}>
-            We're especially pleased to have built strategic partnerships with
+            We are especially pleased to have built strategic partnerships with
             forward thinking leaders in the business world.
           </p>
 
