@@ -39,7 +39,7 @@ function Home() {
             lg={{ span: 12 }}
             xl={{ span: 12 }}
           >
-            <video src="/video.mp4" controls></video>
+            <video src="/va-video.mp4" controls></video>
           </Col>
         </Row>
       </div>
