@@ -8,7 +8,7 @@ import {
 
 export default function Footer() {
   return (
-    <>
+    <div>
       <img style={{ width: "100%" }} src="/images/footer.png" alt="footer" />
       <Row className="footer" align="middle" justify="space-between">
         <Col>
@@ -43,6 +43,6 @@ export default function Footer() {
           </a>
         </Col>
       </Row>
-    </>
+    </div>
   );
 }

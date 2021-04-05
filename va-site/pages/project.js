@@ -25,7 +25,7 @@ function Project() {
   };
   return (
     <div className="background-body">
-      <Navbar />
+      {/* <Navbar /> */}
       <Carousel autoplay infinite autoplaySpeed={2000}>
         <div>
           <h3 style={contentStyle}>1</h3>

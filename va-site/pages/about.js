@@ -29,7 +29,7 @@ function About() {
 
   return (
     <div className="background-body">
-      <Navbar />
+      {/* <Navbar /> */}
       <div className="about-banner">
         <h1>About Us</h1>
       </div>

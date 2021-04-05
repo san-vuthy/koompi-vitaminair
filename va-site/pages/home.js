@@ -9,7 +9,7 @@ import Leaderboard from "./home/leaderBoard";
 function Home() {
   return (
     <div className="background-body">
-      <Navbar />
+      {/* <Navbar /> */}
       <img className="cloud" src="/images/cloud2.png" alt="cloud" />
       <img className="cloud2" src="/images/cloud2.png" alt="cloud" />
       <img className="cloud3" src="/images/cloud2.png" alt="cloud" />
