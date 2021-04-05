@@ -44,4 +44,23 @@ router.post("/upload/images", upload.single("file"), (req, res) => {
     });
 });
 
+//upload image in react editor js
+router.post("/upload/image/editorjs", upload.single("image"), (req, res) => {
+  sharp("./" + req.file.path)
+    .toBuffer()
+    .then((data) => {
+      sharp(data).toFile("./" + req.file.path, () => {
+        return res.json({
+          success: 1,
+          file: {
+            url: `http://localhost:3600/${req.file.path}`,
+          },
+        });
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
+
 module.exports = router;
