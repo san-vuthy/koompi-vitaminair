@@ -21,8 +21,8 @@ const EDITOR_JS_TOOLS = {
     class: Image,
     config: {
       endpoints: {
-        byFile: "http://localhost:3600/upload/image/editorjs", // Your backend file uploader endpoint
-        byUrl: "http://localhost:3600/upload/image/editorjs", // Your endpoint that provides uploading by Url
+        byFile: "https://backend.vitaminair.org/upload/image/editorjs", // Your backend file uploader endpoint
+        byUrl: "https://backend.vitaminair.org/upload/image/editorjs", // Your endpoint that provides uploading by Url
       },
     },
   },
