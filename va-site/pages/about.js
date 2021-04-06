@@ -66,7 +66,7 @@ function About() {
                   xl={{ span: 7 }}
                   className="card"
                 >
-                  <img src="/images/about/flower.png" alt="" />
+                  <img src="/images/flower.png" alt="" />
                   <h2>{res.title}</h2>
                   {/* <p>{res.des}</p> */}
                   <p>
@@ -146,9 +146,9 @@ function About() {
           <div className="team-member">
             <h1>TEAM MEMBER</h1>
             <Row gutter={[8, 8]}>
-              {memberData.get_members.map((res) => {
+              {memberData.get_members.map((res, index) => {
                 return (
-                  <Col xs={24} md={8} lg={6}>
+                  <Col key={index} xs={24} md={8} lg={6}>
                     <div className="member">
                       <img
                         // src={"http://localhost:3500/public/uploads/" + res.image}

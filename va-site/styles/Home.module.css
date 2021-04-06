@@ -33,6 +33,25 @@
 .App {
   background-image: linear-gradient(#ffffff, rgba(14, 109, 80, 0.212));
 }
+.logo {
+  float: left;
+  height: 50px;
+  position: relative;
+  top: 3px;
+  max-width: 100%;
+  width: 120px !important;
+}
+.logo-mobile {
+  height: 55px !important;
+  margin-top: 0 !important;
+  position: absolute;
+  -webkit-transform: translate(-50%);
+  transform: translate(-50%);
+  left: 50%;
+}
+.header-navbar {
+  display: none;
+}
 
 /* * {
   box-sizing: border-box;

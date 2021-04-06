@@ -7,11 +7,11 @@ import Footer from "../components/footer";
 
 const AllLayout = ({ children }) => {
   return (
-    <React.Fragment>
+    <div>
       <Navbar />
       {children}
       {/* <Footer /> */}
-    </React.Fragment>
+    </div>
   );
 };
 

@@ -30,12 +30,17 @@ function Initiation() {
       <div className="container activities">
         <div className="card">
           <Row>
-            {data.get_initations.map((res) => {
+            {data.get_initations.map((res, index) => {
               const { id, title, des } = res;
               const result = <Output data={JSON.parse(res.des)} />;
               // console.log(result.props.data.blocks[0].data.text.length)
               return (
-                <Col xs={{ span: 24 }} md={{ span: 12 }} xl={{ span: 24 }}>
+                <Col
+                  key={index}
+                  xs={{ span: 24 }}
+                  md={{ span: 12 }}
+                  xl={{ span: 24 }}
+                >
                   <Row align="middle" className="cardbox" gutter={[20, 20]}>
                     <Col xs={{ span: 24 }} xl={{ span: 9 }} xxl={{ span: 9 }}>
                       <img

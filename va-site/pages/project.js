@@ -28,16 +28,25 @@ function Project() {
       {/* <Navbar /> */}
       <Carousel autoplay infinite autoplaySpeed={2000}>
         <div>
-          <h3 style={contentStyle}>1</h3>
+          <img style={{ maxWidth: "100%" }} src="/slide/trip-1.jpg" />
         </div>
         <div>
-          <h3 style={contentStyle}>2</h3>
+          <img style={{ maxWidth: "100%" }} src="/slide/va-homes.jpg" />
         </div>
         <div>
-          <h3 style={contentStyle}>3</h3>
+          <img style={{ maxWidth: "100%" }} src="/slide/trip-3.jpg" />
         </div>
         <div>
-          <h3 style={contentStyle}>4</h3>
+          <img style={{ maxWidth: "100%" }} src="/slide/trip-4.jpg" />
+        </div>
+        <div>
+          <img style={{ maxWidth: "100%" }} src="/slide/mountain.jpg" />
+        </div>
+        <div>
+          <img
+            style={{ maxWidth: "100%" }}
+            src="/slide/isi-tree-planting-2.jpg"
+          />
         </div>
       </Carousel>
 
@@ -53,6 +62,7 @@ function Project() {
             const result = <Output data={JSON.parse(res.des)} />;
             return (
               <Col
+                key={res.id}
                 style={{ cursor: "pointer" }}
                 onClick={async () => {
                   setModal1(true);
