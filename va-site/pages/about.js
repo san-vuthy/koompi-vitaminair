@@ -4,7 +4,6 @@ import { useQuery } from "@apollo/client";
 import { GET_ABOUTS, GET_MEMBERS, GET_ABOUT } from "../graphql/query";
 import Output from "editorjs-react-renderer";
 import Footer from "../components/footer";
-import Navbar from "../components/navbar";
 
 function About() {
   const data = [
@@ -21,7 +20,7 @@ function About() {
   const [modal1, setModal1] = useState(false);
   const { loading: aboutLoading, data: aboutData } = useQuery(GET_ABOUTS);
   const { loading: memberLoading, data: memberData } = useQuery(GET_MEMBERS);
-  const { loading: about_loading, data: about_data } = useQuery(GET_ABOUT, {
+  const { loading: about_loading } = useQuery(GET_ABOUT, {
     variables: { id },
   });
   if (aboutLoading || memberLoading || about_loading) return null;
@@ -29,14 +28,26 @@ function About() {
 
   return (
     <div className="background-body">
-      {/* <Navbar /> */}
+      <NextSeo
+        title="Vitaminair About"
+        description="OUR OBJECTIVE | Sustainability, peace, love, harmony, sharing, growth, and abundance, with a focus on setting a good example for generations into the future."
+        canonical="http://demo.vitaminair.org/about"
+        openGraph={{
+          images: [
+            {
+              url:
+                "https://backend.vitaminair.org/public/uploads/file-1d2a35e8-4414-4da2-bbc5-726fb7e91408.jpg",
+            },
+          ],
+        }}
+      />
       <div className="about-banner">
         <h1>About Us</h1>
       </div>
       <div className="container" style={{ marginTop: "30px" }}>
         <div className="objective">
           <h2 style={{ textAlign: "left" }}>OUR OBJECTIVE</h2>
-          <img src="/images/Rectangle.png" alt="" />
+          <img src="/images/Rectangle.png" alt="img" />
           <List
             dataSource={data}
             renderItem={(item) => (
@@ -156,6 +167,7 @@ function About() {
                           "https://backend.vitaminair.org/public/uploads/" +
                           res.image
                         }
+                        alt="img"
                       />
                       <h3>{res.name}</h3>
                       <p>{res.position}</p>

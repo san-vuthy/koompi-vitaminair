@@ -4,7 +4,8 @@ import { useQuery } from "@apollo/client";
 import { GET_PROJECTS, GET_PROJECT } from "../graphql/query";
 import Output from "editorjs-react-renderer";
 import Footer from "../components/footer";
-import Navbar from "../components/navbar";
+import Head from "next/head";
+import { NextSeo } from "next-seo";
 
 function Project() {
   const [id, setId] = useState("");
@@ -25,13 +26,26 @@ function Project() {
   };
   return (
     <div className="background-body">
+      <NextSeo
+        title="Vitaminair Project"
+        description="Reforestation | Natural Farming | Eco-adventure Tourism | Airto Water | Jiramera UAV Drone"
+        canonical="http://demo.vitaminair.org/projects"
+        openGraph={{
+          images: [
+            {
+              url:
+                "https://backend.vitaminair.org/public/uploads/file-1d2a35e8-4414-4da2-bbc5-726fb7e91408.jpg",
+            },
+          ],
+        }}
+      />
       {/* <Navbar /> */}
       <Carousel autoplay infinite autoplaySpeed={2000}>
         <div>
           <img style={{ maxWidth: "100%" }} src="/slide/trip-1.jpg" />
         </div>
         <div>
-          <img style={{ maxWidth: "100%" }} src="/slide/va-homes.jpg" />
+          <img style={{ maxWidth: "100%" }} src="/slide/va-home.jpg" />
         </div>
         <div>
           <img style={{ maxWidth: "100%" }} src="/slide/trip-3.jpg" />
@@ -52,10 +66,6 @@ function Project() {
 
       <div className="container">
         <h1>PROJECTS</h1>
-        <p style={{ textAlign: "center" }}>
-          We're especially pleased to have built strategic partnerships with
-          forward thinking leaders in the business world.
-        </p>
         <Row className="projects" justify="center">
           {data.get_projects.map((res) => {
             const { id, title, des } = res;

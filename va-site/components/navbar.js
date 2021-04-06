@@ -4,6 +4,16 @@ import Link from "next/link";
 import { Drawer, Menu, Affix, Layout } from "antd";
 import { FiMenu } from "react-icons/fi";
 import ActiveLink from "./activeLink";
+// import Head from "next/head";
+// import NProgress from "nprogress";
+// import Router from "next/router";
+
+// Router.onRouteChangeStart = (url) => {
+//   console.log(url);
+//   NProgress.start();
+// };
+// Router.onRouteChangeComplete = () => NProgress.done();
+// Router.onRouteChangeEroor = () => NProgress.done();
 
 const { Header } = Layout;
 const Navbar = () => {
