@@ -1,11 +1,21 @@
 import React, { useState } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
-import { Drawer, Menu } from "antd";
+import { Drawer, Menu, Affix, Layout } from "antd";
 import { FiMenu } from "react-icons/fi";
-import styles from "../styles/Home.module.css";
 import ActiveLink from "./activeLink";
+// import Head from "next/head";
+// import NProgress from "nprogress";
+// import Router from "next/router";
 
+// Router.onRouteChangeStart = (url) => {
+//   console.log(url);
+//   NProgress.start();
+// };
+// Router.onRouteChangeComplete = () => NProgress.done();
+// Router.onRouteChangeEroor = () => NProgress.done();
+
+const { Header } = Layout;
 const Navbar = () => {
   const [visible, setVisible] = useState(false);
   const router = useRouter();
@@ -18,68 +28,66 @@ const Navbar = () => {
   };
 
   return (
-    <div className={styles.navbar}>
-      <FiMenu onClick={showDrawer} className={styles.open_menu_btn} />
-      <Link href="/">
-        <img src="images/vitaminair.png" alt="logo" />
-      </Link>
-      <div className={styles.menu}>
-        {/* <Link
-          href="/"
-          className={router.pathname == "/" ? "is_active" : ""}
-          //   activeClassName={styles.is_actinve}
+    <Affix>
+      <div className="navbar">
+        <FiMenu onClick={showDrawer} className="open-menu-btn" />
+        <Link href="/">
+          <img
+            style={{ cursor: "pointer" }}
+            src="images/vitaminair.png"
+            alt="logo"
+          />
+        </Link>
+        <div className="menu">
+          <ActiveLink activeClassName="is-active" href="/project">
+            <a className="nav-link">Project</a>
+          </ActiveLink>
+          <ActiveLink activeClassName="is-active" href="/about">
+            <a className="nav_link">About Us</a>
+          </ActiveLink>
+          <a className="nav_link" href="https://t.me/vitaminair">
+            Community
+          </a>
+        </div>
+        <Drawer
+          // title="Basic Drawer"
+          placement="left"
+          closable={false}
+          onClose={onClose}
+          visible={visible}
+          // key={placement}
         >
-          Projects
-        </Link> */}
-        {/* <div className={router.pathname == "/about" ? "active" : ""}>
-          <Link href="/about">About Us</Link>
-        </div> */}
-        <ActiveLink activeClassName={styles.is_active} href="/project">
-          <a className={styles.nav_link}>Project</a>
-        </ActiveLink>
-        <ActiveLink activeClassName={styles.is_active} href="/about">
-          <a className={styles.nav_link}>About Us</a>
-        </ActiveLink>
-        <a className={styles.nav_link} href="https://t.me/vitaminair">
-          Community
-        </a>
+          <Menu className="side-nav">
+            <Menu.Item>
+              <Link
+                className="simple"
+                href="/"
+                exact
+                activeClassName="is-active"
+              >
+                HOME
+              </Link>
+            </Menu.Item>
+            <Menu.Item>
+              {" "}
+              <Link href="/project" exact activeClassName="is-active">
+                PROJECT
+              </Link>
+            </Menu.Item>
+            <Menu.Item>
+              <Link href="/about" activeClassName="is-active">
+                ABOUT US
+              </Link>
+            </Menu.Item>
+            <Menu.Item>
+              <Link href="https://t.me/vitaminair" activeClassName="is-active">
+                COMMUNITY
+              </Link>
+            </Menu.Item>
+          </Menu>
+        </Drawer>
       </div>
-      <Drawer
-        // title="Basic Drawer"
-        placement="left"
-        closable={false}
-        onClose={onClose}
-        visible={visible}
-        // key={placement}
-      >
-        {/* <div className={styles.navbar}>
-          <img src="/images/vitaminair.png" alt="logo" />
-        </div> */}
-        <Menu className={styles.side_nav}>
-          <Menu.Item>
-            <Link
-              className={styles.simple}
-              href="/about"
-              exact
-              activeClassName={styles.is_actinve}
-            >
-              HOME
-            </Link>
-          </Menu.Item>
-          <Menu.Item>
-            {" "}
-            <Link href="/about" exact activeClassName={styles.is_actinve}>
-              PROJECT
-            </Link>
-          </Menu.Item>
-          <Menu.Item>
-            <Link href="/about" activeClassName={styles.is_actinve}>
-              ABOUT US
-            </Link>
-          </Menu.Item>
-        </Menu>
-      </Drawer>
-    </div>
+    </Affix>
   );
 };
 

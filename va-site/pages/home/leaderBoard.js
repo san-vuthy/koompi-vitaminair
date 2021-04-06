@@ -18,7 +18,7 @@ function Leaderboard() {
   } = useQuery(GET_MOST_DONATIONS);
   if (loading || lodingMostDonate) return null;
   if (error || errorMostDonate) return `Error! ${error.message}`;
-  console.log(donateData);
+  // console.log(donateData);
   const active = (e) => {
     const recents = document.getElementById("most-recents");
     const trees = document.getElementById("most-trees");
@@ -79,12 +79,13 @@ function Leaderboard() {
       </Row>
       {value === "recent" ? (
         <div className="container user-list">
-          {results.map((res) => {
+          {results.map((res, index) => {
             const { tree, name, anonymous, create_at, user_message } = res;
-            console.log(anonymous);
+            // console.log(anonymous);
             return (
               <Row className="list" align="middle">
                 <Col
+                  key={index}
                   className="avatar"
                   xs={{ span: 24 }}
                   sm={{ span: 2 }}
@@ -126,12 +127,13 @@ function Leaderboard() {
         </div>
       ) : (
         <div className="container user-list">
-          {resultsThemost.map((res) => {
+          {resultsThemost.map((res, index) => {
             const { tree, name, anonymous, create_at, user_message } = res;
-            console.log(anonymous);
+            // console.log(anonymous);
             return (
               <Row className="list" align="middle">
                 <Col
+                  key={index}
                   className="avatar"
                   xs={{ span: 24 }}
                   sm={{ span: 2 }}
