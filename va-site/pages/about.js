@@ -4,6 +4,7 @@ import { useQuery } from "@apollo/client";
 import { GET_ABOUTS, GET_MEMBERS, GET_ABOUT } from "../graphql/query";
 import Output from "editorjs-react-renderer";
 import Footer from "../components/footer";
+import { NextSeo } from "next-seo";
 
 function About() {
   const data = [
