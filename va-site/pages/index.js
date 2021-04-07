@@ -52,12 +52,9 @@ function Home() {
       </div>
       <div className="big-banner"></div>
 
-      {/* <img className="big-banner" style={{ width: "100%" }} src="/images/big-header.png" alt="" /> */}
-
       <InfoForm />
       <Leaderboard />
       <Initiation />
-      {/* <Activities /> */}
     </div>
   );
 }

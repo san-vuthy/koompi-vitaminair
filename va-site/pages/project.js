@@ -4,7 +4,6 @@ import { useQuery } from "@apollo/client";
 import { GET_PROJECTS, GET_PROJECT } from "../graphql/query";
 import Output from "editorjs-react-renderer";
 import Footer from "../components/footer";
-import Head from "next/head";
 import { NextSeo } from "next-seo";
 
 function Project() {
@@ -17,13 +16,6 @@ function Project() {
     variables: { id },
   });
   if (loading || loadingProject) return null;
-  const contentStyle = {
-    height: "573px",
-    color: "#fff",
-    lineHeight: "500px",
-    textAlign: "center",
-    background: "#057630",
-  };
   return (
     <div className="background-body">
       <NextSeo
@@ -42,7 +34,7 @@ function Project() {
       {/* <Navbar /> */}
       <Carousel autoplay infinite autoplaySpeed={2000}>
         <div>
-          <img style={{ maxWidth: "100%" }} src="/slide/trip-1.jpg" />
+          <img style={{ maxWidth: "100%" }} src="/slide/trips-1-.jpg" />
         </div>
         <div>
           <img style={{ maxWidth: "100%" }} src="/slide/va-home.jpg" />

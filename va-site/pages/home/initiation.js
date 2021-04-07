@@ -5,15 +5,12 @@ import { useQuery } from "@apollo/client";
 import { GET_INITATIONS, GET_INITATION } from "../../graphql/query";
 import Output from "editorjs-react-renderer";
 import Footer from "../../components/footer";
-// import Footer from "../Footer";
 
 function Initiation() {
   const [id, setId] = useState("");
   const [titles, setTitle] = useState("");
   const [ddes, setDes] = useState(JSON.stringify(""));
   const [modal1, setModal1] = useState(false);
-  // const [modal2, setModal2] = useState(false)
-  // const [modal3, setModal3] = useState(false)
   const { loading, data } = useQuery(GET_INITATIONS);
   const { laoding: initationLaoding, data: initaitionData } = useQuery(
     GET_INITATION,

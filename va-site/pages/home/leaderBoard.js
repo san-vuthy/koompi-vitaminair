@@ -180,15 +180,3 @@ function Leaderboard() {
 }
 
 export default Leaderboard;
-// import React from "react"
-// import TestForm from "./testForm"
-
-// const Leaderboard = () => {
-//   return (
-//     <div>
-//       <TestForm />
-//     </div>
-//   )
-// }
-
-// export default Leaderboard
