@@ -12,10 +12,10 @@ function Project() {
   const [ddes, setDes] = useState(JSON.stringify(""));
   const [modal1, setModal1] = useState(false);
   const { loading, data } = useQuery(GET_PROJECTS);
-  const { loading: loadingProject, data: dataProject } = useQuery(GET_PROJECT, {
-    variables: { id },
-  });
-  if (loading || loadingProject) return null;
+  // const { loading: loadingProject, data: dataProject } = useQuery(GET_PROJECT, {
+  //   variables: { id },
+  // });
+  if (loading) return null;
   return (
     <div className="background-body">
       <NextSeo

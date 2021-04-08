@@ -21,10 +21,8 @@ function About() {
   const [modal1, setModal1] = useState(false);
   const { loading: aboutLoading, data: aboutData } = useQuery(GET_ABOUTS);
   const { loading: memberLoading, data: memberData } = useQuery(GET_MEMBERS);
-  const { loading: about_loading } = useQuery(GET_ABOUT, {
-    variables: { id },
-  });
-  if (aboutLoading || memberLoading || about_loading) return null;
+
+  if (aboutLoading || memberLoading) return null;
   // console.log("data", about_data)
 
   return (

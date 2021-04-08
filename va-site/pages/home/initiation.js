@@ -12,13 +12,10 @@ function Initiation() {
   const [ddes, setDes] = useState(JSON.stringify(""));
   const [modal1, setModal1] = useState(false);
   const { loading, data } = useQuery(GET_INITATIONS);
-  const { laoding: initationLaoding, data: initaitionData } = useQuery(
-    GET_INITATION,
-    {
-      variables: { id },
-    }
-  );
-  if (loading || initationLaoding) return null;
+  // const { laoding: initationLaoding } = useQuery(GET_INITATION, {
+  //   variables: { id },
+  // });
+  if (loading) return null;
 
   return (
     <div>

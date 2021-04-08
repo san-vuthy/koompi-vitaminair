@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import { Row, Col, Modal, Carousel } from "antd"
 import { useQuery } from "@apollo/client"
-import { GET_PROJECTS, GET_PROJECT } from "../graphql/query"
+import { GET_PROJECTS } from "../graphql/query"
 import Output from "editorjs-react-renderer"
 import Footer from "./Footer"
 
@@ -11,10 +11,8 @@ function Project() {
   const [ddes, setDes] = useState(JSON.stringify(""))
   const [modal1, setModal1] = useState(false)
   const { loading, data } = useQuery(GET_PROJECTS)
-  const { loading: loadingProject } = useQuery(GET_PROJECT, {
-    variables: { id },
-  })
-  if (loading || loadingProject) return null
+
+  if (loading) return null
 
   return (
     <div>
