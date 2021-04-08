@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import { List, Row, Col, Modal } from "antd"
 import { useQuery } from "@apollo/client"
-import { GET_ABOUTS, GET_MEMBERS, GET_ABOUT } from "../graphql/query"
+import { GET_ABOUTS, GET_MEMBERS } from "../graphql/query"
 import Output from "editorjs-react-renderer"
 import Footer from "./Footer"
 
@@ -20,11 +20,8 @@ function About() {
   const [modal1, setModal1] = useState(false)
   const { loading: aboutLoading, data: aboutData } = useQuery(GET_ABOUTS)
   const { loading: memberLoading, data: memberData } = useQuery(GET_MEMBERS)
-  const { loading: about_loading } = useQuery(GET_ABOUT, {
-    variables: { id },
-  })
-  if (aboutLoading || memberLoading || about_loading) return null
-  // console.log("data", about_data)
+
+  if (aboutLoading || memberLoading) return null
 
   return (
     <div>
