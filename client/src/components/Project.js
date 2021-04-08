@@ -11,38 +11,51 @@ function Project() {
   const [ddes, setDes] = useState(JSON.stringify(""))
   const [modal1, setModal1] = useState(false)
   const { loading, data } = useQuery(GET_PROJECTS)
-  const { loading: loadingProject, data: dataProject } = useQuery(GET_PROJECT, {
+  const { loading: loadingProject } = useQuery(GET_PROJECT, {
     variables: { id },
   })
   if (loading || loadingProject) return null
-  const contentStyle = {
-    // height: "573px",
-    color: "#fff",
-    maxWidth: "100%",
-    // lineHeight: "500px",
-    textAlign: "center",
-    // background: "#057630",
-  }
+
   return (
     <div>
       <Carousel autoplay infinite autoplaySpeed={2000}>
         <div>
-          <img style={{ maxWidth: "100%" }} src="/slide/trip-1.jpg" />
+          <img style={{ maxWidth: "100%" }} src="/slide/trips-1-.jpg" alt="slide" />
         </div>
         <div>
-          <img style={{ maxWidth: "100%" }} src="/slide/va-homes.jpg" />
+          <img
+            style={{ maxWidth: "100%" }}
+            src="/slide/va-home.jpg"
+            alt="img-forest"
+          />
         </div>
         <div>
-          <img style={{ maxWidth: "100%" }} src="/slide/trip-3.jpg" />
+          <img
+            style={{ maxWidth: "100%" }}
+            src="/slide/trip-3.jpg"
+            alt="img-forest"
+          />
         </div>
         <div>
-          <img style={{ maxWidth: "100%" }} src="/slide/trip-4.jpg" />
+          <img
+            style={{ maxWidth: "100%" }}
+            src="/slide/trip-4.jpg"
+            alt="img-forest"
+          />
         </div>
         <div>
-          <img style={{ maxWidth: "100%" }} src="/slide/mountain.jpg" />
+          <img
+            style={{ maxWidth: "100%" }}
+            src="/slide/mountain.jpg"
+            alt="img-forest"
+          />
         </div>
         <div>
-          <img style={{ maxWidth: "100%" }} src="/slide/isi-tree-planting-2.jpg" />
+          <img
+            style={{ maxWidth: "100%" }}
+            src="/slide/isi-tree-planting-2.jpg"
+            alt="img-forest"
+          />
         </div>
       </Carousel>
 

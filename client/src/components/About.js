@@ -20,7 +20,7 @@ function About() {
   const [modal1, setModal1] = useState(false)
   const { loading: aboutLoading, data: aboutData } = useQuery(GET_ABOUTS)
   const { loading: memberLoading, data: memberData } = useQuery(GET_MEMBERS)
-  const { loading: about_loading, data: about_data } = useQuery(GET_ABOUT, {
+  const { loading: about_loading } = useQuery(GET_ABOUT, {
     variables: { id },
   })
   if (aboutLoading || memberLoading || about_loading) return null
@@ -151,6 +151,7 @@ function About() {
                           "https://backend.vitaminair.org/public/uploads/" +
                           res.image
                         }
+                        alt="img-forest"
                       />
                       <h3>{res.name}</h3>
                       <p>{res.position}</p>

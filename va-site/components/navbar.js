@@ -49,16 +49,18 @@ const Navbar = () => {
             Community
           </a>
         </div>
+
+        {/* Mobile display */}
+
         <Drawer
-          // title="Basic Drawer"
           placement="left"
           closable={false}
           onClose={onClose}
           visible={visible}
           // key={placement}
         >
-          <Menu className="side-nav">
-            <Menu.Item>
+          <Menu onClick={onClose} className="side-nav">
+            <Menu.Item key="1">
               <Link
                 className="simple"
                 href="/"
@@ -68,18 +70,18 @@ const Navbar = () => {
                 HOME
               </Link>
             </Menu.Item>
-            <Menu.Item>
+            <Menu.Item key="2">
               {" "}
               <Link href="/project" exact activeClassName="is-active">
                 PROJECT
               </Link>
             </Menu.Item>
             <Menu.Item>
-              <Link href="/about" activeClassName="is-active">
+              <Link key="3" href="/about" activeClassName="is-active">
                 ABOUT US
               </Link>
             </Menu.Item>
-            <Menu.Item>
+            <Menu.Item key="4">
               <Link href="https://t.me/vitaminair" activeClassName="is-active">
                 COMMUNITY
               </Link>

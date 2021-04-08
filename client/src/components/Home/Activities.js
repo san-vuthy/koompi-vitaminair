@@ -11,26 +11,14 @@ function Activities() {
   const [titles, setTitle] = useState("")
   const [ddes, setDes] = useState(JSON.stringify(""))
   const [modal1, setModal1] = useState(false)
-  // const [modal2, setModal2] = useState(false)
-  // const [modal3, setModal3] = useState(false)
   const { loading, data } = useQuery(GET_INITATIONS)
-  const { laoding: initationLaoding, data: initaitionData } = useQuery(
-    GET_INITATION,
-    {
-      variables: { id },
-    }
-  )
+  const { laoding: initationLaoding } = useQuery(GET_INITATION, {
+    variables: { id },
+  })
   if (loading || initationLaoding) return null
 
   return (
     <div>
-      {/* <ShowModalActivities
-          cancel={cancel}
-          show={show}
-          id={id}
-          title={title}
-          des={des}
-        /> */}
       <h1>OUR INITIATION</h1>
 
       <div className="container activities">

@@ -65,11 +65,11 @@ function InfoForm() {
       form.resetFields()
       setLoading(false)
     })
-    console.log(values)
+    // console.log(values)
   }
 
   const onFinishFailed = (errorInfo) => {
-    console.log("Failed:", errorInfo)
+    // console.log("Failed:", errorInfo)
   }
   //form steps
 
@@ -273,8 +273,9 @@ function InfoForm() {
           onFinish={onFinish}
           onFinishFailed={onFinishFailed}
         >
-          {steps.map((item) => (
+          {steps.map((item, index) => (
             <div
+              key={index}
               className={`steps-content ${item.step !== current + 1 && "hidden"}`}
             >
               {item.content}
