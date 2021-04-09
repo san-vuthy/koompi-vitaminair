@@ -46,7 +46,7 @@ function Home() {
             lg={{ span: 12 }}
             xl={{ span: 12 }}
           >
-            <video src="/images/video.mp4" controls></video>
+            <img className="earth" src="/images/earth.png "></img>
           </Col>
         </Row>
       </div>

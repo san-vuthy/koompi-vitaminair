@@ -103,7 +103,7 @@ function Project() {
           visible={modal1}
           // onOk={() => setVisible(false)}
           onCancel={() => setModal1(false)}
-          width={1000}
+          width={800}
           footer=""
         >
           <Output data={JSON.parse(ddes)} />

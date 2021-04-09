@@ -43,19 +43,16 @@ function About() {
       <div className="about-banner">
         <h1>About Us</h1>
       </div>
+      <div className="container-des-about">
+        <h3 className="title-about">Vitaminair</h3>
+        <p className="desc-about">
+          Vitamin Air is a growing community of people actively engaged in
+          social, cultural, ecological and economic regeneration. We have 110
+          hectares of land in Kompong Seila surrounded by mountains and national
+          forest to begin building the team to put our development plan to work.
+        </p>
+      </div>
       <div className="container" style={{ marginTop: "30px" }}>
-        <div className="objective">
-          <h2 style={{ textAlign: "left" }}>OUR OBJECTIVE</h2>
-          <img src="/images/Rectangle.png" alt="img" />
-          <List
-            dataSource={data}
-            renderItem={(item) => (
-              <List.Item>
-                <p>{item}</p>
-              </List.Item>
-            )}
-          />
-        </div>
         <div className="about">
           <Row className="about-card" justify="center">
             {aboutData.get_abouts.map((res) => {
@@ -63,7 +60,6 @@ function About() {
               const result = <Output data={JSON.parse(res.des)} />;
               return (
                 <Col
-                  style={{ cursor: "pointer" }}
                   onClick={() => {
                     // shows()
                     setModal1(true);
@@ -80,18 +76,54 @@ function About() {
                   <h2>{res.title}</h2>
                   {/* <p>{res.des}</p> */}
                   <p>
-                    {" "}
+                    {/* {" "}
                     {`${result.props.data.blocks[0].data.text.substring(
                       0,
                       200
-                    )}...`}
+                    )}...`} */}
+                    {result}
                   </p>
                   {/* <Output data={JSON.parse(res.des)} /> */}
                 </Col>
               );
             })}
           </Row>
+          <div className="objective">
+            <h2 style={{ textAlign: "left" }}>OUR OBJECTIVE</h2>
+            <img src="/images/Rectangle.png" alt="img" />
+            <List
+              dataSource={data}
+              renderItem={(item) => (
+                <List.Item>
+                  <p>{item}</p>
+                </List.Item>
+              )}
+            />
+          </div>
 
+          <div className="team-member">
+            <h1>TEAM MEMBER</h1>
+            <Row gutter={[8, 8]}>
+              {memberData.get_members.map((res, index) => {
+                return (
+                  <Col key={index} xs={24} md={8} lg={6}>
+                    <div className="member">
+                      <img
+                        // src={"http://localhost:3500/public/uploads/" + res.image}
+                        src={
+                          "https://backend.vitaminair.org/public/uploads/" +
+                          res.image
+                        }
+                        alt="img"
+                      />
+                      <h3 className="name-owner">{res.name}</h3>
+                      <p className="position">{res.position}</p>
+                    </div>
+                  </Col>
+                );
+              })}
+            </Row>
+          </div>
           <h1 style={{ marginTop: "30px" }}>OUR PARTNERS</h1>
           {/* <p style={{ textAlign: "center" }}>
             We're especially pleased to have built strategic partnerships with
@@ -153,32 +185,9 @@ function About() {
               />
             </Col>
           </Row>
-          <div className="team-member">
-            <h1>TEAM MEMBER</h1>
-            <Row gutter={[8, 8]}>
-              {memberData.get_members.map((res, index) => {
-                return (
-                  <Col key={index} xs={24} md={8} lg={6}>
-                    <div className="member">
-                      <img
-                        // src={"http://localhost:3500/public/uploads/" + res.image}
-                        src={
-                          "https://backend.vitaminair.org/public/uploads/" +
-                          res.image
-                        }
-                        alt="img"
-                      />
-                      <h3>{res.name}</h3>
-                      <p>{res.position}</p>
-                    </div>
-                  </Col>
-                );
-              })}
-            </Row>
-          </div>
         </div>
       </div>
-      <Modal
+      {/* <Modal
         title={titles}
         centered
         visible={modal1}
@@ -188,7 +197,7 @@ function About() {
         footer=""
       >
         <Output data={JSON.parse(ddes)} />
-      </Modal>
+      </Modal> */}
       <Footer />
     </div>
   );

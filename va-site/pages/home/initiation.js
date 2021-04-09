@@ -35,7 +35,31 @@ function Initiation() {
                   md={{ span: 12 }}
                   xl={{ span: 24 }}
                 >
-                  <Row align="middle" className="cardbox" gutter={[20, 20]}>
+                  <Modal
+                    // title={titles}
+                    centered
+                    visible={modal1}
+                    // onOk={() => setVisible(false)}
+                    onCancel={() => setModal1(false)}
+                    width={650}
+                    footer=""
+                  >
+                    <h3 className="modals">{title}</h3>
+                    <Output data={JSON.parse(ddes)} />
+                  </Modal>
+                  <Row
+                    style={{ cursor: "pointer" }}
+                    onClick={async () => {
+                      // shows()
+                      setModal1(true);
+                      setTitle(title);
+                      setId(id);
+                      setDes(des);
+                    }}
+                    align="middle"
+                    className="cardbox"
+                    gutter={[20, 20]}
+                  >
                     <Col xs={{ span: 24 }} xl={{ span: 9 }} xxl={{ span: 9 }}>
                       <img
                         style={{ width: "100%" }}
@@ -46,31 +70,11 @@ function Initiation() {
                         }
                         alt="activities"
                       />
-                      <div
-                        className="eye-icon"
-                        onClick={async () => {
-                          // shows()
-                          setModal1(true);
-                          setTitle(title);
-                          setId(id);
-                          setDes(des);
-                        }}
-                      >
+                      {/* <div className="eye-icon">
                         <IoEye className="eye" />
-                      </div>
+                      </div> */}
                     </Col>
 
-                    <Modal
-                      title={titles}
-                      centered
-                      visible={modal1}
-                      // onOk={() => setVisible(false)}
-                      onCancel={() => setModal1(false)}
-                      width={1000}
-                      footer=""
-                    >
-                      <Output data={JSON.parse(ddes)} />
-                    </Modal>
                     <Col xs={{ span: 24 }} xl={{ span: 14 }} xxl={{ span: 15 }}>
                       <h3>{res.title}</h3>
                       <p style={{ margin: "15px 0" }}>
@@ -88,6 +92,7 @@ function Initiation() {
                         )}...`}
                       </p>
                     </Col>
+                    {/* </div> */}
                   </Row>
                 </Col>
               );

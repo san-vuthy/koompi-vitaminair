@@ -1,15 +1,17 @@
 import React, { useState } from "react";
-import { Row, Col, Modal, Carousel } from "antd";
+import { Row, Col, Modal, Carousel, Image } from "antd";
 import { useQuery } from "@apollo/client";
 import { GET_PROJECTS, GET_PROJECT } from "../graphql/query";
 import Output from "editorjs-react-renderer";
 import Footer from "../components/footer";
 import { NextSeo } from "next-seo";
+import images from "../components/data/gallery.json";
 
 function Project() {
   const [id, setId] = useState("");
   const [titles, setTitle] = useState("");
   const [ddes, setDes] = useState(JSON.stringify(""));
+  const [image, setImage] = useState("");
   const [modal1, setModal1] = useState(false);
   const { loading, data } = useQuery(GET_PROJECTS);
   // const { loading: loadingProject, data: dataProject } = useQuery(GET_PROJECT, {
@@ -31,36 +33,35 @@ function Project() {
           ],
         }}
       />
-      {/* <Navbar /> */}
-      <Carousel autoplay infinite autoplaySpeed={2000}>
-        <div>
-          <img style={{ maxWidth: "100%" }} src="/slide/trips-1-.jpg" />
-        </div>
-        <div>
-          <img style={{ maxWidth: "100%" }} src="/slide/va-home.jpg" />
-        </div>
-        <div>
-          <img style={{ maxWidth: "100%" }} src="/slide/trip-3.jpg" />
-        </div>
-        <div>
-          <img style={{ maxWidth: "100%" }} src="/slide/trip-4.jpg" />
-        </div>
-        <div>
-          <img style={{ maxWidth: "100%" }} src="/slide/mountain.jpg" />
-        </div>
-        <div>
-          <img
-            style={{ maxWidth: "100%" }}
-            src="/slide/isi-tree-planting-2.jpg"
-          />
-        </div>
-      </Carousel>
-
       <div className="container">
+        <center>
+          <h3 className="title-project-gallery">Our Gallery</h3>
+          {/* <h3 className="gallery-title ">Vitaminar</h3> */}
+        </center>
+        <div className="gallery-section">
+          <div style={{ position: "relative", width: "100%" }}>
+            <Image.PreviewGroup>
+              <Row gutter={[12, 8]}>
+                {images.map((image, index) => {
+                  return (
+                    <Col xs={12} sm={12} md={8} xl={6} key={index}>
+                      <Image
+                        className="image-project"
+                        src={image.src}
+                        width="100%"
+                      />
+                    </Col>
+                  );
+                })}
+              </Row>
+            </Image.PreviewGroup>
+          </div>
+        </div>
+        <div></div>
         <h1>PROJECTS</h1>
-        <Row className="projects" justify="center">
+        <Row gutter={[12, 12]}>
           {data.get_projects.map((res) => {
-            const { id, title, des } = res;
+            const { id, title, des, image } = res;
             const result = <Output data={JSON.parse(res.des)} />;
             return (
               <Col
@@ -71,46 +72,59 @@ function Project() {
                   setTitle(title);
                   setId(id);
                   setDes(des);
+                  setImage(image);
                 }}
-                xs={{ span: 24 }}
-                lg={{ span: 11 }}
-                className="project-list"
+                xs={24}
+                sm={24}
+                md={12}
               >
-                {/* <img src={"http://localhost:3500/public/uploads/" + res.image} /> */}
-                <img
-                  src={
-                    "https://backend.vitaminair.org/public/uploads/" + res.image
-                  }
-                  alt="img"
-                />
-                <div className="info">
-                  <h3>{res.title}</h3>
-                  <p>
-                    {/* {`${
+                <div className="project-list">
+                  {/* <img src={"http://localhost:3500/public/uploads/" + res.image} /> */}
+                  <img
+                    src={
+                      "https://backend.vitaminair.org/public/uploads/" +
+                      res.image
+                    }
+                    alt="img"
+                  />
+                  <div className="info">
+                    <h3>{res.title}</h3>
+                    <p>
+                      {/* {`${
                       result.props.data.blocks[0].data.text.length < 10
                         ? result.props.data.blocks[0].data.text
                         : result.props.data.blocks[0].data.text.substring(0, 10) +
                           "..."
                     }`} */}
-                    {`${result.props.data.blocks[0].data.text.substring(
-                      0,
-                      80
-                    )}...`}
-                  </p>
+                      {`${result.props.data.blocks[0].data.text.substring(
+                        0,
+                        80
+                      )}...`}
+                    </p>
+                  </div>
                 </div>
               </Col>
             );
           })}
         </Row>
         <Modal
-          title={titles}
+          // title={titles}
           centered
           visible={modal1}
+          width={650}
           // onOk={() => setVisible(false)}
           onCancel={() => setModal1(false)}
-          width={1000}
-          footer=""
+          footer={null}
         >
+          <center>
+            <img
+              className="project-image-icon"
+              src={"https://backend.vitaminair.org/public/uploads/" + image}
+              alt="img"
+            />
+
+            <h3 className="modals">{titles}</h3>
+          </center>
           <Output data={JSON.parse(ddes)} />
         </Modal>
       </div>
