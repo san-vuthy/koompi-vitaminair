@@ -866,6 +866,15 @@ button:hover {
 }
 
 @media only screen and (max-width: 768px) {
+  .earth {
+    display: none;
+  }
+  .init-sub-desc {
+    padding: 0px !important;
+  }
+  .project-sub-desc {
+    padding: 0px !important;
+  }
   .home-text-title {
     margin-top: 0px !important;
   }
@@ -936,22 +945,31 @@ button:hover {
   margin-top: 6px;
 }
 .ant-modal-body {
-  /* padding: 50px; */
   border-radius: 20px !important;
-  padding: 20px 50px 50px 50px;
+  /* padding: 20px 50px 50px 50px; */
+  padding: 0px !important;
   font-size: 14px;
   line-height: 1.5715;
   word-wrap: break-word;
   height: 640px;
   overflow-y: scroll;
 }
+.image-init {
+  max-width: 100%;
+  border-radius: 0px !important;
+}
+
+.modal-init {
+  padding: 20px 50px 50px 50px;
+}
+.modal-pro {
+  padding: 20px 50px 50px 50px;
+}
 .modals {
   padding-bottom: 12px;
   font-size: 23px;
   text-align: center;
   font-weight: 700;
-  /* font-size: 19px; */
-  /* color: rgb(5 118 48 / 79%); */
 }
 .gallery-section {
   position: relative;
@@ -972,6 +990,7 @@ button:hover {
 }
 .project-image-icon {
   max-width: 35%;
+  margin-top: 30px;
 }
 .container-des-about {
   overflow: hidden;
@@ -1023,4 +1042,21 @@ button:hover {
 }
 .home-text-title {
   margin-top: -125px;
+}
+.project-sub-desc {
+  /* background-color: red; */
+  margin-bottom: 30px;
+  padding: 0px 300px 0px 300px;
+  text-align: center;
+  margin-bottom: 50px;
+}
+.member-des {
+  margin-bottom: 30px;
+  text-align: center;
+}
+.init-sub-desc {
+  margin-bottom: 30px;
+  padding: 0px 300px 0px 300px;
+  text-align: center;
+  margin-bottom: 50px;
 }

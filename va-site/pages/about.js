@@ -41,15 +41,16 @@ function About() {
         }}
       />
       <div className="about-banner">
-        <h1>About Us</h1>
+        <h1>Story About Us</h1>
       </div>
       <div className="container-des-about">
-        <h3 className="title-about">Vitaminair</h3>
+        <h3 className="title-about">About Us</h3>
         <p className="desc-about">
-          Vitamin Air is a growing community of people actively engaged in
-          social, cultural, ecological and economic regeneration. We have 110
-          hectares of land in Kompong Seila surrounded by mountains and national
-          forest to begin building the team to put our development plan to work.
+          A catalyst for global movement to reforest the rainforest and
+          regenerate our ecosystem through platforms and models that incorporate
+          technology and designs inspired by nature. In the process, we hope to
+          grow a community of people engaging in social, cultural ecological and
+          economic regeneration.
         </p>
       </div>
       <div className="container" style={{ marginTop: "30px" }}>
@@ -102,7 +103,13 @@ function About() {
           </div>
 
           <div className="team-member">
-            <h1>TEAM MEMBER</h1>
+            <div className="member-des">
+              <h1>TEAM MEMBER</h1>
+              <p>
+                We are a team of progressive, passionate, and idea driven
+                people.
+              </p>
+            </div>
             <Row gutter={[8, 8]}>
               {memberData.get_members.map((res, index) => {
                 return (

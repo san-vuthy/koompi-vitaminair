@@ -9,6 +9,7 @@ import Footer from "../../components/footer";
 function Initiation() {
   const [id, setId] = useState("");
   const [titles, setTitle] = useState("");
+  const [images, setImage] = useState("");
   const [ddes, setDes] = useState(JSON.stringify(""));
   const [modal1, setModal1] = useState(false);
   const { loading, data } = useQuery(GET_INITATIONS);
@@ -19,13 +20,21 @@ function Initiation() {
 
   return (
     <div>
-      <h1>OUR INITIATION</h1>
+      <div className="container">
+        <h1>OUR INITIATION</h1>
+        <p className="init-sub-desc">
+          To take actions and show to people that we can work with nature and
+          not against her, we bought 110 hectares of land in Kompong Seila
+          surrounded by mountains and national forest, and started building the
+          team to put our project development plan to work.
+        </p>
+      </div>
 
       <div className="container activities">
         <div className="card">
           <Row>
             {data.get_initations.map((res, index) => {
-              const { id, title, des } = res;
+              const { id, title, des, image } = res;
               const result = <Output data={JSON.parse(res.des)} />;
               // console.log(result.props.data.blocks[0].data.text.length)
               return (
@@ -44,8 +53,17 @@ function Initiation() {
                     width={650}
                     footer=""
                   >
-                    <h3 className="modals">{title}</h3>
-                    <Output data={JSON.parse(ddes)} />
+                    <img
+                      className="image-init"
+                      src={
+                        "https://backend.vitaminair.org/public/uploads/" +
+                        images
+                      }
+                    />
+                    <div className="modal-init">
+                      <h3 className="modals">{titles}</h3>
+                      <Output data={JSON.parse(ddes)} />
+                    </div>
                   </Modal>
                   <Row
                     style={{ cursor: "pointer" }}
@@ -55,6 +73,7 @@ function Initiation() {
                       setTitle(title);
                       setId(id);
                       setDes(des);
+                      setImage(image);
                     }}
                     align="middle"
                     className="cardbox"

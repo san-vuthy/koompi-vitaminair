@@ -36,7 +36,7 @@ function Project() {
       <div className="container">
         <center>
           <h3 className="title-project-gallery">Our Gallery</h3>
-          {/* <h3 className="gallery-title ">Vitaminar</h3> */}
+          {/* <h3 className="gallery-title ">Actions</h3> */}
         </center>
         <div className="gallery-section">
           <div style={{ position: "relative", width: "100%" }}>
@@ -57,8 +57,14 @@ function Project() {
             </Image.PreviewGroup>
           </div>
         </div>
-        <div></div>
         <h1>PROJECTS</h1>
+        <p className="project-sub-desc">
+          To take actions and show to people that we can work with nature and
+          not against her, we bought 110 hectares of land in Kompong Seila
+          surrounded by mountains and national forest, and started building the
+          team to put our project development plan to work.
+        </p>
+
         <Row gutter={[12, 12]}>
           {data.get_projects.map((res) => {
             const { id, title, des, image } = res;
@@ -122,10 +128,11 @@ function Project() {
               src={"https://backend.vitaminair.org/public/uploads/" + image}
               alt="img"
             />
-
-            <h3 className="modals">{titles}</h3>
+            <div className="modal-pro">
+              <h3 className="modals">{titles}</h3>
+              <Output data={JSON.parse(ddes)} />
+            </div>
           </center>
-          <Output data={JSON.parse(ddes)} />
         </Modal>
       </div>
       <Footer />
