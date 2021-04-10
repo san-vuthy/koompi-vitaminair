@@ -23,6 +23,7 @@ function Home() {
             xl={{ span: 10 }}
           >
             <p
+              className="home-text-title"
               style={{ fontSize: "22px", color: "#0D330A", fontWeight: "700" }}
             >
               In search of
