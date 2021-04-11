@@ -618,6 +618,12 @@ button:hover {
   margin-right: 10px;
 }
 @media only screen and (max-width: 768px) {
+  .title-project-gallery {
+    font-size: 54px !important;
+  }
+  .title-about {
+    margin-top: 18px !important;
+  }
   .list img {
     margin: 0;
     width: 45px;

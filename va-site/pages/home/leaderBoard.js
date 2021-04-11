@@ -139,7 +139,7 @@ function Leaderboard() {
                   sm={{ span: 2 }}
                   md={{ span: 1 }}
                 >
-                  <img src="/images/list-images/icon1.svg" alt="" />
+                  <img src="/images/icon1.svg" alt="" />
                 </Col>
                 <Col flex="auto">
                   <p className="list-title">
