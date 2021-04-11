@@ -46,12 +46,13 @@ function Initiation() {
                 >
                   <Modal
                     // title={titles}
-                    centered
+                    // centered
                     visible={modal1}
                     // onOk={() => setVisible(false)}
                     onCancel={() => setModal1(false)}
-                    width={650}
-                    footer=""
+                    width={750}
+                    style={{ top: 30 }}
+                    footer={null}
                   >
                     <img
                       className="image-init"
@@ -65,39 +66,43 @@ function Initiation() {
                       <Output data={JSON.parse(ddes)} />
                     </div>
                   </Modal>
-                  <Row
-                    style={{ cursor: "pointer" }}
-                    onClick={async () => {
-                      // shows()
-                      setModal1(true);
-                      setTitle(title);
-                      setId(id);
-                      setDes(des);
-                      setImage(image);
-                    }}
-                    align="middle"
-                    className="cardbox"
-                    gutter={[20, 20]}
-                  >
-                    <Col xs={{ span: 24 }} xl={{ span: 9 }} xxl={{ span: 9 }}>
-                      <img
-                        style={{ width: "100%" }}
-                        // src={"http://localhost:3500/public/uploads/" + res.image}
-                        src={
-                          "https://backend.vitaminair.org/public/uploads/" +
-                          res.image
-                        }
-                        alt="activities"
-                      />
-                      {/* <div className="eye-icon">
+                  <div className="card-width">
+                    <Row
+                      style={{ cursor: "pointer" }}
+                      onClick={async () => {
+                        // shows()
+                        setModal1(true);
+                        setTitle(title);
+                        setId(id);
+                        setDes(des);
+                        setImage(image);
+                      }}
+                      className="cardbox"
+                      gutter={[20, 20]}
+                    >
+                      <Col xs={{ span: 24 }} xl={{ span: 9 }} xxl={{ span: 9 }}>
+                        <img
+                          style={{ width: "100%" }}
+                          // src={"http://localhost:3500/public/uploads/" + res.image}
+                          src={
+                            "https://backend.vitaminair.org/public/uploads/" +
+                            res.image
+                          }
+                          alt="activities"
+                        />
+                        {/* <div className="eye-icon">
                         <IoEye className="eye" />
                       </div> */}
-                    </Col>
+                      </Col>
 
-                    <Col xs={{ span: 24 }} xl={{ span: 14 }} xxl={{ span: 15 }}>
-                      <h3>{res.title}</h3>
-                      <p style={{ margin: "15px 0" }}>
-                        {/* {`${
+                      <Col
+                        xs={{ span: 24 }}
+                        xl={{ span: 14 }}
+                        xxl={{ span: 15 }}
+                      >
+                        <h3>{res.title}</h3>
+                        <p style={{ margin: "15px 0" }}>
+                          {/* {`${
                           result.props.data.blocks[0].data.text.length <= 500
                             ? result.props.data.blocks[0].data.text
                             : result.props.data.blocks[0].data.text.substring(
@@ -105,14 +110,15 @@ function Initiation() {
                                 500
                               ) + "..."
                         }`} */}
-                        {`${result.props.data.blocks[0].data.text.substring(
-                          0,
-                          400
-                        )}...`}
-                      </p>
-                    </Col>
-                    {/* </div> */}
-                  </Row>
+                          {`${result.props.data.blocks[0].data.text.substring(
+                            0,
+                            800
+                          )}...`}
+                        </p>
+                      </Col>
+                      {/* </div> */}
+                    </Row>
+                  </div>
                 </Col>
               );
             })}

@@ -65,59 +65,61 @@ function Project() {
           team to put our project development plan to work.
         </p>
 
-        <Row gutter={[12, 12]}>
-          {data.get_projects.map((res) => {
-            const { id, title, des, image } = res;
-            const result = <Output data={JSON.parse(res.des)} />;
-            return (
-              <Col
-                key={res.id}
-                style={{ cursor: "pointer" }}
-                onClick={async () => {
-                  setModal1(true);
-                  setTitle(title);
-                  setId(id);
-                  setDes(des);
-                  setImage(image);
-                }}
-                xs={24}
-                sm={24}
-                md={12}
-              >
-                <div className="project-list">
-                  {/* <img src={"http://localhost:3500/public/uploads/" + res.image} /> */}
-                  <img
-                    src={
-                      "https://backend.vitaminair.org/public/uploads/" +
-                      res.image
-                    }
-                    alt="img"
-                  />
-                  <div className="info">
-                    <h3>{res.title}</h3>
-                    <p>
-                      {/* {`${
+        <div className="container-projects">
+          <Row gutter={[24, 24]}>
+            {data.get_projects.map((res) => {
+              const { id, title, des, image } = res;
+              const result = <Output data={JSON.parse(res.des)} />;
+              return (
+                <Col
+                  key={res.id}
+                  style={{ cursor: "pointer" }}
+                  onClick={async () => {
+                    setModal1(true);
+                    setTitle(title);
+                    setId(id);
+                    setDes(des);
+                    setImage(image);
+                  }}
+                  xs={24}
+                  sm={24}
+                  md={12}
+                >
+                  <div className="project-list">
+                    {/* <img src={"http://localhost:3500/public/uploads/" + res.image} /> */}
+                    <img
+                      src={
+                        "https://backend.vitaminair.org/public/uploads/" +
+                        res.image
+                      }
+                      alt="img"
+                    />
+                    <div className="info">
+                      <h3>{res.title}</h3>
+                      <p>
+                        {/* {`${
                       result.props.data.blocks[0].data.text.length < 10
                         ? result.props.data.blocks[0].data.text
                         : result.props.data.blocks[0].data.text.substring(0, 10) +
                           "..."
                     }`} */}
-                      {`${result.props.data.blocks[0].data.text.substring(
-                        0,
-                        80
-                      )}...`}
-                    </p>
+                        {`${result.props.data.blocks[0].data.text.substring(
+                          0,
+                          80
+                        )}...`}
+                      </p>
+                    </div>
                   </div>
-                </div>
-              </Col>
-            );
-          })}
-        </Row>
+                </Col>
+              );
+            })}
+          </Row>
+        </div>
         <Modal
           // title={titles}
           centered
           visible={modal1}
-          width={650}
+          width={750}
           // onOk={() => setVisible(false)}
           onCancel={() => setModal1(false)}
           footer={null}

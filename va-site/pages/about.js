@@ -44,7 +44,7 @@ function About() {
         <h1>Story About Us</h1>
       </div>
       <div className="container-des-about">
-        <h3 className="title-about">About Us</h3>
+        {/* <h3 className="title-about">About Us</h3> */}
         <p className="desc-about">
           A catalyst for global movement to reforest the rainforest and
           regenerate our ecosystem through platforms and models that incorporate
@@ -89,109 +89,115 @@ function About() {
               );
             })}
           </Row>
-          <div className="objective">
-            <h2 style={{ textAlign: "left" }}>OUR OBJECTIVE</h2>
-            <img src="/images/Rectangle.png" alt="img" />
-            <List
-              dataSource={data}
-              renderItem={(item) => (
-                <List.Item>
-                  <p>{item}</p>
-                </List.Item>
-              )}
-            />
-          </div>
-
-          <div className="team-member">
-            <div className="member-des">
-              <h1>TEAM MEMBER</h1>
-              <p>
-                We are a team of progressive, passionate, and idea driven
-                people.
-              </p>
+          <div className="about-container">
+            <div className="objective">
+              <h2 style={{ textAlign: "left" }}>OUR OBJECTIVE</h2>
+              {/* <img src="/images/Rectangle.png" alt="img" /> */}
+              <List
+                dataSource={data}
+                renderItem={(item) => (
+                  <List.Item>
+                    <p>{item}</p>
+                  </List.Item>
+                )}
+              />
             </div>
-            <Row gutter={[8, 8]}>
-              {memberData.get_members.map((res, index) => {
-                return (
-                  <Col key={index} xs={24} md={8} lg={6}>
-                    <div className="member">
-                      <img
-                        // src={"http://localhost:3500/public/uploads/" + res.image}
-                        src={
-                          "https://backend.vitaminair.org/public/uploads/" +
-                          res.image
-                        }
-                        alt="img"
-                      />
-                      <h3 className="name-owner">{res.name}</h3>
-                      <p className="position">{res.position}</p>
-                    </div>
-                  </Col>
-                );
-              })}
-            </Row>
-          </div>
-          <h1 style={{ marginTop: "30px" }}>OUR PARTNERS</h1>
-          {/* <p style={{ textAlign: "center" }}>
+
+            <div className="team-member">
+              <div className="member-des">
+                <h1>TEAM MEMBER</h1>
+                <p>
+                  We are a team of progressive, passionate, and idea driven
+                  people.
+                </p>
+              </div>
+              <Row gutter={[0, 0]}>
+                {memberData.get_members.map((res, index) => {
+                  return (
+                    <Col key={index} xs={24} md={8} lg={6}>
+                      <div className="member">
+                        <img
+                          // src={"http://localhost:3500/public/uploads/" + res.image}
+                          src={
+                            "https://backend.vitaminair.org/public/uploads/" +
+                            res.image
+                          }
+                          alt={res.name}
+                        />
+                        <h3 className="name-owner">{res.name}</h3>
+                        <p className="position">{res.position}</p>
+                      </div>
+                    </Col>
+                  );
+                })}
+              </Row>
+            </div>
+
+            <br />
+            <br />
+            <h1 style={{ marginTop: "30px" }}>OUR PARTNERS</h1>
+
+            {/* <p style={{ textAlign: "center" }}>
             We're especially pleased to have built strategic partnerships with
             forward thinking leaders in the business world.
           </p> */}
 
-          <Row
-            className="partner"
-            align="middle"
-            justify="center"
-            gutter={{ xs: 0, md: 40 }}
-          >
-            <Col
-              xs={{ span: 12 }}
-              sm={{ span: 7 }}
-              xl={{ span: 4 }}
-              className="gutter-row"
+            <Row
+              className="partner"
+              align="middle"
+              justify="center"
+              gutter={{ xs: 0, md: 40 }}
             >
-              <img src="/images/partner/smallworld.png" alt="logo" />
-            </Col>
-            <Col
-              xs={{ span: 12 }}
-              sm={{ span: 7 }}
-              xl={{ span: 4 }}
-              className="gutter-row"
-            >
-              <img src="/images/partner/koompi.png" alt="logo" />
-            </Col>
-            <Col
-              xs={{ span: 12 }}
-              sm={{ span: 7 }}
-              xl={{ span: 4 }}
-              className="gutter-row"
-            >
-              <img src="/images/partner/sabay.png" alt="logo" />
-            </Col>
-            <Col
-              xs={{ span: 12 }}
-              sm={{ span: 7 }}
-              xl={{ span: 4 }}
-              className="gutter-row"
-            >
-              <img
-                style={{ width: "120px" }}
-                src="/images/partner/doer.png"
-                alt="logo"
-              />
-            </Col>
-            <Col
-              xs={{ span: 12 }}
-              sm={{ span: 5 }}
-              xl={{ span: 2 }}
-              className="gutter-row"
-            >
-              <img
-                style={{ width: "80px" }}
-                src="/images/partner/isi-group.png"
-                alt="logo"
-              />
-            </Col>
-          </Row>
+              <Col
+                xs={{ span: 12 }}
+                sm={{ span: 7 }}
+                xl={{ span: 4 }}
+                className="gutter-row"
+              >
+                <img src="/images/partner/smallworld.png" alt="logo" />
+              </Col>
+              <Col
+                xs={{ span: 12 }}
+                sm={{ span: 7 }}
+                xl={{ span: 4 }}
+                className="gutter-row"
+              >
+                <img src="/images/partner/koompi.png" alt="logo" />
+              </Col>
+              <Col
+                xs={{ span: 12 }}
+                sm={{ span: 7 }}
+                xl={{ span: 4 }}
+                className="gutter-row"
+              >
+                <img src="/images/partner/sabay.png" alt="logo" />
+              </Col>
+              <Col
+                xs={{ span: 12 }}
+                sm={{ span: 7 }}
+                xl={{ span: 4 }}
+                className="gutter-row"
+              >
+                <img
+                  style={{ width: "120px" }}
+                  src="/images/partner/doer.png"
+                  alt="logo"
+                />
+              </Col>
+              <Col
+                xs={{ span: 12 }}
+                sm={{ span: 5 }}
+                xl={{ span: 2 }}
+                className="gutter-row"
+              >
+                <img
+                  style={{ width: "80px" }}
+                  src="/images/partner/isi-group.png"
+                  alt="logo"
+                />
+              </Col>
+            </Row>
+          </div>
         </div>
       </div>
       {/* <Modal

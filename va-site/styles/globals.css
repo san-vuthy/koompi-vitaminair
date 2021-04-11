@@ -57,7 +57,7 @@ a {
 
 h1 {
   font-size: 40px;
-  color: #057630;
+  color: #0cb04a;
   text-align: center;
   font-weight: bolder;
 }
@@ -110,7 +110,8 @@ button {
   display: none;
 } */
 .background-body {
-  background-image: linear-gradient(#ffffff, rgba(14, 109, 80, 0.212));
+  /* background-image: linear-gradient(#ffffff, rgba(14, 109, 80, 0.212)); */
+  background-color: #f5f5f5;
 }
 .radio-button {
   background-color: rgba(12, 176, 75, 0.082);
@@ -130,12 +131,20 @@ button {
 .text-radio-button {
   font-size: 20px !important;
 }
+.ant-image img {
+  border-radius: 12px;
+}
 button:hover {
   cursor: pointer;
   border: none;
 }
 .container {
-  margin: 50px 15%;
+  width: 70%;
+  margin: 0px auto;
+}
+.container-projects {
+  width: 90%;
+  margin: 0px auto;
 }
 @media only screen and (max-width: 1440px) {
   .container {
@@ -171,10 +180,10 @@ button:hover {
   padding: 13px 15%;
   height: 80px;
   line-height: 80px;
-  z-index: 100000 !important;
+  z-index: 1000;
 }
 .navbar a.is-active {
-  color: #057630;
+  color: #077330;
 }
 
 @media only screen and (max-width: 1440px) {
@@ -204,7 +213,7 @@ button:hover {
   margin: 0 40px;
 }
 .menu a:hover {
-  color: #057630 !important;
+  color: #0cb04a !important;
 }
 .open-menu-btn {
   color: white;
@@ -243,10 +252,10 @@ button:hover {
   background-color: rgba(12, 176, 74, 0.54) !important;
 }
 .ant-menu-item-selected a {
-  color: #057630 !important;
+  color: #0cb04a !important;
 }
 .side-nav .ant-menu-item a:hover {
-  color: #057630 !important;
+  color: #0cb04a !important;
 }
 /* home */
 .cloud {
@@ -313,7 +322,7 @@ button:hover {
   font-size: 16px;
 }
 .join-us-btn:hover {
-  background-color: #057630;
+  background-color: #0cb04a;
 }
 
 .video video {
@@ -465,7 +474,7 @@ button:hover {
   border-radius: 8px;
 }
 .next-btn:hover {
-  background-color: #057630;
+  background-color: #0cb04a;
 }
 .btn-position {
   display: flex;
@@ -539,7 +548,7 @@ button:hover {
 }
 .fa-search {
   position: absolute;
-  color: #057630;
+  color: #0cb04a;
   right: 13px;
   font-size: 18px;
   top: 13px;
@@ -559,7 +568,7 @@ button:hover {
 }
 .clicked {
   background-color: rgba(12, 176, 75, 0.082);
-  color: #057630;
+  color: #0cb04a;
 }
 .add-tree-btn {
   background-color: #0cb04a;
@@ -574,7 +583,7 @@ button:hover {
 }
 
 .add-tree-btn:hover {
-  background-color: #057630;
+  background-color: #0cb04a;
   color: white;
 }
 
@@ -604,7 +613,7 @@ button:hover {
   font-size: 16px;
 }
 .list .badge {
-  background-color: #057630;
+  background-color: #0cb04a;
   color: white;
   width: 106px;
   text-align: center;
@@ -647,9 +656,9 @@ button:hover {
 .activities .card .cardbox {
   margin: 10px !important;
   padding-left: 2px;
-  padding: 10px;
+  padding: 25px 15px;
   background-color: #fff;
-  border-radius: 8px;
+  border-radius: 12px;
 }
 .activities .card .cardbox h3 {
   font-size: 24px;
@@ -657,6 +666,7 @@ button:hover {
 }
 .activities .card .cardbox img {
   position: relative;
+  border-radius: 12px;
 }
 .eye-icon {
   position: absolute;
@@ -702,7 +712,7 @@ button:hover {
   background-color: #ffffff;
   display: flex;
   align-items: center;
-  border-radius: 7px;
+  border-radius: 12px;
   padding: 20px;
   /* margin: 15px; */
   box-shadow: 12px 12px 40px rgba(0, 0, 0, 0.1);
@@ -733,6 +743,10 @@ button:hover {
   position: relative;
   justify-content: center;
   align-items: center;
+}
+.card-width {
+  width: 80%;
+  margin: 0px auto;
 }
 .about-banner::after {
   content: "";
@@ -778,11 +792,14 @@ button:hover {
 }
 
 .objective {
-  background-color: #d6f8e2;
+  background-color: #ffffff;
   padding: 40px 90px 20px 90px;
   border-radius: 8px;
   position: relative;
   margin-top: 30px;
+}
+.about-container {
+  padding: 0px 50px;
 }
 
 .objective img {
@@ -815,15 +832,18 @@ button:hover {
 }
 /* member */
 .team-member {
-  margin: 30px 0;
+  margin-top: 50px;
+
   text-align: center;
+}
+.team-member h1 {
+  margin-bottom: 10px;
 }
 .member h3 {
   margin-top: 20px;
   margin-bottom: 0;
   margin-bottom: 0;
   font-weight: 800;
-  color: #3daa60cc;
 }
 .member {
   margin: 15px;
@@ -833,9 +853,8 @@ button:hover {
     rgba(255, 255, 255, 75%),
     rgba(255, 255, 255, 75%)
   ); */
-  backdrop-filter: blur(2rem);
   padding: 15px;
-  border-radius: 8px;
+  border-radius: 12px;
 }
 .member img {
   border-radius: 8px;
@@ -862,7 +881,7 @@ button:hover {
   transition: 400ms;
 }
 .footer a:hover {
-  color: #057630;
+  color: #0cb04a;
 }
 
 @media only screen and (max-width: 1248px) {
@@ -951,13 +970,13 @@ button:hover {
   margin-top: 6px;
 }
 .ant-modal-body {
-  border-radius: 20px !important;
+  /* border-radius: 20px !important; */
   /* padding: 20px 50px 50px 50px; */
   padding: 0px !important;
   font-size: 14px;
   line-height: 1.5715;
   word-wrap: break-word;
-  height: 640px;
+  height: 830px;
   overflow-y: scroll;
 }
 .image-init {
@@ -966,16 +985,18 @@ button:hover {
 }
 
 .modal-init {
-  padding: 20px 50px 50px 50px;
+  padding: 0px 80px;
+  padding-bottom: 40px;
 }
 .modal-pro {
   padding: 20px 50px 50px 50px;
 }
 .modals {
   padding-bottom: 12px;
-  font-size: 23px;
+  font-size: 26px;
   text-align: center;
   font-weight: 700;
+  margin-top: 30px;
 }
 .gallery-section {
   position: relative;
@@ -1005,21 +1026,30 @@ button:hover {
   width: 65%;
   line-height: 32px;
   margin-top: 40px;
-  background: #d6f8e2;
+  background: #fff;
   border-radius: 1rem;
+  margin-bottom: 50px;
 }
 .desc-about {
   /* background: green; */
 
-  padding: 30px 100px 60px 100px;
+  padding: 30px 100px 30px 100px;
   margin: 15px;
   text-align: justify;
+  font-size: 20px !important;
 }
 .title-project-gallery {
-  font-size: 67px;
-  margin-top: -20px;
+  font-size: 50px;
   font-weight: 900;
-  color: hsl(148deg 79% 37% / 40%);
+  color: #0cb04a;
+  padding-top: 50px;
+  padding-bottom: 30px;
+}
+.ant-image-mask {
+  border-radius: 12px !important;
+}
+.ant-image-mask:hover {
+  border-radius: 12px !important;
 }
 .gallery-title {
   font-size: 40px;
@@ -1031,17 +1061,17 @@ button:hover {
   font-size: 67px;
   margin-top: -20px;
   font-weight: 900;
-  color: hsl(148deg 79% 37% / 40%);
+  color: #0cb04a;
   text-align: center;
   margin-top: 60px;
 }
 .position {
-  font-weight: 700;
-  font-size: 19px;
-  color: rgb(5 118 48 / 79%);
+  font-weight: 500;
+  font-size: 18px;
+  color: #0cb04b9f;
 }
 .name-owner {
-  font-size: 23px;
+  font-size: 22px;
 }
 .ant-modal-content {
   border-radius: 2px !important;
