@@ -100,9 +100,10 @@ function Initiation() {
                         xl={{ span: 14 }}
                         xxl={{ span: 15 }}
                       >
-                        <h3>{res.title}</h3>
-                        <p style={{ margin: "15px 0" }}>
-                          {/* {`${
+                        <div className="modal-init-text">
+                          <h3>{res.title}</h3>
+                          <p style={{ margin: "15px 0" }}>
+                            {/* {`${
                           result.props.data.blocks[0].data.text.length <= 500
                             ? result.props.data.blocks[0].data.text
                             : result.props.data.blocks[0].data.text.substring(
@@ -110,11 +111,12 @@ function Initiation() {
                                 500
                               ) + "..."
                         }`} */}
-                          {`${result.props.data.blocks[0].data.text.substring(
-                            0,
-                            800
-                          )}...`}
-                        </p>
+                            {`${result.props.data.blocks[0].data.text.substring(
+                              0,
+                              800
+                            )}...`}
+                          </p>
+                        </div>
                       </Col>
                       {/* </div> */}
                     </Row>
