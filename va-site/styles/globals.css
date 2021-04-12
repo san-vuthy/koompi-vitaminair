@@ -629,6 +629,9 @@ button:hover {
   margin-right: 10px;
 }
 @media only screen and (max-width: 768px) {
+  .open-menu-btn {
+    margin-top: -7px;
+  }
   .container-projects {
     width: 100% !important;
     margin: 0px auto;
@@ -846,6 +849,9 @@ button:hover {
   }
 }
 @media only screen and (max-width: 1024px) {
+  .container-des-about {
+    width: 85% !important;
+  }
   .project-sub-desc {
     padding: 0px !important;
   }
@@ -917,6 +923,13 @@ button:hover {
 }
 
 @media only screen and (max-width: 768px) {
+  .title-project-gallery {
+    padding: 0px !important;
+    font-size: 40px !important;
+  }
+  .project-list {
+    display: block;
+  }
   .about-container {
     padding: 0px !important;
   }
@@ -1064,7 +1077,7 @@ button:hover {
 
   padding: 30px 100px 30px 100px;
   margin: 15px;
-  text-align: justify;
+  /* text-align: justify; */
   font-size: 20px !important;
 }
 .title-project-gallery {
