@@ -629,6 +629,12 @@ button:hover {
   margin-right: 10px;
 }
 @media only screen and (max-width: 768px) {
+  .image-initaion {
+    border-radius: 12px 12px 0 0 !important;
+  }
+  .add-tree-btn {
+    margin-bottom: 22px !important;
+  }
   .open-menu-btn {
     margin-top: -7px;
   }
@@ -641,6 +647,9 @@ button:hover {
   }
   .modal-init-text {
     padding-top: 0px !important;
+    width: 90% !important;
+    padding-left: 15px;
+    padding-right: 15px;
   }
   .title-project-gallery {
     font-size: 54px !important;
@@ -683,6 +692,14 @@ button:hover {
   position: relative;
   border-radius: 12px;
 }
+.cards {
+  background-color: white;
+  margin: 10px !important;
+  border-radius: 12px;
+}
+/* .card {
+  background-color: red;
+} */
 .eye-icon {
   position: absolute;
   top: 10px;
@@ -923,6 +940,9 @@ button:hover {
 }
 
 @media only screen and (max-width: 768px) {
+  .modal-init-text {
+    padding-top: 26px !important;
+  }
   .title-project-gallery {
     padding: 0px !important;
     font-size: 40px !important;
@@ -1139,5 +1159,14 @@ button:hover {
   margin-bottom: 50px;
 }
 .modal-init-text {
+  margin-left: auto;
+  margin-right: auto;
+  width: 84%;
   padding-top: 50px;
+  /* padding-top: 50px;
+  padding-right: 42px; */
+}
+.image-initaion {
+  border-radius: 12px 0 0 12px;
+  /* width: 92% !important; */
 }
