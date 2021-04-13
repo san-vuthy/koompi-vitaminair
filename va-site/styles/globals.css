@@ -134,8 +134,38 @@ button {
   font-size: 20px !important;
 }
 .ant-image img {
-  border-radius: 12px;
+  border-radius: 8px;
 }
+.ant-image-img {
+  border-radius: 8px !important;
+}
+.ant-image-mask {
+  border-radius: 8px !important;
+}
+.ant-image-mask:hover {
+  border-radius: 8px !important;
+}
+.single-background {
+  min-height: 80vh;
+  margin: 40px 0px;
+}
+.project-list p {
+  color: #555 !important;
+}
+.single-background {
+  width: 65%;
+  margin: 0px auto;
+  border-radius: 20px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  box-shadow: rgba(223, 224, 224, 0.2) 0px 7px 29px 0px;
+}
+
+.single-background p {
+  margin-bottom: 20px !important;
+  font-size: 18px;
+}
+
 button:hover {
   cursor: pointer;
   border: none;
@@ -209,10 +239,10 @@ button:hover {
   padding: 13px 15%;
   height: 65px;
   line-height: 65px;
-  z-index: 1000 !important;
+  z-index: 10000 !important;
 }
 .navbar a.is-active {
-  color: #31c1af;
+  color: #a2ede0;
 }
 
 .navbar img {
@@ -235,7 +265,7 @@ button:hover {
   margin: 0 40px;
 }
 .menu a:hover {
-  color: #319286 !important;
+  color: #a2ede0 !important;
 }
 .open-menu-btn {
   color: white;
@@ -927,6 +957,9 @@ a:active {
   margin-right: 25px;
   margin-top: 6px;
 }
+.ant-drawer {
+  z-index: 10000;
+}
 .ant-modal-body {
   /* border-radius: 20px !important; */
   /* padding: 20px 50px 50px 50px; */
@@ -943,6 +976,10 @@ a:active {
 .image-init {
   max-width: 100%;
   border-radius: 0px !important;
+}
+
+.single-content {
+  padding: 15px 50px;
 }
 
 .modal-init {
@@ -1009,12 +1046,6 @@ a:active {
   color: #319286;
   padding-top: 50px;
   padding-bottom: 30px;
-}
-.ant-image-mask {
-  border-radius: 12px !important;
-}
-.ant-image-mask:hover {
-  border-radius: 12px !important;
 }
 .gallery-title {
   font-size: 40px;
@@ -1289,5 +1320,17 @@ a:active {
   }
   .position {
     font-size: 14px;
+  }
+  .single-background {
+    width: 100%;
+  }
+  .single-background h3 {
+    font-size: 20px !important;
+  }
+  .single-content {
+    padding: 15px;
+  }
+  .footer p {
+    margin-bottom: 30px !important;
   }
 }

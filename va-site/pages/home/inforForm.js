@@ -79,7 +79,7 @@ function InfoForm() {
         <center>
           <h2 className="top-title">JOIN VitaminAir</h2>
           <p className="join-desc">
-            Join VitaminAir to Plant trees and Educate the next generation.
+            To plant trees and Educate the next generation.
           </p>
         </center>
         <Row gutter={[12, 12]}>
@@ -267,7 +267,6 @@ function InfoForm() {
           form={form}
           style={{ textAlign: "left" }}
           {...layout}
-          name="basic"
           // initialValues={{ remember: true }}
           onFinish={onFinish}
           onFinishFailed={onFinishFailed}

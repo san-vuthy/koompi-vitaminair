@@ -35,7 +35,7 @@ const Navbar = () => {
         <Link href="/">
           <img
             style={{ cursor: "pointer" }}
-            src="images/vitaminair.png"
+            src="/images/vitaminair.png"
             alt="logo"
           />
         </Link>

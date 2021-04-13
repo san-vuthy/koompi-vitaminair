@@ -22,7 +22,7 @@ function Initiation() {
       <div className="container">
         <br />
         <br />
-        <h1>OUR INITIATION</h1>
+        <h1>OUR INITIATIVE</h1>
         <p className="init-sub-desc">
           To take actions and show to people that we can work with nature and
           not against her, we bought 110 hectares of land in Kompong Seila
