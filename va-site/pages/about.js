@@ -41,7 +41,7 @@ function About() {
         }}
       />
       <div className="about-banner">
-        <h1>Story About Us</h1>
+        <h1>About Us</h1>
       </div>
       <div className="container-des-about">
         {/* <h3 className="title-about">About Us</h3> */}
@@ -116,10 +116,10 @@ function About() {
                   people.
                 </p>
               </div>
-              <Row gutter={[0, 0]}>
+              <Row gutter={[18, 18]}>
                 {memberData.get_members.map((res, index) => {
                   return (
-                    <Col key={index} xs={24} md={8} lg={6}>
+                    <Col key={index} xs={12} md={8} lg={6}>
                       <div className="member">
                         <img
                           // src={"http://localhost:3500/public/uploads/" + res.image}
@@ -128,6 +128,7 @@ function About() {
                             res.image
                           }
                           alt={res.name}
+                          className="img-responsive"
                         />
                         <h3 className="name-owner">{res.name}</h3>
                         <p className="position">{res.position}</p>
@@ -153,23 +154,23 @@ function About() {
               justify="center"
               gutter={{ xs: 0, md: 40 }}
             >
-              <Col xs={24} sm={24} md={8} xl={4} className="gutter-row">
+              <Col xs={12} sm={12} md={8} xl={4} className="gutter-row">
                 <img src="/images/partner/smallworld.png" alt="logo" />
               </Col>
-              <Col xs={24} sm={24} md={8} xl={4} className="gutter-row">
+              <Col xs={12} sm={12} md={8} xl={4} className="gutter-row">
                 <img src="/images/partner/koompi.png" alt="logo" />
               </Col>
-              <Col xs={24} sm={24} md={8} xl={4} className="gutter-row">
+              <Col xs={12} sm={12} md={8} xl={4} className="gutter-row">
                 <img src="/images/partner/sabay.png" alt="logo" />
               </Col>
-              <Col xs={24} sm={24} md={8} xl={4} className="gutter-row">
+              <Col xs={12} sm={12} md={8} xl={4} className="gutter-row">
                 <img
                   style={{ width: "120px" }}
                   src="/images/partner/doer.png"
                   alt="logo"
                 />
               </Col>
-              <Col xs={24} sm={24} md={8} xl={4} className="gutter-row">
+              <Col xs={12} sm={12} md={8} xl={4} className="gutter-row">
                 <img
                   style={{ width: "80px" }}
                   src="/images/partner/isi-group.png"

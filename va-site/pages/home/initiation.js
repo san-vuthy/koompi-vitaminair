@@ -4,7 +4,6 @@ import { IoEye } from "react-icons/io5";
 import { useQuery } from "@apollo/client";
 import { GET_INITATIONS, GET_INITATION } from "../../graphql/query";
 import Output from "editorjs-react-renderer";
-import Footer from "../../components/footer";
 
 function Initiation() {
   const [id, setId] = useState("");
@@ -81,7 +80,7 @@ function Initiation() {
                   className="cardbox"
                   // gutter={[32, 32]}
                 >
-                  <Col xs={24} xl={8}>
+                  <Col xs={24} xl={10}>
                     <img
                       className="image-initaion"
                       style={{ width: "100%" }}
@@ -97,7 +96,7 @@ function Initiation() {
                       </div> */}
                   </Col>
 
-                  <Col xs={{ span: 24 }} xl={16}>
+                  <Col xs={24} xl={14}>
                     <div className="modal-init-text">
                       <h3>{res.title}</h3>
                       <p style={{ margin: "15px 0" }}>
@@ -125,7 +124,6 @@ function Initiation() {
         </Row>
         {/* </div> */}
       </div>
-      <Footer />
     </div>
   );
 }

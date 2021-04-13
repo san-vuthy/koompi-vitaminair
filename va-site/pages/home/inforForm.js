@@ -75,92 +75,90 @@ function InfoForm() {
 
   const Step1Form = () => {
     return (
-      <>
-        <div>
-          <center>
-            <h2 className="top-title">JOIN VitaminAir</h2>
-            <p className="join-desc">
-              Join VitaminAir to Plant trees and Educate the next generation.
-            </p>
-          </center>
-          <Row gutter={[12, 12]}>
-            <Col span={12}>
-              {/* <Button
+      <React.Fragment>
+        <center>
+          <h2 className="top-title">JOIN VitaminAir</h2>
+          <p className="join-desc">
+            Join VitaminAir to Plant trees and Educate the next generation.
+          </p>
+        </center>
+        <Row gutter={[12, 12]}>
+          <Col span={12}>
+            {/* <Button
                   onChange={(e) => setValue(e.target.value)}
                   className="tree-amount"
                   onClick={amountActive}
                 >
                   10,000 riel
                 </Button> */}
-              <Form.Item name="tree">
-                <Radio.Group>
-                  <Radio.Button className="radio-button" value={5}>
-                    <span className="text-radio-button">5 trees</span>
-                  </Radio.Button>
-                </Radio.Group>
-              </Form.Item>
-            </Col>
-            <Col span={12}>
-              {/* <Button className="tree-amount amount-active" onClick={amountActive}>
+            <Form.Item name="tree">
+              <Radio.Group>
+                <Radio.Button className="radio-button" value={5}>
+                  <span className="text-radio-button">5 trees</span>
+                </Radio.Button>
+              </Radio.Group>
+            </Form.Item>
+          </Col>
+          <Col span={12}>
+            {/* <Button className="tree-amount amount-active" onClick={amountActive}>
                 20,000 riel
               </Button> */}
-              <Form.Item name="tree" initialValue={20}>
-                <Radio.Group>
-                  <Radio.Button className="radio-button" value={20}>
-                    <span className="text-radio-button ">20 trees</span>
-                  </Radio.Button>
-                </Radio.Group>
-              </Form.Item>
-            </Col>
-            <Col span={12}>
-              {/* <Button className="tree-amount" onClick={amountActive}>
+            <Form.Item name="tree" initialValue={20}>
+              <Radio.Group>
+                <Radio.Button className="radio-button" value={20}>
+                  <span className="text-radio-button ">20 trees</span>
+                </Radio.Button>
+              </Radio.Group>
+            </Form.Item>
+          </Col>
+          <Col span={12}>
+            {/* <Button className="tree-amount" onClick={amountActive}>
                 30,000 riel
               </Button> */}
-              <Form.Item name="tree">
-                <Radio.Group>
-                  <Radio.Button className="radio-button" value={50}>
-                    <span className="text-radio-button ">50 trees</span>
-                  </Radio.Button>
-                </Radio.Group>
-              </Form.Item>
-            </Col>
-            <Col span={12}>
-              {/* <Button className="tree-amount" onClick={amountActive}>
+            <Form.Item name="tree">
+              <Radio.Group>
+                <Radio.Button className="radio-button" value={50}>
+                  <span className="text-radio-button ">50 trees</span>
+                </Radio.Button>
+              </Radio.Group>
+            </Form.Item>
+          </Col>
+          <Col span={12}>
+            {/* <Button className="tree-amount" onClick={amountActive}>
                 40,000 riel
               </Button> */}
-              <Form.Item name="tree">
-                <Radio.Group>
-                  <Radio.Button className="radio-button" value={100}>
-                    <span className="text-radio-button ">100 trees</span>
-                  </Radio.Button>
-                </Radio.Group>
-              </Form.Item>
-            </Col>
-          </Row>
-          <Form.Item name="tree" label="Other Amount" initialValue={20}>
-            <Input
-              rules={[
-                { required: true, message: "Please Select or Input Amount" },
-              ]}
-              className="input-amount"
-              id="tree-amount"
-              type="number"
-              placeholder="Other Amount"
-            />
-          </Form.Item>
-          <Divider />
-        </div>
-      </>
+            <Form.Item name="tree">
+              <Radio.Group>
+                <Radio.Button className="radio-button" value={100}>
+                  <span className="text-radio-button ">100 trees</span>
+                </Radio.Button>
+              </Radio.Group>
+            </Form.Item>
+          </Col>
+        </Row>
+        <Form.Item name="tree" label="Other Amount" initialValue={20}>
+          <Input
+            rules={[
+              { required: true, message: "Please Select or Input Amount" },
+            ]}
+            className="input-amount"
+            id="tree-amount"
+            type="number"
+            placeholder="Other Amount"
+          />
+        </Form.Item>
+        <Divider />
+      </React.Fragment>
     );
   };
   const Step2Form = () => {
     return (
       <div>
-        <h2 style={{ textAlign: "center" }}>Detail</h2>
+        <h2 style={{ textAlign: "center" }}>Information</h2>
 
         <Form.Item
           className="details-input"
-          label="DISPLAY NAME"
+          label="Display Name"
           name="name"
           rules={[{ required: true, message: "Please input your username!" }]}
         >
@@ -169,7 +167,7 @@ function InfoForm() {
 
         <Form.Item
           className="details-input"
-          label="EMAIL ADDRESS"
+          label="Email"
           name="email"
           rules={[
             {
@@ -181,33 +179,28 @@ function InfoForm() {
         >
           <Input />
         </Form.Item>
-        <Form.Item className="details-input" label="MOBILE PHONE" name="phone">
+        <Form.Item className="details-input" label="Phone Number" name="phone">
           <Input />
         </Form.Item>
-        <p>
-          optional; by entering a phone number, you consent to receive text
-          messages
-        </p>
 
         <Form.Item
           className="details-input"
-          label="TEAM"
+          label="Team"
           name="team"
           rules={[{ required: true, message: "Please input your team!" }]}
         >
           <Input />
         </Form.Item>
-        <p>optional</p>
 
         <Form.Item
           className="details-input"
-          label="MESSAGE"
+          label="Message"
           name="user_message"
           // rules={[{ required: true, message: "Please input your message!" }]}
         >
           <Input.TextArea />
+          <div>Your message will display on the web publicly.</div>
         </Form.Item>
-        <p>optional; for display on the website</p>
 
         <Form.Item
           className="details-input"

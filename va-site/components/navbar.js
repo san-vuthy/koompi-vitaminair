@@ -28,7 +28,7 @@ const Navbar = () => {
   };
 
   return (
-    <Affix>
+    <React.Fragment>
       {/* <div className="container-navbar"> */}
       <div className="navbar">
         <FiMenu onClick={showDrawer} className="open-menu-btn" />
@@ -91,7 +91,7 @@ const Navbar = () => {
         </Drawer>
       </div>
       {/* </div> */}
-    </Affix>
+    </React.Fragment>
   );
 };
 
