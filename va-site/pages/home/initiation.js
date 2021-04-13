@@ -21,6 +21,8 @@ function Initiation() {
   return (
     <div>
       <div className="container">
+        <br />
+        <br />
         <h1>OUR INITIATION</h1>
         <p className="init-sub-desc">
           To take actions and show to people that we can work with nature and
