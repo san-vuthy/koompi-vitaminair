@@ -100,9 +100,10 @@ button {
   left: 50%;
 }
 .container-navbar {
+  background-color: #0cb04a;
   margin-right: auto !important;
   margin-left: auto !important;
-  width: 75%;
+  width: 90%;
 
   /* margin: auto; */
 }
@@ -148,10 +149,34 @@ button:hover {
   width: 90%;
   margin: 0px auto;
 }
-@media only screen and (max-width: 1440px) {
-  .container {
-    width: 90%;
+@media only screen and (min-width: 1249px) and (max-width: 1809px) {
+  .init-sub-desc {
+    padding: 0 100px 0 100px !important;
   }
+  /* .project-sub-desc {
+    padding: 0 100px 0 100px !important;
+  } */
+}
+/* @media only screen and (min-width: 1240px) {
+  .project-sub-desc {
+    padding: 0 300px 0 300px !important;
+  }
+} */
+
+@media only screen and (min-width: 1000px) and (max-width: 1647px) {
+  .home-text-title {
+    margin-top: 10px !important;
+  }
+}
+@media only screen and (min-width: 1024px) and (max-width: 1778px) {
+  .project-sub-desc {
+    padding: 0 110px 0 110px !important;
+  }
+}
+@media only screen and (max-width: 1440px) {
+  /* .container {
+    width: 90%;
+  } */
   p,
   a,
   button {
@@ -168,9 +193,9 @@ button:hover {
   }
 }
 @media only screen and (max-width: 1000px) {
-  .container {
+  /* .container {
     width: 90%;
-  }
+  } */
 }
 
 /* navbar  */
@@ -189,9 +214,9 @@ button:hover {
 }
 
 @media only screen and (max-width: 1440px) {
-  .navbar {
+  /* .navbar {
     padding: 13px 10%;
-  }
+  } */
 }
 
 .navbar img {
@@ -629,6 +654,18 @@ button:hover {
   margin-right: 10px;
 }
 @media only screen and (max-width: 768px) {
+  .img-about {
+    display: none !important;
+  }
+  .container-about {
+    width: 90% !important;
+  }
+  .card {
+    height: auto !important;
+  }
+  .container {
+    width: 90%;
+  }
   .image-initaion {
     border-radius: 12px 12px 0 0 !important;
   }
@@ -697,6 +734,7 @@ button:hover {
   margin: 10px !important;
   border-radius: 12px;
 }
+
 /* .card {
   background-color: red;
 } */
@@ -780,6 +818,11 @@ button:hover {
   /* width: 80%; */
   margin: 0px auto;
 }
+.container-about {
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+}
 .about-banner::after {
   content: "";
   position: absolute;
@@ -806,12 +849,13 @@ button:hover {
   margin: 70px 0;
 }
 
-.about-card .card {
-  width: 32%;
+.card {
+  /* width: 32%; */
   background: white;
   padding: 30px;
   border-radius: 8px;
-  margin: 15px;
+  /* height: 23rem; */
+  /* margin: 6px; */
 }
 .about .about-card img {
   position: absolute;
@@ -830,9 +874,9 @@ button:hover {
   position: relative;
   margin-top: 30px;
 }
-.about-container {
+/* .about-container {
   padding: 0px 50px;
-}
+} */
 
 .objective img {
   position: absolute;
@@ -867,7 +911,7 @@ button:hover {
 }
 @media only screen and (max-width: 1024px) {
   .container-des-about {
-    width: 85% !important;
+    width: 71% !important;
   }
   .project-sub-desc {
     padding: 0px !important;
@@ -879,7 +923,9 @@ button:hover {
 /* member */
 .team-member {
   margin-top: 50px;
-
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
   text-align: center;
 }
 .team-member h1 {
@@ -1003,6 +1049,7 @@ button:hover {
     margin-bottom: 15px;
   }
 }
+
 .ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled) {
   z-index: 1;
   /* color: #1890ff; */
@@ -1085,7 +1132,7 @@ button:hover {
   overflow: hidden;
   margin-left: auto;
   margin-right: auto;
-  width: 65%;
+  width: 70%;
   line-height: 32px;
   margin-top: 40px;
   background: #fff;

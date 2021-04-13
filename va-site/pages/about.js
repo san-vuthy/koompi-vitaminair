@@ -53,9 +53,9 @@ function About() {
           economic regeneration.
         </p>
       </div>
-      <div className="container" style={{ marginTop: "30px" }}>
+      <div className="container-about" style={{ marginTop: "30px" }}>
         <div className="about">
-          <Row className="about-card" justify="center">
+          <Row gutter={[32, 32]} className="about-card">
             {aboutData.get_abouts.map((res) => {
               const { id, title, des } = res;
               const result = <Output data={JSON.parse(res.des)} />;
@@ -68,22 +68,27 @@ function About() {
                     setId(id);
                     setDes(des);
                   }}
-                  xs={{ span: 24 }}
-                  lg={{ span: 11 }}
-                  xl={{ span: 7 }}
-                  className="card"
+                  xs={24}
+                  lg={8}
+                  xl={8}
                 >
-                  <img src="/images/flower.png" alt="" />
-                  <h2>{res.title}</h2>
-                  {/* <p>{res.des}</p> */}
-                  <p>
-                    {/* {" "}
+                  <div className="card">
+                    <img
+                      className="img-about"
+                      src="/images/flower.png"
+                      alt=""
+                    />
+                    <h2>{res.title}</h2>
+                    {/* <p>{res.des}</p> */}
+                    <p>
+                      {/* {" "}
                     {`${result.props.data.blocks[0].data.text.substring(
                       0,
                       200
                     )}...`} */}
-                    {result}
-                  </p>
+                      {result}
+                    </p>
+                  </div>
                   {/* <Output data={JSON.parse(res.des)} /> */}
                 </Col>
               );
@@ -148,48 +153,23 @@ function About() {
               justify="center"
               gutter={{ xs: 0, md: 40 }}
             >
-              <Col
-                xs={{ span: 12 }}
-                sm={{ span: 7 }}
-                xl={{ span: 4 }}
-                className="gutter-row"
-              >
+              <Col xs={24} sm={24} md={8} xl={4} className="gutter-row">
                 <img src="/images/partner/smallworld.png" alt="logo" />
               </Col>
-              <Col
-                xs={{ span: 12 }}
-                sm={{ span: 7 }}
-                xl={{ span: 4 }}
-                className="gutter-row"
-              >
+              <Col xs={24} sm={24} md={8} xl={4} className="gutter-row">
                 <img src="/images/partner/koompi.png" alt="logo" />
               </Col>
-              <Col
-                xs={{ span: 12 }}
-                sm={{ span: 7 }}
-                xl={{ span: 4 }}
-                className="gutter-row"
-              >
+              <Col xs={24} sm={24} md={8} xl={4} className="gutter-row">
                 <img src="/images/partner/sabay.png" alt="logo" />
               </Col>
-              <Col
-                xs={{ span: 12 }}
-                sm={{ span: 7 }}
-                xl={{ span: 4 }}
-                className="gutter-row"
-              >
+              <Col xs={24} sm={24} md={8} xl={4} className="gutter-row">
                 <img
                   style={{ width: "120px" }}
                   src="/images/partner/doer.png"
                   alt="logo"
                 />
               </Col>
-              <Col
-                xs={{ span: 12 }}
-                sm={{ span: 5 }}
-                xl={{ span: 2 }}
-                className="gutter-row"
-              >
+              <Col xs={24} sm={24} md={8} xl={4} className="gutter-row">
                 <img
                   style={{ width: "80px" }}
                   src="/images/partner/isi-group.png"
@@ -200,17 +180,6 @@ function About() {
           </div>
         </div>
       </div>
-      {/* <Modal
-        title={titles}
-        centered
-        visible={modal1}
-        // onOk={() => setVisible(false)}
-        onCancel={() => setModal1(false)}
-        width={1000}
-        footer=""
-      >
-        <Output data={JSON.parse(ddes)} />
-      </Modal> */}
       <Footer />
     </div>
   );
