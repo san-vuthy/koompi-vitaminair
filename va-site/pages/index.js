@@ -10,9 +10,9 @@ function Home() {
   return (
     <div className="background-body">
       {/* <Navbar /> */}
-      <img className="cloud" src="/images/cloud2.png" alt="cloud" />
+      {/* <img className="cloud" src="/images/cloud2.png" alt="cloud" />
       <img className="cloud2" src="/images/cloud2.png" alt="cloud" />
-      <img className="cloud3" src="/images/cloud2.png" alt="cloud" />
+      <img className="cloud3" src="/images/cloud2.png" alt="cloud" /> */}
       <div className="container">
         <Row className="banner" justify="space-between" align="middle">
           <Col

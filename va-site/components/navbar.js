@@ -29,6 +29,7 @@ const Navbar = () => {
 
   return (
     <Affix>
+      {/* <div className="container-navbar"> */}
       <div className="navbar">
         <FiMenu onClick={showDrawer} className="open-menu-btn" />
         <Link href="/">
@@ -89,6 +90,7 @@ const Navbar = () => {
           </Menu>
         </Drawer>
       </div>
+      {/* </div> */}
     </Affix>
   );
 };
