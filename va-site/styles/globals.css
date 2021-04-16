@@ -1017,6 +1017,10 @@ a:active {
   max-width: 35%;
   margin-top: 30px;
 }
+.noted {
+  color: red;
+  font-weight: bold;
+}
 .container {
   position: relative;
   z-index: 1000;
