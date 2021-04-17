@@ -153,7 +153,7 @@ function Leaderboard() {
         )}
         <center>
           <a href="#form">
-            <Button className="add-tree-btn">ADD YOUR TREE</Button>
+            <Button className="add-tree-btn">Plant Your Tree</Button>
           </a>
         </center>
       </div>
