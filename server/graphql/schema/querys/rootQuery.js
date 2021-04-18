@@ -9,12 +9,15 @@ const Initation = require("../../../model/initation");
 const Project = require("../../../model/project");
 const About = require("../../../model/about");
 const Member = require("../../../model/member");
+const Blog = require("../../../model/blog");
+
 //============Type Sections==========
 const DonateType = require("../types/donateType");
 const Initationtype = require("../types/initationType");
 const ProjectType = require("../types/projectType");
 const AboutType = require("../types/aboutType");
 const MemberType = require("../types/memeberType");
+const BlogType = require("../types/blogType");
 
 const RootQuery = new GraphQLObjectType({
   name: "RootQueryType",
@@ -105,6 +108,26 @@ const RootQuery = new GraphQLObjectType({
           console.log(error);
           throw error;
         }
+      },
+    },
+    //==========Get blogs==========
+    get_blogs: {
+      type: new GraphQLList(BlogType),
+      resolve: async (parent, args) => {
+        try {
+          return Blog.find().sort({ create_at: -1 });
+        } catch (error) {
+          console.log(error);
+          throw error;
+        }
+      },
+    },
+    //==========Get an blog==========
+    get_blog: {
+      type: BlogType,
+      args: { id: { type: GraphQLID } },
+      resolve(parent, args) {
+        return Blog.findOne({ _id: args.id });
       },
     },
   },

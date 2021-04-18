@@ -1338,3 +1338,40 @@ a:active {
     margin-bottom: 30px !important;
   }
 }
+.card-item {
+  background-color: #fff;
+  border-radius: 0.4rem;
+  overflow: hidden;
+  box-shadow: 0 3rem 6rem rgb(0 0 0 / 10%);
+  cursor: pointer;
+  transition: 0.2s;
+}
+.blog-text {
+  padding: 28px;
+}
+.blog-card-btn {
+  margin-top: 15px;
+  display: block;
+  width: 100%;
+  padding: 8px !important;
+  font-size: 22px;
+  text-align: center;
+  /* color: #3363ff; */
+  color: #319286 !important;
+  /* background-color: #e6ecff; */
+  background-color: #e6fff9 !important;
+  border: none;
+  border-radius: 0.4rem;
+  transition: 0.2s;
+  cursor: pointer;
+}
+.blog-card-btn:hover {
+  background-color: #7aefb9ab !important;
+}
+.big-title-blog {
+  padding: 40px;
+}
+
+/* .card-blog img {
+  object-fit: cover;
+} */

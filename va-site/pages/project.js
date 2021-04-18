@@ -7,6 +7,7 @@ import Footer from "../components/footer";
 import { NextSeo } from "next-seo";
 import images from "../components/data/gallery.json";
 import Link from "next/link";
+import Blog from "./blog/blog";
 
 function Project() {
   const { loading, data } = useQuery(GET_PROJECTS);
@@ -128,6 +129,7 @@ function Project() {
               );
             })}
           </Row>
+          <Blog />
         </div>
       </div>
       <Footer />
