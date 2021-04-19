@@ -1,8 +1,10 @@
 import React from "react";
+import jwt from "jsonwebtoken";
+import Cookie from "js-cookie";
 import { Route, Redirect } from "react-router-dom";
 
 const PublicRoute = ({ component: Component, restricted, ...rest }) => {
-  let token = localStorage.getItem("vatoken");
+  let token = Cookie.get("vatoken");
   const isLogin = () => {
     if (!token) {
       return false;

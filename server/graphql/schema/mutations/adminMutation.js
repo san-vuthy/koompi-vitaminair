@@ -115,13 +115,13 @@ const AdminMutation = new GraphQLObjectType({
           const user = await User.findOne({ email: args.email });
           if (!user) {
             return {
-              messsage: "Login failed",
+              messsage: "your password or email incorrect!",
             };
           }
           const isMatch = await bcrypt.compare(args.password, user.password);
           if (!isMatch) {
             return {
-              message: "Login failed",
+              message: "your password or email incorrect!",
             };
           } else {
             const token = jwt.sign(
@@ -132,7 +132,7 @@ const AdminMutation = new GraphQLObjectType({
               },
               JwtSecret,
               {
-                expiresIn: "24h",
+                expiresIn: "1d",
               }
             );
             return {
