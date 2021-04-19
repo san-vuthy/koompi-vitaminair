@@ -69,7 +69,7 @@ const EditMember = ({ history }) => {
       await refetch();
       await history.push("/admin/members");
     });
-    console.log(values);
+    // console.log(values);
   };
   if (loadingMember) {
     return (

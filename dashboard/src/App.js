@@ -6,6 +6,9 @@ import Logout from "./components/Layouts/logout";
 import AddAbout from "./components/Pages/about/addAbout";
 import AllAbout from "./components/Pages/about/allabouts";
 import EditAbout from "./components/Pages/about/editAbout";
+import AddBlog from "./components/Pages/blog/addBlog";
+import AllBlogs from "./components/Pages/blog/allBlogs";
+import EditBlog from "./components/Pages/blog/editBlog";
 import Dashboard from "./components/Pages/dashboard";
 import Donationers from "./components/Pages/donationers";
 import AddInitation from "./components/Pages/Initation/addInitation";
@@ -69,6 +72,13 @@ function App() {
             exact
             path="/admin/edit-project/:id"
             component={EditProject}
+          />
+          <PrivateRoute exac path="/admin/addblog" component={AddBlog} />
+          <PrivateRoute exac path="/admin/blogs" component={AllBlogs} />
+          <PrivateRoute
+            exact
+            path="/admin/edit-blog/:id"
+            component={EditBlog}
           />
         </Switch>
       </Router>

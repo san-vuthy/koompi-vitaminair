@@ -132,6 +132,26 @@ const LeftNavbar = () => {
               Add Project
             </Menu.Item>
           </SubMenu>
+          <SubMenu
+            key={
+              pathname === "/admin/blogs"
+                ? "/admin/blogs"
+                : "/admin/addblog"
+                ? "/admin/addblog"
+                : ""
+            }
+            icon={<FolderViewOutlined />}
+            title="Blog"
+          >
+            <Menu.Item key="/admin/blogs">
+              <Link to="/admin/blogs" />
+              Blogs
+            </Menu.Item>
+            <Menu.Item key="/admin/addblogt">
+              <Link to="/admin/addblog" />
+              Add Blog
+            </Menu.Item>
+          </SubMenu>
         </Menu>
       </Sider>
     </React.Fragment>

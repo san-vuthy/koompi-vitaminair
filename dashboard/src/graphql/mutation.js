@@ -102,7 +102,31 @@ const DELETE_PROJECT = gql`
     }
   }
 `;
+const ADD_BLOG = gql`
+  mutation($title: String!, $des: String!, $image: String!) {
+    add_blog(title: $title, des: $des, image: $image) {
+      message
+    }
+  }
+`;
+const DELETE_BLOG = gql`
+  mutation($id: ID!) {
+    delete_blog(id: $id) {
+      message
+    }
+  }
+`;
+const EDIT_BLOG = gql`
+  mutation($id: ID!, $title: String!, $des: String!, $image: String!) {
+    edit_blog(id: $id, title: $title, des: $des, image: $image) {
+      message
+    }
+  }
+`;
 export {
+  ADD_BLOG,
+  DELETE_BLOG,
+  EDIT_BLOG,
   DELETE_DONATIONER,
   LOGIN,
   ADD_INITATION,

@@ -5,13 +5,13 @@ import { EDITOR_JS_TOOLS } from "../../Layouts/tool";
 import TopNavbar from "../../Layouts/topNavbar";
 import LeftNavbar from "../../Layouts/leftNavbar";
 import { useMutation, useQuery } from "@apollo/client";
-import { ADD_INITATION } from "../../../graphql/mutation";
-import { GET_INITATIONS } from "../../../graphql/query";
+import { ADD_BLOG } from "../../../graphql/mutation";
+import { GET_BLOGS } from "../../../graphql/query";
 import addFile from "../../../assets/undraw_Add_files_re_v09g.png";
 import Footer from "../../Layouts/footer";
 
 const { Content } = Layout;
-const AddInitation = () => {
+const AddBlog = () => {
   const instanceRef = React.useRef(null);
   const [form] = Form.useForm();
   const [state, setState] = useState({
@@ -31,8 +31,8 @@ const AddInitation = () => {
     ],
   });
   const [loading, setLoading] = useState(false);
-  const [add_initation] = useMutation(ADD_INITATION);
-  const { refetch } = useQuery(GET_INITATIONS);
+  const [add_blog] = useMutation(ADD_BLOG);
+  const { refetch } = useQuery(GET_BLOGS);
   const handleChange = (info) => {
     if (info.file.status === "uploading") {
       setState({ loading: true });
@@ -47,7 +47,7 @@ const AddInitation = () => {
   };
   async function handleSave() {
     const savedData = await instanceRef.current.save();
-    console.log(JSON.stringify(savedData));
+    // console.log(JSON.stringify(savedData));
     await setData(savedData);
     // instanceRef.current.clear();
   }
@@ -73,7 +73,7 @@ const AddInitation = () => {
 
   const onFinish = (values) => {
     const { title } = values;
-    add_initation({
+    add_blog({
       variables: {
         title: title,
         des: JSON.stringify(data),
@@ -90,6 +90,7 @@ const AddInitation = () => {
       await refetch();
       setLoading(false);
     });
+    // console.log(values);
   };
   return (
     <React.Fragment>
@@ -99,7 +100,7 @@ const AddInitation = () => {
           <TopNavbar />
           <Content style={{ backgroundColor: "#fff" }}>
             <div className="contenContainer">
-              <h1 className="title-top">Add Initation</h1>
+              <h1 className="title-top">Add Blog</h1>
               <Form
                 form={form}
                 onFinish={onFinish}
@@ -202,4 +203,4 @@ const AddInitation = () => {
   );
 };
 
-export default AddInitation;
+export default AddBlog;

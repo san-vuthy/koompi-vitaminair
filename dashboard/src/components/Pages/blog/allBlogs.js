@@ -6,15 +6,15 @@ import { BsTrash, BsPencil } from "react-icons/bs";
 import LeftNavbar from "../../Layouts/leftNavbar";
 import TopNavbar from "../../Layouts/topNavbar";
 import { useQuery, useMutation } from "@apollo/client";
-import { GET_PROJECTS } from "../../../graphql/query";
-import { DELETE_PROJECT } from "../../../graphql/mutation";
+import { GET_BLOGS } from "../../../graphql/query";
+import { DELETE_BLOG } from "../../../graphql/mutation";
 import FooterDashboard from "../../Layouts/footer";
 import Output from "editorjs-react-renderer";
 
 const { Content } = Layout;
-const AllProject = () => {
-  const { loading, data, refetch } = useQuery(GET_PROJECTS);
-  const [delete_project] = useMutation(DELETE_PROJECT);
+const AllBlogs = () => {
+  const { loading, data, refetch } = useQuery(GET_BLOGS);
+  const [delete_blog] = useMutation(DELETE_BLOG);
   if (loading)
     return (
       <center style={{ marginTop: "100px" }}>
@@ -56,9 +56,7 @@ const AllProject = () => {
         const result = <Output data={JSON.parse(data)} />;
         // return data.length <= 25 ? data : data.substring(0, 25) + " ...";
         return `${
-          result.props.data.blocks[0].data.text.length <= 25
-            ? result.props.data.blocks[0].data.text
-            : result.props.data.blocks[0].data.text.substring(0, 50) + "..."
+          result.props.data.blocks[0].data.text.substring(0, 50) + "..."
         }`;
       },
     },
@@ -77,7 +75,7 @@ const AllProject = () => {
         const { id } = data;
         return (
           <div>
-            <Link to={`/admin/edit-project/${id}`}>
+            <Link to={`/admin/edit-blog/${id}`}>
               <Tag className="edit-button">
                 <BsPencil
                   color="rgb(32, 166, 147)"
@@ -93,9 +91,9 @@ const AllProject = () => {
               okText="Yes"
               cancelText="No"
               onConfirm={() => {
-                delete_project({ variables: { id: `${id}` } })
+                delete_blog({ variables: { id: `${id}` } })
                   .then(async (res) => {
-                    await message.success(res.data.delete_project.message);
+                    await message.success(res.data.delete_initation.message);
                     await refetch();
                   })
                   .catch((error) => {
@@ -140,11 +138,11 @@ const AllProject = () => {
           <TopNavbar />
           <Content style={{ backgroundColor: "#fff" }}>
             <div className="contenContainer">
-              <h1 className="title-top">Projects</h1>
+              <h1 className="title-top">Blogs</h1>
               <div>
                 <Table
                   columns={columns}
-                  dataSource={data.get_projects}
+                  dataSource={data.get_blogs}
                   onChange={onChange}
                 />
               </div>
@@ -157,4 +155,4 @@ const AllProject = () => {
   );
 };
 
-export default AllProject;
+export default AllBlogs;
