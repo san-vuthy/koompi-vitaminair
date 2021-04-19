@@ -41,7 +41,7 @@ const Blog = () => {
                     </p>
                     <Link href={`/blog/${id}`}>
                       <a className="blog-card-btn">
-                        See More <span>&rarr;</span>
+                        Read More <span>&rarr;</span>
                       </a>
                     </Link>
                   </div>
