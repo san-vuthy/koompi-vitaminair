@@ -19,10 +19,14 @@ function Home() {
           <Row className="banner" justify="space-between" align="middle">
             <Col
               className="text"
-              xs={{ span: 24 }}
-              sm={{ span: 24 }}
-              lg={{ span: 10 }}
-              xl={{ span: 10 }}
+              xs={24}
+              sm={24}
+              md={12}
+              lg={14}
+              // xs={{ span: 24 }}
+              // sm={{ span: 24 }}
+              // lg={{ span: 10 }}
+              // xl={{ span: 10 }}
             >
               <p
                 className="home-text-title"
@@ -35,7 +39,7 @@ function Home() {
                 In search of
               </p>
               <h2>The Next Small Things</h2>
-              <p style={{ margin: "20px 0" }}>
+              <p className="desc-home-top" style={{ margin: "20px 0" }}>
                 Protect, preserve, and restore our rain forests for generations
                 ahead. Protect, preserve, and restore our rain forests for
                 generations ahead.
@@ -48,10 +52,14 @@ function Home() {
             </Col>
             <Col
               className="video"
-              xs={{ span: 24 }}
-              sm={{ span: 24 }}
-              lg={{ span: 12 }}
-              xl={{ span: 12 }}
+              xs={24}
+              sm={24}
+              md={12}
+              lg={10}
+              // xs={{ span: 24 }}
+              // sm={{ span: 24 }}
+              // lg={{ span: 12 }}
+              // xl={{ span: 12 }}
             >
               <img className="earth" src="/images/Green-World.png "></img>
             </Col>

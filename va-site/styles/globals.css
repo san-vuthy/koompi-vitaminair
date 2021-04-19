@@ -108,6 +108,9 @@ button {
 
   /* margin: auto; */
 }
+.desc-home-top {
+  width: 552px;
+}
 /* .header-navbar {
   display: none;
 } */
@@ -376,7 +379,8 @@ a:active {
   width: 650px;
 } */
 .earth {
-  width: 650px;
+  /* width: 650px; */
+  width: 520px;
   -webkit-animation: spin 4s linear infinite;
   -moz-animation: spin 4s linear infinite;
   animation: spin 500s linear infinite;
@@ -392,6 +396,7 @@ a:active {
   background-position: center;
   position: absolute;
   bottom: 0;
+  top: 300px;
 }
 
 .form {
@@ -401,7 +406,7 @@ a:active {
   padding: 36px 71px;
   border-radius: 30px;
   box-shadow: 12px 12px 24px rgba(0, 0, 0, 0.1);
-  margin: 0px auto;
+  margin: -40px auto;
   z-index: 2000;
   position: relative;
 }
@@ -1114,13 +1119,13 @@ a:active {
 }
 
 @media only screen and (max-width: 1800px) {
-  .big-banner {
+  /* .big-banner {
     width: 100%;
     background-size: cover;
     height: 650px;
     background-position: top;
     top: 400px;
-  }
+  } */
   .home-form {
     margin-top: 100px;
   }
@@ -1155,6 +1160,9 @@ a:active {
 }
 
 @media only screen and (max-width: 768px) {
+  .desc-home-top {
+    width: auto !important;
+  }
   h2,
   h1 {
     font-size: 28px !important;
