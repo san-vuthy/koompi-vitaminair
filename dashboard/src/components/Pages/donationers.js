@@ -103,7 +103,7 @@ const Donationers = () => {
           <TopNavbar />
           <Content style={{ backgroundColor: "#fff" }}>
             <div className="contenContainer">
-              <h1 className="title-top">Donationers</h1>
+              <h1 className="title-top">Contributors</h1>
               <div>
                 <Table
                   columns={columns}
