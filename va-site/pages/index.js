@@ -53,7 +53,7 @@ function Home() {
               lg={{ span: 12 }}
               xl={{ span: 12 }}
             >
-              <img className="earth" src="/images/earth.png "></img>
+              <img className="earth" src="/images/Green-World.png "></img>
             </Col>
           </Row>
         </div>
