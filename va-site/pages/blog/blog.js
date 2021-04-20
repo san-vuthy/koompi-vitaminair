@@ -16,7 +16,7 @@ const Blog = () => {
         </Divider>
       </center>
       <div>
-        <Row gutter={[32, 32]}>
+        <Row gutter={[24, 24]}>
           {data.get_blogs.map((res) => {
             const { id } = res;
             const result = <Output data={JSON.parse(res.des)} />;

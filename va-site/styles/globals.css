@@ -1357,24 +1357,28 @@ a:active {
 .blog-text {
   padding: 28px;
 }
+.blog-text p {
+  font-size: 16px;
+}
 .blog-card-btn {
   margin-top: 15px;
   display: block;
   width: 100%;
   padding: 8px !important;
-  font-size: 22px;
+  font-size: 16px;
   text-align: center;
   /* color: #3363ff; */
-  color: #319286 !important;
+  color: #fff !important;
   /* background-color: #e6ecff; */
-  background-color: #e6fff9 !important;
+  background-color: #319286 !important;
   border: none;
   border-radius: 0.4rem;
   transition: 0.2s;
   cursor: pointer;
+  margin-top: 30px;
 }
 .blog-card-btn:hover {
-  background-color: #7aefb9ab !important;
+  background-color: #319286 !important;
 }
 .big-title-blog {
   padding: 40px;
@@ -1385,4 +1389,6 @@ a:active {
 } */
 .blog-image {
   max-width: 100%;
+  padding: 15px 15px 0px 15px;
+  border-radius: 10px !important;
 }

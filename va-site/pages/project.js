@@ -15,6 +15,9 @@ function Project() {
   //   variables: { id },
   // });
   if (loading) return null;
+
+  console.log("data", data);
+
   return (
     <div className="background-body">
       <NextSeo
