@@ -10,6 +10,7 @@ const GET_DONATIONS = gql`
       user_message
       anonymous
       email
+      phone
     }
   }
 `;

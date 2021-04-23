@@ -25,6 +25,10 @@ const Donationers = () => {
       dataIndex: "name",
     },
     {
+      title: "Phone Number",
+      dataIndex: "phone",
+    },
+    {
       title: "Email",
       dataIndex: "email",
     },
@@ -47,7 +51,7 @@ const Donationers = () => {
       key: "action",
       render: (index, data) => {
         const { id } = data;
-        console.log("id", id);
+        // console.log("id", id);
         return (
           <div>
             {/* <Divider type="vertical" /> */}
