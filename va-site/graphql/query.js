@@ -1,4 +1,4 @@
-import { gql } from "@apollo/client"
+import { gql } from "@apollo/client";
 
 const GET_DONATIONS = gql`
   query {
@@ -10,7 +10,7 @@ const GET_DONATIONS = gql`
       anonymous
     }
   }
-`
+`;
 const GET_MOST_DONATIONS = gql`
   query {
     get_most_trees {
@@ -21,7 +21,7 @@ const GET_MOST_DONATIONS = gql`
       anonymous
     }
   }
-`
+`;
 const GET_PROJECTS = gql`
   query {
     get_projects {
@@ -32,7 +32,7 @@ const GET_PROJECTS = gql`
       create_at
     }
   }
-`
+`;
 const GET_ABOUTS = gql`
   query {
     get_abouts {
@@ -42,7 +42,7 @@ const GET_ABOUTS = gql`
       create_at
     }
   }
-`
+`;
 const GET_ABOUT = gql`
   query($id: ID!) {
     get_about(id: $id) {
@@ -52,7 +52,7 @@ const GET_ABOUT = gql`
       create_at
     }
   }
-`
+`;
 const GET_MEMBERS = gql`
   query {
     get_members {
@@ -63,7 +63,7 @@ const GET_MEMBERS = gql`
       position
     }
   }
-`
+`;
 const GET_INITATIONS = gql`
   query {
     get_initations {
@@ -74,7 +74,7 @@ const GET_INITATIONS = gql`
       create_at
     }
   }
-`
+`;
 const GET_PROJECT = gql`
   query($id: ID!) {
     get_project(id: $id) {
@@ -85,7 +85,7 @@ const GET_PROJECT = gql`
       create_at
     }
   }
-`
+`;
 const GET_INITATION = gql`
   query($id: ID!) {
     get_initation(id: $id) {
@@ -96,8 +96,33 @@ const GET_INITATION = gql`
       create_at
     }
   }
-`
+`;
+const GET_BLOG = gql`
+  query($id: ID!) {
+    get_blog(id: $id) {
+      id
+      title
+      des
+      image
+      create_at
+    }
+  }
+`;
+const GET_BLOGS = gql`
+  query {
+    get_blogs {
+      id
+      title
+      des
+      image
+      create_at
+    }
+  }
+`;
+
 export {
+  GET_BLOGS,
+  GET_BLOG,
   GET_ABOUT,
   GET_PROJECT,
   GET_INITATION,
@@ -107,4 +132,4 @@ export {
   GET_INITATIONS,
   GET_PROJECTS,
   GET_MEMBERS,
-}
+};

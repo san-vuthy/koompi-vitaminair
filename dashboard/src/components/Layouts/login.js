@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Input, Button, message, Form } from "antd";
 import { useMutation } from "@apollo/client";
+import Cookie from "js-cookie";
 import jwt from "jsonwebtoken";
 import { LOGIN } from "../../graphql/mutation";
 const Login = () => {
@@ -14,17 +15,20 @@ const Login = () => {
         ...values,
       },
     }).then(async (res) => {
-      localStorage.setItem("vatoken", res.data.login.token);
-      const decoded = jwt.decode(res.data.login.token);
+      // localStorage.setItem("vatoken", res.data.login.token);
+      // const decoded = jwt.decode(res.data.login.token);
       // localStorage.setItem("id", res.data.login.id);
+      Cookie.set("vatoken", res.data.login.token, { expires: 1 });
+      const token = Cookie.get("vatoken");
+      const decoded = jwt.decode(token);
 
       if (decoded) {
         setLoading(true);
         await message.success(res.data.login.message);
         setLoading(false);
         window.location.replace("/");
-      } else if (!decoded) {
-        await message.error("Login failed");
+      } else {
+        await message.error("your email or password incorrect!");
       }
     });
   };

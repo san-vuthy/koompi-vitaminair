@@ -6,9 +6,9 @@ import {
   FaTelegramPlane,
 } from "react-icons/fa";
 
-export default function Footer() {
+function Footer() {
   return (
-    <div>
+    <div className="footer-page">
       <img style={{ width: "100%" }} src="/images/footer.png" alt="footer" />
       <Row className="footer" align="middle" justify="space-between">
         <Col>
@@ -46,3 +46,5 @@ export default function Footer() {
     </div>
   );
 }
+
+export default Footer;

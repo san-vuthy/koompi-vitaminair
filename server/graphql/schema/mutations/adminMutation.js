@@ -19,6 +19,7 @@ const Initation = require("../../../model/initation");
 const Project = require("../../../model/project");
 const About = require("../../../model/about");
 const Member = require("../../../model/member");
+const Blog = require("../../../model/blog");
 //============Type Sections==========
 const DonateType = require("../types/donateType");
 const UserType = require("../types/userType");
@@ -26,6 +27,7 @@ const InitationType = require("../types/initationType");
 const ProjectType = require("../types/projectType");
 const AboutType = require("../types/aboutType");
 const MemberType = require("../types/memeberType");
+const BlogType = require("../types/blogType");
 
 const AdminMutation = new GraphQLObjectType({
   name: "adminMuntationType",
@@ -113,13 +115,13 @@ const AdminMutation = new GraphQLObjectType({
           const user = await User.findOne({ email: args.email });
           if (!user) {
             return {
-              messsage: "Login failed",
+              messsage: "your password or email incorrect!",
             };
           }
           const isMatch = await bcrypt.compare(args.password, user.password);
           if (!isMatch) {
             return {
-              message: "Login failed",
+              message: "your password or email incorrect!",
             };
           } else {
             const token = jwt.sign(
@@ -130,7 +132,7 @@ const AdminMutation = new GraphQLObjectType({
               },
               JwtSecret,
               {
-                expiresIn: "24h",
+                expiresIn: "1d",
               }
             );
             return {
@@ -361,6 +363,62 @@ const AdminMutation = new GraphQLObjectType({
         } catch (error) {
           console.log(error);
           throw error;
+        }
+      },
+    },
+
+    //===========add blog=========
+    add_blog: {
+      type: BlogType,
+      args: {
+        title: { type: GraphQLNonNull(GraphQLString) },
+        image: { type: GraphQLNonNull(GraphQLString) },
+        des: { type: GraphQLNonNull(GraphQLString) },
+      },
+      resolve: async (parent, args) => {
+        try {
+          const blog = new Blog({ ...args });
+          await blog.save();
+          return { message: " successfull" };
+        } catch (error) {
+          console.log(error);
+          throw error;
+        }
+      },
+    },
+    //==========delete blog============
+    delete_blog: {
+      type: BlogType,
+      args: {
+        id: { type: GraphQLNonNull(GraphQLID) },
+      },
+      resolve: async (parent, args) => {
+        try {
+          await Blog.deleteOne({ _id: args.id });
+          return { message: "Delete Successfull" };
+        } catch (error) {
+          console.log(error);
+          throw error;
+        }
+      },
+    },
+    //===========Edit blog========
+    edit_blog: {
+      type: BlogType,
+      args: {
+        id: { type: new GraphQLNonNull(GraphQLID) },
+        title: { type: new GraphQLNonNull(GraphQLString) },
+        image: { type: new GraphQLNonNull(GraphQLString) },
+        des: { type: new GraphQLNonNull(GraphQLString) },
+      },
+      resolve: async (root, args) => {
+        try {
+          await Blog.findByIdAndUpdate({ _id: args.id }, { ...args });
+          return {
+            message: "update successfull",
+          };
+        } catch (error) {
+          console.log(error);
         }
       },
     },

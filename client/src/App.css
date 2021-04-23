@@ -802,3 +802,19 @@ button:hover {
 .ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled):hover {
   color: white;
 }
+
+.ant-modal-close-x {
+  display: block;
+  width: 38px;
+  height: 38px;
+  font-size: 14px;
+  font-style: normal;
+  line-height: 41px;
+  text-align: center;
+  text-transform: none;
+  text-rendering: auto;
+  border-radius: 46px;
+  background: #dfdede;
+  margin-right: 12px;
+  margin-top: 6px;
+}

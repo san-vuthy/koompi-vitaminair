@@ -51,130 +51,113 @@ function Leaderboard() {
       );
   return (
     <div style={{ marginTop: "50px" }}>
-      <h1>LEADERBOARD</h1>
-      <Row align="middle" justify="center">
-        <Col className="search-box gutter-row">
-          <Input
-            value={search}
-            onChange={handleSearch}
-            className="search"
-            type="text"
-            placeholder="Search"
-          />
-          <FaSearch className="fa-search" />
-        </Col>
-        <Col offset={1} className="gutter-row most-recent-trees">
-          <button value="recent" id="most-recents" onClick={active}>
-            Most Recents
-          </button>
-          <button
-            value="most"
-            id="most-trees"
-            className="clicked"
-            onClick={active}
-          >
-            Most Trees
-          </button>
-        </Col>
-      </Row>
-      {value === "recent" ? (
-        <div className="container user-list">
-          {results.map((res, index) => {
-            const { tree, name, anonymous, create_at, user_message } = res;
-            // console.log(anonymous);
-            return (
-              <Row className="list" align="middle">
-                <Col
-                  key={index}
-                  className="avatar"
-                  xs={{ span: 24 }}
-                  sm={{ span: 2 }}
-                  md={{ span: 1 }}
-                >
-                  <img src="/images/icon1.svg" alt="" />
-                </Col>
-                <Col flex="auto">
-                  <p className="list-title">
-                    {anonymous === false ? name : "Anonymous"}
-                  </p>
-                  <p className="list-message">{user_message}</p>
-                </Col>
-                <Col
-                  xs={{ span: 24 }}
-                  sm={{ span: 24, offset: 3 }}
-                  md={{ span: 7 }}
-                >
-                  <p>
-                    {tree === 1 ? (
-                      <p className="badge">{tree} tree</p>
-                    ) : (
-                      <p className="badge">{tree} trees</p>
-                    )}
-                  </p>
-
-                  <p className="list-message">
-                    {moment
-                      .unix(create_at / 1000)
-                      .format(" Do YYYY, h:mm:ss A")}
-                  </p>
-                </Col>
-              </Row>
-            );
-          })}
+      <div className="container">
+        <h1>LEADERBOARD</h1>
+        <Row align="middle" justify="center">
+          <Col className="search-box gutter-row">
+            <Input
+              value={search}
+              onChange={handleSearch}
+              className="search"
+              type="text"
+              placeholder="Search"
+            />
+            <FaSearch className="fa-search" />
+          </Col>
+          <Col offset={1} className="gutter-row most-recent-trees">
+            <button value="recent" id="most-recents" onClick={active}>
+              Most Recents
+            </button>
+            <button
+              value="most"
+              id="most-trees"
+              className="clicked"
+              onClick={active}
+            >
+              Most Trees
+            </button>
+          </Col>
+        </Row>
+        <br />
+        {value === "recent" ? (
+          <div className="container user-list">
+            {results.map((res, index) => {
+              const { tree, name, anonymous, create_at, user_message } = res;
+              return (
+                <Row className="list" align="middle" key={index}>
+                  <Col xs={24} sm={24} md={17} xl={17}>
+                    <img
+                      // src="/images/icon1.svg"
+                      src="/images/Vitamin-air-circle-2-blue.png"
+                      className="avatar"
+                      alt="vitaminair"
+                    />
+                    <div className="leader-title">
+                      <p className="list-title">
+                        {anonymous === false ? name : "Anonymous"}
+                      </p>
+                      <p className="list-message">{user_message}</p>
+                    </div>
+                  </Col>
+                  <Col xs={24} sm={24} md={7} xl={7}>
+                    <div className="leader-float">
+                      {tree === 1 ? (
+                        <spin className="badge">{tree} tree</spin>
+                      ) : (
+                        <spin className="badge">{tree} trees</spin>
+                      )}
+                      <div className="leader-date">
+                        {moment.unix(create_at / 1000).format(" Do MMMM YYYY")}
+                      </div>
+                    </div>
+                  </Col>
+                </Row>
+              );
+            })}
+          </div>
+        ) : (
+          <div className="container user-list">
+            {resultsThemost.map((res, index) => {
+              const { tree, name, anonymous, create_at, user_message } = res;
+              // console.log(anonymous);
+              return (
+                <Row className="list" align="middle" key={index}>
+                  <Col xs={24} sm={24} md={17} xl={17}>
+                    <img
+                      src="/images/icon1.svg"
+                      className="avatar"
+                      alt="vitaminair"
+                    />
+                    <div className="leader-title">
+                      <p className="list-title">
+                        {anonymous === false ? name : "Anonymous"}
+                      </p>
+                      <p className="list-message">{user_message}</p>
+                    </div>
+                  </Col>
+                  <Col xs={24} sm={24} md={7} xl={7}>
+                    <div className="leader-float">
+                      {tree === 1 ? (
+                        <spin className="badge">{tree} tree</spin>
+                      ) : (
+                        <spin className="badge">{tree} trees</spin>
+                      )}
+                      <div className="leader-date">
+                        {moment.unix(create_at / 1000).format(" Do MMMM YYYY")}
+                      </div>
+                    </div>
+                  </Col>
+                </Row>
+              );
+            })}
+          </div>
+        )}
+        <center>
           <a href="#form">
-            <Button className="add-tree-btn">ADD YOUR TREE</Button>
+            <Button className="add-tree-btn">Plant Your Tree</Button>
           </a>
-        </div>
-      ) : (
-        <div className="container user-list">
-          {resultsThemost.map((res, index) => {
-            const { tree, name, anonymous, create_at, user_message } = res;
-            // console.log(anonymous);
-            return (
-              <Row className="list" align="middle">
-                <Col
-                  key={index}
-                  className="avatar"
-                  xs={{ span: 24 }}
-                  sm={{ span: 2 }}
-                  md={{ span: 1 }}
-                >
-                  <img src="/images/list-images/icon1.svg" alt="" />
-                </Col>
-                <Col flex="auto">
-                  <p className="list-title">
-                    {anonymous === false ? name : "Anonymous"}
-                  </p>
-                  <p className="list-message">{user_message}</p>
-                </Col>
-                <Col
-                  xs={{ span: 24 }}
-                  sm={{ span: 24, offset: 3 }}
-                  md={{ span: 7 }}
-                >
-                  <p>
-                    {tree === 1 ? (
-                      <p className="badge">{tree} tree</p>
-                    ) : (
-                      <p className="badge">{tree} trees</p>
-                    )}
-                  </p>
-
-                  <p className="list-message">
-                    {/* {moment.unix(create_at / 1000).format("YYYY-MM-DD")}, */}
-                    {moment
-                      .unix(create_at / 1000)
-                      .format(" Do YYYY, h:mm:ss A")}
-                  </p>
-                </Col>
-              </Row>
-            );
-          })}
-          <a href="#form">
-            <Button className="add-tree-btn">ADD YOUR TREE</Button>
-          </a>
-        </div>
-      )}
+        </center>
+      </div>
     </div>
   );
 }

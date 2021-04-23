@@ -97,7 +97,7 @@ const EditProject = ({ history }) => {
       await refetch();
       await history.push("/admin/projects");
     });
-    console.log(values);
+    // console.log(values);
   };
   if (loadingProject) {
     return (

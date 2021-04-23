@@ -1,0 +1,42 @@
+[
+  {
+    "src": "/gallery/trip-1.jpg",
+    "width": 4,
+    "height": 3
+  },
+  {
+    "src": "/gallery/trip-2.jpg",
+    "width": 4,
+    "height": 3
+  },
+  {
+    "src": "/gallery/trip-3.jpg",
+    "width": 4,
+    "height": 3
+  },
+  {
+    "src": "/gallery/trip-4.jpg",
+    "width": 4,
+    "height": 3
+  },
+  {
+    "src": "/gallery/va-home.JPG",
+    "width": 4,
+    "height": 3
+  },
+  {
+    "src": "/gallery/mountain.jpg",
+    "width": 4,
+    "height": 3
+  },
+  {
+    "src": "/gallery/isi-tree-planting-4s.jpg",
+    "width": 4,
+    "height": 3
+  },
+  {
+    "src": "/gallery/isi-tree-planting-2s.jpg",
+    "width": 4,
+    "height": 3
+  }
+]

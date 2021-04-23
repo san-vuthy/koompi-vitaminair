@@ -28,13 +28,14 @@ const Navbar = () => {
   };
 
   return (
-    <Affix>
+    <React.Fragment>
+      {/* <div className="container-navbar"> */}
       <div className="navbar">
         <FiMenu onClick={showDrawer} className="open-menu-btn" />
         <Link href="/">
           <img
             style={{ cursor: "pointer" }}
-            src="images/vitaminair.png"
+            src="/images/vitaminair.png"
             alt="logo"
           />
         </Link>
@@ -89,7 +90,8 @@ const Navbar = () => {
           </Menu>
         </Drawer>
       </div>
-    </Affix>
+      {/* </div> */}
+    </React.Fragment>
   );
 };
 

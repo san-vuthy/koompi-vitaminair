@@ -10,6 +10,7 @@ const GET_DONATIONS = gql`
       user_message
       anonymous
       email
+      phone
     }
   }
 `;
@@ -112,7 +113,30 @@ const GET_PROJECT = gql`
     }
   }
 `;
+const GET_BLOGS = gql`
+  query {
+    get_blogs {
+      id
+      title
+      des
+      image
+      create_at
+    }
+  }
+`;
+const GET_BLOG = gql`
+  query($id: ID!) {
+    get_blog(id: $id) {
+      id
+      title
+      des
+      image
+    }
+  }
+`;
 export {
+  GET_BLOG,
+  GET_BLOGS,
   GET_DONATIONS,
   GET_MOST_DONATIONS,
   GET_INITATIONS,

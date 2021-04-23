@@ -89,7 +89,7 @@ const AddProject = () => {
       await refetch();
       setLoading(false);
     });
-    console.log(values);
+    // console.log(values);
   };
   return (
     <React.Fragment>

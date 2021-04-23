@@ -21,7 +21,7 @@ const AllInitation = () => {
         <Spin style={{ color: "red !important" }} size="large" />
       </center>
     );
-  console.log(data);
+  // console.log(data);
   const columns = [
     {
       title: "Image",
