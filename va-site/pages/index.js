@@ -2,18 +2,34 @@ import { Row, Col, Button } from "antd";
 import Navbar from "../components/navbar";
 import InfoForm from "./home/inforForm";
 import Initiation from "./home/initiation";
-// import InfoForm from "./InfoForm";
-// import Activities from "./Activities";
+import { NextSeo } from "next-seo";
 import Leaderboard from "./home/leaderBoard";
 import Footer from "../components/footer";
 
 function Home() {
   return (
     <div className="background-body">
+      <NextSeo
+        title="Vitaminair"
+        description="To plant trees and Educate the next generation."
+        canonical="http://demo.vitaminair.org"
+        openGraph={{
+          images: [
+            {
+              url:
+                "https://backend.vitaminair.org/public/uploads/file-0bd63f57-7c0c-4d68-9ad4-e1e6be055005.png",
+            },
+          ],
+          title: "Vitaminair",
+          description: "To plant trees and Educate the next generation.",
+          url: "http://demo.vitaminair.org",
+          site_name: "vitaminair",
+        }}
+      />
+      ;
       <img className="cloud" src="/images/cloud2.png" alt="cloud" />
       <img className="cloud2" src="/images/cloud2.png" alt="cloud" />
       <img className="cloud3" src="/images/cloud2.png" alt="cloud" />
-
       <div className="home-banner">
         <div className="container">
           <Row className="banner" justify="space-between" align="middle">

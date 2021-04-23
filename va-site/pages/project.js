@@ -21,9 +21,9 @@ function Project() {
   return (
     <div className="background-body">
       <NextSeo
-        title="Vitaminair Project"
+        title="Vitaminair | Project"
         description="Reforestation | Natural Farming | Eco-adventure Tourism | Airto Water | Jiramera UAV Drone"
-        canonical="http://demo.vitaminair.org/projects"
+        canonical="http://demo.vitaminair.org/project"
         openGraph={{
           images: [
             {
@@ -31,6 +31,11 @@ function Project() {
                 "https://backend.vitaminair.org/public/uploads/file-1d2a35e8-4414-4da2-bbc5-726fb7e91408.jpg",
             },
           ],
+          title: "Vitaminair | Project",
+          description:
+            "Reforestation | Natural Farming | Eco-adventure Tourism | Airto Water | Jiramera UAV Drone",
+          url: "http://demo.vitaminair.org/project",
+          site_name: "vitaminair",
         }}
       />
       <div className="container">

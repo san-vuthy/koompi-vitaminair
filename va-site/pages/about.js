@@ -28,16 +28,20 @@ function About() {
   return (
     <div className="background-body">
       <NextSeo
-        title="Vitaminair About"
-        description="OUR OBJECTIVE | Sustainability, peace, love, harmony, sharing, growth, and abundance, with a focus on setting a good example for generations into the future."
+        title="Vitaminair | About"
+        description="Our Objective | Sustainability, peace, love, harmony, sharing, growth, and abundance, with a focus on setting a good example for generations into the future."
         canonical="http://demo.vitaminair.org/about"
         openGraph={{
           images: [
             {
-              url:
-                "https://backend.vitaminair.org/public/uploads/file-1d2a35e8-4414-4da2-bbc5-726fb7e91408.jpg",
+              url: "http://demo.vitaminair.org/images/footer.png",
             },
           ],
+          title: "Vitaminair | About",
+          description:
+            "Our Objective | Sustainability, peace, love, harmony, sharing, growth, and abundance, with a focus on setting a good example for generations into the future.",
+          url: "http://demo.vitaminair.org/about",
+          site_name: "vitaminair",
         }}
       />
       <div className="about-banner">

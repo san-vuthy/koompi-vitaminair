@@ -827,7 +827,7 @@ a:active {
   /* height: 23rem; */
   /* margin: 6px; */
   min-height: 335px !important;
-  height: 335px !important;
+  /* height: 335px !important; */
 }
 .about .about-card img {
   position: absolute;
@@ -1025,7 +1025,7 @@ a:active {
   margin-top: 30px;
 }
 .noted {
-  color: red;
+  color: #319286;
   font-weight: bold;
 }
 .container {
