@@ -826,6 +826,8 @@ a:active {
   border-radius: 8px;
   /* height: 23rem; */
   /* margin: 6px; */
+  min-height: 335px !important;
+  height: 335px !important;
 }
 .about .about-card img {
   position: absolute;

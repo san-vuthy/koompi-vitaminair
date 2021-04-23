@@ -7,7 +7,7 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
 const admin = new ApolloClient({
-  uri: "http://localhost:3600/admin",
+  uri: "https://backend.vitaminair.org/admin",
   // uri: "https://backend.vitaminair.org/admin",
   cache: new InMemoryCache(),
 });
