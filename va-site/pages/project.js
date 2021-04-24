@@ -21,23 +21,25 @@ function Project() {
   return (
     <div className="background-body">
       <NextSeo
-        title="Vitaminair | Project"
-        description="Reforestation | Natural Farming | Eco-adventure Tourism | Airto Water | Jiramera UAV Drone"
-        canonical="http://demo.vitaminair.org/project"
+        title="Projecrt - Vitaminair"
+        description="To take actions and show to people that we can work with nature and not against her, we bought 110 hectares of land in Kompong Seila surrounded by mountains and national forest, and started building the team to put our project development plan to work."
+        canonical="https://vitaminair.org/project"
         openGraph={{
           images: [
             {
-              url:
-                "https://backend.vitaminair.org/public/uploads/file-1d2a35e8-4414-4da2-bbc5-726fb7e91408.jpg",
+              url: "/project.png",
             },
           ],
-          title: "Vitaminair | Project",
-          description:
-            "Reforestation | Natural Farming | Eco-adventure Tourism | Airto Water | Jiramera UAV Drone",
-          url: "http://demo.vitaminair.org/project",
+          url: "https://vitaminair.org/about",
           site_name: "vitaminair",
         }}
+        twitter={{
+          handle: "@handle",
+          site: "@site",
+          cardType: "summary_large_image",
+        }}
       />
+
       <div className="container">
         {/* <center>
           <h3 className="title-project-gallery">Our Gallery</h3>

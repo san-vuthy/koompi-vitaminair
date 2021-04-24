@@ -10,23 +10,25 @@ function Home() {
   return (
     <div className="background-body">
       <NextSeo
-        title="Vitaminair"
-        description="To plant trees and Educate the next generation."
-        canonical="http://demo.vitaminair.org"
+        title="Home - Vitaminair"
+        description="Protect, preserve, and restore our rain forests for generations ahead. Protect, preserve, and restore our rain forests for generations ahead."
+        canonical="https://vitaminair.org"
         openGraph={{
           images: [
             {
-              url:
-                "https://backend.vitaminair.org/public/uploads/file-0bd63f57-7c0c-4d68-9ad4-e1e6be055005.png",
+              url: "/home.png",
             },
           ],
-          title: "Vitaminair",
-          description: "To plant trees and Educate the next generation.",
-          url: "http://demo.vitaminair.org",
+          url: "https://vitaminair.org",
           site_name: "vitaminair",
         }}
+        twitter={{
+          handle: "@handle",
+          site: "@site",
+          cardType: "summary_large_image",
+        }}
       />
-      ;
+
       <img className="cloud" src="/images/cloud2.png" alt="cloud" />
       <img className="cloud2" src="/images/cloud2.png" alt="cloud" />
       <img className="cloud3" src="/images/cloud2.png" alt="cloud" />
