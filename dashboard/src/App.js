@@ -17,6 +17,9 @@ import EditInitation from "./components/Pages/Initation/editInitation";
 import AddMember from "./components/Pages/member/addMember";
 import AllMembers from "./components/Pages/member/allMember";
 import EditMember from "./components/Pages/member/editMember";
+import AddPlants from "./components/Pages/plants/addPlants";
+import AllPlants from "./components/Pages/plants/allPlants";
+import EditPlants from "./components/Pages/plants/editPlants";
 import AddProject from "./components/Pages/project/addProject";
 import AllProject from "./components/Pages/project/allProjects";
 import EditProject from "./components/Pages/project/editProject";
@@ -79,6 +82,13 @@ function App() {
             exact
             path="/admin/edit-blog/:id"
             component={EditBlog}
+          />
+          <PrivateRoute exact path="/admin/addplants" component={AddPlants} />
+          <PrivateRoute exact path="/admin/plants" component={AllPlants} />
+          <PrivateRoute
+            exact
+            path="/admin/edit-plants/:id"
+            component={EditPlants}
           />
         </Switch>
       </Router>

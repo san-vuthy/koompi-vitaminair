@@ -14,14 +14,14 @@ import {
 import TopNavbar from "../../Layouts/topNavbar";
 import LeftNavbar from "../../Layouts/leftNavbar";
 import { useMutation, useQuery } from "@apollo/client";
-import { EDIT_BLOG } from "../../../graphql/mutation";
-import { GET_BLOG } from "../../../graphql/query";
+import { EDIT_PLANTS } from "../../../graphql/mutation";
+import { GET_A_PLANTS } from "../../../graphql/query";
 import { useParams } from "react-router-dom";
 import { EDITOR_JS_TOOLS } from "../../Layouts/tool";
 import EditorJs from "react-editor-js";
 
 const { Content } = Layout;
-const EditBlog = ({ history }) => {
+const EditPlants = ({ history }) => {
   const instanceRef = React.useRef(null);
   const [datas, setData] = React.useState({
     time: 1556098174501,
@@ -43,13 +43,13 @@ const EditBlog = ({ history }) => {
   });
   const [loading] = useState(false);
   const {
-    loading: blogLoading,
-    data: blogData,
-    refetch: blogRefetch,
-  } = useQuery(GET_BLOG, {
+    loading: plantsLoading,
+    data: plantsData,
+    refetch: plantsRefetch,
+  } = useQuery(GET_A_PLANTS, {
     variables: { id },
   });
-  const [edit_blog] = useMutation(EDIT_BLOG);
+  const [edit_plants] = useMutation(EDIT_PLANTS);
 
   async function handleSave() {
     const savedData = await instanceRef.current.save();
@@ -83,14 +83,15 @@ const EditBlog = ({ history }) => {
     return isJpgOrPng && isLt2M;
   };
   const onFinish = (values) => {
-    const { title } = values;
-    edit_blog({
+    const { name, subname } = values;
+    edit_plants({
       variables: {
-        title: title,
+        name: name,
+        subname: subname,
         des: JSON.stringify(datas),
         image:
           state.imageUrl === null
-            ? blogData.get_initation.image
+            ? plantsData.get_a_plants.image
             : state.imageUrl,
         id: id,
       },
@@ -101,12 +102,12 @@ const EditBlog = ({ history }) => {
       //     imageUrl: null,
       //     loading: false,
       //   });
-      await blogRefetch();
-      await history.push("/admin/blogs");
+      await plantsRefetch();
+      await history.push("/admin/plants");
     });
     console.log(values);
   };
-  if (blogLoading) {
+  if (plantsLoading) {
     return (
       <center style={{ marginTop: "100px" }}>
         <Spin style={{ color: "red !important" }} size="large" />
@@ -121,7 +122,7 @@ const EditBlog = ({ history }) => {
           <TopNavbar />
           <Content style={{ backgroundColor: "#fff" }}>
             <div className="contenContainer">
-              <h1 className="title-top">Edit Blog</h1>
+              <h1 className="title-top">Edit Plants</h1>
               <Form
                 form={form}
                 onFinish={onFinish}
@@ -131,9 +132,9 @@ const EditBlog = ({ history }) => {
                 <Row gutter={[32, 0]}>
                   <Col span={16}>
                     <Form.Item
-                      initialValue={blogData.get_blog.title}
-                      label="Title"
-                      name="title"
+                      initialValue={plantsData.get_a_plants.name}
+                      label="Name"
+                      name="name"
                       rules={[
                         {
                           required: true,
@@ -144,7 +145,20 @@ const EditBlog = ({ history }) => {
                       <Input className="input-style" size="large" />
                     </Form.Item>
                     <Form.Item
-                      initialValue={JSON.parse(blogData.get_blog.des)}
+                      initialValue={plantsData.get_a_plants.subname}
+                      label="Subname"
+                      name="subname"
+                      //   rules={[
+                      //     {
+                      //       required: true,
+                      //       message: "Please input Title!",
+                      //     },
+                      //   ]}
+                    >
+                      <Input className="input-style" size="large" />
+                    </Form.Item>
+                    <Form.Item
+                      initialValue={JSON.parse(plantsData.get_a_plants.des)}
                       label="Description"
                       name="des"
                       rules={[
@@ -156,7 +170,7 @@ const EditBlog = ({ history }) => {
                     >
                       {/* <Input.TextArea className="input-style" size="large" /> */}
                       <EditorJs
-                        data={JSON.parse(blogData.get_blog.des)}
+                        data={JSON.parse(plantsData.get_a_plants.des)}
                         tools={EDITOR_JS_TOOLS}
                         instanceRef={(instance) =>
                           (instanceRef.current = instance)
@@ -185,7 +199,7 @@ const EditBlog = ({ history }) => {
                       <React.Fragment>
                         <Form.Item
                           label="Image"
-                          initialValue={blogData.get_blog.image}
+                          initialValue={plantsData.get_a_plants.image}
                           name="image"
                         >
                           <Upload.Dragger
@@ -211,7 +225,7 @@ const EditBlog = ({ history }) => {
                                 // }`}
                                 src={
                                   "https://backend.vitaminair.org/public/uploads/" +
-                                  blogData.get_blog.image
+                                  plantsData.get_a_plants.image
                                 }
                                 alt="avatar"
                                 style={{ width: "100%" }}
@@ -251,4 +265,4 @@ const EditBlog = ({ history }) => {
   );
 };
 
-export default EditBlog;
+export default EditPlants;

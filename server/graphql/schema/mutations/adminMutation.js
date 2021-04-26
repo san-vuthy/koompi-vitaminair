@@ -20,6 +20,7 @@ const Project = require("../../../model/project");
 const About = require("../../../model/about");
 const Member = require("../../../model/member");
 const Blog = require("../../../model/blog");
+const Plants = require("../../../model/plants");
 //============Type Sections==========
 const DonateType = require("../types/donateType");
 const UserType = require("../types/userType");
@@ -28,6 +29,7 @@ const ProjectType = require("../types/projectType");
 const AboutType = require("../types/aboutType");
 const MemberType = require("../types/memeberType");
 const BlogType = require("../types/blogType");
+const PlantsType = require("../types/plantsType");
 
 const AdminMutation = new GraphQLObjectType({
   name: "adminMuntationType",
@@ -414,6 +416,64 @@ const AdminMutation = new GraphQLObjectType({
       resolve: async (root, args) => {
         try {
           await Blog.findByIdAndUpdate({ _id: args.id }, { ...args });
+          return {
+            message: "update successfull",
+          };
+        } catch (error) {
+          console.log(error);
+        }
+      },
+    },
+
+    //===========add plants=========
+    add_plants: {
+      type: PlantsType,
+      args: {
+        name: { type: GraphQLNonNull(GraphQLString) },
+        subname: { type: GraphQLString },
+        image: { type: GraphQLNonNull(GraphQLString) },
+        des: { type: GraphQLNonNull(GraphQLString) },
+      },
+      resolve: async (parent, args) => {
+        try {
+          const plants = new Plants({ ...args });
+          await plants.save();
+          return { message: " successfull" };
+        } catch (error) {
+          console.log(error);
+          throw error;
+        }
+      },
+    },
+    //==========delete plants============
+    delete_plants: {
+      type: PlantsType,
+      args: {
+        id: { type: GraphQLNonNull(GraphQLID) },
+      },
+      resolve: async (parent, args) => {
+        try {
+          await Plants.deleteOne({ _id: args.id });
+          return { message: "Delete Successfull" };
+        } catch (error) {
+          console.log(error);
+          throw error;
+        }
+      },
+    },
+    //===========Edit plants========
+    edit_plants: {
+      type: PlantsType,
+      args: {
+        id: { type: new GraphQLNonNull(GraphQLID) },
+        name: { type: new GraphQLNonNull(GraphQLString) },
+        subname: { type: GraphQLString },
+        image: { type: new GraphQLNonNull(GraphQLString) },
+        des: { type: new GraphQLNonNull(GraphQLString) },
+      },
+      resolve: async (root, args) => {
+        try {
+          await Plants.findByIdAndUpdate({ _id: args.id }, { ...args });
           return {
             message: "update successfull",
           };

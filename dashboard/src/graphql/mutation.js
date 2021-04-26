@@ -123,7 +123,44 @@ const EDIT_BLOG = gql`
     }
   }
 `;
+
+const ADD_PLANTS = gql`
+  mutation($name: String!, $subname: String, $des: String!, $image: String!) {
+    add_plants(name: $name, subname: $subname, des: $des, image: $image) {
+      message
+    }
+  }
+`;
+const DELETE_PLANTS = gql`
+  mutation($id: ID!) {
+    delete_plants(id: $id) {
+      message
+    }
+  }
+`;
+const EDIT_PLANTS = gql`
+  mutation(
+    $id: ID!
+    $name: String!
+    $subname: String
+    $des: String!
+    $image: String!
+  ) {
+    edit_plants(
+      id: $id
+      name: $name
+      subname: $subname
+      des: $des
+      image: $image
+    ) {
+      message
+    }
+  }
+`;
 export {
+  ADD_PLANTS,
+  DELETE_PLANTS,
+  EDIT_PLANTS,
   ADD_BLOG,
   DELETE_BLOG,
   EDIT_BLOG,

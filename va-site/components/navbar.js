@@ -43,6 +43,9 @@ const Navbar = () => {
           <ActiveLink activeClassName="is-active" href="/project">
             <a className="nav-link">Project</a>
           </ActiveLink>
+          <ActiveLink activeClassName="is-active" href="/plants">
+            <a className="nav-link">Plants</a>
+          </ActiveLink>
           <ActiveLink activeClassName="is-active" href="/about">
             <a className="nav_link">About Us</a>
           </ActiveLink>
@@ -78,11 +81,16 @@ const Navbar = () => {
               </Link>
             </Menu.Item>
             <Menu.Item>
-              <Link key="3" href="/about" activeClassName="is-active">
+              <Link key="3" href="/plants" activeClassName="is-active">
+                plants
+              </Link>
+            </Menu.Item>
+            <Menu.Item>
+              <Link key="4" href="/about" activeClassName="is-active">
                 ABOUT US
               </Link>
             </Menu.Item>
-            <Menu.Item key="4">
+            <Menu.Item key="5">
               <Link href="https://t.me/vitaminair" activeClassName="is-active">
                 COMMUNITY
               </Link>

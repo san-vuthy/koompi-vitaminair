@@ -124,7 +124,7 @@ function Leaderboard() {
                 <Row className="list" align="middle" key={index}>
                   <Col xs={24} sm={24} md={17} xl={17}>
                     <img
-                      src="/images/icon1.svg"
+                      src="/images/Vitamin-air-circle-2-blue.png"
                       className="avatar"
                       alt="vitaminair"
                     />

@@ -134,7 +134,32 @@ const GET_BLOG = gql`
     }
   }
 `;
+const GET_PLANTS = gql`
+  query {
+    get_plants {
+      id
+      name
+      subname
+      des
+      image
+      create_at
+    }
+  }
+`;
+const GET_A_PLANTS = gql`
+  query($id: ID!) {
+    get_a_plants(id: $id) {
+      id
+      name
+      subname
+      des
+      image
+    }
+  }
+`;
 export {
+  GET_A_PLANTS,
+  GET_PLANTS,
   GET_BLOG,
   GET_BLOGS,
   GET_DONATIONS,

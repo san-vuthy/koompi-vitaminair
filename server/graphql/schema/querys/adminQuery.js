@@ -8,6 +8,7 @@ const Project = require("../../../model/project");
 const About = require("../../../model/about");
 const Member = require("../../../model/member");
 const Blog = require("../../../model/blog");
+const Plants = require("../../../model/plants");
 //============Type Sections==========
 const DonateType = require("../types/donateType");
 const Initationtype = require("../types/initationType");
@@ -15,6 +16,7 @@ const ProjectType = require("../types/projectType");
 const AboutType = require("../types/aboutType");
 const MemberType = require("../types/memeberType");
 const BlogType = require("../types/blogType");
+const PlantsType = require("../types/plantsType");
 
 const AdminQuery = new GraphQLObjectType({
   name: "AdminQueryType",
@@ -149,6 +151,28 @@ const AdminQuery = new GraphQLObjectType({
       args: { id: { type: GraphQLID } },
       resolve(parent, args) {
         return Blog.findOne({ _id: args.id });
+      },
+    },
+
+    //=======get more Plants
+
+    get_plants: {
+      type: new GraphQLList(PlantsType),
+      resolve: async (parent, args) => {
+        try {
+          return Plants.find().sort({ create_at: -1 });
+        } catch (error) {
+          console.log(error);
+          throw error;
+        }
+      },
+    },
+    //==========Get a Plants==========
+    get_a_plants: {
+      type: PlantsType,
+      args: { id: { type: GraphQLID } },
+      resolve(parent, args) {
+        return Plants.findOne({ _id: args.id });
       },
     },
   }),

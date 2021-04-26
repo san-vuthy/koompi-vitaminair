@@ -10,6 +10,7 @@ import {
   ApartmentOutlined,
   FileSearchOutlined,
   FolderOutlined,
+  FileDoneOutlined,
 } from "@ant-design/icons";
 const { Sider } = Layout;
 const { SubMenu } = Menu;
@@ -141,7 +142,7 @@ const LeftNavbar = () => {
                 ? "/admin/addblog"
                 : ""
             }
-            icon={<FolderOutlined />}
+            icon={<FileDoneOutlined />}
             title="Blog"
           >
             <Menu.Item key="/admin/blogs">
@@ -151,6 +152,26 @@ const LeftNavbar = () => {
             <Menu.Item key="/admin/addblogt">
               <Link to="/admin/addblog" />
               Add Blog
+            </Menu.Item>
+          </SubMenu>
+          <SubMenu
+            key={
+              pathname === "/admin/plants"
+                ? "/admin/plants"
+                : "/admin/addplants"
+                ? "/admin/addplants"
+                : ""
+            }
+            icon={<FolderOutlined />}
+            title="Plants"
+          >
+            <Menu.Item key="/admin/plants">
+              <Link to="/admin/plants" />
+              Plants
+            </Menu.Item>
+            <Menu.Item key="/admin/addplants">
+              <Link to="/admin/addplants" />
+              Add Plants
             </Menu.Item>
           </SubMenu>
         </Menu>
