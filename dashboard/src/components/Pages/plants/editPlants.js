@@ -83,11 +83,12 @@ const EditPlants = ({ history }) => {
     return isJpgOrPng && isLt2M;
   };
   const onFinish = (values) => {
-    const { name, subname } = values;
+    const { name, sciname, family } = values;
     edit_plants({
       variables: {
         name: name,
-        subname: subname,
+        sciname: sciname,
+        family: family,
         des: JSON.stringify(datas),
         image:
           state.imageUrl === null
@@ -145,15 +146,28 @@ const EditPlants = ({ history }) => {
                       <Input className="input-style" size="large" />
                     </Form.Item>
                     <Form.Item
-                      initialValue={plantsData.get_a_plants.subname}
+                      initialValue={plantsData.get_a_plants.sciname}
                       label="Subname"
-                      name="subname"
-                      //   rules={[
-                      //     {
-                      //       required: true,
-                      //       message: "Please input Title!",
-                      //     },
-                      //   ]}
+                      name="sciname"
+                      rules={[
+                        {
+                          required: true,
+                          message: "Please input Scientific Name!",
+                        },
+                      ]}
+                    >
+                      <Input className="input-style" size="large" />
+                    </Form.Item>
+                    <Form.Item
+                      initialValue={plantsData.get_a_plants.family}
+                      label="family"
+                      name="family"
+                      rules={[
+                        {
+                          required: true,
+                          message: "Please input family!",
+                        },
+                      ]}
                     >
                       <Input className="input-style" size="large" />
                     </Form.Item>

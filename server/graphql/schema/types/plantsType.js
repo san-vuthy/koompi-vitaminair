@@ -7,7 +7,8 @@ const plantsType = new GraphQLObjectType({
   fields: () => ({
     id: { type: GraphQLID },
     name: { type: GraphQLString },
-    subname: { type: GraphQLString },
+    sciname: { type: GraphQLString },
+    family: { type: GraphQLString },
     des: { type: GraphQLString },
     image: { type: GraphQLString },
     create_at: { type: GraphQLString },

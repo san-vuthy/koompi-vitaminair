@@ -25,7 +25,7 @@ const AllPlants = () => {
   const columns = [
     {
       title: "Image",
-      width: 200,
+      width: 100,
       dataIndex: "image",
       render: (data) => {
         return (
@@ -49,29 +49,39 @@ const AllPlants = () => {
       },
     },
     {
-      title: "SubName",
-      dataIndex: "subname",
-      render: (data) => {
-        return data.length <= 25 ? data : data.substring(0, 25) + " ...";
-      },
+      title: "Science Name",
+      dataIndex: "sciname",
+      // render: (data) => {
+      //   return data.length <= 25 ? data : data.substring(0, 25) + " ...";
+      // },
+    },
+    {
+      title: "Family",
+      dataIndex: "family",
+      // render: (data) => {
+      //   return data.length <= 25 ? data : data.substring(0, 25) + " ...";
+      // },
     },
     {
       title: "Description",
       key: "tree",
+      width: 250,
       dataIndex: "des",
       render: (data) => {
         const result = <Output data={JSON.parse(data)} />;
         // return data.length <= 25 ? data : data.substring(0, 25) + " ...";
         return `${
-          result.props.data.blocks[0].data.text.substring(0, 50) + "..."
+          result.props.data.blocks[0].data.text.substring(0, 25) + "..."
         }`;
       },
     },
     {
       title: "Date",
+      width: 150,
       dataIndex: "create_at",
       render: (create_at) => {
-        return moment.unix(create_at / 1000).format(" Do YYYY, h:mm:ss A");
+        return moment.unix(create_at / 1000).format(" DD,MMMM, YYYY ");
+        // return moment.unix(create_at / 1000).format(" Do YYYY, h:mm:ss A");
       },
     },
     {
@@ -145,7 +155,7 @@ const AllPlants = () => {
           <TopNavbar />
           <Content style={{ backgroundColor: "#fff" }}>
             <div className="contenContainer">
-              <h1 className="title-top">Blogs</h1>
+              <h1 className="title-top">Plants</h1>
               <div>
                 <Table
                   columns={columns}

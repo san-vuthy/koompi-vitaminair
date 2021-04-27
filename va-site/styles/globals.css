@@ -1394,3 +1394,61 @@ a:active {
   padding: 15px 15px 0px 15px;
   border-radius: 10px !important;
 }
+/* .plants-banner {
+  background-image: url(/images/footer.png);
+  height: 30px;
+} */
+.plants-banner {
+  background-image: url(/images/bg_about.webp);
+  background-size: cover;
+  background-position: center;
+  padding: 60px 0 60px;
+  /* padding: 60px 0 60px; */
+  /* background-image: url(/images/VA-Header.png); */
+  /* background-repeat: no-repeat;
+  height: 436px;
+  background-size: cover;
+  display: flex;
+  background-position: center;
+  position: relative;
+  justify-content: center;
+  align-items: center; */
+}
+.heigth-plants-div {
+  margin-top: 30px;
+}
+.plants-image {
+  max-width: 100%;
+}
+.plants-card {
+  /* background-color: #f3f3f3; */
+  /* padding: 10px; */
+  /* position: relative; */
+  overflow: hidden;
+  background-color: #fff;
+  border-radius: 3px;
+  transition: 0.3s;
+  cursor: pointer;
+  box-shadow: 0 3rem 6rem rgba(0, 0, 0, 0.1);
+}
+.plants-text {
+  padding: 15px;
+  /* text-align: center; */
+}
+.plants-card:hover {
+  /* transform: translateY(-0.5%); */
+  box-shadow: 0 4rem 8rem rgba(0, 0, 0, 0.2);
+}
+.badge {
+  display: inline-block;
+  padding: 0.25em 0.4em;
+  font-size: 75%;
+  font-weight: 700;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: 0.25rem;
+  background-color: turquoise;
+  margin-bottom: 12px;
+}

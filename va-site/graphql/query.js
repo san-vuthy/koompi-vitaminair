@@ -120,7 +120,35 @@ const GET_BLOGS = gql`
   }
 `;
 
+const GET_PLANTS = gql`
+  query {
+    get_plants {
+      id
+      name
+      sciname
+      family
+      des
+      image
+      create_at
+    }
+  }
+`;
+const GET_A_PLANTS = gql`
+  query($id: ID!) {
+    get_a_plants(id: $id) {
+      id
+      name
+      sciname
+      family
+      des
+      image
+    }
+  }
+`;
+
 export {
+  GET_A_PLANTS,
+  GET_PLANTS,
   GET_BLOGS,
   GET_BLOG,
   GET_ABOUT,

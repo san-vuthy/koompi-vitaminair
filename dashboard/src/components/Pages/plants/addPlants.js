@@ -72,11 +72,12 @@ const AddPlants = () => {
   };
 
   const onFinish = (values) => {
-    const { name, subname } = values;
+    const { name, sciname, family } = values;
     add_plants({
       variables: {
         name: name,
-        subname: subname,
+        sciname: sciname,
+        family: family,
         des: JSON.stringify(data),
         image: state.imageUrl,
       },
@@ -111,7 +112,7 @@ const AddPlants = () => {
                 <Row gutter={[32, 0]}>
                   <Col span={16}>
                     <Form.Item
-                      label="Name"
+                      label="Local Name"
                       name="name"
                       rules={[
                         {
@@ -123,14 +124,26 @@ const AddPlants = () => {
                       <Input className="input-style" size="large" />
                     </Form.Item>
                     <Form.Item
-                      label="Sub Name"
-                      name="subname"
-                      //   rules={[
-                      //     {
-                      //       required: true,
-                      //       message: "Please input Name!",
-                      //     },
-                      //   ]}
+                      label="Scientific Name"
+                      name="sciname"
+                      rules={[
+                        {
+                          required: true,
+                          message: "Please input Scientific Name!",
+                        },
+                      ]}
+                    >
+                      <Input className="input-style" size="large" />
+                    </Form.Item>
+                    <Form.Item
+                      label="Family"
+                      name="family"
+                      rules={[
+                        {
+                          required: true,
+                          message: "Please input Family!",
+                        },
+                      ]}
                     >
                       <Input className="input-style" size="large" />
                     </Form.Item>

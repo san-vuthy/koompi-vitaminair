@@ -430,7 +430,8 @@ const AdminMutation = new GraphQLObjectType({
       type: PlantsType,
       args: {
         name: { type: GraphQLNonNull(GraphQLString) },
-        subname: { type: GraphQLString },
+        sciname: { type: GraphQLNonNull(GraphQLString) },
+        family: { type: GraphQLNonNull(GraphQLString) },
         image: { type: GraphQLNonNull(GraphQLString) },
         des: { type: GraphQLNonNull(GraphQLString) },
       },
@@ -467,7 +468,8 @@ const AdminMutation = new GraphQLObjectType({
       args: {
         id: { type: new GraphQLNonNull(GraphQLID) },
         name: { type: new GraphQLNonNull(GraphQLString) },
-        subname: { type: GraphQLString },
+        sciname: { type: GraphQLNonNull(GraphQLString) },
+        family: { type: GraphQLNonNull(GraphQLString) },
         image: { type: new GraphQLNonNull(GraphQLString) },
         des: { type: new GraphQLNonNull(GraphQLString) },
       },

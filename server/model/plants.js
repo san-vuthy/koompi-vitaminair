@@ -5,9 +5,13 @@ const Plants = new mongoose.Schema({
     type: String,
     required: true,
   },
-  subname: {
+  sciname: {
     type: String,
-    required: false,
+    required: true,
+  },
+  family: {
+    type: String,
+    required: true,
   },
   des: {
     type: String,

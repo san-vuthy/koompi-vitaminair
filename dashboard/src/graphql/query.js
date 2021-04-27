@@ -139,7 +139,8 @@ const GET_PLANTS = gql`
     get_plants {
       id
       name
-      subname
+      sciname
+      family
       des
       image
       create_at
@@ -151,7 +152,8 @@ const GET_A_PLANTS = gql`
     get_a_plants(id: $id) {
       id
       name
-      subname
+      family
+      sciname
       des
       image
     }

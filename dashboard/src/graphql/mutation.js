@@ -125,8 +125,20 @@ const EDIT_BLOG = gql`
 `;
 
 const ADD_PLANTS = gql`
-  mutation($name: String!, $subname: String, $des: String!, $image: String!) {
-    add_plants(name: $name, subname: $subname, des: $des, image: $image) {
+  mutation(
+    $name: String!
+    $sciname: String!
+    $family: String!
+    $des: String!
+    $image: String!
+  ) {
+    add_plants(
+      name: $name
+      sciname: $sciname
+      family: $family
+      des: $des
+      image: $image
+    ) {
       message
     }
   }
@@ -142,14 +154,16 @@ const EDIT_PLANTS = gql`
   mutation(
     $id: ID!
     $name: String!
-    $subname: String
+    $sciname: String!
+    $family: String!
     $des: String!
     $image: String!
   ) {
     edit_plants(
       id: $id
       name: $name
-      subname: $subname
+      sciname: $sciname
+      family: $family
       des: $des
       image: $image
     ) {
