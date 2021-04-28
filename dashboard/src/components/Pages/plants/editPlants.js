@@ -147,7 +147,7 @@ const EditPlants = ({ history }) => {
                     </Form.Item>
                     <Form.Item
                       initialValue={plantsData.get_a_plants.sciname}
-                      label="Subname"
+                      label="Scientific name"
                       name="sciname"
                       rules={[
                         {

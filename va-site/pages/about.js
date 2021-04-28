@@ -5,6 +5,7 @@ import { GET_ABOUTS, GET_MEMBERS, GET_ABOUT } from "../graphql/query";
 import Output from "editorjs-react-renderer";
 import Footer from "../components/footer";
 import { NextSeo } from "next-seo";
+import { FlapperSpinner } from "react-spinners-kit";
 
 function About() {
   const data = [
@@ -22,9 +23,14 @@ function About() {
   const { loading: aboutLoading, data: aboutData } = useQuery(GET_ABOUTS);
   const { loading: memberLoading, data: memberData } = useQuery(GET_MEMBERS);
 
-  if (aboutLoading || memberLoading) return null;
+  // if (aboutLoading || memberLoading) return null;
   // console.log("data", about_data)
-
+  if (aboutLoading || memberLoading)
+    return (
+      <center style={{ marginTop: "400px" }}>
+        <FlapperSpinner size={50} color="#00ff89" />
+      </center>
+    );
   return (
     <div className="background-body">
       <NextSeo

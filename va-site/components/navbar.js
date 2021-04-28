@@ -47,7 +47,7 @@ const Navbar = () => {
             <a className="nav-link">Plants</a>
           </ActiveLink>
           <ActiveLink activeClassName="is-active" href="/about">
-            <a className="nav_link">About Us</a>
+            <a className="nav-link">About Us</a>
           </ActiveLink>
           <a className="nav_link" href="https://t.me/vitaminair">
             Community

@@ -8,13 +8,19 @@ import { NextSeo } from "next-seo";
 import images from "../components/data/gallery.json";
 import Link from "next/link";
 import Blog from "./blog/blog";
+import { FlapperSpinner } from "react-spinners-kit";
 
 function Project() {
   const { loading, data } = useQuery(GET_PROJECTS);
   // const { loading: loadingProject, data: dataProject } = useQuery(GET_PROJECT, {
   //   variables: { id },
   // });
-  if (loading) return null;
+  if (loading)
+    return (
+      <center style={{ marginTop: "400px" }}>
+        <FlapperSpinner size={50} color="#00ff89" loading={loading} />
+      </center>
+    );
 
   console.log("data", data);
 

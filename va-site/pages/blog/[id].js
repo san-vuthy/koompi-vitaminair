@@ -4,7 +4,7 @@ import Footer from "../../components/footer";
 import { GET_BLOG } from "../../graphql/query";
 import { useRouter } from "next/router";
 import Output from "editorjs-react-renderer";
-import { Spin } from "antd";
+import { FlapperSpinner } from "react-spinners-kit";
 function BlogDetail() {
   const router = useRouter();
   const { id } = router.query;
@@ -18,7 +18,7 @@ function BlogDetail() {
     return (
       <div style={{ marginTop: "50px" }}>
         <center>
-          <Spin tip="Loading ..." />
+          <FlapperSpinner size={50} color="#00ff89" loading={loading} />
         </center>
       </div>
     );
