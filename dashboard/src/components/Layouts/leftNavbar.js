@@ -9,7 +9,7 @@ import {
   FolderViewOutlined,
   ApartmentOutlined,
   FileSearchOutlined,
-  FolderOutlined,
+  ContainerOutlined,
   FileDoneOutlined,
 } from "@ant-design/icons";
 const { Sider } = Layout;
@@ -162,7 +162,7 @@ const LeftNavbar = () => {
                 ? "/admin/addplants"
                 : ""
             }
-            icon={<FolderOutlined />}
+            icon={<ContainerOutlined />}
             title="Plants"
           >
             <Menu.Item key="/admin/plants">

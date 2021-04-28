@@ -109,8 +109,8 @@ const GET_BLOG = gql`
   }
 `;
 const GET_BLOGS = gql`
-  query {
-    get_blogs {
+  query($limit: Int!, $offset: Int!) {
+    get_blogs(limit: $limit, offset: $offset) {
       id
       title
       des
@@ -121,8 +121,8 @@ const GET_BLOGS = gql`
 `;
 
 const GET_PLANTS = gql`
-  query {
-    get_plants {
+  query($limit: Int!, $offset: Int!) {
+    get_plants(limit: $limit, offset: $offset) {
       id
       name
       sciname

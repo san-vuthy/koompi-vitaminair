@@ -1,12 +1,17 @@
-import React from "react";
-import { Row, Col, Divider } from "antd";
+import React, { useState } from "react";
+import { Row, Col, Divider, Layout, Spin } from "antd";
 import { useQuery } from "@apollo/client";
 import Link from "next/link";
 import { GET_BLOGS } from "../../graphql/query";
 import Output from "editorjs-react-renderer";
+import InfiniteScroll from "react-infinite-scroll-component";
+const Content = Layout;
 
 const Blog = () => {
-  const { loading, data } = useQuery(GET_BLOGS);
+  const [hasMoreItems, setHasMoreItems] = useState(true);
+  const { loading, data, fetchMore } = useQuery(GET_BLOGS, {
+    variables: { limit: 3, offset: 0 },
+  });
   if (loading) return null;
   return (
     <div>
@@ -50,6 +55,36 @@ const Blog = () => {
             );
           })}
         </Row>
+        <InfiniteScroll
+          dataLength={data.get_blogs.length}
+          next={async () => {
+            fetchMore({
+              variables: {
+                offset: data.get_blogs.length,
+              },
+              updateQuery: (prev, { fetchMoreResult }) => {
+                if (!fetchMoreResult) return prev;
+
+                if (fetchMoreResult.get_blogs.length < 3) {
+                  setHasMoreItems(false);
+                }
+
+                return Object.assign({}, prev, {
+                  get_blogs: [...prev.get_blogs, ...fetchMoreResult.get_blogs],
+                });
+              },
+            });
+          }}
+          hasMore={hasMoreItems}
+          loader={
+            <Content style={{ marginTop: "15px" }}>
+              <center>
+                <Spin></Spin>
+              </center>
+            </Content>
+          }
+          endMessage={null}
+        ></InfiniteScroll>
       </div>
     </div>
   );

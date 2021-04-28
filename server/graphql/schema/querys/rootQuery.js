@@ -1,7 +1,13 @@
 const { query } = require("express");
 const graphql = require("graphql");
 const { getMaxListeners, db, collection } = require("../../../model/donate");
-const { GraphQLObjectType, GraphQLString, GraphQLID, GraphQLList } = graphql;
+const {
+  GraphQLObjectType,
+  GraphQLString,
+  GraphQLID,
+  GraphQLList,
+  GraphQLInt,
+} = graphql;
 
 //============Model Sections=========
 const Donate = require("../../../model/donate");
@@ -115,9 +121,19 @@ const RootQuery = new GraphQLObjectType({
     //==========Get blogs==========
     get_blogs: {
       type: new GraphQLList(BlogType),
-      resolve: async (parent, args) => {
+      args: {
+        limit: {
+          name: "limit",
+          type: GraphQLInt,
+        },
+        offset: {
+          name: "offset",
+          type: GraphQLInt,
+        },
+      },
+      resolve: async (parent, { limit = null, offset = null }) => {
         try {
-          return Blog.find().sort({ create_at: -1 });
+          return Blog.find().limit(limit).skip(offset).sort({ create_at: -1 });
         } catch (error) {
           console.log(error);
           throw error;
@@ -137,9 +153,23 @@ const RootQuery = new GraphQLObjectType({
 
     get_plants: {
       type: new GraphQLList(PlantsType),
-      resolve: async (parent, args) => {
+      args: {
+        // id: { type: GraphQLString },
+        limit: {
+          name: "limit",
+          type: GraphQLInt,
+        },
+        offset: {
+          name: "offset",
+          type: GraphQLInt,
+        },
+      },
+      resolve: async (parent, { limit = null, offset = null }) => {
         try {
-          return Plants.find().sort({ create_at: -1 });
+          return Plants.find()
+            .limit(limit)
+            .skip(offset)
+            .sort({ create_at: -1 });
         } catch (error) {
           console.log(error);
           throw error;

@@ -24,7 +24,7 @@ function PlantsDetails() {
       </div>
     );
 
-  const { name, des, image, sciname } = data.get_a_plants;
+  const { name, des, image, sciname, family } = data.get_a_plants;
 
   return (
     <React.Fragment>
@@ -49,7 +49,7 @@ function PlantsDetails() {
               </div>
               <div className="dispaly-title">
                 <small>
-                  <p className="title-localname">Scientific Name:</p>
+                  <p className="title-localname ">Scientific Name:</p>
                 </small>
                 <small>
                   <p className="name">{sciname}</p>
@@ -60,7 +60,7 @@ function PlantsDetails() {
                   <p className="title-localname">Family:</p>
                 </small>
                 <small>
-                  <p className="name">{name}</p>
+                  <p className="name">{family}</p>
                 </small>
               </div>
             </div>
