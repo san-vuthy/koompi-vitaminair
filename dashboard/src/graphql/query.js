@@ -10,6 +10,7 @@ const GET_DONATIONS = gql`
       user_message
       anonymous
       email
+      selectType
       phone
     }
   }
@@ -32,6 +33,7 @@ const GET_INITATIONS = gql`
       id
       title
       des
+      selectType
       image
       create_at
     }

@@ -102,7 +102,7 @@ const EditInitation = ({ history }) => {
       //     loading: false,
       //   });
       await initationrefetch();
-      await history.push("/admin/blogs");
+      await history.push("/admin/initations");
     });
     console.log(values);
   };

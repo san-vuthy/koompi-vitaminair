@@ -53,7 +53,7 @@ const EditBlog = ({ history }) => {
 
   async function handleSave() {
     const savedData = await instanceRef.current.save();
-    console.log(JSON.stringify(savedData));
+    // console.log(JSON.stringify(savedData));
     await setData(savedData);
     // instanceRef.current.clear();
   }
@@ -89,18 +89,11 @@ const EditBlog = ({ history }) => {
         title: title,
         des: JSON.stringify(datas),
         image:
-          state.imageUrl === null
-            ? blogData.get_initation.image
-            : state.imageUrl,
+          state.imageUrl === null ? blogData.get_blog.image : state.imageUrl,
         id: id,
       },
     }).then(async (res) => {
       await message.success("Successfull");
-      //   form.resetFields();
-      //   setState({
-      //     imageUrl: null,
-      //     loading: false,
-      //   });
       await blogRefetch();
       await history.push("/admin/blogs");
     });
@@ -113,6 +106,7 @@ const EditBlog = ({ history }) => {
       </center>
     );
   }
+
   return (
     <React.Fragment>
       <Layout style={{ minHeight: "100vh" }}>
@@ -122,12 +116,7 @@ const EditBlog = ({ history }) => {
           <Content style={{ backgroundColor: "#fff" }}>
             <div className="contenContainer">
               <h1 className="title-top">Edit Blog</h1>
-              <Form
-                form={form}
-                onFinish={onFinish}
-                // onFinishFailed={onFinishFailed}
-                layout="vertical"
-              >
+              <Form form={form} onFinish={onFinish} layout="vertical">
                 <Row gutter={[32, 0]}>
                   <Col span={16}>
                     <Form.Item
@@ -200,7 +189,7 @@ const EditBlog = ({ history }) => {
                             {state.imageUrl === null ? (
                               // <img
                               //   src={`${`http://localhost:3500`}/public/uploads/${
-                              //     blogData.get_initation.image
+                              //     blogData.get_blog.image
                               //   }`}
                               //   alt="avatar"
                               //   style={{ width: "100%" }}

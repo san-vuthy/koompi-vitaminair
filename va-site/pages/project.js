@@ -27,7 +27,7 @@ function Project() {
   return (
     <div className="background-body">
       <NextSeo
-        title="Projecrt - Vitaminair"
+        title="Project - Vitaminair"
         description="To take actions and show to people that we can work with nature and not against her, we bought 110 hectares of land in Kompong Seila surrounded by mountains and national forest, and started building the team to put our project development plan to work."
         canonical="https://vitaminair.org/project"
         openGraph={{

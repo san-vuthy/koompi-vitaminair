@@ -6,6 +6,7 @@ import Footer from "../components/footer";
 import Link from "next/link";
 import { FlapperSpinner } from "react-spinners-kit";
 import InfiniteScroll from "react-infinite-scroll-component";
+import { NextSeo } from "next-seo";
 
 const { Content } = Layout;
 const Plants = () => {
@@ -19,13 +20,31 @@ const Plants = () => {
         <FlapperSpinner size={50} color="#00ff89" loading={loading} />
       </center>
     );
-  console.log(data);
-
   return (
     <div className="background-body">
+      <NextSeo
+        title="Plants - Vitaminair"
+        description="To reforest native forest and encourage diversity we need these tree species."
+        canonical="https://vitaminair.org/plants"
+        openGraph={{
+          images: [
+            {
+              url:
+                "https://backend.vitaminair.org/public/uploads/file-e7dd0f96-ec42-44cd-8c31-37de6adcca6b.png",
+            },
+          ],
+          url: "https://vitaminair.org/plants",
+          site_name: "vitaminair",
+        }}
+        twitter={{
+          handle: "@handle",
+          site: "@site",
+          cardType: "summary_large_image",
+        }}
+      />
       <div className="plants-banner">
-        <div>
-          <h1>Plants</h1>
+        <div className="title-plants">
+          <h1>About Plants</h1>
         </div>
       </div>
       <center style={{ marginTop: "30px", padding: "30px" }}>
@@ -54,7 +73,7 @@ const Plants = () => {
                       style={{
                         backgroundImage: `url("https://backend.vitaminair.org/public/uploads//${res.image}")`,
                       }}
-                      className="image-news-style"
+                      className="image-plants-style"
                     ></div>
                     <div className="plants-text">
                       <small className="badge">{res.family}</small>

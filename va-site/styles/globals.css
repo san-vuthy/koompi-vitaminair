@@ -1422,7 +1422,7 @@ a:active {
   background-image: url(/images/bg_about.webp);
   background-size: cover;
   background-position: center;
-  padding: 130px 0 130px;
+  padding: 160px 0 160px;
 }
 .heigth-plants-div {
   margin-top: 30px;
@@ -1490,9 +1490,21 @@ a:active {
 .dispaly-title {
   display: flex;
 }
-.image-news-style {
+.image-plants-style {
   max-width: 100%;
   height: 182px;
+  width: 100%;
+  max-width: 100%;
+  background-size: cover;
+  background-position: top;
+  background-repeat: no-repeat;
+  border-radius: 3px 3px 0 0 !important;
+  /* height: 194px; */
+  /* height: 46% !important; */
+}
+.image-blogs-style {
+  max-width: 100%;
+  height: 260px;
   width: 100%;
   max-width: 100%;
   background-size: cover;
@@ -1505,3 +1517,9 @@ a:active {
 .title-loc-name {
   line-height: 20px !important;
 }
+/* .title-plants {
+  
+  background: #000000;
+  height: 2px;
+  bottom: -15% !important;
+} */

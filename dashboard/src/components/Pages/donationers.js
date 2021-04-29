@@ -33,6 +33,10 @@ const Donationers = () => {
       dataIndex: "email",
     },
     {
+      title: "Type",
+      dataIndex: "selectType",
+    },
+    {
       title: "Trees",
       key: "tree",
       dataIndex: "tree",

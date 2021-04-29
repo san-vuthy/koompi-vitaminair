@@ -28,14 +28,20 @@ const Blog = () => {
             return (
               <Col xs={24} sm={12} md={8}>
                 <div className="card-item">
-                  <img
+                  {/* <img
                     className="blog-image"
                     src={
                       "https://backend.vitaminair.org/public/uploads/" +
                       res.image
                     }
                     alt="img"
-                  />
+                  /> */}
+                  <div
+                    style={{
+                      backgroundImage: `url("https://backend.vitaminair.org/public/uploads//${res.image}")`,
+                    }}
+                    className="image-blogs-style"
+                  ></div>
                   <div className="blog-text">
                     <h3 className="blog-text-header">{res.title}</h3>
                     <p>
