@@ -1176,6 +1176,9 @@ a:active {
   /* .name {
     padding: 0 !important;
   } */
+  .back-top {
+    display: none;
+  }
   .plants-banner {
     display: none;
   }
@@ -1431,15 +1434,18 @@ a:active {
   max-width: 100%;
 }
 .plants-card {
-  /* background-color: #f3f3f3; */
-  /* padding: 10px; */
-  /* position: relative; */
-  overflow: hidden;
+  background: #ffffff;
+  border-radius: 8px;
+  height: 100%;
+  transition: 0.2s;
+  box-shadow: 0 16px 64px -16px rgba(46, 55, 77, 0.1);
+  /* overflow: hidden;
   background-color: #fff;
   border-radius: 3px;
   transition: 0.3s;
   cursor: pointer;
-  box-shadow: 0 3rem 6rem rgba(0, 0, 0, 0.1);
+  height: 100%;
+  box-shadow: 0 3rem 6rem rgba(0, 0, 0, 0.1); */
 }
 .plants-text {
   padding: 15px;
@@ -1499,8 +1505,14 @@ a:active {
   background-position: top;
   background-repeat: no-repeat;
   border-radius: 3px 3px 0 0 !important;
-  /* height: 194px; */
-  /* height: 46% !important; */
+  max-width: 100%;
+  /* height: 182px;
+  width: 100%;
+  max-width: 100%;
+  background-size: cover;
+  background-position: top;
+  background-repeat: no-repeat;
+  border-radius: 3px 3px 0 0 !important; */
 }
 .image-blogs-style {
   max-width: 100%;
@@ -1523,3 +1535,22 @@ a:active {
   height: 2px;
   bottom: -15% !important;
 } */
+.back-top {
+  /* height: 57,
+    width: 57,
+    lineHeight: "55px",
+    borderRadius: 29,
+    // backgroundColor: "#319286",
+    backgroundColor: "#4ac29a",
+    color: "#fff",
+    textAlign: "center",
+    fontSize: 14, */
+  height: 57px;
+  width: 57px;
+  line-height: 55px;
+  border-radius: 29px;
+  background-color: #4ac29a;
+  color: #fff;
+  text-align: center;
+  font-size: 14px;
+}

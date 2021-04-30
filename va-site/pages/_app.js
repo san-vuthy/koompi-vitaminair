@@ -1,11 +1,23 @@
 import { ApolloProvider } from "@apollo/client";
 import client from "../apollo-client";
 import AllLayout from "../components/allLayout";
+import { BackTop } from "antd";
 import Head from "next/head";
 import "../styles/globals.css";
 import NextNprogress from "nextjs-progressbar";
 
 function MyApp({ Component, pageProps }) {
+  // const style = {
+  //   height: 57,
+  //   width: 57,
+  //   lineHeight: "55px",
+  //   borderRadius: 29,
+  //   // backgroundColor: "#319286",
+  //   backgroundColor: "#4ac29a",
+  //   color: "#fff",
+  //   textAlign: "center",
+  //   fontSize: 14,
+  // };
   return (
     <ApolloProvider client={client}>
       <Head>
@@ -25,6 +37,11 @@ function MyApp({ Component, pageProps }) {
       />
       <AllLayout>
         <Component {...pageProps} />
+        <BackTop>
+          <div className="back-top">
+            <img style={{ width: "23px" }} src="/images/VA-Icon-White.png" />
+          </div>
+        </BackTop>
       </AllLayout>
     </ApolloProvider>
   );

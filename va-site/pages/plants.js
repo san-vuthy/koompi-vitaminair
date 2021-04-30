@@ -54,19 +54,19 @@ const Plants = () => {
         </p>
       </center>
       <div className="container">
-        <Row gutter={[32, 8]}>
+        <Row gutter={[32, 32]}>
           {data.get_plants.map((res) => {
             const { id } = res;
             return (
-              <Col sm={12} md={8} lg={6}>
+              <Col xs={24} sm={12} md={12} lg={6}>
                 <Link href={`/plants/${id}`}>
-                  <div className="plants-card heigth-plants-div">
+                  <div className="plants-card ">
                     {/* <img
                       className="plants-image"
                       src={
                         "https://backend.vitaminair.org/public/uploads/" +
                         res.image
-                      }
+                      }   
                       alt="img"
                     /> */}
                     <div
@@ -79,7 +79,7 @@ const Plants = () => {
                       <small className="badge">{res.family}</small>
 
                       <Row gutter={[12, 12]}>
-                        <Col span={20}>
+                        <Col>
                           <h3
                             className="local-name-plants"
                             style={{ marginTop: "-5px" }}

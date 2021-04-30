@@ -26,7 +26,7 @@ const Blog = () => {
             const { id } = res;
             const result = <Output data={JSON.parse(res.des)} />;
             return (
-              <Col xs={24} sm={12} md={8}>
+              <Col xs={24} sm={12} md={12} lg={8}>
                 <div className="card-item">
                   {/* <img
                     className="blog-image"
