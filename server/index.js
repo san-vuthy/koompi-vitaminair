@@ -25,7 +25,7 @@ app.use(
   "/admin",
   graphqlHTTP({
     schema: adminSchema,
-    graphiql: true,
+    graphiql: false,
   })
 );
 
