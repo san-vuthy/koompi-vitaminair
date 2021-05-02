@@ -4,8 +4,7 @@ import Footer from "../../components/footer";
 import { GET_A_PLANTS } from "../../graphql/query";
 import { useRouter } from "next/router";
 import Output from "editorjs-react-renderer";
-import { Row, Col, Divider } from "antd";
-import { FlapperSpinner } from "react-spinners-kit";
+import { Divider, Layout, Spin } from "antd";
 function PlantsDetails() {
   const router = useRouter();
   const { id } = router.query;
@@ -17,11 +16,9 @@ function PlantsDetails() {
   });
   if (loading)
     return (
-      <div style={{ marginTop: "50px" }}>
-        <center>
-          <FlapperSpinner size={50} color="#00ff89" loading={loading} />
-        </center>
-      </div>
+      <center style={{ marginTop: "50px" }}>
+        <Spin></Spin>
+      </center>
     );
 
   const { name, des, image, sciname, family } = data.get_a_plants;

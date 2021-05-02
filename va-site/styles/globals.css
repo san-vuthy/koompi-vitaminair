@@ -1376,8 +1376,13 @@ a:active {
   border-radius: 0.4rem;
   overflow: hidden;
   box-shadow: 0 3rem 6rem rgb(0 0 0 / 10%);
-  /* cursor: pointer; */
+  cursor: pointer;
   transition: 0.2s;
+  min-height: 500px !important;
+}
+.card-item:hover {
+  transform: translateY(-0.5%);
+  box-shadow: 0 4rem 8rem rgba(0, 0, 0, 0.2);
 }
 .blog-text {
   padding: 28px;
@@ -1439,6 +1444,7 @@ a:active {
   height: 100%;
   transition: 0.2s;
   box-shadow: 0 16px 64px -16px rgba(46, 55, 77, 0.1);
+  cursor: pointer;
   /* overflow: hidden;
   background-color: #fff;
   border-radius: 3px;
@@ -1453,7 +1459,7 @@ a:active {
   /* text-align: center; */
 }
 .plants-card:hover {
-  /* transform: translateY(-0.5%); */
+  transform: translateY(-0.5%);
   box-shadow: 0 4rem 8rem rgba(0, 0, 0, 0.2);
 }
 .badge {

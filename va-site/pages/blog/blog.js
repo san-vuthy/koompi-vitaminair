@@ -27,8 +27,9 @@ const Blog = () => {
             const result = <Output data={JSON.parse(res.des)} />;
             return (
               <Col xs={24} sm={12} md={12} lg={8}>
-                <div className="card-item">
-                  {/* <img
+                <Link href={`/blog/${id}`}>
+                  <div className="card-item">
+                    {/* <img
                     className="blog-image"
                     src={
                       "https://backend.vitaminair.org/public/uploads/" +
@@ -36,27 +37,28 @@ const Blog = () => {
                     }
                     alt="img"
                   /> */}
-                  <div
-                    style={{
-                      backgroundImage: `url("https://backend.vitaminair.org/public/uploads//${res.image}")`,
-                    }}
-                    className="image-blogs-style"
-                  ></div>
-                  <div className="blog-text">
-                    <h3 className="blog-text-header">{res.title}</h3>
-                    <p>
-                      {`${result.props.data.blocks[0].data.text.substring(
-                        0,
-                        80
-                      )}...`}
-                    </p>
-                    <Link href={`/blog/${id}`}>
+                    <div
+                      style={{
+                        backgroundImage: `url("https://backend.vitaminair.org/public/uploads//${res.image}")`,
+                      }}
+                      className="image-blogs-style"
+                    ></div>
+                    <div className="blog-text">
+                      <h3 className="blog-text-header">{res.title}</h3>
+                      <p>
+                        {`${result.props.data.blocks[0].data.text.substring(
+                          0,
+                          80
+                        )}...`}
+                      </p>
+                      {/* <Link href={`/blog/${id}`}>
                       <a className="blog-card-btn">
                         Read More <span>&rarr;</span>
                       </a>
-                    </Link>
+                    </Link> */}
+                    </div>
                   </div>
-                </div>
+                </Link>
               </Col>
             );
           })}
@@ -83,11 +85,9 @@ const Blog = () => {
           }}
           hasMore={hasMoreItems}
           loader={
-            <Content style={{ marginTop: "15px" }}>
-              <center>
-                <Spin></Spin>
-              </center>
-            </Content>
+            <center style={{ marginTop: "50px" }}>
+              <Spin></Spin>
+            </center>
           }
           endMessage={null}
         ></InfiniteScroll>

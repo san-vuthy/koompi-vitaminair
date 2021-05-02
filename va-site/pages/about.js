@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { List, Row, Col, Modal } from "antd";
+import { List, Row, Col, Spin } from "antd";
 import { useQuery } from "@apollo/client";
 import { GET_ABOUTS, GET_MEMBERS, GET_ABOUT } from "../graphql/query";
 import Output from "editorjs-react-renderer";
@@ -28,7 +28,7 @@ function About() {
   if (aboutLoading || memberLoading)
     return (
       <center style={{ marginTop: "400px" }}>
-        <FlapperSpinner size={50} color="#00ff89" />
+        <Spin></Spin>
       </center>
     );
   return (

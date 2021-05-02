@@ -17,7 +17,7 @@ const Plants = () => {
   if (loading)
     return (
       <center style={{ marginTop: "400px" }}>
-        <FlapperSpinner size={50} color="#00ff89" loading={loading} />
+        <Spin></Spin>
       </center>
     );
   return (
@@ -54,7 +54,7 @@ const Plants = () => {
         </p>
       </center>
       <div className="container">
-        <Row gutter={[32, 32]}>
+        <Row gutter={[24, 24]}>
           {data.get_plants.map((res) => {
             const { id } = res;
             return (
@@ -126,7 +126,7 @@ const Plants = () => {
           }}
           hasMore={hasMoreItems}
           loader={
-            <Content style={{ marginTop: "15px" }}>
+            <Content style={{ marginTop: "50px" }}>
               <center>
                 <Spin></Spin>
               </center>
