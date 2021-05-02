@@ -23,8 +23,6 @@ function About() {
   const { loading: aboutLoading, data: aboutData } = useQuery(GET_ABOUTS);
   const { loading: memberLoading, data: memberData } = useQuery(GET_MEMBERS);
 
-  // if (aboutLoading || memberLoading) return null;
-  // console.log("data", about_data)
   if (aboutLoading || memberLoading)
     return (
       <center style={{ marginTop: "400px" }}>
