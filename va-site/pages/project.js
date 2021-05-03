@@ -8,6 +8,7 @@ import { NextSeo } from "next-seo";
 import images from "../components/data/gallery.json";
 import Link from "next/link";
 import Blog from "./blog/blog";
+import { FlapperSpinner } from "react-spinners-kit";
 
 function Project() {
   const { loading, data } = useQuery(GET_PROJECTS);
@@ -17,7 +18,7 @@ function Project() {
   if (loading)
     return (
       <center style={{ marginTop: "400px" }}>
-        <Spin></Spin>
+        <FlapperSpinner size={50} color="#00ff89" />
       </center>
     );
 

@@ -5,6 +5,7 @@ import Link from "next/link";
 import { GET_BLOGS } from "../../graphql/query";
 import Output from "editorjs-react-renderer";
 import InfiniteScroll from "react-infinite-scroll-component";
+import { FlapperSpinner } from "react-spinners-kit";
 const Content = Layout;
 
 const Blog = () => {

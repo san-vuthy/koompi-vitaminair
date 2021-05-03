@@ -26,7 +26,7 @@ function About() {
   if (aboutLoading || memberLoading)
     return (
       <center style={{ marginTop: "400px" }}>
-        <Spin></Spin>
+        <FlapperSpinner size={50} color="#00ff89" />
       </center>
     );
   return (

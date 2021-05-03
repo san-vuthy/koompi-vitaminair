@@ -4,6 +4,7 @@ import Footer from "../../components/footer";
 import { GET_BLOG } from "../../graphql/query";
 import { useRouter } from "next/router";
 import Output from "editorjs-react-renderer";
+import { FlapperSpinner } from "react-spinners-kit";
 import { Spin } from "antd";
 
 function BlogDetail() {
@@ -17,8 +18,8 @@ function BlogDetail() {
   });
   if (loading)
     return (
-      <center style={{ marginTop: "50px" }}>
-        <Spin></Spin>
+      <center style={{ marginTop: "400px" }}>
+        <FlapperSpinner size={50} color="#00ff89" />
       </center>
     );
 
