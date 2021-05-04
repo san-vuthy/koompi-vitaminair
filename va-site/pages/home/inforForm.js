@@ -80,7 +80,8 @@ function InfoForm() {
           <h2 className="top-title">JOIN VitaminAir</h2>
           <p className="join-desc">
             To plant trees and Educate the next generation.
-            <div className="noted">*Note: 1 tree = 4,000 riel</div>
+            {/* <div className="noted">*Note: 1 tree = 4,000 riel</div> */}
+            <div className="noted">$1 for a tree</div>
           </p>
         </center>
         <Row gutter={[12, 12]}>

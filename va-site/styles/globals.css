@@ -17,7 +17,7 @@ a {
 @import url("https://use.typekit.net/kkl0zqk.css");
 @import "~antd/dist/antd.css";
 /* <style> */
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap");
 /* </style>  */
 
 @-moz-keyframes spin {
@@ -54,6 +54,7 @@ body {
 p {
   font-size: 18px;
   margin: 0;
+  color: #403b3b;
 }
 a {
   font-size: 20px;
@@ -1035,6 +1036,7 @@ a:active {
 .noted {
   color: #319286;
   font-weight: bold;
+  margin-top: 12px;
 }
 .container {
   position: relative;

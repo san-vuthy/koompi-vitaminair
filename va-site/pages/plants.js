@@ -4,7 +4,7 @@ import { GET_A_PLANTS, GET_PLANTS } from "../graphql/query";
 import { Col, Row, Badge, Spin, Layout } from "antd";
 import Footer from "../components/footer";
 import Link from "next/link";
-import { FlapperSpinner } from "react-spinners-kit";
+import { FlapperSpinner, HeartSpinner } from "react-spinners-kit";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { NextSeo } from "next-seo";
 
@@ -62,9 +62,7 @@ const Plants = () => {
                 <Link href={`/plants/${id}`}>
                   <div className="plants-card ">
                     {/* <img
-                      className="plants-image"
-                      src={
-                        "https://backend.vitaminair.org/public/uploads/" +
+                      className="plants-image"<FlapperSpinner size={30} color="#00ff89" />
                         res.image
                       }   
                       alt="img"
@@ -114,7 +112,7 @@ const Plants = () => {
                 if (fetchMoreResult.get_plants.length < 8) {
                   setHasMoreItems(false);
                 }
-
+                <FlapperSpinner size={30} color="#00ff89" />;
                 return Object.assign({}, prev, {
                   get_plants: [
                     ...prev.get_plants,
@@ -126,11 +124,11 @@ const Plants = () => {
           }}
           hasMore={hasMoreItems}
           loader={
-            <Content style={{ marginTop: "50px" }}>
-              <center>
-                <Spin></Spin>
-              </center>
-            </Content>
+            // <Content style={{ marginTop: "50px" }}>
+            <center style={{ marginTop: "50px" }}>
+              <Spin></Spin>
+            </center>
+            // </Content>
           }
           endMessage={null}
         ></InfiniteScroll>
