@@ -7,26 +7,9 @@ import "../styles/globals.css";
 import NextNprogress from "nextjs-progressbar";
 
 function MyApp({ Component, pageProps }) {
-  // const style = {
-  //   height: 57,
-  //   width: 57,
-  //   lineHeight: "55px",
-  //   borderRadius: 29,
-  //   // backgroundColor: "#319286",
-  //   backgroundColor: "#4ac29a",
-  //   color: "#fff",
-  //   textAlign: "center",
-  //   fontSize: 14,
-  // };
   return (
     <ApolloProvider client={client}>
       <Head>
-        {/* <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta charSet="utf-8" />
-        <title>
-          VitaminAir | Reforestation | Natural Farming | Ecotourism | Seeds Bomb
-          | Air Water
-        </title> */}
         <link rel="shortcut icon" href="/images/icon.png" />
       </Head>
       <NextNprogress

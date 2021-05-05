@@ -1,17 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useQuery } from "@apollo/client";
-import { GET_A_PLANTS, GET_PLANTS } from "../graphql/query";
-import { Col, Row, Badge, Spin, Layout } from "antd";
+import { GET_PLANTS } from "../graphql/query";
+import { Col, Row, Spin } from "antd";
 import Footer from "../components/footer";
 import Link from "next/link";
-import { FlapperSpinner, HeartSpinner } from "react-spinners-kit";
+import { FlapperSpinner } from "react-spinners-kit";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { NextSeo } from "next-seo";
 
-const { Content } = Layout;
 const Plants = () => {
   const [hasMoreItems, setHasMoreItems] = useState(true);
-  const { loading, data, error, fetchMore } = useQuery(GET_PLANTS, {
+  const { loading, data, fetchMore } = useQuery(GET_PLANTS, {
     variables: { limit: 8, offset: 0 },
   });
   if (loading)
@@ -55,10 +54,10 @@ const Plants = () => {
       </center>
       <div className="container">
         <Row gutter={[24, 24]}>
-          {data.get_plants.map((res) => {
+          {data.get_plants.map((res, index) => {
             const { id } = res;
             return (
-              <Col xs={24} sm={12} md={12} lg={6}>
+              <Col key={index} xs={24} sm={12} md={12} lg={6}>
                 <Link href={`/plants/${id}`}>
                   <div className="plants-card ">
                     {/* <img

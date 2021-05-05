@@ -49,19 +49,20 @@ function InfoForm() {
     },
   };
   const onFinish = (values) => {
-    const { tree } = values;
+    const { tree, user_message } = values;
     donation({
       variables: {
         ...values,
-        // user_message: user_message === undefined ? "" : user_message,
+        // user_message: user_message,
+        user_message: user_message === undefined ? "" : user_message,
         // phone: phone === undefined ? "No" : phone,
         tree: parseInt(tree),
       },
     }).then(async (res) => {
       setLoading(true);
-      message.success("Donation Successful");
       await refetch();
       await refetchMostDonation();
+      message.success("Donation Successful");
       form.resetFields();
       setLoading(false);
     });
@@ -78,11 +79,11 @@ function InfoForm() {
       <React.Fragment>
         <center>
           <h2 className="top-title">JOIN VitaminAir</h2>
-          <p className="join-desc">
+          <div className="join-desc">
             To plant trees and Educate the next generation.
             {/* <div className="noted">*Note: 1 tree = 4,000 riel</div> */}
-            <div className="noted">$1 for a tree</div>
-          </p>
+            <p className="noted">$1 for a tree</p>
+          </div>
         </center>
         <Row gutter={[12, 12]}>
           <Col span={12}>
@@ -105,7 +106,7 @@ function InfoForm() {
             {/* <Button className="tree-amount amount-active" onClick={amountActive}>
                 20,000 riel
               </Button> */}
-            <Form.Item name="tree" initialValue={20}>
+            <Form.Item name="tree">
               <Radio.Group>
                 <Radio.Button className="radio-button" value={20}>
                   <span className="text-radio-button ">20 trees</span>
@@ -201,8 +202,8 @@ function InfoForm() {
           // rules={[{ required: true, message: "Please input your message!" }]}
         >
           <Input.TextArea />
-          <div>Your message will display on the web publicly.</div>
         </Form.Item>
+        <div>Your message will display on the web publicly.</div>
 
         <Form.Item
           className="details-input"
@@ -321,10 +322,3 @@ function InfoForm() {
 }
 
 export default InfoForm;
-// import React from "react";
-
-// const inforForm = () => {
-//   return <div>hello</div>;
-// };
-
-// export default inforForm;

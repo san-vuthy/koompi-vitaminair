@@ -1,4 +1,5 @@
 import { useState } from "react";
+import React from "react";
 import { Row, Col, Modal } from "antd";
 import { IoEye } from "react-icons/io5";
 import { useQuery } from "@apollo/client";
@@ -18,8 +19,10 @@ function Initiation() {
   if (loading) return null;
 
   return (
-    <div>
+    <React.Fragment>
       <div className="container">
+        <br />
+        <br />
         <br />
         <br />
         <h1>OUR INITIATIVE</h1>
@@ -39,6 +42,8 @@ function Initiation() {
             const result = <Output data={JSON.parse(res.des)} />;
             return (
               <div
+                suppressHydrationWarning={true}
+                key={index}
                 className="cards"
                 // key={index}
                 // xs={{ span: 24 }}
@@ -115,16 +120,13 @@ function Initiation() {
                       </p>
                     </div>
                   </Col>
-                  {/* </div> */}
                 </Row>
               </div>
-              // </div>
             );
           })}
         </Row>
-        {/* </div> */}
       </div>
-    </div>
+    </React.Fragment>
   );
 }
 

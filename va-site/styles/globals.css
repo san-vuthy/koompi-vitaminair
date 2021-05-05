@@ -16,9 +16,9 @@ a {
 } */
 @import url("https://use.typekit.net/kkl0zqk.css");
 @import "~antd/dist/antd.css";
-/* <style> */
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap");
-/* </style>  */
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;1,400&display=swap");
+/* @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap"); */
 
 @-moz-keyframes spin {
   100% {
@@ -54,8 +54,10 @@ body {
 p {
   font-size: 18px;
   margin: 0;
+  font-weight: 400;
   color: #403b3b;
 }
+
 a {
   font-size: 20px;
   /* color: #fff; */
@@ -92,6 +94,7 @@ button {
 /* img {
   max-width: 100%;
 } */
+
 .logo {
   float: left;
   height: 50px;
@@ -116,6 +119,9 @@ button {
 }
 .desc-home-top {
   width: 552px;
+}
+.footer-p {
+  color: white;
 }
 /* .header-navbar {
   display: none;

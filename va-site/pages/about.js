@@ -16,10 +16,7 @@ function About() {
     "To offer re-education and employment opportunities for local families engaged in illegal forest activities.",
     "To discover and create innovative business and employment opportunities for Cambodian youths.",
   ];
-  const [id, setId] = useState("");
-  const [titles, setTitle] = useState("");
-  const [ddes, setDes] = useState(JSON.stringify(""));
-  const [modal1, setModal1] = useState(false);
+
   const { loading: aboutLoading, data: aboutData } = useQuery(GET_ABOUTS);
   const { loading: memberLoading, data: memberData } = useQuery(GET_MEMBERS);
 
@@ -55,7 +52,6 @@ function About() {
         <h1>About Us</h1>
       </div>
       <div className="container-des-about">
-        {/* <h3 className="title-about">About Us</h3> */}
         <p className="desc-about">
           A catalyst for global movement to reforest the rainforest and
           regenerate our ecosystem through platforms and models that incorporate
@@ -67,40 +63,20 @@ function About() {
       <div className="container-about" style={{ marginTop: "30px" }}>
         <div className="about">
           <Row gutter={[32, 32]} className="about-card">
-            {aboutData.get_abouts.map((res) => {
+            {aboutData.get_abouts.map((res, index) => {
               const { id, title, des } = res;
-              const result = <Output data={JSON.parse(res.des)} />;
+              const result = <Output data={JSON.parse(des)} />;
               return (
-                <Col
-                  onClick={() => {
-                    // shows()
-                    setModal1(true);
-                    setTitle(title);
-                    setId(id);
-                    setDes(des);
-                  }}
-                  xs={24}
-                  lg={8}
-                  xl={8}
-                >
+                <Col key={index} xs={24} lg={8} xl={8}>
                   <div className="card">
                     <img
                       className="img-about"
                       src="/images/flower.png"
                       alt=""
                     />
-                    <h2>{res.title}</h2>
-                    {/* <p>{res.des}</p> */}
-                    <p>
-                      {/* {" "}
-                    {`${result.props.data.blocks[0].data.text.substring(
-                      0,
-                      200
-                    )}...`} */}
-                      {result}
-                    </p>
+                    <h2>{title}</h2>
+                    {result}
                   </div>
-                  {/* <Output data={JSON.parse(res.des)} /> */}
                 </Col>
               );
             })}
@@ -108,7 +84,6 @@ function About() {
           <div className="about-container">
             <div className="objective">
               <h2 style={{ textAlign: "left" }}>OUR OBJECTIVE</h2>
-              {/* <img src="/images/Rectangle.png" alt="img" /> */}
               <List
                 dataSource={data}
                 renderItem={(item) => (

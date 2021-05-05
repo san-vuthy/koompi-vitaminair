@@ -87,7 +87,7 @@ function Home() {
       </div>
       <div className="home-form">
         <InfoForm />
-        <Leaderboard />
+        {/* <Leaderboard /> */}
         <Initiation />
       </div>
       <Footer />

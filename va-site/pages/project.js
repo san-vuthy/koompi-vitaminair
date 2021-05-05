@@ -45,9 +45,6 @@ function Project() {
       />
 
       <div className="container">
-        {/* <center>
-          <h3 className="title-project-gallery">Our Gallery</h3>
-        </center> */}
         <br />
         <br />
         <div className="gallery-section">
@@ -92,12 +89,12 @@ function Project() {
 
         <div className="container-projects">
           <Row gutter={[24, 24]}>
-            {data.get_projects.map((res) => {
+            {data.get_projects.map((res, index) => {
               const { id } = res;
               const result = <Output data={JSON.parse(res.des)} />;
               return (
                 <Col
-                  key={res.id}
+                  key={index}
                   style={{ cursor: "pointer" }}
                   // onClick={async () => {
                   //   setModal1(true);

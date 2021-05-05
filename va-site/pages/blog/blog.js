@@ -15,7 +15,7 @@ const Blog = () => {
   });
   if (loading) return null;
   return (
-    <div>
+    <React.Fragment>
       <center className="big-title-blog">
         <Divider plain>
           <h1>BLOG</h1>
@@ -23,11 +23,11 @@ const Blog = () => {
       </center>
       <div>
         <Row gutter={[24, 24]}>
-          {data.get_blogs.map((res) => {
+          {data.get_blogs.map((res, index) => {
             const { id } = res;
             const result = <Output data={JSON.parse(res.des)} />;
             return (
-              <Col xs={24} sm={12} md={12} lg={8}>
+              <Col key={index} xs={24} sm={12} md={12} lg={8}>
                 <Link href={`/blog/${id}`}>
                   <div className="card-item">
                     {/* <img
@@ -93,7 +93,7 @@ const Blog = () => {
           endMessage={null}
         ></InfiniteScroll>
       </div>
-    </div>
+    </React.Fragment>
   );
 };
 
