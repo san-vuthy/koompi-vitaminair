@@ -121,6 +121,19 @@ const GET_BLOG = gql`
     }
   }
 `;
+
+const GET_BLOG_TITLE = gql`
+  query($title: String!) {
+    get_blog_title(title: $title) {
+      id
+      title
+      des
+      image
+      create_at
+    }
+  }
+`;
+
 const GET_BLOGS = gql`
   query($limit: Int!, $offset: Int!) {
     get_blogs(limit: $limit, offset: $offset) {
@@ -159,7 +172,21 @@ const GET_A_PLANTS = gql`
   }
 `;
 
+const GET_A_PLANTS_NAME = gql`
+  query($name: String!) {
+    get_a_plant_name(name: $name) {
+      id
+      name
+      sciname
+      family
+      des
+      image
+    }
+  }
+`;
+
 export {
+  GET_A_PLANTS_NAME,
   GET_PROJECT_TITLE,
   GET_A_PLANTS,
   GET_PLANTS,
@@ -174,4 +201,5 @@ export {
   GET_INITATIONS,
   GET_PROJECTS,
   GET_MEMBERS,
+  GET_BLOG_TITLE,
 };

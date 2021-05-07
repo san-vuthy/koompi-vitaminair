@@ -157,6 +157,14 @@ const RootQuery = new GraphQLObjectType({
       },
     },
 
+    get_blog_title: {
+      type: BlogType,
+      args: { title: { type: GraphQLString } },
+      resolve(parent, args) {
+        return Blog.findOne({ title: args.title });
+      },
+    },
+
     //=======get more Plants
 
     get_plants: {
@@ -190,6 +198,14 @@ const RootQuery = new GraphQLObjectType({
       args: { id: { type: GraphQLID } },
       resolve(parent, args) {
         return Plants.findOne({ _id: args.id });
+      },
+    },
+
+    get_a_plant_name: {
+      type: PlantsType,
+      args: { name: { type: GraphQLString } },
+      resolve(parent, args) {
+        return Plants.findOne({ name: args.name });
       },
     },
   },

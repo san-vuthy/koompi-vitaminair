@@ -28,7 +28,7 @@ const Blog = () => {
             const result = <Output data={JSON.parse(res.des)} />;
             return (
               <Col key={index} xs={24} sm={12} md={12} lg={8}>
-                <Link href={`/blog/${id}`}>
+                <Link href={`/blog/${res.title}`}>
                   <div className="card-item">
                     {/* <img
                     className="blog-image"

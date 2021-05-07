@@ -1,7 +1,7 @@
 import { useQuery } from "@apollo/client";
 import React from "react";
 import Footer from "../../components/footer";
-import { GET_BLOG } from "../../graphql/query";
+import { GET_BLOG, GET_BLOG_TITLE } from "../../graphql/query";
 import { useRouter } from "next/router";
 import Output from "editorjs-react-renderer";
 import { FlapperSpinner } from "react-spinners-kit";
@@ -9,11 +9,11 @@ import { Spin } from "antd";
 
 function BlogDetail() {
   const router = useRouter();
-  const { id } = router.query;
+  const { title } = router.query;
 
-  const { loading, data } = useQuery(GET_BLOG, {
+  const { loading, data } = useQuery(GET_BLOG_TITLE, {
     variables: {
-      id,
+      title,
     },
   });
   if (loading)
@@ -23,7 +23,7 @@ function BlogDetail() {
       </center>
     );
 
-  const { title, des, image } = data.get_blog;
+  const { des, image } = data.get_blog_title;
 
   return (
     <React.Fragment>
