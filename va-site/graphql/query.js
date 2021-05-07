@@ -86,6 +86,19 @@ const GET_PROJECT = gql`
     }
   }
 `;
+
+const GET_PROJECT_TITLE = gql`
+  query($title: String!) {
+    get_project_title(title: $title) {
+      id
+      title
+      des
+      image
+      create_at
+    }
+  }
+`;
+
 const GET_INITATION = gql`
   query($id: ID!) {
     get_initation(id: $id) {
@@ -147,6 +160,7 @@ const GET_A_PLANTS = gql`
 `;
 
 export {
+  GET_PROJECT_TITLE,
   GET_A_PLANTS,
   GET_PLANTS,
   GET_BLOGS,

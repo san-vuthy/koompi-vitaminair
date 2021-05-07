@@ -107,7 +107,7 @@ function Project() {
                   sm={24}
                   md={12}
                 >
-                  <Link href={`/project/${id}`}>
+                  <Link href={`/project/${res.title}`}>
                     <a>
                       <div className="project-list">
                         {/* <img src={"http://localhost:3500/public/uploads/" + res.image} /> */}

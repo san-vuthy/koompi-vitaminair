@@ -87,6 +87,14 @@ const RootQuery = new GraphQLObjectType({
         return Project.findOne({ _id: args.id });
       },
     },
+
+    get_project_title: {
+      type: ProjectType,
+      args: { title: { type: GraphQLString } },
+      resolve(parent, args) {
+        return Project.findOne({ title: args.title });
+      },
+    },
     //===========get about=======
     get_abouts: {
       type: new GraphQLList(AboutType),

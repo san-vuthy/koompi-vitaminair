@@ -49,7 +49,7 @@ const Plants = () => {
       <center className="des-plants-title">
         <p>
           To reforest native forest and encourage diversity we need these tree
-          species.
+          species. More plants will be added along as we find it.
         </p>
       </center>
       <div className="container">

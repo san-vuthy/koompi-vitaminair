@@ -1190,6 +1190,9 @@ a:active {
     padding: 0 !important;
   } */
   .des-plants-title {
+    width: auto !important;
+  }
+  .des-plants-title {
     margin-top: -20px !important;
   }
   .single-content-plants {
@@ -1631,4 +1634,7 @@ a:active {
 .des-plants-title {
   margin-top: 30px;
   padding: 30px;
+  width: 40%;
+  margin-left: auto;
+  margin-right: auto;
 }
