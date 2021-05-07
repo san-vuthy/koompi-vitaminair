@@ -62,7 +62,11 @@ function PlantsDetails() {
                 </small>
               </div>
             </div>
-            <Divider type="horizontal" />
+            <Divider
+              className="divider"
+              // style={{ margin: "0px" }}
+              type="horizontal"
+            />
             <Output data={JSON.parse(des)} />
           </div>
         </div>

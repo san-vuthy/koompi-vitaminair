@@ -57,13 +57,36 @@ const Navbar = () => {
         {/* Mobile display */}
 
         <Drawer
+          title={
+            <Link href="/">
+              <img
+                style={{
+                  cursor: "pointer",
+                  maxWidth: "100%",
+                  marginLeft: "-10px",
+                  // height: "100px",
+                }}
+                src="/images/vitaminair.png"
+                alt="logo"
+              />
+            </Link>
+          }
           placement="left"
           closable={false}
           onClose={onClose}
           visible={visible}
+          // width={200}
           // key={placement}
         >
-          <Menu onClick={onClose} className="side-nav">
+          <Menu
+            style={{
+              background: "#319286",
+              width: "280px",
+              // paddingLeft: "12px",
+            }}
+            onClick={onClose}
+            className="side-nav"
+          >
             <Menu.Item key="1">
               <Link
                 className="simple"
@@ -73,6 +96,17 @@ const Navbar = () => {
               >
                 HOME
               </Link>
+              {/* <Link href="/">
+                <img
+                  style={{
+                    cursor: "pointer",
+                    maxWidth: "80%",
+                    height: "100px",
+                  }}
+                  src="/images/vitaminair.png"
+                  alt="logo"
+                />
+              </Link> */}
             </Menu.Item>
             <Menu.Item key="2">
               {" "}
@@ -82,7 +116,7 @@ const Navbar = () => {
             </Menu.Item>
             <Menu.Item>
               <Link key="3" href="/plants" activeClassName="is-active">
-                plants
+                PLANTS
               </Link>
             </Menu.Item>
             <Menu.Item>

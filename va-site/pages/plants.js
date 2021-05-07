@@ -46,7 +46,7 @@ const Plants = () => {
           <h1>About Plants</h1>
         </div>
       </div>
-      <center style={{ marginTop: "30px", padding: "30px" }}>
+      <center className="des-plants-title">
         <p>
           To reforest native forest and encourage diversity we need these tree
           species.
