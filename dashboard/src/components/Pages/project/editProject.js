@@ -88,13 +88,8 @@ const EditProject = ({ history }) => {
         id: id,
       },
     }).then(async (res) => {
-      await message.success("Successfull");
-      //   form.resetFields();
-      //   setState({
-      //     imageUrl: null,
-      //     loading: false,
-      //   });
       await refetch();
+      await message.success("Successfull");
       await history.push("/admin/projects");
     });
     // console.log(values);

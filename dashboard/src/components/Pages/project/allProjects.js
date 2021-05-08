@@ -95,8 +95,8 @@ const AllProject = () => {
               onConfirm={() => {
                 delete_project({ variables: { id: `${id}` } })
                   .then(async (res) => {
-                    await message.success(res.data.delete_project.message);
                     await refetch();
+                    await message.success(res.data.delete_project.message);
                   })
                   .catch((error) => {
                     console.log(error);

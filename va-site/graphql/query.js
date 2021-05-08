@@ -27,6 +27,7 @@ const GET_PROJECTS = gql`
     get_projects {
       id
       title
+      slug
       des
       image
       create_at
@@ -87,11 +88,12 @@ const GET_PROJECT = gql`
   }
 `;
 
-const GET_PROJECT_TITLE = gql`
-  query($title: String!) {
-    get_project_title(title: $title) {
+const GET_PROJECT_SLUG = gql`
+  query($slug: String!) {
+    get_project_slug(slug: $slug) {
       id
       title
+      slug
       des
       image
       create_at
@@ -115,6 +117,7 @@ const GET_BLOG = gql`
     get_blog(id: $id) {
       id
       title
+      slug
       des
       image
       create_at
@@ -122,12 +125,13 @@ const GET_BLOG = gql`
   }
 `;
 
-const GET_BLOG_TITLE = gql`
-  query($title: String!) {
-    get_blog_title(title: $title) {
+const GET_BLOG_SLUG = gql`
+  query($slug: String!) {
+    get_blog_slug(slug: $slug) {
       id
       title
       des
+      slug
       image
       create_at
     }
@@ -142,6 +146,7 @@ const GET_BLOGS = gql`
       des
       image
       create_at
+      slug
     }
   }
 `;
@@ -153,6 +158,7 @@ const GET_PLANTS = gql`
       name
       sciname
       family
+      slug
       des
       image
       create_at
@@ -164,6 +170,7 @@ const GET_A_PLANTS = gql`
     get_a_plants(id: $id) {
       id
       name
+      slug
       sciname
       family
       des
@@ -172,10 +179,11 @@ const GET_A_PLANTS = gql`
   }
 `;
 
-const GET_A_PLANTS_NAME = gql`
-  query($name: String!) {
-    get_a_plant_name(name: $name) {
+const GET_A_PLANTS_SLUG = gql`
+  query($slug: String!) {
+    get_a_plant_slug(slug: $slug) {
       id
+      slug
       name
       sciname
       family
@@ -186,8 +194,7 @@ const GET_A_PLANTS_NAME = gql`
 `;
 
 export {
-  GET_A_PLANTS_NAME,
-  GET_PROJECT_TITLE,
+  GET_A_PLANTS_SLUG,
   GET_A_PLANTS,
   GET_PLANTS,
   GET_BLOGS,
@@ -201,5 +208,6 @@ export {
   GET_INITATIONS,
   GET_PROJECTS,
   GET_MEMBERS,
-  GET_BLOG_TITLE,
+  GET_PROJECT_SLUG,
+  GET_BLOG_SLUG,
 };

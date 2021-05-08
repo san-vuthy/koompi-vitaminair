@@ -93,8 +93,8 @@ const AllInitation = () => {
               onConfirm={() => {
                 delete_initation({ variables: { id: `${id}` } })
                   .then(async (res) => {
-                    await message.success(res.data.delete_initation.message);
                     await refetch();
+                    await message.success(res.data.delete_initation.message);
                   })
                   .catch((error) => {
                     console.log(error);

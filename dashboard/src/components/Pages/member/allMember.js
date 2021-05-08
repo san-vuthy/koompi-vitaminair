@@ -88,8 +88,8 @@ const AllMembers = () => {
               onConfirm={() => {
                 delete_member({ variables: { id: `${id}` } })
                   .then(async (res) => {
-                    await message.success(res.data.delete_member.message);
                     await refetch();
+                    await message.success(res.data.delete_member.message);
                   })
                   .catch((error) => {
                     console.log(error);

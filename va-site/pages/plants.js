@@ -56,10 +56,9 @@ const Plants = () => {
       <div className="container">
         <Row gutter={[24, 24]}>
           {data.get_plants.map((res, index) => {
-            const { id } = res;
             return (
               <Col key={index} xs={24} sm={12} md={12} lg={6}>
-                <Link href={`/plants/${res.name}`}>
+                <Link href={`/plants/${res.slug}`}>
                   <div className="plants-card ">
                     {/* <img
                       className="plants-image"<FlapperSpinner size={30} color="#00ff89" />

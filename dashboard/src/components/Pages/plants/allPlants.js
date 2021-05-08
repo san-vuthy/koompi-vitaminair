@@ -110,8 +110,8 @@ const AllPlants = () => {
               onConfirm={() => {
                 delete_plants({ variables: { id: `${id}` } })
                   .then(async (res) => {
-                    await message.success(res.data.delete_plants.message);
                     await refetch();
+                    await message.success(res.data.delete_plants.message);
                   })
                   .catch((error) => {
                     console.log(error);

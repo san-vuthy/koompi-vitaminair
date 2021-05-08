@@ -97,13 +97,8 @@ const EditPlants = ({ history }) => {
         id: id,
       },
     }).then(async (res) => {
-      await message.success("Successfull");
-      //   form.resetFields();
-      //   setState({
-      //     imageUrl: null,
-      //     loading: false,
-      //   });
       await plantsRefetch();
+      await message.success("Successfull");
       await history.push("/admin/plants");
     });
     console.log(values);

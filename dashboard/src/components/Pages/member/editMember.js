@@ -64,9 +64,8 @@ const EditMember = ({ history }) => {
       },
     }).then(async (res) => {
       setLoading(true);
-
-      await message.success("Successfull");
       await refetch();
+      await message.success("Successfull");
       await history.push("/admin/members");
     });
     // console.log(values);

@@ -95,6 +95,14 @@ const RootQuery = new GraphQLObjectType({
         return Project.findOne({ title: args.title });
       },
     },
+
+    get_project_slug: {
+      type: ProjectType,
+      args: { slug: { type: GraphQLString } },
+      resolve(parent, args) {
+        return Project.findOne({ slug: args.slug });
+      },
+    },
     //===========get about=======
     get_abouts: {
       type: new GraphQLList(AboutType),
@@ -165,6 +173,14 @@ const RootQuery = new GraphQLObjectType({
       },
     },
 
+    get_blog_slug: {
+      type: BlogType,
+      args: { slug: { type: GraphQLString } },
+      resolve(parent, args) {
+        return Blog.findOne({ slug: args.slug });
+      },
+    },
+
     //=======get more Plants
 
     get_plants: {
@@ -206,6 +222,13 @@ const RootQuery = new GraphQLObjectType({
       args: { name: { type: GraphQLString } },
       resolve(parent, args) {
         return Plants.findOne({ name: args.name });
+      },
+    },
+    get_a_plant_slug: {
+      type: PlantsType,
+      args: { slug: { type: GraphQLString } },
+      resolve(parent, args) {
+        return Plants.findOne({ slug: args.slug });
       },
     },
   },

@@ -13,6 +13,11 @@ const Blog = new mongoose.Schema({
     type: String,
     required: true,
   },
+  slug: {
+    type: String,
+    require: true,
+    unique: true,
+  },
   create_at: {
     type: Date,
     default: Date.now,

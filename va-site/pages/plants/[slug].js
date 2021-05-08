@@ -1,18 +1,18 @@
 import { useQuery } from "@apollo/client";
 import React from "react";
 import Footer from "../../components/footer";
-import { GET_A_PLANTS, GET_A_PLANTS_NAME } from "../../graphql/query";
+import { GET_A_PLANTS_SLUG } from "../../graphql/query";
 import { useRouter } from "next/router";
 import Output from "editorjs-react-renderer";
 import { Divider, Layout, Spin } from "antd";
 import { FlapperSpinner } from "react-spinners-kit";
 function PlantsDetails() {
   const router = useRouter();
-  const { name } = router.query;
+  const { slug } = router.query;
 
-  const { loading, data } = useQuery(GET_A_PLANTS_NAME, {
+  const { loading, data } = useQuery(GET_A_PLANTS_SLUG, {
     variables: {
-      name,
+      slug,
     },
   });
   if (loading)
@@ -21,9 +21,8 @@ function PlantsDetails() {
         <FlapperSpinner size={50} color="#00ff89" />
       </center>
     );
-  console.log(data.get_a_plant_name.des);
 
-  const { des, image, sciname, family } = data.get_a_plant_name;
+  const { name, des, image, sciname, family } = data.get_a_plant_slug;
 
   return (
     <React.Fragment>

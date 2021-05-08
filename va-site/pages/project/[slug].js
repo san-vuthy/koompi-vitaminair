@@ -1,17 +1,17 @@
 import { useQuery } from "@apollo/client";
 import React from "react";
 import Footer from "../../components/footer";
-import { GET_PROJECTS, GET_PROJECT_TITLE } from "../../graphql/query";
+import { GET_PROJECT_SLUG } from "../../graphql/query";
 import { useRouter } from "next/router";
 import Output from "editorjs-react-renderer";
 import { FlapperSpinner } from "react-spinners-kit";
 function ProjectSlug() {
   const router = useRouter();
-  const { title } = router.query;
+  const { slug } = router.query;
 
-  const { loading, data } = useQuery(GET_PROJECT_TITLE, {
+  const { loading, data } = useQuery(GET_PROJECT_SLUG, {
     variables: {
-      title,
+      slug,
     },
   });
   if (loading)
@@ -21,7 +21,7 @@ function ProjectSlug() {
       </center>
     );
 
-  const { des, image } = data.get_project_title;
+  const { des, image, title } = data.get_project_slug;
 
   return (
     <React.Fragment>

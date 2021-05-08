@@ -90,7 +90,6 @@ function Project() {
         <div className="container-projects">
           <Row gutter={[24, 24]}>
             {data.get_projects.map((res, index) => {
-              const { id } = res;
               const result = <Output data={JSON.parse(res.des)} />;
               return (
                 <Col
@@ -107,7 +106,7 @@ function Project() {
                   sm={24}
                   md={12}
                 >
-                  <Link href={`/project/${res.title}`}>
+                  <Link href={`/project/${res.slug}`}>
                     <a>
                       <div className="project-list">
                         {/* <img src={"http://localhost:3500/public/uploads/" + res.image} /> */}

@@ -11,6 +11,7 @@ const plantsType = new GraphQLObjectType({
     family: { type: GraphQLString },
     des: { type: GraphQLString },
     image: { type: GraphQLString },
+    slug: { type: GraphQLString },
     create_at: { type: GraphQLString },
     message: { type: GraphQLString },
   }),

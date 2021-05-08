@@ -95,13 +95,8 @@ const EditInitation = ({ history }) => {
         id: id,
       },
     }).then(async (res) => {
-      await message.success("Successfull");
-      //   form.resetFields();
-      //   setState({
-      //     imageUrl: null,
-      //     loading: false,
-      //   });
       await initationrefetch();
+      await message.success("Successfull");
       await history.push("/admin/initations");
     });
     console.log(values);

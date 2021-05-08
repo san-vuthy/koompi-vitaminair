@@ -7,6 +7,7 @@ const projectType = new GraphQLObjectType({
   fields: () => ({
     id: { type: GraphQLID },
     title: { type: GraphQLString },
+    slug: { type: GraphQLString },
     image: { type: GraphQLString },
     des: { type: GraphQLString },
     create_at: { type: GraphQLString },

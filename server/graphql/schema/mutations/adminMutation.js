@@ -212,10 +212,14 @@ const AdminMutation = new GraphQLObjectType({
         title: { type: GraphQLNonNull(GraphQLString) },
         image: { type: GraphQLNonNull(GraphQLString) },
         des: { type: GraphQLNonNull(GraphQLString) },
+        slug: { type: GraphQLString },
       },
       resolve: async (parent, args) => {
         try {
-          const project = new Project({ ...args });
+          const project = new Project({
+            slug: args.title.replace(/\s+/g, "-").toLowerCase(),
+            ...args,
+          });
           await project.save();
           return { message: "Successfull" };
         } catch (error) {
@@ -232,10 +236,14 @@ const AdminMutation = new GraphQLObjectType({
         title: { type: new GraphQLNonNull(GraphQLString) },
         image: { type: new GraphQLNonNull(GraphQLString) },
         des: { type: new GraphQLNonNull(GraphQLString) },
+        slug: { type: GraphQLString },
       },
       resolve: async (root, args) => {
         try {
-          await Project.findByIdAndUpdate({ _id: args.id }, { ...args });
+          await Project.findByIdAndUpdate(
+            { _id: args.id },
+            { slug: args.title.replace(/\s+/g, "-").toLowerCase(), ...args }
+          );
           return {
             message: "edit successfull",
           };
@@ -376,10 +384,14 @@ const AdminMutation = new GraphQLObjectType({
         title: { type: GraphQLNonNull(GraphQLString) },
         image: { type: GraphQLNonNull(GraphQLString) },
         des: { type: GraphQLNonNull(GraphQLString) },
+        slug: { type: GraphQLString },
       },
       resolve: async (parent, args) => {
         try {
-          const blog = new Blog({ ...args });
+          const blog = new Blog({
+            slug: args.title.replace(/\s+/g, "-").toLowerCase(),
+            ...args,
+          });
           await blog.save();
           return { message: " successfull" };
         } catch (error) {
@@ -412,10 +424,14 @@ const AdminMutation = new GraphQLObjectType({
         title: { type: new GraphQLNonNull(GraphQLString) },
         image: { type: new GraphQLNonNull(GraphQLString) },
         des: { type: new GraphQLNonNull(GraphQLString) },
+        slug: { type: GraphQLString },
       },
       resolve: async (root, args) => {
         try {
-          await Blog.findByIdAndUpdate({ _id: args.id }, { ...args });
+          await Blog.findByIdAndUpdate(
+            { _id: args.id },
+            { slug: args.title.replace(/\s+/g, "-").toLowerCase(), ...args }
+          );
           return {
             message: "update successfull",
           };
@@ -434,11 +450,17 @@ const AdminMutation = new GraphQLObjectType({
         family: { type: GraphQLNonNull(GraphQLString) },
         image: { type: GraphQLNonNull(GraphQLString) },
         des: { type: GraphQLNonNull(GraphQLString) },
+        slug: { type: GraphQLString },
       },
       resolve: async (parent, args) => {
         try {
-          const plants = new Plants({ ...args });
+          const plants = new Plants({
+            slug: args.name.replace(/\s+/g, "-").toLowerCase(),
+            ...args,
+          });
+
           await plants.save();
+          // console.log(args.slug.replace(/\s+/g, "-"));
           return { message: " successfull" };
         } catch (error) {
           console.log(error);
@@ -472,10 +494,14 @@ const AdminMutation = new GraphQLObjectType({
         family: { type: GraphQLNonNull(GraphQLString) },
         image: { type: new GraphQLNonNull(GraphQLString) },
         des: { type: new GraphQLNonNull(GraphQLString) },
+        slug: { type: GraphQLString },
       },
       resolve: async (root, args) => {
         try {
-          await Plants.findByIdAndUpdate({ _id: args.id }, { ...args });
+          await Plants.findByIdAndUpdate(
+            { _id: args.id },
+            { slug: args.name.replace(/\s+/g, "-").toLowerCase(), ...args }
+          );
           return {
             message: "update successfull",
           };
