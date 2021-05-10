@@ -1194,6 +1194,9 @@ a:active {
   /* .name {
     padding: 0 !important;
   } */
+  .ant-modal-body {
+    margin-top: 59px !important;
+  }
   .desc-about {
     font-size: 16px !important;
   }
