@@ -43,7 +43,7 @@ const Plants = () => {
       />
       <div className="plants-banner">
         <div className="title-plants">
-          <h1>About Plants</h1>
+          <h1>Tree Species</h1>
         </div>
       </div>
       <center className="des-plants-title">

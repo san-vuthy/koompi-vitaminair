@@ -1128,7 +1128,7 @@ a:active {
   margin-left: auto;
   margin-right: auto;
   width: 84%;
-  padding-top: 15px;
+  padding-top: 38px;
   /* padding-top: 50px;
   padding-right: 42px; */
 }
@@ -1194,6 +1194,16 @@ a:active {
   /* .name {
     padding: 0 !important;
   } */
+  .desc-about {
+    font-size: 16px !important;
+  }
+  .modal-init-text h3 {
+    margin-top: 21px !important;
+  }
+  .modal-init-text p {
+    margin: 9px, 0 !important;
+    padding-bottom: 15px !important;
+  }
 
   .des-plants-title {
     width: auto !important;
@@ -1281,7 +1291,7 @@ a:active {
   }
   .ant-modal-body {
     /* padding: 111px; */
-    border-radius: 12px;
+    /* border-radius: 12px; */
     padding: 19px 30px 30px 30px;
     font-size: 14px;
     line-height: 1.5715;
@@ -1310,8 +1320,11 @@ a:active {
   .partner img {
     transform: scale(0.8);
   }
-  .img-about {
-    display: none !important;
+  .about .about-card img {
+    position: absolute;
+    top: -55px;
+    left: -12px;
+    width: 134px;
   }
   .container-about {
     width: 90% !important;

@@ -104,7 +104,7 @@ function Initiation() {
                   <Col xs={24} xl={14}>
                     <div className="modal-init-text">
                       <h3>{res.title}</h3>
-                      <p style={{ margin: "15px 0" }}>
+                      <p>
                         {/* {`${
                           result.props.data.blocks[0].data.text.length <= 500
                             ? result.props.data.blocks[0].data.text

@@ -62,7 +62,7 @@ function About() {
       </div>
       <div className="container-about" style={{ marginTop: "30px" }}>
         <div className="about">
-          <Row gutter={[32, 32]} className="about-card">
+          <Row gutter={[32, 45]} className="about-card">
             {aboutData.get_abouts.map((res, index) => {
               const { id, title, des } = res;
               const result = <Output data={JSON.parse(des)} />;
