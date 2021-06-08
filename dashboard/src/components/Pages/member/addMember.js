@@ -144,7 +144,7 @@ const AddMember = () => {
                             // listType="picture-card"
                             className="avatar-uploader"
                             // showUploadList={false}
-                            action="https://backend.vitaminair.org/upload/images"
+                            action="http://localhost:3600/upload/images"
                             beforeUpload={beforeUpload}
                             onChange={handleChange}
                           >
@@ -154,7 +154,7 @@ const AddMember = () => {
                                 //   state.imageUrl
                                 // }`}
                                 src={
-                                  "https://backend.vitaminair.org/public/uploads/" +
+                                  "http://localhost:3600/public/uploads/" +
                                   state.imageUrl
                                 }
                                 alt="avatar"

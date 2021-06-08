@@ -1487,19 +1487,29 @@ a:active {
   height: 30px;
 } */
 .plants-banner {
-  background-image: url(/images/bg_about.webp);
-  /* background-size: cover;
-  background-position: center;
-  padding: 160px 0 160px; */
+  background-image: url(/images/Leaf-banner1.png);
   background-repeat: no-repeat;
-  height: 436px;
+  height: 480px;
   background-size: cover;
-  /* width: 100%; */
   display: flex;
   background-position: center;
   position: relative;
   justify-content: center;
   align-items: center;
+}
+/* .plants-banner {
+  background-image: url(/images/Leaf-banner1.png);
+  background-repeat: no-repeat;
+  height: 470px;
+  background-size: cover;
+  display: flex;
+  background-position: 50%;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+} */
+.leaf-left {
+  width: 30%;
 }
 .heigth-plants-div {
   margin-top: 30px;

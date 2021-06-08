@@ -44,7 +44,7 @@ const Navbar = () => {
             <a className="nav-link">Project</a>
           </ActiveLink>
           <ActiveLink activeClassName="is-active" href="/plants">
-            <a className="nav-link">Plants</a>
+            <a className="nav-link">Tree</a>
           </ActiveLink>
           <ActiveLink activeClassName="is-active" href="/about">
             <a className="nav-link">About Us</a>
@@ -116,7 +116,7 @@ const Navbar = () => {
             </Menu.Item>
             <Menu.Item>
               <Link key="3" href="/plants" activeClassName="is-active">
-                PLANTS
+                TREE
               </Link>
             </Menu.Item>
             <Menu.Item>

@@ -28,8 +28,7 @@ const Plants = () => {
         openGraph={{
           images: [
             {
-              url:
-                "https://backend.vitaminair.org/public/uploads/file-e7dd0f96-ec42-44cd-8c31-37de6adcca6b.png",
+              url: "https://backend.vitaminair.org/public/uploads/file-e7dd0f96-ec42-44cd-8c31-37de6adcca6b.png",
             },
           ],
           url: "https://vitaminair.org/plants",
@@ -46,6 +45,14 @@ const Plants = () => {
           <h1>Tree Species</h1>
         </div>
       </div>
+      {/* <div>
+        <span>
+          <img className="leaf-left" src="/images/Leaf-left.png" />
+        </span>
+        <span className="title-plants">
+          <h1>Tree Species</h1>
+        </span>
+      </div> */}
       <center className="des-plants-title">
         <p>
           To reforest native forest and encourage diversity we need these tree

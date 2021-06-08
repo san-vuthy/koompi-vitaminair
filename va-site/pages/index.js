@@ -59,8 +59,7 @@ function Home() {
               <h2>The Next Small Things</h2>
               <p className="desc-home-top" style={{ margin: "20px 0" }}>
                 Protect, preserve, and restore our rain forests for generations
-                ahead. Protect, preserve, and restore our rain forests for
-                generations ahead.
+                ahead.
               </p>
               <a href="#form">
                 <Button type="primary" className="join-us-btn">
