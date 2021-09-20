@@ -1,13 +1,8 @@
 const { query } = require("express");
 const graphql = require("graphql");
 const { getMaxListeners, db, collection } = require("../../../model/donate");
-const {
-  GraphQLObjectType,
-  GraphQLString,
-  GraphQLID,
-  GraphQLList,
-  GraphQLInt,
-} = graphql;
+const { GraphQLObjectType, GraphQLString, GraphQLID, GraphQLList, GraphQLInt } =
+  graphql;
 
 //============Model Sections=========
 const Donate = require("../../../model/donate");
@@ -33,16 +28,41 @@ const RootQuery = new GraphQLObjectType({
     //============get Donation===========
     get_donations: {
       type: new GraphQLList(DonateType),
+      args: {
+        limit: {
+          // name: "limit",
+          type: GraphQLInt,
+        },
+        offset: {
+          // name: "offset",
+          type: GraphQLInt,
+        },
+      },
       resolve(parent, args) {
-        return Donate.find({}).sort({ create_at: -1 });
+        const { offset = 0, limit = 8 } = args;
+        return Donate.find({})
+          .limit(limit)
+          .skip(offset)
+          .sort({ create_at: -1 });
       },
     },
     //==========get the most tree========
     get_most_trees: {
       type: new GraphQLList(DonateType),
+      args: {
+        limit: {
+          // name: "limit",
+          type: GraphQLInt,
+        },
+        offset: {
+          // name: "offset",
+          type: GraphQLInt,
+        },
+      },
       resolve: async (parent, args) => {
+        const { offset = 0, limit = 8 } = args;
         try {
-          return Donate.find().sort({ tree: -1 });
+          return Donate.find({}).limit(limit).skip(offset).sort({ tree: -1 });
         } catch (error) {
           console.log(error);
           throw error;

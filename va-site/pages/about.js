@@ -141,27 +141,37 @@ function About() {
               gutter={{ xs: 0, md: 40 }}
             >
               <Col xs={12} sm={12} md={8} xl={4} className="gutter-row">
-                <img src="/images/partner/smallworld.png" alt="logo" />
+                <a target="_blank" href="https://smallworldventure.com/">
+                  <img src="/images/partner/smallworld.png" alt="logo" />
+                </a>
               </Col>
               <Col xs={12} sm={12} md={8} xl={4} className="gutter-row">
-                <img src="/images/partner/koompi.png" alt="logo" />
+                <a target="_blank" href="https://www.koompi.com/">
+                  <img src="/images/partner/koompi.png" alt="logo" />
+                </a>
               </Col>
               <Col xs={12} sm={12} md={8} xl={4} className="gutter-row">
-                <img src="/images/partner/sabay.png" alt="logo" />
+                <a href="https://sabay.com/" target="_blank">
+                  <img src="/images/partner/sabay.png" alt="logo" />
+                </a>
               </Col>
               <Col xs={12} sm={12} md={8} xl={4} className="gutter-row">
-                <img
-                  style={{ width: "120px" }}
-                  src="/images/partner/doer.png"
-                  alt="logo"
-                />
+                <a href="https://doersasean.com/" target="_blank">
+                  <img
+                    style={{ width: "120px" }}
+                    src="/images/partner/doer.png"
+                    alt="logo"
+                  />
+                </a>
               </Col>
               <Col xs={12} sm={12} md={8} xl={4} className="gutter-row">
-                <img
-                  style={{ width: "80px" }}
-                  src="/images/partner/isi-group.png"
-                  alt="logo"
-                />
+                <a target="_blank" href="https://www.isigroup.com.kh/">
+                  <img
+                    style={{ width: "80px" }}
+                    src="/images/partner/isi-group.png"
+                    alt="logo"
+                  />
+                </a>
               </Col>
             </Row>
           </div>

@@ -1,24 +1,33 @@
-// import React from 'react'
-import { Row, Col, Input, Button } from "antd";
+import React, { useState } from "react";
 import { FaSearch } from "react-icons/fa";
+import { Row, Col, Button, Input, Spin } from "antd";
+import Footer from "../components/footer";
+import { GET_DONATIONS, GET_MOST_DONATIONS } from "../graphql/query";
 import { useQuery } from "@apollo/client";
-import Link from "next/link";
-import { GET_DONATIONS, GET_MOST_DONATIONS } from "../../graphql/query";
 import moment from "moment";
-import { useState } from "react";
-function Leaderboard() {
+import InfiniteScroll from "react-infinite-scroll-component";
+import { FlapperSpinner } from "react-spinners-kit";
+
+const Alldonate = () => {
   const [value, setValue] = useState("recent");
   const [search, setSearch] = useState("");
-
+  const [hasMoreItems, setHasMoreItems] = useState(true);
   //=====get Data==========
-  const { loading, data: donateData, error } = useQuery(GET_DONATIONS);
+  const {
+    loading,
+    data: donateData,
+    error,
+    fetchMore,
+  } = useQuery(GET_DONATIONS);
   const {
     loading: lodingMostDonate,
     data: mostDonateData,
     error: errorMostDonate,
+    fetchMore: fetchMoreMostDonate,
   } = useQuery(GET_MOST_DONATIONS);
   if (loading || lodingMostDonate) return null;
   if (error || errorMostDonate) return `Error! ${error.message}`;
+
   // console.log(donateData);
   const active = (e) => {
     const recents = document.getElementById("most-recents");
@@ -50,10 +59,68 @@ function Leaderboard() {
     : mostDonateData.get_most_trees.filter((data) =>
         data.name.toLowerCase().includes(search.toLocaleLowerCase())
       );
+
   return (
-    <div style={{ marginTop: "50px" }}>
-      <div className="container">
-        <h1>LEADERBOARD</h1>
+    <div className="background-body">
+      <img className="cloud" src="/images/cloud2.png" alt="cloud" />
+      <img className="cloud2" src="/images/cloud2.png" alt="cloud" />
+      <img className="cloud3" src="/images/cloud2.png" alt="cloud" />
+      <div className="home-banner">
+        <div className="container">
+          <Row className="banner" justify="space-between" align="middle">
+            <Col
+              className="text"
+              xs={24}
+              sm={24}
+              md={12}
+              lg={14}
+              // xs={{ span: 24 }}
+              // sm={{ span: 24 }}
+              // lg={{ span: 10 }}
+              // xl={{ span: 10 }}
+            >
+              <p
+                className="home-text-title"
+                style={{
+                  fontSize: "22px",
+                  color: "#0D330A",
+                  fontWeight: "700",
+                }}
+              >
+                In search of
+              </p>
+              <h2>The Next Small Things</h2>
+              <p className="desc-home-top" style={{ margin: "20px 0" }}>
+                Protect, preserve, and restore our rain forests for generations
+                ahead.
+              </p>
+              <a href="#form">
+                <Button type="primary" className="join-us-btn">
+                  JOIN US
+                </Button>
+              </a>
+            </Col>
+            <Col
+              className="video"
+              xs={24}
+              sm={24}
+              md={12}
+              lg={10}
+              // xs={{ span: 24 }}
+              // sm={{ span: 24 }}
+              // lg={{ span: 12 }}
+              // xl={{ span: 12 }}
+            >
+              <img className="earth" src="/images/Green-World.png "></img>
+            </Col>
+          </Row>
+        </div>
+        <div className="big-banner"></div>
+      </div>
+      <div className="all-leaderboard">
+        <center>
+          <h1>LEADERBOARD</h1>
+        </center>
         <Row align="middle" justify="center">
           <Col className="search-box gutter-row">
             <Input
@@ -80,6 +147,8 @@ function Leaderboard() {
           </Col>
         </Row>
         <br />
+      </div>
+      <div>
         {value === "recent" ? (
           <div className="container user-list">
             {results.map((res, index) => {
@@ -115,7 +184,39 @@ function Leaderboard() {
                 </Row>
               );
             })}
-            {/* <p>See all</p> */}
+            <InfiniteScroll
+              dataLength={donateData.get_donations.length}
+              next={async () => {
+                fetchMore({
+                  variables: {
+                    offset: donateData.get_donations.length,
+                  },
+                  updateQuery: (prev, { fetchMoreResult }) => {
+                    if (!fetchMoreResult) return prev;
+
+                    if (fetchMoreResult.get_donations.length < 8) {
+                      setHasMoreItems(false);
+                    }
+                    <FlapperSpinner size={30} color="#00ff89" />;
+                    return Object.assign({}, prev, {
+                      get_donations: [
+                        ...prev.get_donations,
+                        ...fetchMoreResult.get_donations,
+                      ],
+                    });
+                  },
+                });
+              }}
+              hasMore={hasMoreItems}
+              loader={
+                // <Content style={{ marginTop: "50px" }}>
+                <center style={{ marginTop: "50px" }}>
+                  <Spin></Spin>
+                </center>
+                // </Content>
+              }
+              endMessage={null}
+            ></InfiniteScroll>
           </div>
         ) : (
           <div className="container user-list">
@@ -154,22 +255,43 @@ function Leaderboard() {
             })}
           </div>
         )}
-        <br></br>
-        <center>
-          <div style={{ cursor: "pointer" }} className="badge-seeall">
-            <Link href="/alldonate">
-              <p style={{ color: "white" }}>See all</p>
-            </Link>
-          </div>
-        </center>
-        <center>
-          <a href="#form">
-            <Button className="add-tree-btn">Plant Your Tree</Button>
-          </a>
-        </center>
+        <InfiniteScroll
+          dataLength={mostDonateData.get_most_trees.length}
+          next={async () => {
+            fetchMoreMostDonate({
+              variables: {
+                offset: mostDonateData.get_most_trees.length,
+              },
+              updateQuery: (prev, { fetchMoreResult }) => {
+                if (!fetchMoreResult) return prev;
+
+                if (fetchMoreResult.get_most_trees.length < 8) {
+                  setHasMoreItems(false);
+                }
+                <FlapperSpinner size={30} color="#00ff89" />;
+                return Object.assign({}, prev, {
+                  get_most_trees: [
+                    ...prev.get_most_trees,
+                    ...fetchMoreResult.get_most_trees,
+                  ],
+                });
+              },
+            });
+          }}
+          hasMore={hasMoreItems}
+          //   loader={
+          //     // <Content style={{ marginTop: "50px" }}>
+          //     <center style={{ marginTop: "50px" }}>
+          //       <Spin></Spin>
+          //     </center>
+          //     // </Content>
+          //   }
+          endMessage={null}
+        ></InfiniteScroll>
       </div>
+      <Footer />
     </div>
   );
-}
+};
 
-export default Leaderboard;
+export default Alldonate;

@@ -8,6 +8,11 @@ import { FlapperSpinner } from "react-spinners-kit";
 import { Spin } from "antd";
 
 function BlogDetail() {
+  const server = process.env.API_SECRET;
+  const server_local = process.env.API_SECRET_LOCAL;
+  const develop = process.env.NODE_ENV;
+
+  const URL_ACCESS = develop === "development" ? server_local : server;
   const router = useRouter();
   const { slug } = router.query;
 
@@ -32,7 +37,9 @@ function BlogDetail() {
           <center>
             <img
               className="blog-image"
+              // src={`${URL_ACCESS}/public/uploads/${image}`}
               src={"https://backend.vitaminair.org/public/uploads/" + image}
+              // src={"http://localhost:3600/public/uploads/" + image}
               alt="img"
             />
           </center>

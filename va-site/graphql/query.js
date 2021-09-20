@@ -1,8 +1,8 @@
 import { gql } from "@apollo/client";
 
 const GET_DONATIONS = gql`
-  query {
-    get_donations {
+  query ($limit: Int, $offset: Int) {
+    get_donations(limit: $limit, offset: $offset) {
       tree
       name
       create_at
@@ -12,8 +12,8 @@ const GET_DONATIONS = gql`
   }
 `;
 const GET_MOST_DONATIONS = gql`
-  query {
-    get_most_trees {
+  query ($limit: Int, $offset: Int) {
+    get_most_trees(limit: $limit, offset: $offset) {
       tree
       name
       create_at
@@ -45,7 +45,7 @@ const GET_ABOUTS = gql`
   }
 `;
 const GET_ABOUT = gql`
-  query($id: ID!) {
+  query ($id: ID!) {
     get_about(id: $id) {
       id
       title
@@ -77,7 +77,7 @@ const GET_INITATIONS = gql`
   }
 `;
 const GET_PROJECT = gql`
-  query($id: ID!) {
+  query ($id: ID!) {
     get_project(id: $id) {
       id
       title
@@ -89,7 +89,7 @@ const GET_PROJECT = gql`
 `;
 
 const GET_PROJECT_SLUG = gql`
-  query($slug: String!) {
+  query ($slug: String!) {
     get_project_slug(slug: $slug) {
       id
       title
@@ -102,7 +102,7 @@ const GET_PROJECT_SLUG = gql`
 `;
 
 const GET_INITATION = gql`
-  query($id: ID!) {
+  query ($id: ID!) {
     get_initation(id: $id) {
       id
       title
@@ -113,7 +113,7 @@ const GET_INITATION = gql`
   }
 `;
 const GET_BLOG = gql`
-  query($id: ID!) {
+  query ($id: ID!) {
     get_blog(id: $id) {
       id
       title
@@ -126,7 +126,7 @@ const GET_BLOG = gql`
 `;
 
 const GET_BLOG_SLUG = gql`
-  query($slug: String!) {
+  query ($slug: String!) {
     get_blog_slug(slug: $slug) {
       id
       title
@@ -139,7 +139,7 @@ const GET_BLOG_SLUG = gql`
 `;
 
 const GET_BLOGS = gql`
-  query($limit: Int!, $offset: Int!) {
+  query ($limit: Int!, $offset: Int!) {
     get_blogs(limit: $limit, offset: $offset) {
       id
       title
@@ -152,7 +152,7 @@ const GET_BLOGS = gql`
 `;
 
 const GET_PLANTS = gql`
-  query($limit: Int!, $offset: Int!) {
+  query ($limit: Int!, $offset: Int!) {
     get_plants(limit: $limit, offset: $offset) {
       id
       name
@@ -166,7 +166,7 @@ const GET_PLANTS = gql`
   }
 `;
 const GET_A_PLANTS = gql`
-  query($id: ID!) {
+  query ($id: ID!) {
     get_a_plants(id: $id) {
       id
       name
@@ -180,7 +180,7 @@ const GET_A_PLANTS = gql`
 `;
 
 const GET_A_PLANTS_SLUG = gql`
-  query($slug: String!) {
+  query ($slug: String!) {
     get_a_plant_slug(slug: $slug) {
       id
       slug

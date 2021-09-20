@@ -34,6 +34,22 @@ function InfoForm() {
     setCurrent(current - 1);
   };
 
+  const handleKeypress = (e) => {
+    const characterCode = e.key;
+    if (characterCode === "Backspace") return;
+
+    const characterNumber = Number(characterCode);
+    if (characterNumber >= 0 && characterNumber <= 9) {
+      if (e.currentTarget.value && e.currentTarget.value.length) {
+        return;
+      } else if (characterNumber === 0) {
+        e.preventDefault();
+      }
+    } else {
+      e.preventDefault();
+    }
+  };
+
   //form
   const layout = {
     labelCol: {
@@ -141,6 +157,9 @@ function InfoForm() {
         </Row>
         <Form.Item name="tree" label="Other Amount" initialValue={20}>
           <Input
+            onKeyDown={handleKeypress}
+            min="1"
+            step="1"
             rules={[
               { required: true, message: "Please Select or Input Amount" },
             ]}
@@ -199,9 +218,9 @@ function InfoForm() {
           className="details-input"
           label="Message"
           name="user_message"
-          // rules={[{ required: true, message: "Please input your message!" }]}
+          rules={[{ required: true, message: "Please input your message!" }]}
         >
-          <Input.TextArea />
+          <Input.TextArea maxLength="100" />
         </Form.Item>
         <div>Your message will display on the web publicly.</div>
 
