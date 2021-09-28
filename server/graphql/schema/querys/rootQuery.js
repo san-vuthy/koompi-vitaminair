@@ -1,32 +1,32 @@
-const { query } = require("express");
-const graphql = require("graphql");
-const { getMaxListeners, db, collection } = require("../../../model/donate");
+const { query } = require('express');
+const graphql = require('graphql');
+const { getMaxListeners, db, collection } = require('../../../model/donate');
 const { GraphQLObjectType, GraphQLString, GraphQLID, GraphQLList } = graphql;
 
 //============Model Sections=========
-const Donate = require("../../../model/donate");
-const Initation = require("../../../model/initation");
-const Project = require("../../../model/project");
-const About = require("../../../model/about");
-const Member = require("../../../model/member");
-const Blog = require("../../../model/blog");
+const Donate = require('../../../model/donate');
+const Initation = require('../../../model/initation');
+const Project = require('../../../model/project');
+const About = require('../../../model/about');
+const Member = require('../../../model/member');
+const Blog = require('../../../model/blog');
 
 //============Type Sections==========
-const DonateType = require("../types/donateType");
-const Initationtype = require("../types/initationType");
-const ProjectType = require("../types/projectType");
-const AboutType = require("../types/aboutType");
-const MemberType = require("../types/memeberType");
-const BlogType = require("../types/blogType");
+const DonateType = require('../types/donateType');
+const Initationtype = require('../types/initationType');
+const ProjectType = require('../types/projectType');
+const AboutType = require('../types/aboutType');
+const MemberType = require('../types/memeberType');
+const BlogType = require('../types/blogType');
 
 const RootQuery = new GraphQLObjectType({
-  name: "RootQueryType",
+  name: 'RootQueryType',
   fields: {
     //============get Donation===========
     get_donations: {
       type: new GraphQLList(DonateType),
       resolve(parent, args) {
-        return Donate.find({}).sort({ create_at: -1 });
+        return Donate.find().sort({ create_at: -1 });
       },
     },
     //==========get the most tree========

@@ -1,14 +1,14 @@
-import React, { useState } from "react";
-import { Layout, Form, Button, Input, message } from "antd";
-import TopNavbar from "../../Layouts/topNavbar";
-import LeftNavbar from "../../Layouts/leftNavbar";
-import { useMutation, useQuery } from "@apollo/client";
-import { EDIT_ABOUT } from "../../../graphql/mutation";
-import { GET_ABOUT } from "../../../graphql/query";
-import { useParams } from "react-router-dom";
-import FooterDashboard from "../../Layouts/footer";
-import { EDITOR_JS_TOOLS } from "../../Layouts/tool";
-import EditorJs from "react-editor-js";
+import React, { useState } from 'react';
+import { Layout, Form, Button, Input, message } from 'antd';
+import TopNavbar from '../../Layouts/topNavbar';
+import LeftNavbar from '../../Layouts/leftNavbar';
+import { useMutation, useQuery } from '@apollo/client';
+import { EDIT_ABOUT } from '../../../graphql/mutation';
+import { GET_ABOUT } from '../../../graphql/query';
+import { useParams } from 'react-router-dom';
+import FooterDashboard from '../../Layouts/footer';
+import { EDITOR_JS_TOOLS } from '../../Layouts/tool';
+import EditorJs from 'react-editor-js';
 
 const { Content } = Layout;
 const EditAbout = ({ history }) => {
@@ -21,15 +21,19 @@ const EditAbout = ({ history }) => {
     time: 1556098174501,
     blocks: [
       {
-        type: "header",
+        type: 'header',
         data: {
-          text: "Editor.js",
+          text: 'Editor.js',
           level: 2,
         },
       },
     ],
   });
-  const { loading: loadingAbout, data, refetch } = useQuery(GET_ABOUT, {
+  const {
+    loading: loadingAbout,
+    data,
+    refetch,
+  } = useQuery(GET_ABOUT, {
     variables: { id },
   });
   async function handleSave() {
@@ -48,84 +52,71 @@ const EditAbout = ({ history }) => {
       },
     }).then(async (res) => {
       setLoading(true);
-      await message.success("Successfull");
+      await message.success('Successfull');
       await refetch();
-      await history.push("/admin/abouts");
+      await history.push('/admin/abouts');
     });
     console.log(values);
   };
   if (loadingAbout) {
-    return "loading.....";
+    return 'loading.....';
   }
   return (
     <React.Fragment>
-      <Layout style={{ minHeight: "100vh" }}>
-        <LeftNavbar />
-        <Layout className="site-layout">
-          <TopNavbar />
-          <Content style={{ backgroundColor: "#fff" }}>
-            <div className="contenContainer">
-              <h1 className="title-top">Edit About</h1>
-              <Form
-                form={form}
-                onFinish={onFinish}
-                // onFinishFailed={onFinishFailed}
-                layout="vertical"
-              >
-                <Form.Item
-                  initialValue={data.get_about.title}
-                  label="Title"
-                  name="title"
-                  rules={[
-                    {
-                      required: true,
-                      message: "Please input Title!",
-                    },
-                  ]}
-                >
-                  <Input className="input-style" size="large" />
-                </Form.Item>
-                <Form.Item
-                  // initialValue={data.get_about.des}
-                  initialValue={JSON.parse(data.get_about.des)}
-                  label="Description"
-                  name="des"
-                  rules={[
-                    {
-                      required: true,
-                      message: "Please input Desciption!",
-                    },
-                  ]}
-                >
-                  {/* <Input.TextArea className="input-style" size="large" /> */}
-                  <EditorJs
-                    data={JSON.parse(data.get_about.des)}
-                    tools={EDITOR_JS_TOOLS}
-                    instanceRef={(instance) => (instanceRef.current = instance)}
-                  />
-                </Form.Item>
-                <Form.Item>
-                  <Button
-                    onClick={handleSave}
-                    className="submit-button"
-                    // type="primary"
-                    htmlType="submit"
-                    size="large"
-                    // className="standard-btn"
-                  >
-                    {loading ? (
-                      <small>loading...</small>
-                    ) : (
-                      <small>SUMBIT</small>
-                    )}
-                  </Button>
-                </Form.Item>
-              </Form>
-            </div>
-          </Content>
-          <FooterDashboard />
-        </Layout>
-      </Layout>
+      <div className="contenContainer">
+        <h1 className="title-top">Edit About</h1>
+        <Form
+          form={form}
+          onFinish={onFinish}
+          // onFinishFailed={onFinishFailed}
+          layout="vertical"
+        >
+          <Form.Item
+            initialValue={data.get_about.title}
+            label="Title"
+            name="title"
+            rules={[
+              {
+                required: true,
+                message: 'Please input Title!',
+              },
+            ]}
+          >
+            <Input className="input-style" size="large" />
+          </Form.Item>
+          <Form.Item
+            // initialValue={data.get_about.des}
+            initialValue={JSON.parse(data.get_about.des)}
+            label="Description"
+            name="des"
+            rules={[
+              {
+                required: true,
+                message: 'Please input Desciption!',
+              },
+            ]}
+          >
+            {/* <Input.TextArea className="input-style" size="large" /> */}
+            <EditorJs
+              data={JSON.parse(data.get_about.des)}
+              tools={EDITOR_JS_TOOLS}
+              instanceRef={(instance) => (instanceRef.current = instance)}
+            />
+          </Form.Item>
+          <Form.Item>
+            <Button
+              onClick={handleSave}
+              className="submit-button"
+              // type="primary"
+              htmlType="submit"
+              size="large"
+              // className="standard-btn"
+            >
+              {loading ? <small>loading...</small> : <small>SUMBIT</small>}
+            </Button>
+          </Form.Item>
+        </Form>
+      </div>
     </React.Fragment>
   );
 };

@@ -1,34 +1,35 @@
-import React from "react";
-import moment from "moment";
-import { Layout, Table, Tag, Divider, message, Popconfirm } from "antd";
-import { Link } from "react-router-dom";
-import { BsTrash, BsPencil } from "react-icons/bs";
-import LeftNavbar from "../../Layouts/leftNavbar";
-import TopNavbar from "../../Layouts/topNavbar";
-import { useQuery, useMutation } from "@apollo/client";
-import { GET_ABOUTS } from "../../../graphql/query";
-import { DELETE_ABOUT } from "../../../graphql/mutation";
-import FooterDashboard from "../../Layouts/footer";
-import Output from "editorjs-react-renderer";
+import React from 'react';
+import moment from 'moment';
+import { Layout, Table, Tag, Divider, message, Popconfirm } from 'antd';
+import { Link } from 'react-router-dom';
+import { BsTrash, BsPencil } from 'react-icons/bs';
+import LeftNavbar from '../../Layouts/leftNavbar';
+import TopNavbar from '../../Layouts/topNavbar';
+import { useQuery, useMutation } from '@apollo/client';
+import { GET_ABOUTS } from '../../../graphql/query';
+import { DELETE_ABOUT } from '../../../graphql/mutation';
+import FooterDashboard from '../../Layouts/footer';
+import Output from 'editorjs-react-renderer';
 
 const { Content } = Layout;
 const AllAbout = () => {
   const { loading, data, refetch } = useQuery(GET_ABOUTS);
   const [delete_about] = useMutation(DELETE_ABOUT);
+
   if (loading) return null;
-  console.log(data);
+
   const columns = [
     {
-      title: "Title",
-      dataIndex: "title",
+      title: 'Title',
+      dataIndex: 'title',
       render: (data) => {
-        return data.length <= 25 ? data : data.substring(0, 25) + " ...";
+        return data.length <= 25 ? data : data.substring(0, 25) + ' ...';
       },
     },
     {
-      title: "Description",
-      key: "des",
-      dataIndex: "des",
+      title: 'Description',
+      key: 'des',
+      dataIndex: 'des',
       render: (data) => {
         // return data.length <= 25 ? data : data.substring(0, 25) + " ...";
         const result = <Output data={JSON.parse(data)} />;
@@ -37,16 +38,16 @@ const AllAbout = () => {
       },
     },
     {
-      title: "Date",
-      dataIndex: "create_at",
+      title: 'Date',
+      dataIndex: 'create_at',
       render: (create_at) => {
-        return moment.unix(create_at / 1000).format(" Do YYYY, h:mm:ss A");
+        return moment.unix(create_at / 1000).format(' Do YYYY, h:mm:ss A');
       },
     },
     {
-      title: "Action",
-      dataIndex: "action",
-      key: "action",
+      title: 'Action',
+      dataIndex: 'action',
+      key: 'action',
       render: (index, data) => {
         const { id } = data;
         return (
@@ -56,7 +57,7 @@ const AllAbout = () => {
                 <BsPencil
                   color="rgb(32, 166, 147)"
                   size="20px"
-                  style={{ marginTop: "6px" }}
+                  style={{ marginTop: '6px' }}
                 />
               </Tag>
             </Link>
@@ -83,7 +84,7 @@ const AllAbout = () => {
                 <BsTrash
                   color="#ff5858"
                   size="20px"
-                  style={{ marginTop: "6px" }}
+                  style={{ marginTop: '6px' }}
                 />
               </Tag>
               {/* <div className="delete-button">
@@ -104,21 +105,12 @@ const AllAbout = () => {
 
   return (
     <div>
-      <Layout style={{ minHeight: "100vh" }}>
-        <LeftNavbar />
-        <Layout className="site-layout">
-          <TopNavbar />
-          <Content style={{ backgroundColor: "#fff" }}>
-            <div className="contenContainer">
-              <h1 className="title-top">Abouts</h1>
-              <div>
-                <Table columns={columns} dataSource={data.get_abouts} />
-              </div>
-            </div>
-          </Content>
-          <FooterDashboard />
-        </Layout>
-      </Layout>
+      <div className="contenContainer">
+        <h1 className="title-top">Abouts</h1>
+        <div>
+          <Table columns={columns} dataSource={data.get_abouts} />
+        </div>
+      </div>
     </div>
   );
 };

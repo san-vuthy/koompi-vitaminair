@@ -1,4 +1,4 @@
-import { gql } from "@apollo/client";
+import { gql } from '@apollo/client';
 
 const GET_DONATIONS = gql`
   query {
@@ -11,6 +11,8 @@ const GET_DONATIONS = gql`
       anonymous
       email
       phone
+      selectType
+      isContact
     }
   }
 `;
@@ -38,7 +40,7 @@ const GET_INITATIONS = gql`
   }
 `;
 const GET_INITATION = gql`
-  query($id: ID!) {
+  query ($id: ID!) {
     get_initation(id: $id) {
       id
       title
@@ -60,7 +62,7 @@ const GET_MEMBERS = gql`
   }
 `;
 const GET_MEMBER = gql`
-  query($id: ID!) {
+  query ($id: ID!) {
     get_member(id: $id) {
       id
       position
@@ -82,7 +84,7 @@ const GET_ABOUTS = gql`
   }
 `;
 const GET_ABOUT = gql`
-  query($id: ID!) {
+  query ($id: ID!) {
     get_about(id: $id) {
       id
       title
@@ -104,7 +106,7 @@ const GET_PROJECTS = gql`
   }
 `;
 const GET_PROJECT = gql`
-  query($id: ID!) {
+  query ($id: ID!) {
     get_project(id: $id) {
       id
       title
@@ -125,7 +127,7 @@ const GET_BLOGS = gql`
   }
 `;
 const GET_BLOG = gql`
-  query($id: ID!) {
+  query ($id: ID!) {
     get_blog(id: $id) {
       id
       title

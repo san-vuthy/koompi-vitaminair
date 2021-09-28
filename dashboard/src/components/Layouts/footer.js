@@ -1,11 +1,11 @@
-import React from "react";
-import { Layout } from "antd";
+import React from 'react';
+import { Layout } from 'antd';
 
 const { Footer } = Layout;
 const FooterDashboard = () => {
   return (
     <div>
-      <Footer style={{ textAlign: "center" }}>
+      <Footer style={{ textAlign: 'center' }}>
         <div className="dashboard-footer">
           <b>Vitaminair</b> ©2021 Created by <b>KOOMPI</b>
         </div>

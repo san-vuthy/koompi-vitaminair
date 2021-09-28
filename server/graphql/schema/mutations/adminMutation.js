@@ -1,7 +1,7 @@
-const graphql = require("graphql");
-require("dotenv").config();
-const jwt = require("jsonwebtoken");
-const bcrypt = require("bcryptjs");
+const graphql = require('graphql');
+require('dotenv').config();
+const jwt = require('jsonwebtoken');
+const bcrypt = require('bcryptjs');
 const { JwtSecret } = process.env;
 const {
   GraphQLObjectType,
@@ -13,24 +13,24 @@ const {
 } = graphql;
 
 //============Model Sections=========
-const Donate = require("../../../model/donate");
-const User = require("../../../model/user");
-const Initation = require("../../../model/initation");
-const Project = require("../../../model/project");
-const About = require("../../../model/about");
-const Member = require("../../../model/member");
-const Blog = require("../../../model/blog");
+const Donate = require('../../../model/donate');
+const User = require('../../../model/user');
+const Initation = require('../../../model/initation');
+const Project = require('../../../model/project');
+const About = require('../../../model/about');
+const Member = require('../../../model/member');
+const Blog = require('../../../model/blog');
 //============Type Sections==========
-const DonateType = require("../types/donateType");
-const UserType = require("../types/userType");
-const InitationType = require("../types/initationType");
-const ProjectType = require("../types/projectType");
-const AboutType = require("../types/aboutType");
-const MemberType = require("../types/memeberType");
-const BlogType = require("../types/blogType");
+const DonateType = require('../types/donateType');
+const UserType = require('../types/userType');
+const InitationType = require('../types/initationType');
+const ProjectType = require('../types/projectType');
+const AboutType = require('../types/aboutType');
+const MemberType = require('../types/memeberType');
+const BlogType = require('../types/blogType');
 
 const AdminMutation = new GraphQLObjectType({
-  name: "adminMuntationType",
+  name: 'adminMuntationType',
   fields: () => ({
     //==========Donations===========
     donation: {
@@ -50,14 +50,13 @@ const AdminMutation = new GraphQLObjectType({
         try {
           const donate = new Donate({ ...args });
           await donate.save();
-          return { message: "Donation successfull!" };
+          return { message: 'Donation successfull!' };
         } catch (error) {
           console.log(error);
           throw error;
         }
       },
     },
-    //============Delete Donationer===========
     delete_donationer: {
       type: DonateType,
       args: {
@@ -66,7 +65,30 @@ const AdminMutation = new GraphQLObjectType({
       resolve: async (parent, args) => {
         try {
           await Donate.deleteOne({ _id: args.id });
-          return { message: "Delete Successfull" };
+          return { message: 'Delete Successfull' };
+        } catch (error) {
+          console.log(error);
+          throw error;
+        }
+      },
+    },
+    updateContact: {
+      type: DonateType,
+      args: {
+        id: { type: GraphQLNonNull(GraphQLID) },
+        isContact: {
+          type: GraphQLNonNull(GraphQLBoolean),
+        },
+      },
+      resolve: async (parent, args) => {
+        try {
+          await Donate.findByIdAndUpdate(args.id, {
+            isContact: args.isContact,
+          });
+          return {
+            success: true,
+            message: 'Contact updated with successfull',
+          };
         } catch (error) {
           console.log(error);
           throw error;
@@ -85,7 +107,7 @@ const AdminMutation = new GraphQLObjectType({
         try {
           const isEmails = await User.findOne({ email: args.email });
           if (isEmails) {
-            throw new Error("Email already Exist");
+            throw new Error('Email already Exist');
           }
           //bcrypt password in database
           const salt = await bcrypt.genSalt(12);
@@ -96,7 +118,7 @@ const AdminMutation = new GraphQLObjectType({
             password: hashPassword,
           });
           await NewUser.save();
-          return { message: "Successful" };
+          return { message: 'Successful' };
         } catch (error) {
           console.log(error);
           throw error;
@@ -115,13 +137,13 @@ const AdminMutation = new GraphQLObjectType({
           const user = await User.findOne({ email: args.email });
           if (!user) {
             return {
-              messsage: "your password or email incorrect!",
+              messsage: 'your password or email incorrect!',
             };
           }
           const isMatch = await bcrypt.compare(args.password, user.password);
           if (!isMatch) {
             return {
-              message: "your password or email incorrect!",
+              message: 'your password or email incorrect!',
             };
           } else {
             const token = jwt.sign(
@@ -132,14 +154,14 @@ const AdminMutation = new GraphQLObjectType({
               },
               JwtSecret,
               {
-                expiresIn: "1d",
+                expiresIn: '1d',
               }
             );
             return {
               token: token,
               name: user.name,
               id: user.id,
-              message: "Login successful",
+              message: 'Login successful',
             };
           }
         } catch (error) {
@@ -160,7 +182,7 @@ const AdminMutation = new GraphQLObjectType({
         try {
           const initation = new Initation({ ...args });
           await initation.save();
-          return { message: "Add initation successfull" };
+          return { message: 'Add initation successfull' };
         } catch (error) {
           console.log(error);
           throw error;
@@ -176,7 +198,7 @@ const AdminMutation = new GraphQLObjectType({
       resolve: async (parent, args) => {
         try {
           await Initation.deleteOne({ _id: args.id });
-          return { message: "Delete Successfull" };
+          return { message: 'Delete Successfull' };
         } catch (error) {
           console.log(error);
           throw error;
@@ -196,7 +218,7 @@ const AdminMutation = new GraphQLObjectType({
         try {
           await Initation.findByIdAndUpdate({ _id: args.id }, { ...args });
           return {
-            message: "update successfull",
+            message: 'update successfull',
           };
         } catch (error) {
           console.log(error);
@@ -215,7 +237,7 @@ const AdminMutation = new GraphQLObjectType({
         try {
           const project = new Project({ ...args });
           await project.save();
-          return { message: "Successfull" };
+          return { message: 'Successfull' };
         } catch (error) {
           console.log(error);
           throw error;
@@ -235,7 +257,7 @@ const AdminMutation = new GraphQLObjectType({
         try {
           await Project.findByIdAndUpdate({ _id: args.id }, { ...args });
           return {
-            message: "edit successfull",
+            message: 'edit successfull',
           };
         } catch (error) {
           console.log(error);
@@ -251,7 +273,7 @@ const AdminMutation = new GraphQLObjectType({
       resolve: async (parent, args) => {
         try {
           await Project.deleteOne({ _id: args.id });
-          return { message: "Delete Successfull" };
+          return { message: 'Delete Successfull' };
         } catch (error) {
           console.log(error);
           throw error;
@@ -269,7 +291,7 @@ const AdminMutation = new GraphQLObjectType({
         try {
           const about = new About({ ...args });
           await about.save();
-          return { message: "Successfull" };
+          return { message: 'Successfull' };
         } catch (error) {
           console.log(error);
           throw error;
@@ -288,7 +310,7 @@ const AdminMutation = new GraphQLObjectType({
         try {
           await About.findByIdAndUpdate({ _id: args.id }, { ...args });
           return {
-            message: "Successfull",
+            message: 'Successfull',
           };
         } catch (error) {
           console.log(error);
@@ -304,7 +326,7 @@ const AdminMutation = new GraphQLObjectType({
       resolve: async (parent, args) => {
         try {
           await About.deleteOne({ _id: args.id });
-          return { message: "Delete Successfull" };
+          return { message: 'Delete Successfull' };
         } catch (error) {
           console.log(error);
           throw error;
@@ -323,7 +345,7 @@ const AdminMutation = new GraphQLObjectType({
         try {
           const member = new Member({ ...args });
           await member.save();
-          return { message: "Successfull" };
+          return { message: 'Successfull' };
         } catch (error) {
           console.log(error);
           throw error;
@@ -343,7 +365,7 @@ const AdminMutation = new GraphQLObjectType({
         try {
           await Member.findByIdAndUpdate({ _id: args.id }, { ...args });
           return {
-            message: "Successfull",
+            message: 'Successfull',
           };
         } catch (error) {
           console.log(error);
@@ -359,7 +381,7 @@ const AdminMutation = new GraphQLObjectType({
       resolve: async (parent, args) => {
         try {
           await Member.deleteOne({ _id: args.id });
-          return { message: "Delete Successfull" };
+          return { message: 'Delete Successfull' };
         } catch (error) {
           console.log(error);
           throw error;
@@ -379,7 +401,7 @@ const AdminMutation = new GraphQLObjectType({
         try {
           const blog = new Blog({ ...args });
           await blog.save();
-          return { message: " successfull" };
+          return { message: ' successfull' };
         } catch (error) {
           console.log(error);
           throw error;
@@ -395,7 +417,7 @@ const AdminMutation = new GraphQLObjectType({
       resolve: async (parent, args) => {
         try {
           await Blog.deleteOne({ _id: args.id });
-          return { message: "Delete Successfull" };
+          return { message: 'Delete Successfull' };
         } catch (error) {
           console.log(error);
           throw error;
@@ -415,7 +437,7 @@ const AdminMutation = new GraphQLObjectType({
         try {
           await Blog.findByIdAndUpdate({ _id: args.id }, { ...args });
           return {
-            message: "update successfull",
+            message: 'update successfull',
           };
         } catch (error) {
           console.log(error);

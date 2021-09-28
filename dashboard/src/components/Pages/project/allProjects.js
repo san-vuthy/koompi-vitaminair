@@ -1,15 +1,15 @@
-import React from "react";
-import moment from "moment";
-import { Layout, Spin, Table, Tag, Divider, message, Popconfirm } from "antd";
-import { Link } from "react-router-dom";
-import { BsTrash, BsPencil } from "react-icons/bs";
-import LeftNavbar from "../../Layouts/leftNavbar";
-import TopNavbar from "../../Layouts/topNavbar";
-import { useQuery, useMutation } from "@apollo/client";
-import { GET_PROJECTS } from "../../../graphql/query";
-import { DELETE_PROJECT } from "../../../graphql/mutation";
-import FooterDashboard from "../../Layouts/footer";
-import Output from "editorjs-react-renderer";
+import React from 'react';
+import moment from 'moment';
+import { Layout, Spin, Table, Tag, Divider, message, Popconfirm } from 'antd';
+import { Link } from 'react-router-dom';
+import { BsTrash, BsPencil } from 'react-icons/bs';
+import LeftNavbar from '../../Layouts/leftNavbar';
+import TopNavbar from '../../Layouts/topNavbar';
+import { useQuery, useMutation } from '@apollo/client';
+import { GET_PROJECTS } from '../../../graphql/query';
+import { DELETE_PROJECT } from '../../../graphql/mutation';
+import FooterDashboard from '../../Layouts/footer';
+import Output from 'editorjs-react-renderer';
 
 const { Content } = Layout;
 const AllProject = () => {
@@ -17,16 +17,16 @@ const AllProject = () => {
   const [delete_project] = useMutation(DELETE_PROJECT);
   if (loading)
     return (
-      <center style={{ marginTop: "100px" }}>
-        <Spin style={{ color: "red !important" }} size="large" />
+      <center style={{ marginTop: '100px' }}>
+        <Spin style={{ color: 'red !important' }} size="large" />
       </center>
     );
   // console.log(data);
   const columns = [
     {
-      title: "Image",
+      title: 'Image',
       width: 200,
-      dataIndex: "image",
+      dataIndex: 'image',
       render: (data) => {
         return (
           <img
@@ -34,7 +34,7 @@ const AllProject = () => {
             height="40px"
             width="40px"
             // src={"http://localhost:3500/public/uploads/" + data}
-            src={"https://backend.vitaminair.org/public/uploads/" + data}
+            src={'https://backend.vitaminair.org/public/uploads/' + data}
             alt="avatar"
             // src={'http://localhost:7002/public/uploads/' + data}
           ></img>
@@ -42,37 +42,37 @@ const AllProject = () => {
       },
     },
     {
-      title: "Title",
-      dataIndex: "title",
+      title: 'Title',
+      dataIndex: 'title',
       render: (data) => {
-        return data.length <= 25 ? data : data.substring(0, 25) + " ...";
+        return data.length <= 25 ? data : data.substring(0, 25) + ' ...';
       },
     },
     {
-      title: "Description",
-      key: "tree",
-      dataIndex: "des",
+      title: 'Description',
+      key: 'tree',
+      dataIndex: 'des',
       render: (data) => {
         const result = <Output data={JSON.parse(data)} />;
         // return data.length <= 25 ? data : data.substring(0, 25) + " ...";
         return `${
           result.props.data.blocks[0].data.text.length <= 25
             ? result.props.data.blocks[0].data.text
-            : result.props.data.blocks[0].data.text.substring(0, 50) + "..."
+            : result.props.data.blocks[0].data.text.substring(0, 50) + '...'
         }`;
       },
     },
     {
-      title: "Date",
-      dataIndex: "create_at",
+      title: 'Date',
+      dataIndex: 'create_at',
       render: (create_at) => {
-        return moment.unix(create_at / 1000).format(" Do YYYY, h:mm:ss A");
+        return moment.unix(create_at / 1000).format(' Do YYYY, h:mm:ss A');
       },
     },
     {
-      title: "Action",
-      dataIndex: "action",
-      key: "action",
+      title: 'Action',
+      dataIndex: 'action',
+      key: 'action',
       render: (index, data) => {
         const { id } = data;
         return (
@@ -82,7 +82,7 @@ const AllProject = () => {
                 <BsPencil
                   color="rgb(32, 166, 147)"
                   size="20px"
-                  style={{ marginTop: "6px" }}
+                  style={{ marginTop: '6px' }}
                 />
               </Tag>
             </Link>
@@ -109,7 +109,7 @@ const AllProject = () => {
                 <BsTrash
                   color="#ff5858"
                   size="20px"
-                  style={{ marginTop: "6px" }}
+                  style={{ marginTop: '6px' }}
                 />
               </Tag>
               {/* <div className="delete-button">
@@ -129,30 +129,21 @@ const AllProject = () => {
   ];
 
   function onChange(pagination, filters, sorter, extra) {
-    console.log("params", pagination, filters, sorter, extra);
+    console.log('params', pagination, filters, sorter, extra);
   }
 
   return (
     <div>
-      <Layout style={{ minHeight: "100vh" }}>
-        <LeftNavbar />
-        <Layout className="site-layout">
-          <TopNavbar />
-          <Content style={{ backgroundColor: "#fff" }}>
-            <div className="contenContainer">
-              <h1 className="title-top">Projects</h1>
-              <div>
-                <Table
-                  columns={columns}
-                  dataSource={data.get_projects}
-                  onChange={onChange}
-                />
-              </div>
-            </div>
-          </Content>
-          <FooterDashboard />
-        </Layout>
-      </Layout>
+      <div className="contenContainer">
+        <h1 className="title-top">Projects</h1>
+        <div>
+          <Table
+            columns={columns}
+            dataSource={data.get_projects}
+            onChange={onChange}
+          />
+        </div>
+      </div>
     </div>
   );
 };

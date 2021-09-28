@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
 const DonateSchema = new mongoose.Schema({
   tree: {
@@ -15,7 +15,7 @@ const DonateSchema = new mongoose.Schema({
   },
   phone: {
     type: String,
-    required: false,
+    required: true,
   },
   user_message: {
     type: String,
@@ -35,11 +35,15 @@ const DonateSchema = new mongoose.Schema({
   },
   team: {
     type: String,
-    required: true,
+    required: false,
   },
   create_at: {
     type: Date,
     default: Date.now,
   },
+  isContact: {
+    type: Boolean,
+    default: false,
+  },
 });
-module.exports = mongoose.model("Donate", DonateSchema);
+module.exports = mongoose.model('Donate', DonateSchema);

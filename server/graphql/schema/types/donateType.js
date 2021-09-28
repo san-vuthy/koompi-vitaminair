@@ -1,4 +1,4 @@
-const graphql = require("graphql");
+const graphql = require('graphql');
 
 const {
   GraphQLObjectType,
@@ -9,7 +9,7 @@ const {
 } = graphql;
 
 const donateType = new GraphQLObjectType({
-  name: "donate",
+  name: 'donate',
   fields: () => ({
     id: { type: GraphQLID },
     tree: { type: GraphQLInt },
@@ -23,7 +23,9 @@ const donateType = new GraphQLObjectType({
     selectType: { type: GraphQLString },
     create_at: { type: GraphQLString },
     message: { type: GraphQLString },
+    success: { type: GraphQLInt },
     count: { type: GraphQLString },
+    isContact: { type: GraphQLBoolean },
   }),
 });
 
