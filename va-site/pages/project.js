@@ -1,46 +1,54 @@
-import React from "react";
-import { Row, Col, Image } from "antd";
-import { useQuery } from "@apollo/client";
-import { GET_PROJECTS } from "../graphql/query";
-import Output from "editorjs-react-renderer";
-import Footer from "../components/footer";
-import { NextSeo } from "next-seo";
-import images from "../components/data/gallery.json";
-import Link from "next/link";
-import Blog from "./blog/blog";
+import React from 'react';
+import { Row, Col, Image, Spin } from 'antd';
+import { useQuery } from '@apollo/client';
+import { GET_PROJECTS } from '../graphql/query';
+import Output from 'editorjs-react-renderer';
+import Footer from '../components/footer';
+import { NextSeo } from 'next-seo';
+import images from '../components/data/gallery.json';
+import Link from 'next/link';
+import Blog from './blog/blog';
+import { FlapperSpinner } from 'react-spinners-kit';
 
 function Project() {
   const { loading, data } = useQuery(GET_PROJECTS);
   // const { loading: loadingProject, data: dataProject } = useQuery(GET_PROJECT, {
   //   variables: { id },
   // });
-  if (loading) return null;
-
-  console.log("data", data);
+  if (loading)
+    return (
+      <center style={{ marginTop: '400px' }}>
+        <FlapperSpinner size={50} color="#00ff89" />
+      </center>
+    );
 
   return (
     <div className="background-body">
       <NextSeo
-        title="Vitaminair Project"
-        description="Reforestation | Natural Farming | Eco-adventure Tourism | Airto Water | Jiramera UAV Drone"
-        canonical="http://demo.vitaminair.org/projects"
+        title="Project - Vitaminair"
+        description="To take actions and show to people that we can work with nature and not against her, we bought 110 hectares of land in Kompong Seila surrounded by mountains and national forest, and started building the team to put our project development plan to work."
+        canonical="https://vitaminair.org/project"
         openGraph={{
           images: [
             {
-              url:
-                "https://backend.vitaminair.org/public/uploads/file-1d2a35e8-4414-4da2-bbc5-726fb7e91408.jpg",
+              url: '/project.png',
             },
           ],
+          url: 'https://vitaminair.org/about',
+          site_name: 'vitaminair',
+        }}
+        twitter={{
+          handle: '@handle',
+          site: '@site',
+          cardType: 'summary_large_image',
         }}
       />
+
       <div className="container">
-        {/* <center>
-          <h3 className="title-project-gallery">Our Gallery</h3>
-        </center> */}
         <br />
         <br />
         <div className="gallery-section">
-          <div style={{ position: "relative", width: "100%" }}>
+          <div style={{ position: 'relative', width: '100%' }}>
             <Image.PreviewGroup>
               <Row gutter={[12, 8]}>
                 {images.map((image, index) => {
@@ -81,13 +89,12 @@ function Project() {
 
         <div className="container-projects">
           <Row gutter={[24, 24]}>
-            {data.get_projects.map((res) => {
-              const { id } = res;
+            {data.get_projects.map((res, index) => {
               const result = <Output data={JSON.parse(res.des)} />;
               return (
                 <Col
-                  key={res.id}
-                  style={{ cursor: "pointer" }}
+                  key={index}
+                  style={{ cursor: 'pointer' }}
                   // onClick={async () => {
                   //   setModal1(true);
                   //   setTitle(title);
@@ -99,13 +106,13 @@ function Project() {
                   sm={24}
                   md={12}
                 >
-                  <Link href={`/project/${id}`}>
+                  <Link href={`/project/${res.slug}`}>
                     <a>
                       <div className="project-list">
                         {/* <img src={"http://localhost:3500/public/uploads/" + res.image} /> */}
                         <img
                           src={
-                            "https://backend.vitaminair.org/public/uploads/" +
+                            'https://backend.vitaminair.org/public/uploads/' +
                             res.image
                           }
                           alt="img"

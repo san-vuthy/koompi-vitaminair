@@ -1,12 +1,12 @@
-import { gql } from "@apollo/client"
+import { gql } from '@apollo/client';
 
 const DONATE_TREES = gql`
-  mutation(
+  mutation (
     $tree: Int!
-    $team: String!
+    $team: String
     $name: String!
     $email: String!
-    $phone: String
+    $phone: String!
     $user_message: String
     $selectType: String!
     $anonymous: Boolean
@@ -26,6 +26,6 @@ const DONATE_TREES = gql`
       message
     }
   }
-`
+`;
 
-export { DONATE_TREES }
+export { DONATE_TREES };
