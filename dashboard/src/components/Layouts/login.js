@@ -1,48 +1,48 @@
-import React, { useState } from "react";
-import { Input, Button, message, Form } from "antd";
-import { useMutation } from "@apollo/client";
-import Cookie from "js-cookie";
-import jwt from "jsonwebtoken";
-import { LOGIN } from "../../graphql/mutation";
+import React, { useState } from 'react';
+import { Input, Button, message, Form, Row, Col } from 'antd';
+import Cookie from 'js-cookie';
+import axios from 'axios';
+import MyGoogleLogin from './google-login';
+import MyFacebookLogin from './facebook-login';
+
 const Login = () => {
   const [loading, setLoading] = useState(false);
-  const [login] = useMutation(LOGIN);
 
-  const onFinish = (values) => {
-    console.log(values);
-    login({
-      variables: {
-        ...values,
-      },
-    }).then(async (res) => {
-      // localStorage.setItem("vatoken", res.data.login.token);
-      // const decoded = jwt.decode(res.data.login.token);
-      // localStorage.setItem("id", res.data.login.id);
-      Cookie.set("vatoken", res.data.login.token, { expires: 1 });
-      const token = Cookie.get("vatoken");
-      const decoded = jwt.decode(token);
-
-      if (decoded) {
+  const onFinish = async (values) => {
+    axios
+      .post(
+        `https://accounts.koompi.com/login`,
+        { ...values },
+        { withCredentials: true }
+      )
+      .then(async (res) => {
         setLoading(true);
-        await message.success(res.data.login.message);
-        setLoading(false);
-        window.location.replace("/");
-      } else {
-        await message.error("your email or password incorrect!");
-      }
-    });
+        const { access_token, refresh_token, role } = res.data;
+        if (role === 'admin') {
+          Cookie.set('access_token', access_token, { expires: 15 * 60 * 1000 }); // a_token expired 15mn
+          Cookie.set('refresh_token', refresh_token, { expires: 7 }); // r_token expired 7days
+          await message.success(res.data.message);
+          setLoading(false);
+          window.location.replace('/');
+        } else {
+          setLoading(false);
+          message.error('Authorization failed, access denied');
+        }
+      })
+      .catch((error, res) => {
+        console.log('res', error);
+        message.error('Invalid Credentials!');
+      });
   };
+
   return (
     <div>
-      {/* <img className="cloud" src={cloud2} alt="cloud" />
-      <img className="cloud2" src={cloud2} alt="cloud" />
-      <img className="cloud3" src={cloud2} alt="cloud" /> */}
       <div className="loginContainer">
         <div className="background_image">
-          <h2 className="position_login">Login to admin account</h2>
+          <h2 className="position_login">Login as Admin</h2>
         </div>
         <Form
-          style={{ background: "#43c07924" }}
+          style={{ background: '#43c07924' }}
           onFinish={onFinish}
           initialValues={{ remember: true }}
           className="login-form"
@@ -54,16 +54,16 @@ const Login = () => {
             name="email"
             rules={[
               {
-                type: "email",
-                message: "ការបញ្ចូលមិនមានអ៊ីមែលត្រឹមត្រូវ",
+                type: 'email',
+                message: 'ការបញ្ចូលមិនមានអ៊ីមែលត្រឹមត្រូវ',
               },
               {
                 required: true,
-                message: "Please input your Email",
+                message: 'Please input your Email',
               },
             ]}
           >
-            <Input placeholder="Email" type="email" className="login-input" />
+            <Input type="email" className="login-input" />
           </Form.Item>
 
           {/* =================== Password ================= */}
@@ -73,15 +73,11 @@ const Login = () => {
             rules={[
               {
                 required: true,
-                message: "Please input your Password",
+                message: 'Please input your Password',
               },
             ]}
           >
-            <Input.Password
-              placeholder="Password"
-              type="password"
-              className="login-input"
-            />
+            <Input.Password type="password" className="login-input" />
           </Form.Item>
 
           {/* =================== Remember and Forgot password ================= */}
@@ -97,19 +93,29 @@ const Login = () => {
           </Form.Item> */}
 
           {/* =================== Button Submit ================= */}
-          <center>
-            <Form.Item>
-              <Button
-                type="primary"
-                htmlType="submit"
-                className="login-form-button"
-                disabled={loading ? true : false}
-                loading={loading ? true : false}
-              >
-                Login
-              </Button>
-            </Form.Item>
-          </center>
+          <Form.Item>
+            <Button
+              type="primary"
+              htmlType="submit"
+              className="login-form-button"
+              disabled={loading ? true : false}
+              loading={loading ? true : false}
+            >
+              Login
+            </Button>
+          </Form.Item>
+
+          <p>Or login with: </p>
+          <Row gutter={[12, 12]}>
+            <Col span={12}>
+              <div className="login-with-google">
+                <MyGoogleLogin />
+              </div>
+            </Col>
+            <Col span={12}>
+              <MyFacebookLogin />
+            </Col>
+          </Row>
         </Form>
       </div>
       <div className="big-banner"></div>

@@ -1,16 +1,16 @@
-import React, { useState } from "react";
-import { Layout, Menu } from "antd";
+import React, { useState } from 'react';
+import { Layout, Menu } from 'antd';
 
-import { BsGrid, BsGift } from "react-icons/bs";
-import { Link } from "react-router-dom";
-import logo from "../../assets/logo/vitaminair.png";
+import { BsGrid, BsGift } from 'react-icons/bs';
+import { Link } from 'react-router-dom';
+import logo from '../../assets/logo/vitaminair.png';
 import {
   TeamOutlined,
   FolderViewOutlined,
   ApartmentOutlined,
   FileSearchOutlined,
   FolderOutlined,
-} from "@ant-design/icons";
+} from '@ant-design/icons';
 const { Sider } = Layout;
 const { SubMenu } = Menu;
 const LeftNavbar = () => {
@@ -31,7 +31,7 @@ const LeftNavbar = () => {
           <Link to="/">
             <center>
               <img
-                style={{ maxWidth: "80%", padding: "8px" }}
+                style={{ maxWidth: '60%', padding: '8px' }}
                 src={logo}
                 alt="img"
               />
@@ -55,11 +55,11 @@ const LeftNavbar = () => {
           </Menu.Item>
           <SubMenu
             key={
-              pathname === "/admin/initations"
-                ? "/admin/initations"
-                : "/admin/addinitation"
-                ? "/admin/addinitation"
-                : ""
+              pathname === '/admin/initations'
+                ? '/admin/initations'
+                : '/admin/addinitation'
+                ? '/admin/addinitation'
+                : ''
             }
             icon={<ApartmentOutlined />}
             title="Initiations"
@@ -75,11 +75,11 @@ const LeftNavbar = () => {
           </SubMenu>
           <SubMenu
             key={
-              pathname === "/admin/members"
-                ? "/admin/members"
-                : "/admin/addmember"
-                ? "/admin/addmember"
-                : ""
+              pathname === '/admin/members'
+                ? '/admin/members'
+                : '/admin/addmember'
+                ? '/admin/addmember'
+                : ''
             }
             icon={<TeamOutlined />}
             title="Team"
@@ -95,11 +95,11 @@ const LeftNavbar = () => {
           </SubMenu>
           <SubMenu
             key={
-              pathname === "/admin/abouts"
-                ? "/admin/abouts"
-                : "/admin/addabout"
-                ? "/admin/addabout"
-                : ""
+              pathname === '/admin/abouts'
+                ? '/admin/abouts'
+                : '/admin/addabout'
+                ? '/admin/addabout'
+                : ''
             }
             icon={<FileSearchOutlined />}
             title="About"
@@ -115,11 +115,11 @@ const LeftNavbar = () => {
           </SubMenu>
           <SubMenu
             key={
-              pathname === "/admin/projects"
-                ? "/admin/projects"
-                : "/admin/addproject"
-                ? "/admin/addproject"
-                : ""
+              pathname === '/admin/projects'
+                ? '/admin/projects'
+                : '/admin/addproject'
+                ? '/admin/addproject'
+                : ''
             }
             icon={<FolderViewOutlined />}
             title="Project"
@@ -135,11 +135,11 @@ const LeftNavbar = () => {
           </SubMenu>
           <SubMenu
             key={
-              pathname === "/admin/blogs"
-                ? "/admin/blogs"
-                : "/admin/addblog"
-                ? "/admin/addblog"
-                : ""
+              pathname === '/admin/blogs'
+                ? '/admin/blogs'
+                : '/admin/addblog'
+                ? '/admin/addblog'
+                : ''
             }
             icon={<FolderOutlined />}
             title="Blog"

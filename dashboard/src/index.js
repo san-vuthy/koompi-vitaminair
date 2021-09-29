@@ -1,14 +1,14 @@
-import React from "react";
-import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
-import ReactDOM from "react-dom";
-import "./index.css";
-import App from "./App";
+import React from 'react';
+import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
+import ReactDOM from 'react-dom';
+import './index.css';
+import App from './App';
 
-import reportWebVitals from "./reportWebVitals";
+import reportWebVitals from './reportWebVitals';
 
 const admin = new ApolloClient({
-  uri: "https://backend.vitaminair.org/admin",
-  // uri: "https://backend.vitaminair.org/admin",
+  uri: 'https://backend.vitaminair.org/admin',
+  // uri: 'http://localhost:3600/admin',
   cache: new InMemoryCache(),
 });
 
@@ -18,7 +18,7 @@ ReactDOM.render(
       <App />
     </ApolloProvider>
   </React.StrictMode>,
-  document.getElementById("root")
+  document.getElementById('root')
 );
 
 // If you want to start measuring performance in your app, pass a function

@@ -5,13 +5,14 @@
 // };
 
 // export default Logout;
-import { useEffect } from "react";
-import Cookie from "js-cookie";
+import { useEffect } from 'react';
+import Cookie from 'js-cookie';
 
 const Logout = () => {
   useEffect(() => {
-    Cookie.remove("vatoken");
-    window.location.replace("/login");
+    Cookie.remove('access_token');
+    Cookie.remove('refresh_token');
+    window.location.replace('/login');
   });
   return null;
 };

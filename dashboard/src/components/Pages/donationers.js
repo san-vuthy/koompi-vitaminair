@@ -1,54 +1,112 @@
-import React from "react";
-import moment from "moment";
-import { Layout, Spin, Table, Tag, message, Popconfirm } from "antd";
-import { BsTrash } from "react-icons/bs";
-import LeftNavbar from "../Layouts/leftNavbar";
-import TopNavbar from "../Layouts/topNavbar";
-import { useQuery, useMutation } from "@apollo/client";
-import { GET_DONATIONS } from "../../graphql/query";
-import { DELETE_DONATIONER } from "../../graphql/mutation";
-import FooterDashboard from "../Layouts/footer";
+import React from 'react';
+import moment from 'moment';
+import { Spin, Table, Tag, message, Popconfirm } from 'antd';
+import { BsTrash } from 'react-icons/bs';
+import { useQuery, useMutation } from '@apollo/client';
+import { GET_DONATIONS } from '../../graphql/query';
+import { DELETE_DONATIONER, UPDATE_CONTACT } from '../../graphql/mutation';
 
-const { Content } = Layout;
 const Donationers = () => {
   const { loading, data, refetch } = useQuery(GET_DONATIONS);
   const [delete_donationer] = useMutation(DELETE_DONATIONER);
-  if (loading)
+  const [updateContact] = useMutation(UPDATE_CONTACT);
+  if (loading || !data) {
     return (
-      <center style={{ marginTop: "100px" }}>
-        <Spin style={{ color: "red !important" }} size="large" />
+      <center style={{ marginTop: '100px' }}>
+        <Spin tip="Loading ..." />
       </center>
     );
+  }
+
   const columns = [
     {
-      title: "Name",
-      dataIndex: "name",
-    },
-    {
-      title: "Phone Number",
-      dataIndex: "phone",
-    },
-    {
-      title: "Email",
-      dataIndex: "email",
-    },
-    {
-      title: "Trees",
-      key: "tree",
-      dataIndex: "tree",
-      sorter: (a, b) => a.tree - b.tree,
-    },
-    {
-      title: "Donate Date",
-      dataIndex: "create_at",
-      render: (create_at) => {
-        return moment.unix(create_at / 1000).format(" Do YYYY, h:mm:ss A");
+      title: 'No',
+      dataIndex: 'no',
+      render: (text, record, index) => {
+        return index + 1;
       },
     },
     {
-      title: "Action",
-      dataIndex: "action",
-      key: "action",
+      title: 'Name',
+      dataIndex: 'name',
+    },
+    {
+      title: 'Phone Number',
+      dataIndex: 'phone',
+      render: (phone) => {
+        if (!phone) {
+          return 'N/A';
+        }
+        return phone;
+      },
+    },
+    {
+      title: 'Email',
+      dataIndex: 'email',
+    },
+    {
+      title: 'Trees',
+      key: 'tree',
+      dataIndex: 'tree',
+    },
+    {
+      title: 'Donate for',
+      key: 'donate-for',
+      dataIndex: 'selectType',
+    },
+    {
+      title: 'Contact',
+      key: 'isContact',
+      dataIndex: 'isContact',
+      render: (record, data) => {
+        return record ? (
+          <span
+            className="is-contact yes"
+            onClick={() =>
+              updateContact({
+                variables: {
+                  id: data.id,
+                  isContact: false,
+                },
+              }).then((res) => {
+                message.success(res.data.updateContact.message);
+                refetch();
+              })
+            }
+          >
+            Done
+          </span>
+        ) : (
+          <span
+            className="is-contact no"
+            onClick={() =>
+              updateContact({
+                variables: {
+                  id: data.id,
+                  isContact: true,
+                },
+              }).then((res) => {
+                message.success(res.data.updateContact.message);
+                refetch();
+              })
+            }
+          >
+            Not Yet
+          </span>
+        );
+      },
+    },
+    {
+      title: 'Donated Date',
+      dataIndex: 'create_at',
+      render: (create_at) => {
+        return moment.unix(create_at / 1000).format('Do MMM YYYY');
+      },
+    },
+    {
+      title: 'Action',
+      dataIndex: 'action',
+      key: 'action',
       render: (index, data) => {
         const { id } = data;
         // console.log("id", id);
@@ -56,7 +114,7 @@ const Donationers = () => {
           <div>
             {/* <Divider type="vertical" /> */}
             <Popconfirm
-              placement="topRight"
+              placement="top"
               title="Are you sure to delete?"
               okText="Yes"
               cancelText="No"
@@ -77,7 +135,7 @@ const Donationers = () => {
                 <BsTrash
                   color="#ff5858"
                   size="20px"
-                  style={{ marginTop: "6px" }}
+                  style={{ marginTop: '6px' }}
                 />
               </Tag>
               {/* <div className="delete-button">
@@ -96,30 +154,21 @@ const Donationers = () => {
     },
   ];
 
-  function onChange(pagination, filters, sorter, extra) {
-    console.log("params", pagination, filters, sorter, extra);
-  }
+  // function onChange(pagination, filters, sorter, extra) {
+  //   console.log('params', pagination, filters, sorter, extra);
+  // }
   return (
     <div>
-      <Layout style={{ minHeight: "100vh" }}>
-        <LeftNavbar />
-        <Layout className="site-layout">
-          <TopNavbar />
-          <Content style={{ backgroundColor: "#fff" }}>
-            <div className="contenContainer">
-              <h1 className="title-top">Contributors</h1>
-              <div>
-                <Table
-                  columns={columns}
-                  dataSource={data.get_donations}
-                  onChange={onChange}
-                />
-              </div>
-            </div>
-          </Content>
-          <FooterDashboard />
-        </Layout>
-      </Layout>
+      <div className="contenContainer">
+        <h1 className="title-top">Contributors</h1>
+        <div>
+          <Table
+            columns={columns}
+            dataSource={data.get_donations}
+            // onChange={onChange}
+          />
+        </div>
+      </div>
     </div>
   );
 };

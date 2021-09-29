@@ -1,14 +1,14 @@
-import { gql } from "@apollo/client";
+import { gql } from '@apollo/client';
 
 const DELETE_DONATIONER = gql`
-  mutation($id: ID!) {
+  mutation ($id: ID!) {
     delete_donationer(id: $id) {
       message
     }
   }
 `;
 const LOGIN = gql`
-  mutation($email: String!, $password: String!) {
+  mutation ($email: String!, $password: String!) {
     login(email: $email, password: $password) {
       token
       message
@@ -16,21 +16,21 @@ const LOGIN = gql`
   }
 `;
 const ADD_INITATION = gql`
-  mutation($title: String!, $des: String!, $image: String!) {
+  mutation ($title: String!, $des: String!, $image: String!) {
     add_initation(title: $title, des: $des, image: $image) {
       message
     }
   }
 `;
 const DELETE_INITATION = gql`
-  mutation($id: ID!) {
+  mutation ($id: ID!) {
     delete_initation(id: $id) {
       message
     }
   }
 `;
 const EDIT_INITATION = gql`
-  mutation($id: ID!, $title: String!, $des: String!, $image: String!) {
+  mutation ($id: ID!, $title: String!, $des: String!, $image: String!) {
     edit_initation(id: $id, title: $title, des: $des, image: $image) {
       message
     }
@@ -38,21 +38,21 @@ const EDIT_INITATION = gql`
 `;
 //============member=========
 const ADD_MEMBER = gql`
-  mutation($name: String!, $position: String!, $image: String!) {
+  mutation ($name: String!, $position: String!, $image: String!) {
     add_member(name: $name, position: $position, image: $image) {
       message
     }
   }
 `;
 const DELETE_MEMBER = gql`
-  mutation($id: ID!) {
+  mutation ($id: ID!) {
     delete_member(id: $id) {
       message
     }
   }
 `;
 const EDIT_MEMBER = gql`
-  mutation($id: ID!, $name: String!, $position: String!, $image: String!) {
+  mutation ($id: ID!, $name: String!, $position: String!, $image: String!) {
     edit_member(id: $id, name: $name, position: $position, image: $image) {
       message
     }
@@ -60,21 +60,21 @@ const EDIT_MEMBER = gql`
 `;
 //===========About========
 const ADD_ABOUT = gql`
-  mutation($title: String!, $des: String!) {
+  mutation ($title: String!, $des: String!) {
     add_about(title: $title, des: $des) {
       message
     }
   }
 `;
 const EDIT_ABOUT = gql`
-  mutation($id: ID!, $title: String!, $des: String!) {
+  mutation ($id: ID!, $title: String!, $des: String!) {
     edit_about(id: $id, title: $title, des: $des) {
       message
     }
   }
 `;
 const DELETE_ABOUT = gql`
-  mutation($id: ID!) {
+  mutation ($id: ID!) {
     delete_about(id: $id) {
       message
     }
@@ -82,43 +82,52 @@ const DELETE_ABOUT = gql`
 `;
 //==========Project=========
 const ADD_PROJECT = gql`
-  mutation($title: String!, $des: String!, $image: String!) {
+  mutation ($title: String!, $des: String!, $image: String!) {
     add_project(title: $title, des: $des, image: $image) {
       message
     }
   }
 `;
 const EDIT_PROJECT = gql`
-  mutation($id: ID!, $title: String!, $des: String!, $image: String!) {
+  mutation ($id: ID!, $title: String!, $des: String!, $image: String!) {
     edit_project(id: $id, title: $title, des: $des, image: $image) {
       message
     }
   }
 `;
 const DELETE_PROJECT = gql`
-  mutation($id: ID!) {
+  mutation ($id: ID!) {
     delete_project(id: $id) {
       message
     }
   }
 `;
 const ADD_BLOG = gql`
-  mutation($title: String!, $des: String!, $image: String!) {
+  mutation ($title: String!, $des: String!, $image: String!) {
     add_blog(title: $title, des: $des, image: $image) {
       message
     }
   }
 `;
 const DELETE_BLOG = gql`
-  mutation($id: ID!) {
+  mutation ($id: ID!) {
     delete_blog(id: $id) {
       message
     }
   }
 `;
 const EDIT_BLOG = gql`
-  mutation($id: ID!, $title: String!, $des: String!, $image: String!) {
+  mutation ($id: ID!, $title: String!, $des: String!, $image: String!) {
     edit_blog(id: $id, title: $title, des: $des, image: $image) {
+      message
+    }
+  }
+`;
+
+const UPDATE_CONTACT = gql`
+  mutation ($id: ID!, $isContact: Boolean!) {
+    updateContact(id: $id, isContact: $isContact) {
+      success
       message
     }
   }
@@ -141,4 +150,5 @@ export {
   ADD_PROJECT,
   EDIT_PROJECT,
   DELETE_PROJECT,
+  UPDATE_CONTACT,
 };

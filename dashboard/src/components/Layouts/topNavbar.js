@@ -1,9 +1,9 @@
-import React from "react";
+import React from 'react';
 
-import { HiOutlineCog, HiQuestionMarkCircle, HiLogout } from "react-icons/hi";
-import { Layout, Avatar, Popover, Row, Col } from "antd";
-import { Link } from "react-router-dom";
-import avatar from "../../assets/undraw_male_avatar_323b.png";
+import { HiOutlineCog, HiQuestionMarkCircle, HiLogout } from 'react-icons/hi';
+import { Layout, Avatar, Popover, Row, Col } from 'antd';
+import { Link } from 'react-router-dom';
+import avatar from '../../assets/undraw_male_avatar_323b.png';
 
 // import { useQuery } from "@apollo/client";
 // import { GET_USER } from "../../graphql/query";
@@ -23,16 +23,12 @@ const TopNavbar = () => {
   // }
   return (
     <React.Fragment>
-      <Header
-        style={{
-          backgroundColor: "rgb(215, 236, 223)",
-        }}
-      >
+      <Header>
         <Popover
           placement="bottomRight"
           title={null}
           content={
-            <div style={{ width: "270px" }}>
+            <div style={{ width: '270px' }}>
               <Row gutter={[24, 24]}>
                 <Col span={4}>
                   {/* <img
@@ -59,30 +55,30 @@ const TopNavbar = () => {
               </Row>
               <div className="user-bottom-border"></div>
               <Row className="accountNavbarhover">
-                <Col style={{ paddingTop: "4px" }} span={4}>
-                  <HiOutlineCog style={{ fontSize: "21px" }} />
+                <Col style={{ paddingTop: '4px' }} span={4}>
+                  <HiOutlineCog style={{ fontSize: '21px' }} />
                 </Col>
 
-                <Col style={{ paddingTop: "4px" }} span={20}>
+                <Col style={{ paddingTop: '4px' }} span={20}>
                   Setting
                 </Col>
               </Row>
               <Row className="accountNavbarhover">
-                <Col style={{ paddingTop: "4px" }} span={4}>
-                  <HiQuestionMarkCircle style={{ fontSize: "21px" }} />
+                <Col style={{ paddingTop: '4px' }} span={4}>
+                  <HiQuestionMarkCircle style={{ fontSize: '21px' }} />
                 </Col>
-                <Col style={{ paddingTop: "4px" }} span={20}>
+                <Col style={{ paddingTop: '4px' }} span={20}>
                   Help
                 </Col>
               </Row>
               <Link to="/logout">
                 <Row className="accountNavbarhover">
-                  <Col style={{ paddingTop: "4px" }} span={4}>
-                    <HiLogout style={{ fontSize: "21px" }} />
+                  <Col style={{ paddingTop: '4px' }} span={4}>
+                    <HiLogout style={{ fontSize: '21px' }} />
                   </Col>
                   <Col
                     className="logout"
-                    style={{ paddingTop: "4px" }}
+                    style={{ paddingTop: '4px' }}
                     span={20}
                   >
                     Logout
