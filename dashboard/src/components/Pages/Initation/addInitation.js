@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Col, Row, Layout, Form, Button, Input, Upload, message } from 'antd';
+import { Col, Row, Form, Button, Input, Upload, message } from 'antd';
 import EditorJs from 'react-editor-js';
 import { EDITOR_JS_TOOLS } from '../../Layouts/tool';
 import { useMutation, useQuery } from '@apollo/client';

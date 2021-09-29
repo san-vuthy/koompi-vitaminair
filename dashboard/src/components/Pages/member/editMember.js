@@ -1,15 +1,5 @@
 import React, { useState } from 'react';
-import {
-  Col,
-  Row,
-  Layout,
-  Form,
-  Button,
-  Input,
-  Upload,
-  message,
-  Spin,
-} from 'antd';
+import { Col, Row, Form, Button, Input, Upload, message, Spin } from 'antd';
 import { useMutation, useQuery } from '@apollo/client';
 import { EDIT_MEMBER } from '../../../graphql/mutation';
 import { GET_MEMBER } from '../../../graphql/query';

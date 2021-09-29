@@ -29,7 +29,7 @@ const RootMutation = new GraphQLObjectType({
         tree: { type: GraphQLNonNull(GraphQLInt) },
         name: { type: GraphQLNonNull(GraphQLString) },
         email: { type: GraphQLNonNull(GraphQLString) },
-        phone: { type: GraphQLNonNull(GraphQLString) },
+        phone: { type: GraphQLString },
         user_message: { type: GraphQLString },
         selectType: { type: GraphQLNonNull(GraphQLString) },
         team: { type: GraphQLString },

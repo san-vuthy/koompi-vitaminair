@@ -342,3 +342,15 @@ ant-btn:hover,
 .is-contact.no {
   background-color: #f15a5a;
 }
+.login-with-facebook {
+  background-color: #fff;
+  width: 100%;
+  padding: 10px;
+  border: 0px;
+  font-weight: bold;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.login-with-facebook img {
+  margin-right: 20px;
+}

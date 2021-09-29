@@ -15,7 +15,6 @@ const DonateSchema = new mongoose.Schema({
   },
   phone: {
     type: String,
-    required: true,
   },
   user_message: {
     type: String,
@@ -35,7 +34,6 @@ const DonateSchema = new mongoose.Schema({
   },
   team: {
     type: String,
-    required: false,
   },
   create_at: {
     type: Date,

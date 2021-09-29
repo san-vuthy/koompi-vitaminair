@@ -1,15 +1,11 @@
 import React from 'react';
 import moment from 'moment';
-import { Layout, Spin, Table, Tag, message, Popconfirm } from 'antd';
+import { Spin, Table, Tag, message, Popconfirm } from 'antd';
 import { BsTrash } from 'react-icons/bs';
-import LeftNavbar from '../Layouts/leftNavbar';
-import TopNavbar from '../Layouts/topNavbar';
 import { useQuery, useMutation } from '@apollo/client';
 import { GET_DONATIONS } from '../../graphql/query';
 import { DELETE_DONATIONER, UPDATE_CONTACT } from '../../graphql/mutation';
-import FooterDashboard from '../Layouts/footer';
 
-const { Content } = Layout;
 const Donationers = () => {
   const { loading, data, refetch } = useQuery(GET_DONATIONS);
   const [delete_donationer] = useMutation(DELETE_DONATIONER);

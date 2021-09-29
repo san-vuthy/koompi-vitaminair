@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
 const Project = new mongoose.Schema({
   title: {
@@ -13,9 +13,14 @@ const Project = new mongoose.Schema({
     type: String,
     required: true,
   },
+  slug: {
+    type: String,
+    require: true,
+    unique: true,
+  },
   create_at: {
     type: Date,
     default: Date.now,
   },
 });
-module.exports = mongoose.model("Project", Project);
+module.exports = mongoose.model('Project', Project);

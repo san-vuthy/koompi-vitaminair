@@ -32,7 +32,6 @@ const AdminQuery = new GraphQLObjectType({
       resolve: async (parent, args) => {
         try {
           const donate = await Donate.find().countDocuments();
-          console.log(donate);
           return donate.valueOf(donate);
         } catch (error) {
           console.log(error);

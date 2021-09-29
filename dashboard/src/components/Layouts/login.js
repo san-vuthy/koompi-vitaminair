@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { Input, Button, message, Form } from 'antd';
-import { useMutation } from '@apollo/client';
+import { Input, Button, message, Form, Row, Col } from 'antd';
 import Cookie from 'js-cookie';
-import { LOGIN } from '../../graphql/mutation';
 import axios from 'axios';
+import MyGoogleLogin from './google-login';
+import MyFacebookLogin from './facebook-login';
 
 const Login = () => {
   const [loading, setLoading] = useState(false);
@@ -63,7 +63,7 @@ const Login = () => {
               },
             ]}
           >
-            <Input placeholder="Email" type="email" className="login-input" />
+            <Input type="email" className="login-input" />
           </Form.Item>
 
           {/* =================== Password ================= */}
@@ -77,11 +77,7 @@ const Login = () => {
               },
             ]}
           >
-            <Input.Password
-              placeholder="Password"
-              type="password"
-              className="login-input"
-            />
+            <Input.Password type="password" className="login-input" />
           </Form.Item>
 
           {/* =================== Remember and Forgot password ================= */}
@@ -108,6 +104,18 @@ const Login = () => {
               Login
             </Button>
           </Form.Item>
+
+          <p>Or login with: </p>
+          <Row gutter={[12, 12]}>
+            <Col span={12}>
+              <div className="login-with-google">
+                <MyGoogleLogin />
+              </div>
+            </Col>
+            <Col span={12}>
+              <MyFacebookLogin />
+            </Col>
+          </Row>
         </Form>
       </div>
       <div className="big-banner"></div>

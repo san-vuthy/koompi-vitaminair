@@ -1,16 +1,12 @@
 import React, { useState } from 'react';
-import { Col, Row, Layout, Form, Button, Input, Upload, message } from 'antd';
-import TopNavbar from '../../Layouts/topNavbar';
-import LeftNavbar from '../../Layouts/leftNavbar';
+import { Col, Row, Form, Button, Input, Upload, message } from 'antd';
 import { useMutation, useQuery } from '@apollo/client';
 import { ADD_PROJECT } from '../../../graphql/mutation';
 import { GET_PROJECTS } from '../../../graphql/query';
 import addFile from '../../../assets/undraw_Add_files_re_v09g.png';
-import FooterDashboard from '../../Layouts/footer';
 import EditorJs from 'react-editor-js';
 import { EDITOR_JS_TOOLS } from '../../Layouts/tool';
 
-const { Content } = Layout;
 const AddProject = () => {
   const [form] = Form.useForm();
   const instanceRef = React.useRef(null);

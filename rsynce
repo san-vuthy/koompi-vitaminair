@@ -1,0 +1,4 @@
+rsync -av * vuthysan@192.168.1.38:/kmp/www/vitaminair-business/demo.vitaminair.org/dashboard/public
+
+rsync -av * --exclude "node_modules"  vuthysan@192.168.1.38:/kmp/www/vitaminair-business/demo.vitaminair.org/server
+rsync -av * --exclude "node_modules"  vuthysan@192.168.1.38:/kmp/www/vitaminair-business/demo.vitaminair.org/client

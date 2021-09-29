@@ -1,14 +1,10 @@
 import React, { useState } from 'react';
-import { Col, Row, Layout, Form, Button, Input, Upload, message } from 'antd';
-import TopNavbar from '../../Layouts/topNavbar';
-import LeftNavbar from '../../Layouts/leftNavbar';
+import { Col, Row, Form, Button, Input, Upload, message } from 'antd';
 import { useMutation, useQuery } from '@apollo/client';
 import { ADD_MEMBER } from '../../../graphql/mutation';
 import { GET_MEMBERS } from '../../../graphql/query';
 import addFile from '../../../assets/undraw_Add_files_re_v09g.png';
-import FooterDashboard from '../../Layouts/footer';
 
-const { Content } = Layout;
 const AddMember = () => {
   const [form] = Form.useForm();
   const [state, setState] = useState({

@@ -1,17 +1,13 @@
 import React from 'react';
 import moment from 'moment';
-import { Layout, Table, Tag, Divider, message, Popconfirm } from 'antd';
+import { Table, Tag, Divider, message, Popconfirm } from 'antd';
 import { Link } from 'react-router-dom';
 import { BsTrash, BsPencil } from 'react-icons/bs';
-import LeftNavbar from '../../Layouts/leftNavbar';
-import TopNavbar from '../../Layouts/topNavbar';
 import { useQuery, useMutation } from '@apollo/client';
 import { GET_ABOUTS } from '../../../graphql/query';
 import { DELETE_ABOUT } from '../../../graphql/mutation';
-import FooterDashboard from '../../Layouts/footer';
 import Output from 'editorjs-react-renderer';
 
-const { Content } = Layout;
 const AllAbout = () => {
   const { loading, data, refetch } = useQuery(GET_ABOUTS);
   const [delete_about] = useMutation(DELETE_ABOUT);

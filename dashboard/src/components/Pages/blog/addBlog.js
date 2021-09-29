@@ -1,16 +1,12 @@
 import React, { useState } from 'react';
-import { Col, Row, Layout, Form, Button, Input, Upload, message } from 'antd';
+import { Col, Row, Form, Button, Input, Upload, message } from 'antd';
 import EditorJs from 'react-editor-js';
 import { EDITOR_JS_TOOLS } from '../../Layouts/tool';
-import TopNavbar from '../../Layouts/topNavbar';
-import LeftNavbar from '../../Layouts/leftNavbar';
 import { useMutation, useQuery } from '@apollo/client';
 import { ADD_BLOG } from '../../../graphql/mutation';
 import { GET_BLOGS } from '../../../graphql/query';
 import addFile from '../../../assets/undraw_Add_files_re_v09g.png';
-import Footer from '../../Layouts/footer';
 
-const { Content } = Layout;
 const AddBlog = () => {
   const instanceRef = React.useRef(null);
   const [form] = Form.useForm();

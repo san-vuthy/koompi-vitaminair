@@ -1,16 +1,12 @@
 import React, { useState } from 'react';
-import { Layout, Form, Button, Input, message } from 'antd';
-import TopNavbar from '../../Layouts/topNavbar';
-import LeftNavbar from '../../Layouts/leftNavbar';
+import { Form, Button, Input, message } from 'antd';
 import { useMutation, useQuery } from '@apollo/client';
 import { EDIT_ABOUT } from '../../../graphql/mutation';
 import { GET_ABOUT } from '../../../graphql/query';
 import { useParams } from 'react-router-dom';
-import FooterDashboard from '../../Layouts/footer';
 import { EDITOR_JS_TOOLS } from '../../Layouts/tool';
 import EditorJs from 'react-editor-js';
 
-const { Content } = Layout;
 const EditAbout = ({ history }) => {
   const instanceRef = React.useRef(null);
   const { id } = useParams();
