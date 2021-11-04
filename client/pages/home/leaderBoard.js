@@ -1,21 +1,24 @@
 // import React from 'react'
-import { Row, Col, Input, Button } from 'antd';
-import { FaSearch } from 'react-icons/fa';
-import { useQuery } from '@apollo/client';
-import { GET_DONATIONS, GET_MOST_DONATIONS } from '../../graphql/query';
-import moment from 'moment';
-import { useState } from 'react';
+import { Row, Col, Input, Button } from "antd";
+import { FaSearch } from "react-icons/fa";
+import { useQuery } from "@apollo/client";
+import {
+  GET_DONATIONS_PAYED,
+  GET_MOST_DONATIONS_PAYED,
+} from "../../graphql/query";
+import moment from "moment";
+import { useState } from "react";
 function Leaderboard() {
-  const [value, setValue] = useState('recent');
-  const [search, setSearch] = useState('');
+  const [value, setValue] = useState("recent");
+  const [search, setSearch] = useState("");
 
   //=====get Data==========
-  const { loading, data: donateData, error } = useQuery(GET_DONATIONS);
+  const { loading, data: donateData, error } = useQuery(GET_DONATIONS_PAYED);
   const {
     loading: lodingMostDonate,
     data: mostDonateData,
     error: errorMostDonate,
-  } = useQuery(GET_MOST_DONATIONS);
+  } = useQuery(GET_MOST_DONATIONS_PAYED);
 
   if (loading || lodingMostDonate) return null;
 
@@ -23,37 +26,37 @@ function Leaderboard() {
 
   // console.log(donateData);
   const active = (e) => {
-    const recents = document.getElementById('most-recents');
-    const trees = document.getElementById('most-trees');
-    if (e.target.id === 'most-recents') {
-      trees.className = 'clicked';
-      recents.className = '';
+    const recents = document.getElementById("most-recents");
+    const trees = document.getElementById("most-trees");
+    if (e.target.id === "most-recents") {
+      trees.className = "clicked";
+      recents.className = "";
       recents.style.zIndex = 2;
       trees.style.zIndex = 1;
-      setValue('recent');
-    } else if (e.target.id === 'most-trees') {
-      recents.className = 'clicked';
-      trees.className = '';
+      setValue("recent");
+    } else if (e.target.id === "most-trees") {
+      recents.className = "clicked";
+      trees.className = "";
       trees.style.zIndex = 2;
       recents.style.zIndex = 1;
-      setValue('most');
+      setValue("most");
     }
   };
   const handleSearch = (e) => {
     setSearch(e.target.value);
   };
   const results = !search
-    ? donateData.get_donations
-    : donateData.get_donations.filter((data) =>
+    ? donateData.get_donations_payed
+    : donateData.get_donations_payed.filter((data) =>
         data.name.toLowerCase().includes(search.toLocaleLowerCase())
       );
   const resultsThemost = !search
-    ? mostDonateData.get_most_trees
-    : mostDonateData.get_most_trees.filter((data) =>
+    ? mostDonateData.get_most_trees_payed
+    : mostDonateData.get_most_trees_payed.filter((data) =>
         data.name.toLowerCase().includes(search.toLocaleLowerCase())
       );
   return (
-    <div style={{ marginTop: '100px' }}>
+    <div style={{ marginTop: "100px" }}>
       <div className="container">
         <h1>LEADERBOARD</h1>
         <Row align="middle" justify="center">
@@ -82,7 +85,7 @@ function Leaderboard() {
           </Col>
         </Row>
         <br />
-        {value === 'recent' ? (
+        {value === "recent" ? (
           <div className="container user-list">
             {results.map((res, index) => {
               const { tree, name, anonymous, create_at, user_message } = res;
@@ -97,7 +100,7 @@ function Leaderboard() {
                     />
                     <div className="leader-title">
                       <p className="list-title">
-                        {anonymous === false ? name : 'Anonymous'}
+                        {anonymous === false ? name : "Anonymous"}
                       </p>
                       <p className="list-message">{user_message}</p>
                     </div>
@@ -110,7 +113,7 @@ function Leaderboard() {
                         <spin className="badge">{tree} trees</spin>
                       )}
                       <div className="leader-date">
-                        {moment.unix(create_at / 1000).format('Do MMMM YYYY')}
+                        {moment.unix(create_at / 1000).format("Do MMMM YYYY")}
                       </div>
                     </div>
                   </Col>
@@ -133,7 +136,7 @@ function Leaderboard() {
                     />
                     <div className="leader-title">
                       <p className="list-title">
-                        {anonymous === false ? name : 'Anonymous'}
+                        {anonymous === false ? name : "Anonymous"}
                       </p>
                       <p className="list-message">{user_message}</p>
                     </div>
@@ -146,7 +149,7 @@ function Leaderboard() {
                         <spin className="badge">{tree} trees</spin>
                       )}
                       <div className="leader-date">
-                        {moment.unix(create_at / 1000).format(' Do MMMM YYYY')}
+                        {moment.unix(create_at / 1000).format(" Do MMMM YYYY")}
                       </div>
                     </div>
                   </Col>

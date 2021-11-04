@@ -40,7 +40,7 @@ const RootQuery = new GraphQLObjectType({
       },
       resolve(parent, args) {
         const { offset = 0, limit = 8 } = args;
-        return Donate.find({ isContact: true })
+        return Donate.find({})
           .limit(limit)
           .skip(offset)
           .sort({ create_at: -1 });
@@ -48,6 +48,51 @@ const RootQuery = new GraphQLObjectType({
     },
     //==========get the most tree========
     get_most_trees: {
+      type: new GraphQLList(DonateType),
+      args: {
+        limit: {
+          // name: "limit",
+          type: GraphQLInt,
+        },
+        offset: {
+          // name: "offset",
+          type: GraphQLInt,
+        },
+      },
+      resolve: async (parent, args) => {
+        const { offset = 0, limit = 8 } = args;
+        try {
+          return Donate.find().limit(limit).skip(offset).sort({ tree: -1 });
+        } catch (error) {
+          console.log(error);
+          throw error;
+        }
+      },
+    },
+
+    //============get Donation===========
+    get_donations_payed: {
+      type: new GraphQLList(DonateType),
+      args: {
+        limit: {
+          // name: "limit",
+          type: GraphQLInt,
+        },
+        offset: {
+          // name: "offset",
+          type: GraphQLInt,
+        },
+      },
+      resolve(parent, args) {
+        const { offset = 0, limit = 8 } = args;
+        return Donate.find({ isContact: true })
+          .limit(limit)
+          .skip(offset)
+          .sort({ create_at: -1 });
+      },
+    },
+    //==========get the most tree========
+    get_most_trees_payed: {
       type: new GraphQLList(DonateType),
       args: {
         limit: {
@@ -72,6 +117,7 @@ const RootQuery = new GraphQLObjectType({
         }
       },
     },
+
     //========get initation============
     get_initations: {
       type: new GraphQLList(Initationtype),
