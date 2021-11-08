@@ -1003,7 +1003,7 @@ a:active {
 .ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled):hover {
   color: white;
 }
-.ant-modal-close-x {
+/* .ant-modal-close-x {
   display: block;
   width: 38px;
   height: 38px;
@@ -1017,7 +1017,7 @@ a:active {
   background: #dfdede;
   margin-right: 25px;
   margin-top: 6px;
-}
+} */
 .ant-drawer {
   z-index: 10000;
 }

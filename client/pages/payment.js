@@ -6,6 +6,13 @@ const Payment = () => {
       <br></br>
       <center>
         <h1>Payment</h1>
+        <div style={{ width: "50%" }}>
+          <p>
+            Contribute to join VitaminAir team develop community. Our main
+            support is supplement teachers for local school, local ranger patrol
+            our forest, and support community emergency needs.
+          </p>
+        </div>
       </center>
       <div className="payment-box">
         <center>
