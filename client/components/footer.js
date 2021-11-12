@@ -12,7 +12,7 @@ function Footer() {
       <img style={{ width: "100%" }} src="/images/footer.png" alt="footer" />
       <Row className="footer" align="middle" justify="space-between">
         <Col>
-          <p className="footer-p">Contact us: tree@vataminair.org</p>
+          <p className="footer-p">Contact us: tree@vitaminair.org</p>
         </Col>
         <Col>
           <a

@@ -47,10 +47,13 @@ const Navbar = () => {
             <a className="nav-link">Tree</a>
           </ActiveLink>
           <ActiveLink activeClassName="is-active" href="/about">
-            <a className="nav-link">About Us</a>
+            <a className="nav-link">About </a>
+          </ActiveLink>
+          <ActiveLink activeClassName="is-active" href="/payment">
+            <a className="nav-link">Payment</a>
           </ActiveLink>
           <a className="nav_link" href="https://t.me/vitaminair">
-            Community
+            Telegram
           </a>
         </div>
 
@@ -94,7 +97,7 @@ const Navbar = () => {
                 exact
                 activeClassName="is-active"
               >
-                HOME
+                Home
               </Link>
               {/* <Link href="/">
                 <img
@@ -111,22 +114,27 @@ const Navbar = () => {
             <Menu.Item key="2">
               {" "}
               <Link href="/project" exact activeClassName="is-active">
-                PROJECT
+                Project
               </Link>
             </Menu.Item>
             <Menu.Item>
               <Link key="3" href="/plants" activeClassName="is-active">
-                TREE
+                Tree
               </Link>
             </Menu.Item>
             <Menu.Item>
               <Link key="4" href="/about" activeClassName="is-active">
-                ABOUT US
+                About
+              </Link>
+            </Menu.Item>
+            <Menu.Item>
+              <Link key="4" href="/about" activeClassName="is-active">
+                Payment
               </Link>
             </Menu.Item>
             <Menu.Item key="5">
               <Link href="https://t.me/vitaminair" activeClassName="is-active">
-                COMMUNITY
+                Telegram
               </Link>
             </Menu.Item>
           </Menu>

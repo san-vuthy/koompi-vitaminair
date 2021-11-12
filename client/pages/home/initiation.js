@@ -48,10 +48,11 @@ function Initiation() {
                 <Modal
                   // title={titles}
                   // centered
+                  closeIcon={true}
                   visible={modal1}
                   // onOk={() => setVisible(false)}
                   onCancel={() => setModal1(false)}
-                  width={750}
+                  width={1200}
                   style={{ top: 30 }}
                   footer={null}
                 >

@@ -1,12 +1,12 @@
-import { Row, Col, Button } from 'antd';
-import Navbar from '../components/navbar';
-import InfoForm from './home/inforForm';
-import Initiation from './home/initiation';
+import { Row, Col, Button } from "antd";
+import Navbar from "../components/navbar";
+import InfoForm from "./home/inforForm";
+import Initiation from "./home/initiation";
 // import InfoForm from "./InfoForm";
 // import Activities from "./Activities";
-import Leaderboard from './home/leaderBoard';
-import Footer from '../components/footer';
-import { NextSeo } from 'next-seo';
+import Leaderboard from "./home/leaderBoard";
+import Footer from "../components/footer";
+import { NextSeo } from "next-seo";
 
 function Home() {
   return (
@@ -18,16 +18,16 @@ function Home() {
         openGraph={{
           images: [
             {
-              url: '/home.png',
+              url: "/home.png",
             },
           ],
-          url: 'https://vitaminair.org',
-          site_name: 'vitaminair',
+          url: "https://vitaminair.org",
+          site_name: "vitaminair",
         }}
         twitter={{
-          handle: '@handle',
-          site: '@site',
-          cardType: 'summary_large_image',
+          handle: "@handle",
+          site: "@site",
+          cardType: "summary_large_image",
         }}
       />
 
@@ -49,7 +49,7 @@ function Home() {
               // lg={{ span: 10 }}
               // xl={{ span: 10 }}
             >
-              {/* <p
+              <p
                 className="home-text-title"
                 style={{
                   fontSize: "22px",
@@ -58,9 +58,9 @@ function Home() {
                 }}
               >
                 In search of
-              </p> */}
+              </p>
               <h2>The Next Small Things</h2>
-              <p className="desc-home-top" style={{ margin: '20px 0' }}>
+              <p className="desc-home-top" style={{ margin: "20px 0" }}>
                 Protect, preserve, and restore our rain forests for generations
                 ahead. Protect, preserve, and restore our rain forests for
                 generations ahead.

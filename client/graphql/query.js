@@ -1,4 +1,4 @@
-import { gql } from '@apollo/client';
+import { gql } from "@apollo/client";
 
 const GET_DONATIONS = gql`
   query {
@@ -22,6 +22,30 @@ const GET_MOST_DONATIONS = gql`
     }
   }
 `;
+
+const GET_DONATIONS_PAYED = gql`
+  query {
+    get_donations_payed {
+      tree
+      name
+      create_at
+      user_message
+      anonymous
+    }
+  }
+`;
+const GET_MOST_DONATIONS_PAYED = gql`
+  query {
+    get_most_trees_payed {
+      tree
+      name
+      create_at
+      user_message
+      anonymous
+    }
+  }
+`;
+
 const GET_PROJECTS = gql`
   query {
     get_projects {
@@ -204,6 +228,8 @@ export {
   GET_INITATION,
   GET_DONATIONS,
   GET_MOST_DONATIONS,
+  GET_DONATIONS_PAYED,
+  GET_MOST_DONATIONS_PAYED,
   GET_ABOUTS,
   GET_INITATIONS,
   GET_PROJECTS,

@@ -1,29 +1,29 @@
-const { query } = require('express');
-const graphql = require('graphql');
-const { getMaxListeners, db, collection } = require('../../../model/donate');
+const { query } = require("express");
+const graphql = require("graphql");
+const { getMaxListeners, db, collection } = require("../../../model/donate");
 const { GraphQLObjectType, GraphQLString, GraphQLID, GraphQLList, GraphQLInt } =
   graphql;
 
 //============Model Sections=========
-const Donate = require('../../../model/donate');
-const Initation = require('../../../model/initation');
-const Project = require('../../../model/project');
-const About = require('../../../model/about');
-const Member = require('../../../model/member');
-const Blog = require('../../../model/blog');
-const Plants = require('../../../model/plants');
+const Donate = require("../../../model/donate");
+const Initation = require("../../../model/initation");
+const Project = require("../../../model/project");
+const About = require("../../../model/about");
+const Member = require("../../../model/member");
+const Blog = require("../../../model/blog");
+const Plants = require("../../../model/plants");
 
 //============Type Sections==========
-const DonateType = require('../types/donateType');
-const Initationtype = require('../types/initationType');
-const ProjectType = require('../types/projectType');
-const AboutType = require('../types/aboutType');
-const MemberType = require('../types/memeberType');
-const BlogType = require('../types/blogType');
-const PlantsType = require('../types/plantsType');
+const DonateType = require("../types/donateType");
+const Initationtype = require("../types/initationType");
+const ProjectType = require("../types/projectType");
+const AboutType = require("../types/aboutType");
+const MemberType = require("../types/memeberType");
+const BlogType = require("../types/blogType");
+const PlantsType = require("../types/plantsType");
 
 const RootQuery = new GraphQLObjectType({
-  name: 'RootQueryType',
+  name: "RootQueryType",
   fields: {
     //============get Donation===========
     get_donations: {
@@ -62,13 +62,62 @@ const RootQuery = new GraphQLObjectType({
       resolve: async (parent, args) => {
         const { offset = 0, limit = 8 } = args;
         try {
-          return Donate.find({}).limit(limit).skip(offset).sort({ tree: -1 });
+          return Donate.find().limit(limit).skip(offset).sort({ tree: -1 });
         } catch (error) {
           console.log(error);
           throw error;
         }
       },
     },
+
+    //============get Donation===========
+    get_donations_payed: {
+      type: new GraphQLList(DonateType),
+      args: {
+        limit: {
+          // name: "limit",
+          type: GraphQLInt,
+        },
+        offset: {
+          // name: "offset",
+          type: GraphQLInt,
+        },
+      },
+      resolve(parent, args) {
+        const { offset = 0, limit = 8 } = args;
+        return Donate.find({ isContact: true })
+          .limit(limit)
+          .skip(offset)
+          .sort({ create_at: -1 });
+      },
+    },
+    //==========get the most tree========
+    get_most_trees_payed: {
+      type: new GraphQLList(DonateType),
+      args: {
+        limit: {
+          // name: "limit",
+          type: GraphQLInt,
+        },
+        offset: {
+          // name: "offset",
+          type: GraphQLInt,
+        },
+      },
+      resolve: async (parent, args) => {
+        const { offset = 0, limit = 8 } = args;
+        try {
+          return Donate.find({ isContact: true })
+            .limit(limit)
+            .skip(offset)
+            .sort({ tree: -1 });
+        } catch (error) {
+          console.log(error);
+          throw error;
+        }
+      },
+    },
+
     //========get initation============
     get_initations: {
       type: new GraphQLList(Initationtype),
@@ -159,11 +208,11 @@ const RootQuery = new GraphQLObjectType({
       type: new GraphQLList(BlogType),
       args: {
         limit: {
-          name: 'limit',
+          name: "limit",
           type: GraphQLInt,
         },
         offset: {
-          name: 'offset',
+          name: "offset",
           type: GraphQLInt,
         },
       },
@@ -208,11 +257,11 @@ const RootQuery = new GraphQLObjectType({
       args: {
         // id: { type: GraphQLString },
         limit: {
-          name: 'limit',
+          name: "limit",
           type: GraphQLInt,
         },
         offset: {
-          name: 'offset',
+          name: "offset",
           type: GraphQLInt,
         },
       },
