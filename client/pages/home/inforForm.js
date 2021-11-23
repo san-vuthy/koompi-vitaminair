@@ -14,15 +14,20 @@ import {
 import { DONATE_TREES } from "../../graphql/mutaion";
 import { GET_DONATIONS, GET_MOST_DONATIONS } from "../../graphql/query";
 import { useQuery, useMutation } from "@apollo/client";
-import { useRouter } from 'next/router'
+import { useRouter } from "next/router";
+import Initiation from "./initiation";
+import Leaderboard from "./leaderBoard";
 
 function InfoForm() {
-  const router = useRouter()
+  const router = useRouter();
   const [current, setCurrent] = useState(0);
   const [donation] = useMutation(DONATE_TREES);
   const { refetch } = useQuery(GET_DONATIONS);
   const [loading, setLoading] = useState(false);
   const { refetch: refetchMostDonation } = useQuery(GET_MOST_DONATIONS);
+
+  //============state================
+  const [aba, setAba] = useState(false);
 
   const [form] = Form.useForm();
   const next = (e) => {
@@ -81,10 +86,14 @@ function InfoForm() {
       await refetch();
       await refetchMostDonation();
       message.success("Donation Successful");
-      router.push("/payment")
+      // router.push("/payment");
       form.resetFields();
       setLoading(false);
+      setTimeout(() => {
+        setAba(true);
+      }, 3000);
     });
+
     // console.log(values);
   };
 
@@ -279,61 +288,185 @@ function InfoForm() {
       content: <Step2Form />,
     },
   ];
+
+  //============show Aba Donate code =================
+  const ABA = () => {
+    return (
+      <div className="backgournd-payment">
+        <br></br>
+        <center>
+          <h1>Payment</h1>
+          <div style={{ width: "50%" }}>
+            <p>
+              Contribute to join VitaminAir team develop community. Our main
+              support is supplement teachers for local school, local ranger
+              patrol our forest, and support community emergency needs.
+            </p>
+          </div>
+        </center>
+        <div className="payment-box">
+          <center>
+            <div className="aba-image">
+              <h1>ABA</h1>
+            </div>
+          </center>
+          <center>
+            <h4>Name</h4>
+            <h4 style={{ fontSize: "25px", color: "#00ba9f" }}>
+              THUL SELA AND HIENG DANE
+            </h4>
+            <br></br>
+            <h4>Reciever Account Number</h4>
+            <h1>002693892</h1>
+            {/* <Button  onClick={() => setAba(false)}>OK</Button> */}
+          </center>
+          <center>
+            <Button
+              onClick={() => setAba(false)}
+              type="primary"
+              className="join-us-btn"
+            >
+              OK
+            </Button>
+          </center>
+          <br />
+        </div>
+
+        <br />
+        <br />
+        <br />
+        <br />
+      </div>
+    );
+  };
+
   return (
     // <Step1Form>
-    <div className="center container">
-      <div id="form" className="form">
-        <Form
-          form={form}
-          style={{ textAlign: "left" }}
-          {...layout}
-          // initialValues={{ remember: true }}
-          onFinish={onFinish}
-          onFinishFailed={onFinishFailed}
-        >
-          {steps.map((item, index) => (
-            <div
-              key={index}
-              className={`steps-content ${
-                item.step !== current + 1 && "hidden"
-              }`}
-            >
-              {item.content}
+    <div>
+      {aba === false && (
+        <div>
+          <img className="cloud" src="/images/cloud2.png" alt="cloud" />
+          <img className="cloud2" src="/images/cloud2.png" alt="cloud" />
+          <img className="cloud3" src="/images/cloud2.png" alt="cloud" />
+
+          <div className="home-banner">
+            <div className="container">
+              <Row className="banner" justify="space-between" align="middle">
+                <Col
+                  className="text"
+                  xs={24}
+                  sm={24}
+                  md={12}
+                  lg={14}
+                  // xs={{ span: 24 }}
+                  // sm={{ span: 24 }}
+                  // lg={{ span: 10 }}
+                  // xl={{ span: 10 }}
+                >
+                  <p
+                    className="home-text-title"
+                    style={{
+                      fontSize: "22px",
+                      color: "#0D330A",
+                      fontWeight: "700",
+                    }}
+                  >
+                    In search of
+                  </p>
+                  <h2>The Next Small Things</h2>
+                  <p className="desc-home-top" style={{ margin: "20px 0" }}>
+                    Protect, preserve, and restore our rain forests for
+                    generations ahead.
+                  </p>
+                  <a href="#form">
+                    <Button type="primary" className="join-us-btn">
+                      JOIN US
+                    </Button>
+                  </a>
+                </Col>
+                <Col
+                  className="video"
+                  xs={24}
+                  sm={24}
+                  md={12}
+                  lg={10}
+                  // xs={{ span: 24 }}
+                  // sm={{ span: 24 }}
+                  // lg={{ span: 12 }}
+                  // xl={{ span: 12 }}
+                >
+                  <img className="earth" src="/images/Green-World.png "></img>
+                </Col>
+              </Row>
             </div>
-          ))}
-          <div className="steps-action">
-            {current < steps.length - 1 && (
-              <div className="btn-position">
-                <Button
-                  htmlType="submit"
-                  onClick={next}
-                  type="primary"
-                  className="next-btn"
-                >
-                  Next
-                </Button>
-              </div>
-            )}
-            {current === steps.length - 1 && (
-              <Form.Item {...tailLayout}>
-                <Button
-                  type="primary"
-                  htmlType="submit"
-                  style={{ width: "100%" }}
-                  className="next-btn"
-                >
-                  {loading ? <small>loading...</small> : <small>SUMBIT</small>}
-                </Button>
-              </Form.Item>
-            )}
-            {current > 0 && (
-              <Button className="prev" onClick={prev}>
-                Previous
-              </Button>
-            )}
+            <div className="big-banner"></div>
           </div>
-        </Form>
-      </div>
+          <div className="home-form">
+            <div className="center container">
+              <div id="form" className="form">
+                <Form
+                  form={form}
+                  style={{ textAlign: "left" }}
+                  {...layout}
+                  // initialValues={{ remember: true }}
+                  onFinish={onFinish}
+                  onFinishFailed={onFinishFailed}
+                >
+                  {steps.map((item, index) => (
+                    <div
+                      key={index}
+                      className={`steps-content ${
+                        item.step !== current + 1 && "hidden"
+                      }`}
+                    >
+                      {item.content}
+                    </div>
+                  ))}
+                  <div className="steps-action">
+                    {current < steps.length - 1 && (
+                      <div className="btn-position">
+                        <Button
+                          htmlType="submit"
+                          onClick={next}
+                          type="primary"
+                          className="next-btn"
+                        >
+                          Next
+                        </Button>
+                      </div>
+                    )}
+                    {current === steps.length - 1 && (
+                      <Form.Item {...tailLayout}>
+                        <Button
+                          type="primary"
+                          htmlType="submit"
+                          style={{ width: "100%" }}
+                          className="next-btn"
+                        >
+                          {loading ? (
+                            <small>loading...</small>
+                          ) : (
+                            <small>SUMBIT</small>
+                          )}
+                        </Button>
+                      </Form.Item>
+                    )}
+                    {current > 0 && (
+                      <Button className="prev" onClick={prev}>
+                        Previous
+                      </Button>
+                    )}
+                  </div>
+                </Form>
+              </div>
+            </div>
+            <br />
+            <Leaderboard />
+            <Initiation />
+          </div>
+        </div>
+      )}
+      {aba === true && <ABA />}
     </div>
   );
 }

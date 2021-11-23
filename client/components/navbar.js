@@ -33,11 +33,13 @@ const Navbar = () => {
       <div className="navbar">
         <FiMenu onClick={showDrawer} className="open-menu-btn" />
         <Link href="/">
+          {/* <div onClick={() => location.reload()}> */}
           <img
             style={{ cursor: "pointer" }}
             src="/images/vitaminair.png"
             alt="logo"
           />
+          {/* </div> */}
         </Link>
         <div className="menu">
           <ActiveLink activeClassName="is-active" href="/project">
@@ -49,9 +51,9 @@ const Navbar = () => {
           <ActiveLink activeClassName="is-active" href="/about">
             <a className="nav-link">About </a>
           </ActiveLink>
-          <ActiveLink activeClassName="is-active" href="/payment">
+          {/* <ActiveLink activeClassName="is-active" href="/payment">
             <a className="nav-link">Payment</a>
-          </ActiveLink>
+          </ActiveLink> */}
           <a className="nav_link" href="https://t.me/vitaminair">
             Telegram
           </a>
@@ -127,11 +129,11 @@ const Navbar = () => {
                 About
               </Link>
             </Menu.Item>
-            <Menu.Item>
+            {/* <Menu.Item>
               <Link key="4" href="/about" activeClassName="is-active">
                 Payment
               </Link>
-            </Menu.Item>
+            </Menu.Item> */}
             <Menu.Item key="5">
               <Link href="https://t.me/vitaminair" activeClassName="is-active">
                 Telegram
